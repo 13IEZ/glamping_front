@@ -2,10 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import thunkMiddleware from 'redux-thunk';
-import {
-  getUserFromLocalStorage,
-  setUserToLocalStorage,
-} from '../helpers/localStorage';
+import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
 import usersReducer from './reducers/usersReducer';
 
 declare global {
@@ -21,6 +18,7 @@ const rootReducer = combineReducers({
   users: usersReducer,
   router: connectRouter(history),
 });
+export type rootState = ReturnType<typeof rootReducer>;
 
 const middleware = [thunkMiddleware, routerMiddleware(history)];
 
@@ -30,8 +28,6 @@ const users = getUserFromLocalStorage();
 
 const store = createStore(rootReducer, users, enhancers);
 
-store.subscribe(() =>
-  setUserToLocalStorage({ users: { user: store.getState().users.user } })
-);
+store.subscribe(() => setUserToLocalStorage({ users: { user: store.getState().users.user } }));
 
 export default store;
