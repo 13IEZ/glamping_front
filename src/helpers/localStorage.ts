@@ -1,6 +1,4 @@
-import { IUser } from '../store/types/users';
-
-export const getUserFromLocalStorage = (): IUser | undefined => {
+export const getUserFromLocalStorage = (): {} | undefined => {
   const state = localStorage.getItem('state');
 
   if (state) {
@@ -10,7 +8,7 @@ export const getUserFromLocalStorage = (): IUser | undefined => {
   return undefined;
 };
 
-export const setUserToLocalStorage = (data: IUser): void => {
+export const setUserToLocalStorage = (data: {}): void => {
   const state = JSON.stringify(data);
   localStorage.setItem('state', state);
 };
