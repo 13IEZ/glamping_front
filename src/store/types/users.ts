@@ -9,7 +9,7 @@ export enum UserActionTypes {
 }
 
 export interface UserState {
-  user: null | [];
+  user: null | {};
   signUpError: null | {};
   signInError: null | {};
 }

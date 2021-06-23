@@ -1,4 +1,4 @@
-export const getUserFromLocalStorage = () => {
+export const getUserFromLocalStorage = (): {} | undefined => {
   const state = localStorage.getItem('state');
 
   if (state) {
@@ -8,7 +8,7 @@ export const getUserFromLocalStorage = () => {
   return undefined;
 };
 
-export const setUserToLocalStorage = data => {
+export const setUserToLocalStorage = (data: {}): void => {
   const state = JSON.stringify(data);
   localStorage.setItem('state', state);
 };
