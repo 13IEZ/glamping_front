@@ -4,15 +4,15 @@ import {
   Layout,
   Menu
 } from 'antd';
-import { useSelector } from 'react-redux';
 
+import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import AnonymousMenu from './Menus/AnonymousMenu';
 import UserMenu from './Menus/UserMenu';
 
 const { Header } = Layout;
 
 const AppToolbar: React.FC = () => {
-  const user = useSelector(state => state.users.user);
+  const {user} = useTypedSelectorHook(state => state.users);
 
   return (
     <Layout>
@@ -20,7 +20,7 @@ const AppToolbar: React.FC = () => {
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
       {
-        user ? <UserMenu user={user}/> : <AnonymousMenu />
+        user ? <UserMenu user={user.username}/> : <AnonymousMenu />
       }
       </Menu>
     </Header>
