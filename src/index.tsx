@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
+import "antd/dist/antd.css";
 
 import App from './App';
 import store, { history } from './store/configureStore';
