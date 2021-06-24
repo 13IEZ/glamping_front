@@ -15,7 +15,7 @@ const UserMenu: React.FC<UserMenuProps> = ({user}) => {
   return (
     <>
       <Button type="primary" shape="round">
-        Hello, {user.username}
+        Hello, {user}
       </Button>
       <Menu
         mode="inline"
