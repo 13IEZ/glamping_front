@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 import 'antd/dist/antd.css';
 
 import React from 'react';
@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
-import "antd/dist/antd.css";
 
 import App from './App';
 import store, { history } from './store/configureStore';
@@ -20,4 +19,3 @@ const app = (
 );
 
 ReactDOM.render(app, document.getElementById('root'));
-
