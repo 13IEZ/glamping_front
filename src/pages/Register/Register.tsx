@@ -1,6 +1,6 @@
 import { Form, Input, Button, Checkbox, Select } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import './Register.css';
+import './Register.scss';
 
 const { Option } = Select;
 
