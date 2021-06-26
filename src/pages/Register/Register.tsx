@@ -1,7 +1,7 @@
 import { Form, Input, Button, Checkbox, Select } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './Register.scss';
-
+import { Link } from 'react-router-dom';
 const { Option } = Select;
 
 const Register: any = () => {
@@ -20,46 +20,39 @@ const Register: any = () => {
   return (
     <div className='Register'>
       <Form name='normal_login' className='login-form' initialValues={{ remember: true }} onFinish={onFinish}>
-        <h2 className='Register-header'>Sign Up</h2>
-
-        <Form.Item name='username' rules={[{ required: true, message: 'Please input your Username!' }]}>
-          <Input prefix={<UserOutlined className='site-form-item-icon' />} placeholder='Username' />
-        </Form.Item>
-
-        <Form.Item name='email' rules={[{ type: 'email', required: true, message: 'Please input your Email' }]}>
-          <Input prefix={<UserOutlined className='site-form-item-icon' />} placeholder='Email' />
-        </Form.Item>
+        <h2 className='Register-header'>Регистрация</h2>
 
         <Form.Item
-          name='phone'
-          rules={[
-            {
-              required: true,
-              message: 'Please input your phone number!',
-            },
-          ]}
+          name='email'
+          rules={[{ type: 'email', required: true, message: 'Пожалуйста, укажите верный email!  ' }]}
         >
-          <Input addonBefore={prefixSelector} style={{ width: '100%' }} placeholder='Please input your Phone Number' />
+          <Input
+            className='form_input'
+            prefix={<UserOutlined className='site-form-item-icon' />}
+            placeholder='Укажите ваш email'
+          />
         </Form.Item>
 
-        <Form.Item name='password' rules={[{ required: true, message: 'Please input your Password!' }]}>
-          <Input prefix={<LockOutlined className='site-form-item-icon' />} type='password' placeholder='Password' />
+        <Form.Item name='password' rules={[{ required: true, message: 'Пожалуйста, укажите верный пароль!' }]}>
+          <Input
+            className='form_input'
+            prefix={<LockOutlined className='site-form-item-icon' />}
+            type='password'
+            placeholder='Придумайте пароль'
+          />
         </Form.Item>
 
         <Form.Item>
           <Form.Item name='remember' valuePropName='checked' noStyle>
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>Запонить данные для входа</Checkbox>
           </Form.Item>
-          <a className='login-form-forgot' href=''>
-            Forgot password
-          </a>
         </Form.Item>
 
         <Form.Item>
           <Button type='primary' htmlType='submit' className='login-form-button'>
-            Sign Up
+            Регистрация
           </Button>
-          Or <a href=''>Log In now!</a>
+          <Link to='/login'>Уже имеете аккаунт? Войти в систему!</Link>
         </Form.Item>
       </Form>
     </div>
