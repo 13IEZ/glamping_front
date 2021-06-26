@@ -1,22 +1,20 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import Register from './pages/Register/Register';
+import AppToolbar from './components/UI/AppToolbar/AppToolbar';
+import ProtectedRoute from './helpers/ProtectedRoute';
+import { Switch } from 'react-router';
+import { useTypedSelectorHook } from './hooks/useTypedSelector';
 
 function App(): any {
+  const { user } = useTypedSelectorHook(state => state.users);
+
   return (
-    <div className='App'>
+    <>
+      <AppToolbar />
       <Switch>
-        <Route path='/register' component={Register} exact />
+        <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
       </Switch>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
-    </div>
+    </>
   );
 }
 
