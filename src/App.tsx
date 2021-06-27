@@ -1,43 +1,23 @@
 import React from 'react';
-
-import { Switch } from 'react-router';
-
-import AppToolbar from './components/UI/AppToolbar/AppToolbar';
+import Register from './pages/Register/Register';
 import ProtectedRoute from './helpers/ProtectedRoute';
+import { Switch, Route } from 'react-router';
 import { useTypedSelectorHook } from './hooks/useTypedSelector';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
-import Register from './pages/Register/Register';
+import { Layout } from 'antd';
 
-function App(): any {
+function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
 
   return (
-    <>
-      <AppToolbar />
+    <Layout style={{ backgroundColor: '#fff' }}>
+      <Route path='/' exact component={Main} />
       <Switch>
-        <ProtectedRoute
-          isAllowed={true}
-          redirectTo={'/login'}
-          path='/'
-          exact
-          component={Main}
-        />
-        <ProtectedRoute 
-          isAllowed={true}
-          redirectTo={'/'}  
-          path='/register' 
-          exact 
-          component={Register}
-        />
-        <ProtectedRoute 
-          isAllowed={true} 
-          redirectTo={'/login'}
-          path='/login' 
-          exact 
-          component={Login} />
+        <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
+        <ProtectedRoute isAllowed={!user} redirectTo={'/login'} path='/login' exact component={Login} />
       </Switch>
-    </>
+    </Layout>
   );
 }
 

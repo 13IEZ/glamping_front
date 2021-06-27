@@ -1,26 +1,17 @@
-import { Form, Input, Button, Checkbox, Select } from 'antd';
+import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './Register.scss';
 import { Link } from 'react-router-dom';
-const { Option } = Select;
 
-const Register: any = () => {
+const Register: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
 
-  const prefixSelector = (
-    <Form.Item name='prefix' noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value='+7'>+7</Option>
-      </Select>
-    </Form.Item>
-  );
-
   return (
-    <div className='Register'>
+    <div className='Form'>
       <Form name='normal_login' className='login-form' initialValues={{ remember: true }} onFinish={onFinish}>
-        <h2 className='Register-header'>Регистрация</h2>
+        <h2 className='Form-header'>Регистрация</h2>
 
         <Form.Item
           name='email'

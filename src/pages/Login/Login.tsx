@@ -1,27 +1,17 @@
-import './Login.scss';
-
-import {
-  Button,
-  Checkbox,
-  Form,
-  Input
-} from 'antd';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
-import {
-  LockOutlined,
-  UserOutlined
-} from '@ant-design/icons';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
-const Login: any = () => {
+const Login: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
 
   return (
-    <div className='Login'>
+    <div className='Form'>
       <Form name='normal_login' className='login-form' initialValues={{ remember: true }} onFinish={onFinish}>
-        <h2 className='Login-header'>Вход</h2>
+        <h2 className='Form-header'>Вход</h2>
 
         <Form.Item
           name='email'

@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Divider } from 'antd';
 
-// const { Link } = Anchor;
-
 const AnonymousMenu: React.FC = () => {
   return (
     <>
