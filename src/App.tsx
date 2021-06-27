@@ -1,6 +1,6 @@
 import React from 'react';
 import Register from './pages/Register/Register';
-import AppToolbar from './components/UI/AppToolbar/AppToolbar';
+// import AppToolbar from './components/UI/AppToolbar/AppToolbar';
 import ProtectedRoute from './helpers/ProtectedRoute';
 import { Switch } from 'react-router';
 import { useTypedSelectorHook } from './hooks/useTypedSelector';
@@ -11,7 +11,7 @@ function App(): any {
 
   return (
     <>
-      <AppToolbar />
+      {/* <AppToolbar /> */}
       <Switch>
         <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
       </Switch>
