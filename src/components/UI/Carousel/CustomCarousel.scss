@@ -1,0 +1,46 @@
+.contentStyle {
+  height: 160px;
+  color: #fff;
+  line-height: 160px;
+  text-align: center;
+  background: #364d79;
+  height: 80vh;
+}
+
+.first-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://mirpozitiva.ru/wp-content/uploads/2019/11/1477469601_nature_gora.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.second-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://i.pinimg.com/originals/ae/a6/a7/aea6a732b744cb9db860514c5ba1c86f.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.third-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://storge.pic2.me/upload/923/5961f5b35dc26.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.fourth-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://picsy.ru/images/photos/1200/1/fotografii-prirody-v-khoroshem-k-34760.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+}

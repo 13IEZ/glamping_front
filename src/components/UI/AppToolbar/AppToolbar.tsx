@@ -13,37 +13,35 @@ const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
 
   return (
-    <Layout>
-      <Header className='header'>
-        <Row justify='space-around' align='middle'>
-          <Col>
-            <Link to='/'>
-              <Title level={2}>
-                <BuildOutlined style={{ fontSize: '24px' }} />
-                Example logo
-              </Title>
-            </Link>
-          </Col>
-          <Col>
+    <Header className='header'>
+      <Row justify='space-around' align='middle'>
+        <Col>
+          <Link to='/'>
+            <Title level={2}>
+              <BuildOutlined style={{ fontSize: '24px' }} />
+              Example logo
+            </Title>
+          </Link>
+        </Col>
+        <Col>
+          <Link to='/location'>
+            <Button type='link'>Карта локаций</Button>
+          </Link>
+          <Divider style={{ backgroundColor: '#000' }} type='vertical' />
+          <Link to='/store'>
+            <Button type='link'>Наши товары</Button>
+          </Link>
+        </Col>
+        <Col>
+          <Space size='large'>
             <Link to='/location'>
-              <Button type='link'>Карта локаций</Button>
+              <Button type='primary'>Бронировать</Button>
             </Link>
-            <Divider style={{ backgroundColor: '#000' }} type='vertical' />
-            <Link to='/store'>
-              <Button type='link'>Наши товары</Button>
-            </Link>
-          </Col>
-          <Col>
-            <Space size='large'>
-              <Link to='/location'>
-                <Button type='primary'>Бронировать</Button>
-              </Link>
-              {user ? <UserMenu user={user.username} /> : <AnonymousMenu />}
-            </Space>
-          </Col>
-        </Row>
-      </Header>
-    </Layout>
+            {user ? <UserMenu user={user.username} /> : <AnonymousMenu />}
+          </Space>
+        </Col>
+      </Row>
+    </Header>
   );
 };
 
