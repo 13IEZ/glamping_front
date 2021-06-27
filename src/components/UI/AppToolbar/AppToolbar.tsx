@@ -25,11 +25,11 @@ const AppToolbar: React.FC = () => {
         </Col>
         <Col>
           <Link to='/location'>
-            <Button type='link'>Карта локаций</Button>
+            <Button type='dashed'>Карта локаций</Button>
           </Link>
           <Divider style={{ backgroundColor: '#000' }} type='vertical' />
           <Link to='/store'>
-            <Button type='link'>Наши товары</Button>
+            <Button type='dashed'>Наши товары</Button>
           </Link>
         </Col>
         <Col>
@@ -37,7 +37,7 @@ const AppToolbar: React.FC = () => {
             <Link to='/location'>
               <Button type='primary'>Бронировать</Button>
             </Link>
-            {user ? <UserMenu user={user.username} /> : <AnonymousMenu />}
+            {user ? <UserMenu /> : <AnonymousMenu />}
           </Space>
         </Col>
       </Row>

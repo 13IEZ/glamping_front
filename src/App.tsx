@@ -15,7 +15,7 @@ function App(): JSX.Element {
       <Route path='/' exact component={Main} />
       <Switch>
         <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
-        <ProtectedRoute isAllowed={!user} redirectTo={'/login'} path='/login' exact component={Login} />
+        <ProtectedRoute isAllowed={!user} path='/login' exact redirectTo='/' component={Login} />
       </Switch>
     </Layout>
   );
