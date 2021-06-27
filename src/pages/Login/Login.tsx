@@ -1,9 +1,9 @@
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import './Register.scss';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
-const Register: React.FC = () => {
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+
+const Login: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -11,7 +11,7 @@ const Register: React.FC = () => {
   return (
     <div className='Form'>
       <Form name='normal_login' className='login-form' initialValues={{ remember: true }} onFinish={onFinish}>
-        <h2 className='Form-header'>Регистрация</h2>
+        <h2 className='Form-header'>Вход</h2>
 
         <Form.Item
           name='email'
@@ -20,7 +20,7 @@ const Register: React.FC = () => {
           <Input
             className='form_input'
             prefix={<UserOutlined className='site-form-item-icon' />}
-            placeholder='Укажите ваш email'
+            placeholder='Введите ваше имя'
           />
         </Form.Item>
 
@@ -29,25 +29,25 @@ const Register: React.FC = () => {
             className='form_input'
             prefix={<LockOutlined className='site-form-item-icon' />}
             type='password'
-            placeholder='Придумайте пароль'
+            placeholder='Введите пароль'
           />
         </Form.Item>
 
         <Form.Item>
           <Form.Item name='remember' valuePropName='checked' noStyle>
-            <Checkbox>Запонить данные для входа</Checkbox>
+            <Checkbox>Запонить меня</Checkbox>
           </Form.Item>
         </Form.Item>
 
         <Form.Item>
           <Button type='primary' htmlType='submit' className='login-form-button'>
-            Регистрация
+            Войти
           </Button>
-          <Link to='/login'>Уже имеете аккаунт? Войти в систему!</Link>
+          <Link to='/register'>Еще не зарегестрированы?</Link>
         </Form.Item>
       </Form>
     </div>
   );
 };
 
-export default Register;
+export default Login;

@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'antd';
-
-// const { Link } = Anchor;
+import { Button, Divider } from 'antd';
 
 const AnonymousMenu: React.FC = () => {
   return (
     <>
       <Link to='/register'>
-        <Button type='primary'>Register</Button>
+        <Button>Регистрация</Button>
       </Link>
+      <Divider style={{ backgroundColor: '#000' }} type='vertical' />
       <Link to='/login'>
-        <Button>Login</Button>
+        <Button>Вход</Button>
       </Link>
     </>
   );
