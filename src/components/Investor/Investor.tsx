@@ -1,5 +1,4 @@
-import { Typography, Layout, Button, Image } from 'antd';
-const { Content } = Layout;
+import { Typography, Button, Image } from 'antd';
 const { Paragraph, Title } = Typography;
 
 const Investor: React.FC = () => {
@@ -8,7 +7,7 @@ const Investor: React.FC = () => {
   };
 
   return (
-    <Content style={{ padding: '0 50px' }}>
+    <section style={{ padding: '0 50px' }}>
       <div className='Investor'>
         <div style={{ width: '55%' }}>
           <Paragraph>
@@ -59,7 +58,7 @@ const Investor: React.FC = () => {
           </Paragraph>
         </div>
       </div>
-    </Content>
+    </section>
   );
 };
 
