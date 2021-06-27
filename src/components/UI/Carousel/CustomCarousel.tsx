@@ -4,7 +4,7 @@ import './CustomCarousel.scss';
 
 const CustomCarousel: React.FC = () => {
   return (
-    <Carousel autoplay swipeToSlide draggable>
+    <Carousel autoplay draggable>
       <div>
         <h3 className='contentStyle first-slide'>
           <Button type='primary'>Пример кнопки</Button>

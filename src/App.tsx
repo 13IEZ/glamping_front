@@ -11,15 +11,13 @@ function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
 
   return (
-    <>
-      <Layout style={{ backgroundColor: '#fff' }}>
-        <Route path='/' exact component={Main} />
-        <Switch>
-          <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
-          <ProtectedRoute isAllowed={!user} redirectTo={'/login'} path='/login' exact component={Login} />
-        </Switch>
-      </Layout>
-    </>
+    <Layout style={{ backgroundColor: '#fff' }}>
+      <Route path='/' exact component={Main} />
+      <Switch>
+        <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
+        <ProtectedRoute isAllowed={!user} redirectTo={'/login'} path='/login' exact component={Login} />
+      </Switch>
+    </Layout>
   );
 }
 
