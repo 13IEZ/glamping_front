@@ -2,6 +2,7 @@ import AppToolbar from '../../components/UI/AppToolbar/AppToolbar';
 import Landlord from '../../components/Landlord/Landlord';
 import Investor from '../../components/Investor/Investor';
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
+import CustomFooter from '../../components/UI/CustomFooter/CustomFooter';
 
 const Main: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Main: React.FC = () => {
       <CustomCarousel />
       <Investor />
       <Landlord />
+      <CustomFooter />
     </>
   );
 };
