@@ -1,5 +1,6 @@
 import AppToolbar from '../../components/UI/AppToolbar/AppToolbar';
 import Landlord from '../../components/Landlord/Landlord';
+import Investor from '../../components/Investor/Investor';
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 
 const Main: React.FC = () => {
@@ -7,6 +8,7 @@ const Main: React.FC = () => {
     <>
       <AppToolbar />
       <CustomCarousel />
+      <Investor />
       <Landlord />
     </>
   );
