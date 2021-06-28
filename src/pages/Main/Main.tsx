@@ -4,12 +4,14 @@ import Reviews from '../../components/Reviews/Reviews';
 import AppToolbar from '../../components/UI/AppToolbar/AppToolbar';
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 import CustomFooter from '../../components/UI/CustomFooter/CustomFooter';
+import AboutUs from '../../components/AboutUs/AboutUs';
 
 const Main: React.FC = () => {
   return (
     <>
       <AppToolbar />
       <CustomCarousel />
+      <AboutUs />
       <Investor />
       <Landlord />
       <Reviews />
