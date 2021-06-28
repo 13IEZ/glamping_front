@@ -2,7 +2,7 @@ import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './Register.scss';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useActions } from '../../hooks/useAction';
 
 const Register: React.FC = () => {

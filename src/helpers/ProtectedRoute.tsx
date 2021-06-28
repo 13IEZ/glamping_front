@@ -1,9 +1,8 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
-import { IUser } from '../store/types/users';
 
 interface IProtectedRoute {
-  isAllowed: IUser | boolean;
+  isAllowed: boolean;
   redirectTo: string;
   path: string;
   exact: boolean;
