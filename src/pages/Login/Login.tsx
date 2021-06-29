@@ -4,13 +4,13 @@ import {
   Button,
   Checkbox,
   Form,
-  Input
+  Input,
 } from 'antd';
 import { Link } from 'react-router-dom';
 
 import {
   LockOutlined,
-  UserOutlined
+  UserOutlined,
 } from '@ant-design/icons';
 
 const Login: any = () => {
@@ -24,12 +24,13 @@ const Login: any = () => {
         <h2 className='Login-header'>Вход</h2>
 
         <Form.Item
-          name='email'
-          rules={[{ type: 'email', required: true, message: 'Пожалуйста, укажите верный email!  ' }]}
+          name='name'
+          rules={[{ required: true, message: 'Имя не найдено!  ' }]}
         >
           <Input
             className='form_input'
             prefix={<UserOutlined className='site-form-item-icon' />}
+            type='text'
             placeholder='Введите ваше имя'
           />
         </Form.Item>
