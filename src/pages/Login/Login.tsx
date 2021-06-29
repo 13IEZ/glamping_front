@@ -49,6 +49,8 @@ const Login: React.FC = () => {
             className='form_input'
             prefix={<UserOutlined className='site-form-item-icon' />}
             type='text'
+            onChange={inputChangeHandler}
+            placeholder='Введите имя'
           />
         </Form.Item>
 
