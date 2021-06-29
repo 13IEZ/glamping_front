@@ -25,7 +25,7 @@ const Login: any = () => {
 
         <Form.Item
           name='name'
-          rules={[{ required: true, message: 'Имя не найдено!  ' }]}
+          rules={[{ required: true, message: 'Имя не найдено!' }]}
         >
           <Input
             className='form_input'
