@@ -1,12 +1,25 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import './Login.scss';
+
 import React, { useState } from 'react';
+
+import {
+  Button,
+  Checkbox,
+  Form,
+  Input,
+} from 'antd';
+import { Link } from 'react-router-dom';
+
+import {
+  LockOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+
 import { useActions } from '../../hooks/useAction';
 
 const Login: React.FC = () => {
   const [state, setState] = useState({
-    email: '',
+    name: '',
     password: '',
   });
   const { signInUser } = useActions();
@@ -28,15 +41,14 @@ const Login: React.FC = () => {
         <h2 className='Form-header'>Вход</h2>
 
         <Form.Item
-          name='email'
-          rules={[{ type: 'email', required: true, message: 'Пожалуйста, укажите верный email!  ' }]}
+          name='name'
+          rules={[{ required: true, message: 'Имя не найдено!' }]}
         >
           <Input
-            name='email'
+            name='name'
             className='form_input'
             prefix={<UserOutlined className='site-form-item-icon' />}
-            placeholder='Введите ваш email'
-            onChange={inputChangeHandler}
+            type='text'
           />
         </Form.Item>
 
