@@ -1,14 +1,14 @@
-import './Reviews.scss';
+import './ReviewsMini.scss';
 
 import {
-  Button,
   Card,
   Col,
   Row,
-  Typography
+  Typography,
 } from 'antd';
+import { Link } from 'react-router-dom';
 
-const Reviews: React.FC = () => {
+const ReviewsMini: React.FC = () => {
   const clickHandler: any = () => {
     console.log('clicked');
   };
@@ -27,7 +27,7 @@ const Reviews: React.FC = () => {
                 temporibus! Sapiente, dolores inventore dolorem blanditiis quae voluptate dolorum non. Sed nam minima quas?
                 Quod, rem...
               </p>
-              <Button type="link" onClick={clickHandler}>Читать полностью</Button>
+              <Link to='/reviews' onClick={clickHandler}>Читать полностью</Link>
             </Card>
           </Col>
           <Col span={8}>
@@ -37,7 +37,7 @@ const Reviews: React.FC = () => {
                 temporibus! Sapiente, dolores inventore dolorem blanditiis quae voluptate dolorum non. Sed nam minima quas?
                 Quod, rem...
               </p>
-              <Button type="link" onClick={clickHandler}>Читать полностью</Button>
+              <Link to='/reviews' onClick={clickHandler}>Читать полностью</Link>
             </Card>
           </Col>
           <Col span={8}>
@@ -47,7 +47,7 @@ const Reviews: React.FC = () => {
                 temporibus! Sapiente, dolores inventore dolorem blanditiis quae voluptate dolorum non. Sed nam minima quas?
                 Quod, rem...
               </p>
-              <Button type="link" onClick={clickHandler}>Читать полностью</Button>
+              <Link to='/reviews' onClick={clickHandler}>Читать полностью</Link>
             </Card>
           </Col>
         </Row>
@@ -56,4 +56,4 @@ const Reviews: React.FC = () => {
   );
 };
 
-export default Reviews;
+export default ReviewsMini;
