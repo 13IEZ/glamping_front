@@ -28,7 +28,7 @@ const Login: React.FC = () => {
     signInUser(state);
   };
 
-  const inputChangeHandler = (e: any) => {
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setState(prevState => {
       return { ...prevState, [name]: value };

@@ -5,6 +5,7 @@ import AppToolbar from '../../components/UI/AppToolbar/AppToolbar';
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 import CustomFooter from '../../components/UI/CustomFooter/CustomFooter';
 import AboutUs from '../../components/AboutUs/AboutUs';
+import React from 'react';
 
 const Main: React.FC = () => {
   return (
