@@ -40,7 +40,7 @@ const Login: React.FC = () => {
 
         <Form.Item
           name='name'
-          rules={[{ required: true, message: 'Имя не совпадает!' }]}
+          rules={[{ required: true, message: 'Имя не найдено!' }]}
         >
           <Input
             name='name'
