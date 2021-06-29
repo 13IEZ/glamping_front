@@ -1,5 +1,7 @@
 import './Login.scss';
 
+import React, { useState } from 'react';
+
 import {
   Button,
   Checkbox,
@@ -13,33 +15,50 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 
-const Login: any = () => {
-  const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
+import { useActions } from '../../hooks/useAction';
+
+const Login: React.FC = () => {
+  const [state, setState] = useState({
+    name: '',
+    password: '',
+  });
+  const { signInUser } = useActions();
+
+  const submitFormHandler = () => {
+    signInUser(state);
+  };
+
+  const inputChangeHandler = (e: any) => {
+    const { name, value } = e.target;
+    setState(prevState => {
+      return { ...prevState, [name]: value };
+    });
   };
 
   return (
-    <div className='Login'>
-      <Form name='normal_login' className='login-form' initialValues={{ remember: true }} onFinish={onFinish}>
-        <h2 className='Login-header'>Вход</h2>
+    <div className='Form'>
+      <Form name='normal_login' className='login-form' initialValues={{ remember: true }} onFinish={submitFormHandler}>
+        <h2 className='Form-header'>Вход</h2>
 
         <Form.Item
           name='name'
           rules={[{ required: true, message: 'Имя не найдено!' }]}
         >
           <Input
+            name='name'
             className='form_input'
             prefix={<UserOutlined className='site-form-item-icon' />}
             type='text'
-            placeholder='Введите ваше имя'
           />
         </Form.Item>
 
         <Form.Item name='password' rules={[{ required: true, message: 'Пожалуйста, укажите верный пароль!' }]}>
           <Input
+            name='password'
             className='form_input'
             prefix={<LockOutlined className='site-form-item-icon' />}
             type='password'
+            onChange={inputChangeHandler}
             placeholder='Введите пароль'
           />
         </Form.Item>

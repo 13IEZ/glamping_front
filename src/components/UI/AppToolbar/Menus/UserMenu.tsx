@@ -1,26 +1,31 @@
 import React from 'react';
-
-import { Button, Menu } from 'antd';
-
-interface UserMenuProps {
-  user: string;
-}
+import { Menu, Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+import { useActions } from '../../../../hooks/useAction';
 
 const { SubMenu } = Menu;
 
-const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
+const UserMenu: any = () => {
+  const { user } = useTypedSelectorHook(state => state.users);
+  const { logoutUser } = useActions();
+
+  const logoutHandler = () => {
+    logoutUser();
+    console.log(logoutUser());
+  };
+
   return (
-    <>
-      <Button type='primary' shape='round'>
-        Hello, {user}
-      </Button>
-      <Menu mode='inline' defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} style={{ height: '100%' }}>
-        <SubMenu key='sub1' title='menu'>
-          <Menu.Item key='1'>Profile</Menu.Item>
-          <Menu.Item key='2'>Logout</Menu.Item>
-        </SubMenu>
-      </Menu>
-    </>
+    <Menu mode='horizontal'>
+      <SubMenu key='SubMenu' icon={<Avatar size={32} icon={<UserOutlined />} />} title={user?.email}>
+        <Menu.ItemGroup title='Действия'>
+          <Menu.Item key='setting:1'>Личный кабинет</Menu.Item>
+          <Menu.Item key='setting:2' onClick={logoutHandler}>
+            Выйти
+          </Menu.Item>
+        </Menu.ItemGroup>
+      </SubMenu>
+    </Menu>
   );
 };
 
