@@ -1,0 +1,27 @@
+.Form {
+  width: 500px;
+  margin: 200px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.Form-header {
+  text-align: center;
+}
+
+.login-form {
+  width: 600px;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}
+
+.form_input {
+  height: 60px;
+}
