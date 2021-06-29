@@ -1,4 +1,5 @@
 import { Image, Typography, Row, Col } from 'antd';
+import React from 'react';
 const { Paragraph } = Typography;
 
 const AboutUs: React.FC = () => {

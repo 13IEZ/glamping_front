@@ -1,4 +1,5 @@
 import { Typography, Button, Image } from 'antd';
+import React from 'react';
 const { Paragraph, Title } = Typography;
 
 const Investor: React.FC = () => {

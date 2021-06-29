@@ -1,6 +1,7 @@
 import { Button, Image, Typography } from 'antd';
 const { Paragraph } = Typography;
 import './Landlord.scss';
+import React from 'react';
 
 const Landlord: React.FC = () => {
   const clickHandler: any = () => {
