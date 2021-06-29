@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 import {
   LockOutlined,
-  UserOutlined,
+  MailOutlined,
 } from '@ant-design/icons';
 
 import { useActions } from '../../hooks/useAction';
@@ -41,16 +41,16 @@ const Login: React.FC = () => {
         <h2 className='Form-header'>Вход</h2>
 
         <Form.Item
-          name='name'
-          rules={[{ required: true, message: 'Имя не найдено!' }]}
+          name='email'
+          rules={[{ type: 'email', required: true, message: 'Пожалуйста, укажите верный email!' }]}
         >
           <Input
-            name='name'
+            name='email'
             className='form_input'
-            prefix={<UserOutlined className='site-form-item-icon' />}
+            prefix={<MailOutlined className='site-form-item-icon' />}
             type='text'
             onChange={inputChangeHandler}
-            placeholder='Введите имя'
+            placeholder='Укажите ваш email'
           />
         </Form.Item>
 
