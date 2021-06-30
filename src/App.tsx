@@ -43,7 +43,7 @@ function App(): JSX.Element {
           component={Reviews } 
         />
         <ProtectedRoute 
-          isAllowed={!user} 
+          isAllowed={!!user} 
           path='/reviews/new' 
           exact 
           redirectTo={'/login'} 
