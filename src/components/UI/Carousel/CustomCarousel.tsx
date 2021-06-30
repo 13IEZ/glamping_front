@@ -1,6 +1,7 @@
 import { Carousel, Button, Typography } from 'antd';
 const { Paragraph } = Typography;
 import './CustomCarousel.scss';
+import React from 'react';
 
 const CustomCarousel: React.FC = () => {
   return (

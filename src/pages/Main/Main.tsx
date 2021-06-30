@@ -1,3 +1,5 @@
+import React from 'react';
+
 import AboutUs from '../../components/AboutUs/AboutUs';
 import Investor from '../../components/Investor/Investor';
 import Landlord from '../../components/Landlord/Landlord';

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
+import React from 'react';
 
 const Reviews: React.FC = () => {
   const { Title } = Typography;

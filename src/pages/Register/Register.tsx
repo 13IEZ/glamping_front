@@ -16,7 +16,7 @@ const Register: React.FC = () => {
     signUpUser(state);
   };
 
-  const inputChangeHandler = (e: any) => {
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setState(prevState => {
       return { ...prevState, [name]: value };

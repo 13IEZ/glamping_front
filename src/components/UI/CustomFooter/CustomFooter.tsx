@@ -3,6 +3,7 @@ const { Footer } = Layout;
 import { Link } from 'react-router-dom';
 import { FacebookFilled, InstagramFilled } from '@ant-design/icons';
 import './CustomFooter.scss';
+import React from 'react';
 
 const CustomFooter: React.FC = () => {
   return (
