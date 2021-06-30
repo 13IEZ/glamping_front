@@ -6,6 +6,7 @@ import {
   Switch,
 } from 'react-router';
 
+import AppToolbar from './components/UI/AppToolbar/AppToolbar';
 import ProtectedRoute from './helpers/ProtectedRoute';
 import { useTypedSelectorHook } from './hooks/useTypedSelector';
 import Login from './pages/Login/Login';
@@ -19,12 +20,35 @@ function App(): JSX.Element {
 
   return (
     <Layout style={{ backgroundColor: '#fff' }}>
+      <AppToolbar />
       <Route path='/' exact component={Main} />
       <Switch>
-        <ProtectedRoute isAllowed={true} path='/register' exact redirectTo='/' component={Register} />
-        <ProtectedRoute isAllowed={true} path='/login' exact redirectTo='/' component={Login} />
-        <ProtectedRoute isAllowed={true} path='/reviews' exact redirectTo='/' component={Reviews } />
-        <ProtectedRoute isAllowed={true} path='/reviews/new' exact redirectTo='/' component={ReviewForm } />
+        <ProtectedRoute 
+          isAllowed={!user} 
+          path='/register' 
+          exact 
+          redirectTo='/' 
+          component={Register}
+        />
+        <ProtectedRoute 
+          isAllowed={!user} 
+          path='/login' 
+          exact 
+          redirectTo='/' 
+          component={Login} 
+        />
+        <Route 
+          path='/reviews' 
+          exact
+          component={Reviews } 
+        />
+        <ProtectedRoute 
+          isAllowed={!!user} 
+          path='/reviews/new' 
+          exact 
+          redirectTo={'/login'} 
+          component={ReviewForm } 
+        />
       </Switch>
     </Layout>
   );
