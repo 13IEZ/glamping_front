@@ -67,7 +67,7 @@ const Login: React.FC = () => {
 
         <Form.Item>
           <Form.Item name='remember' valuePropName='checked' noStyle>
-            <Checkbox>Запонить меня</Checkbox>
+            <Checkbox>Запомнить меня</Checkbox>
           </Form.Item>
         </Form.Item>
 
@@ -75,7 +75,7 @@ const Login: React.FC = () => {
           <Button type='primary' htmlType='submit' className='login-form-button'>
             Войти
           </Button>
-          <Link to='/register'>Еще не зарегестрированы?</Link>
+          <Link to='/register'>Еще не зарегистрированы?</Link>
         </Form.Item>
       </Form>
     </div>
