@@ -1,6 +1,7 @@
 import { Typography, Button, Image } from 'antd';
 import React from 'react';
 const { Paragraph, Title } = Typography;
+import './Investor.scss';
 
 const Investor: React.FC = () => {
   const investorClickHandler: any = () => {

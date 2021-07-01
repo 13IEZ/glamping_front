@@ -12,7 +12,6 @@ const UserMenu: any = () => {
 
   const logoutHandler = () => {
     logoutUser();
-    console.log(logoutUser());
   };
 
   return (
