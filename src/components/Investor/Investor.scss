@@ -1,5 +1,32 @@
-.Investor {
-  display: flex;
-  align-items: center;
-  margin: 50px 0;
+@import '../../assets/mixins.scss';
+
+.investor {
+  padding: 10px 50px;
+  @include respond(big-tablets) {
+    padding: 10px;
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    margin: 50px 0;
+    @include respond(big-tablets) {
+      margin: 30px 0;
+    }
+    &__left {
+      width: 55%;
+      @include respond(big-tablets) {
+        width: 40%;
+        margin-right: 10px;
+      }
+    }
+    &__right {
+      display: flex;
+      width: 45%;
+      justify-content: space-around;
+      @include respond(big-tablets) {
+        width: 60%;
+        justify-content: space-between;
+      }
+    }
+  }
 }

@@ -1,3 +1,11 @@
-.Reviews {
-  margin: 15px 0;
+@import '../../assets/mixins.scss';
+
+.reviews-mini {
+  padding: 0 50px;
+  @include respond(big-tablets) {
+    padding: 0 10px;
+  }
+  &-content {
+    margin: 15px 0;
+  }
 }

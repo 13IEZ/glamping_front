@@ -9,9 +9,9 @@ const Investor: React.FC = () => {
   };
 
   return (
-    <section style={{ padding: '0 50px' }}>
-      <div className='Investor'>
-        <div style={{ width: '55%' }}>
+    <section className='investor'>
+      <div className='investor-content'>
+        <div className='investor-content__left'>
           <Paragraph>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit hic architecto maxime quam placeat
             temporibus! Sapiente, dolores inventore dolorem blanditiis quae voluptate dolorum non. Sed nam minima quas?
@@ -21,7 +21,7 @@ const Investor: React.FC = () => {
             Стать инвестором
           </Button>
         </div>
-        <div style={{ display: 'flex', width: '45%' }}>
+        <div className='investor-content__right'>
           <Paragraph>
             <div style={{ display: 'flex' }}>
               <Image

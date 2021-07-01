@@ -1,0 +1,14 @@
+@import '../../../../assets/mixins.scss';
+
+.anonymous_menu-regular {
+  @include respond(big-tablets) {
+    display: none;
+  }
+}
+
+.anonymous_menu-mobile {
+  display: none;
+  @include respond(big-tablets) {
+    display: block;
+  }
+}

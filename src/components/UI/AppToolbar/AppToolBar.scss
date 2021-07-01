@@ -1,6 +1,21 @@
+@import '../../../assets/mixins.scss';
+
 .header {
   background-color: #fff;
   box-shadow: 0px 0px 5px 0px #d2d2d2;
   height: auto;
   padding: 10px 0;
+}
+
+.ant-typography.header-nav__title {
+  @include respond(big-tablets) {
+    font-size: 20px;
+  }
+}
+
+.ant-row.ant-row-space-around.ant-row-middle.header-nav {
+  @include respond(big-tablets) {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
 }

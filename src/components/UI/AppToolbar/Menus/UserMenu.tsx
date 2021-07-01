@@ -3,6 +3,7 @@ import { Menu, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useAction';
+import './UserMenu.scss';
 
 const { SubMenu } = Menu;
 
@@ -16,7 +17,12 @@ const UserMenu: any = () => {
 
   return (
     <Menu mode='horizontal'>
-      <SubMenu key='SubMenu' icon={<Avatar size={32} icon={<UserOutlined />} />} title={user?.email}>
+      <SubMenu
+        className='user_menu-title'
+        key='SubMenu'
+        icon={<Avatar size={32} icon={<UserOutlined />} />}
+        title={user?.email}
+      >
         <Menu.ItemGroup title='Действия'>
           <Menu.Item key='setting:1'>Личный кабинет</Menu.Item>
           <Menu.Item key='setting:2' onClick={logoutHandler}>

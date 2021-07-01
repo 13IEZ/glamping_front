@@ -1,0 +1,14 @@
+@import '../../assets/mixins.scss';
+
+.about-us {
+  padding: 10px 50px;
+  @include respond(big-tablets) {
+    padding: 10px;
+  }
+}
+
+.ant-row.ant-row-space-around.about-us__gallery {
+  @include respond(big-tablets) {
+    flex-wrap: nowrap;
+  }
+}

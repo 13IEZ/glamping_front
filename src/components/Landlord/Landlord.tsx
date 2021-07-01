@@ -9,8 +9,8 @@ const Landlord: React.FC = () => {
   };
 
   return (
-    <section style={{ padding: '0 50px' }}>
-      <div className='Landlord'>
+    <section className='landlord'>
+      <div className='landlord-content'>
         <div>
           <Paragraph>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit hic architecto maxime quam placeat
