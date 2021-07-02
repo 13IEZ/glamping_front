@@ -1,13 +1,14 @@
 import { Image, Typography, Row, Col } from 'antd';
 import React from 'react';
 const { Paragraph } = Typography;
+import './AboutUs.scss';
 
 const AboutUs: React.FC = () => {
   return (
-    <section style={{ padding: '10px 50px' }}>
+    <section className='about-us'>
       <div>
         <div>
-          <Paragraph>
+          <Paragraph style={{ textAlign: 'center' }}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit hic architecto maxime quam placeat
             temporibus! Sapiente, dolores inventore dolorem blanditiis quae voluptate dolorum non. Sed nam minima quas?
             Quod, rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum porro corporis nulla sunt qui
@@ -15,7 +16,7 @@ const AboutUs: React.FC = () => {
             nemo ad.
           </Paragraph>
         </div>
-        <Row justify='space-around' gutter={6}>
+        <Row className='about-us__gallery' justify='space-around' gutter={6}>
           <Col>
             <Image
               src='error'

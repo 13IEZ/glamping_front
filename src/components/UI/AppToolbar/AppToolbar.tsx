@@ -14,10 +14,10 @@ const AppToolbar: React.FC = () => {
 
   return (
     <Header className='header'>
-      <Row justify='space-around' align='middle'>
+      <Row className='header-nav' justify='space-around' align='middle'>
         <Col>
           <Link to='/'>
-            <Title level={2}>
+            <Title level={2} className='header-nav__title'>
               <BuildOutlined style={{ fontSize: '24px' }} />
               Example logo
             </Title>

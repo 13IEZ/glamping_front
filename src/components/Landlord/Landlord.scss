@@ -1,4 +1,13 @@
-.Landlord {
-  display: flex;
-  align-items: center;
+@import '../../assets/mixins.scss';
+
+.landlord {
+  padding: 0 50px;
+  @include respond(big-tablets) {
+    padding: 0 10px;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+  }
 }

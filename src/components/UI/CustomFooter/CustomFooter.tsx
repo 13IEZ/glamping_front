@@ -46,7 +46,7 @@ const CustomFooter: React.FC = () => {
           </Space>
         </Col>
       </Row>
-      <Row justify='center'>
+      <Row justify='center' style={{ marginTop: '10px' }}>
         <Typography> &copy; 2021 Все права защищены </Typography>
       </Row>
     </Footer>
