@@ -1,13 +1,27 @@
+import './AppToolBar.scss';
+
 import React from 'react';
-import { Layout, Typography, Col, Button, Divider, Row, Space } from 'antd';
-const { Title } = Typography;
+
+import {
+  Button,
+  Col,
+  Divider,
+  Layout,
+  Row,
+  Space,
+  Typography,
+} from 'antd';
+import { Link } from 'react-router-dom';
+
 import { BuildOutlined } from '@ant-design/icons';
+
 import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import AnonymousMenu from './Menus/AnonymousMenu';
 import UserMenu from './Menus/UserMenu';
-import './AppToolBar.scss';
+
+const { Title } = Typography;
+
 const { Header } = Layout;
-import { Link } from 'react-router-dom';
 
 const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
@@ -28,7 +42,7 @@ const AppToolbar: React.FC = () => {
             <Button type='dashed'>Карта локаций</Button>
           </Link>
           <Divider style={{ backgroundColor: '#000' }} type='vertical' />
-          <Link to='/store'>
+          <Link to='/modules'>
             <Button type='dashed'>Наши товары</Button>
           </Link>
         </Col>
