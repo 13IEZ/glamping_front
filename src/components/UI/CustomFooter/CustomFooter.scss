@@ -1,3 +1,8 @@
+@import '../../../assets/mixins.scss';
 .footer {
   background-color: rgb(194, 192, 192);
+}
+.ant-col.footer-container__item {
+  @include respond(small-tablets) {
+  }
 }

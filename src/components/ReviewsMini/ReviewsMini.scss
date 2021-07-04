@@ -9,3 +9,15 @@
     margin: 15px 0;
   }
 }
+
+.ant-row.reviews-mini-content__container {
+  justify-content: space-around;
+}
+
+.ant-card.ant-card-bordered.reviews-mini-content__card {
+  max-width: 300px;
+  margin: 5px;
+  @include respond(small-tablets) {
+    max-width: 100%;
+  }
+}

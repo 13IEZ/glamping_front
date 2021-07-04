@@ -11,8 +11,8 @@ const Landlord: React.FC = () => {
   return (
     <section className='landlord'>
       <div className='landlord-content'>
-        <div>
-          <Paragraph>
+        <div className='landlord-content__left'>
+          <Paragraph className='landlord-content__left-text'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit hic architecto maxime quam placeat
             temporibus! Sapiente, dolores inventore dolorem blanditiis quae voluptate dolorum non. Sed nam minima quas?
             Quod, rem.

@@ -9,7 +9,7 @@ const CustomFooter: React.FC = () => {
   return (
     <Footer className='footer'>
       <Row>
-        <Col flex='auto'>
+        <Col className='footer-container__item' flex='auto'>
           <List split={false}>
             <List.Item>
               <Link to='/investor'>Инвесторам </Link>
@@ -22,8 +22,7 @@ const CustomFooter: React.FC = () => {
             </List.Item>
           </List>
         </Col>
-        <Col flex='auto'>
-          {' '}
+        <Col className='footer-container__item' flex='auto'>
           <List.Item>
             Адрес: <a href='#'>Казахстан, г. Алматы, пр. Жибек Жолы, 135/10А, офис 514</a>
           </List.Item>
@@ -34,8 +33,8 @@ const CustomFooter: React.FC = () => {
             Email: <a href='#'>example@mail.ru</a>
           </List.Item>
         </Col>
-        <Col flex='auto'>
-          <Space size='middle'>
+        <Col className='footer-container__item' flex='auto'>
+          <Space size='large'>
             <a href='#'>
               <FacebookFilled style={{ fontSize: '32px' }} />
             </a>

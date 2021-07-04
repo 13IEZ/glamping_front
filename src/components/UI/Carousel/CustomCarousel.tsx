@@ -6,7 +6,7 @@ import React from 'react';
 const CustomCarousel: React.FC = () => {
   return (
     <section>
-      <Carousel autoplay draggable>
+      <Carousel draggable>
         <div>
           <h3 className='contentStyle first-slide'>
             <Button type='primary'>Пример кнопки</Button>
