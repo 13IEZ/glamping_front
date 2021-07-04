@@ -9,5 +9,24 @@
   &-content {
     display: flex;
     align-items: center;
+    @include respond(small-tablets) {
+      flex-wrap: wrap;
+    }
+    &__left {
+      &-text {
+        @include respond(small-tablets) {
+          text-align: center;
+        }
+      }
+      @include respond(small-tablets) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      @include respond(small-phone) {
+        align-items: initial;
+      }
+    }
   }
 }

@@ -2,15 +2,7 @@ import './AppToolBar.scss';
 
 import React from 'react';
 
-import {
-  Button,
-  Col,
-  Divider,
-  Layout,
-  Row,
-  Space,
-  Typography,
-} from 'antd';
+import { Button, Col, Divider, Layout, Row, Space, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { BuildOutlined } from '@ant-design/icons';
@@ -29,7 +21,7 @@ const AppToolbar: React.FC = () => {
   return (
     <Header className='header'>
       <Row className='header-nav' justify='space-around' align='middle'>
-        <Col>
+        <Col className='header-nav__logo'>
           <Link to='/'>
             <Title level={2} className='header-nav__title'>
               <BuildOutlined style={{ fontSize: '24px' }} />
@@ -48,7 +40,7 @@ const AppToolbar: React.FC = () => {
         </Col>
         <Col>
           <Space size='large'>
-            <Link to='/location'>
+            <Link className='header-nav__book-btn' to='/location'>
               <Button type='primary'>Бронировать</Button>
             </Link>
             {user ? <UserMenu /> : <AnonymousMenu />}

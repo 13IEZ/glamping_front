@@ -12,7 +12,7 @@ const Investor: React.FC = () => {
     <section className='investor'>
       <div className='investor-content'>
         <div className='investor-content__left'>
-          <Paragraph>
+          <Paragraph className='investor-content__left-text'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit hic architecto maxime quam placeat
             temporibus! Sapiente, dolores inventore dolorem blanditiis quae voluptate dolorum non. Sed nam minima quas?
             Quod, rem.
