@@ -9,11 +9,6 @@ export const fetchModules = (): any => {
     try {
       const response = await ax.get('modules');
       dispatch({ type: ModulesActionTypes.FETCH_MODULES_SUCCESS, payload: response.data });
-
-      notification.success({
-        message: 'Успех!',
-        description: 'Данные успешно получены!',
-      });
     } catch (error) {
       dispatch({ type: ModulesActionTypes.FETCH_MODULES_FAILURE, payload: 'Ошибка при получении данных' });
       notification.error({
