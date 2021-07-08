@@ -1,8 +1,9 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 import { Pagination, Select } from 'antd';
 
 import ModuleCard from '../../components/ModuleCard/ModuleCard';
+import { useActions } from '../../hooks/useAction';
+import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 
 const { Option, OptGroup } = Select;
 
@@ -11,6 +12,26 @@ function handleChange(value: any) {
 }
 
 const ModulesList: React.FC = () => {
+  const { modules } = useTypedSelectorHook(state => state.modules);
+
+  const { fetchModules } = useActions();
+
+  useEffect(() => {
+    fetchModules();
+  }, []);
+
+  const modulesList = modules.map(module => {
+    return (
+      <ModuleCard
+        key={module._id}
+        _id={module._id}
+        title={module.title}
+        description={module.description}
+        image={module.image}
+      />
+    );
+  });
+
   return (
     <div className='ModulesList'>
       <Select defaultValue='tent' style={{ width: 200 }} onChange={handleChange}>
@@ -37,9 +58,9 @@ const ModulesList: React.FC = () => {
           <Option value='expensive'>Сначала дорогие</Option>
         </OptGroup>
       </Select>
-      <ModuleCard />
-      <ModuleCard />
-      <ModuleCard />
+
+      {modulesList}
+
       <div className='example'>
         <Pagination defaultCurrent={1} total={50} showSizeChanger />
       </div>

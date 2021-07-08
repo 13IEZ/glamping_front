@@ -2,8 +2,10 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import thunkMiddleware from 'redux-thunk';
+
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
 import usersReducer from './reducers/usersReducer';
+import modulesReducer from './reducers/modulesReducer';
 
 declare global {
   interface Window {
@@ -16,6 +18,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   users: usersReducer,
+  modules: modulesReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;
