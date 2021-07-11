@@ -5,11 +5,11 @@ import React from 'react';
 import { Button, Col, Divider, Layout, Row, Space, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { BuildOutlined } from '@ant-design/icons';
-
 import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import AnonymousMenu from './Menus/AnonymousMenu';
 import UserMenu from './Menus/UserMenu';
+
+import logo from '../../../assets/logo.png';
 
 const { Title } = Typography;
 
@@ -24,8 +24,7 @@ const AppToolbar: React.FC = () => {
         <Col className='header-nav__logo'>
           <Link to='/'>
             <Title level={2} className='header-nav__title'>
-              <BuildOutlined style={{ fontSize: '24px' }} />
-              Example logo
+              <img src={logo} className='header-nav__title-logo' alt='logo' />
             </Title>
           </Link>
         </Col>
