@@ -1,12 +1,15 @@
-import { Image, Typography, Row, Col } from 'antd';
-import React from 'react';
-const { Paragraph } = Typography;
 import './AboutUs.scss';
+
+import React from 'react';
+
+import { Col, Image, Row, Typography } from 'antd';
+
+const { Paragraph } = Typography;
 
 const AboutUs: React.FC = () => {
   return (
     <section className='about-us'>
-      <div>
+      <div className='container'>
         <div>
           <Paragraph style={{ textAlign: 'center' }}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit hic architecto maxime quam placeat

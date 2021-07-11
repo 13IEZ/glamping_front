@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { Pagination, Select } from 'antd';
 
 import ModuleCard from '../../components/ModuleCard/ModuleCard';
@@ -33,7 +34,7 @@ const ModulesList: React.FC = () => {
   });
 
   return (
-    <div className='ModulesList'>
+    <div className='con'>
       <Select defaultValue='tent' style={{ width: 200 }} onChange={handleChange}>
         <OptGroup label='Type'>
           <Option value='tent'>Тент</Option>
