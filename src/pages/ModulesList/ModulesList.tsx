@@ -34,7 +34,7 @@ const ModulesList: React.FC = () => {
   });
 
   return (
-    <div className='con'>
+    <div className='ModulesList'>
       <Select defaultValue='tent' style={{ width: 200 }} onChange={handleChange}>
         <OptGroup label='Type'>
           <Option value='tent'>Тент</Option>
