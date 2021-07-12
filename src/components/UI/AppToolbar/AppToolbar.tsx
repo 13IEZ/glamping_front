@@ -31,7 +31,7 @@ const AppToolbar: React.FC = () => {
             </Link>
             <Divider style={{ backgroundColor: '#000' }} type='vertical' />
             <Link to='/modules'>
-              <Button type='dashed'>Наши товары</Button>
+              <Button type='dashed'>Магазин</Button>
             </Link>
           </Col>
           <Col>
