@@ -41,7 +41,7 @@ const Store: React.FC = () => {
     <div>
       <Layout>
         <Sider width={180} className='site-layout-background'>
-          <Menu mode='inline' defaultSelectedKeys={['1']} style={{ height: '100%', borderRight: 0 }}>
+          <Menu mode='inline' style={{ height: '100%', borderRight: 0 }}>
             <SubMenu key='sub1' title='Цена'>
               <Menu.Item key='1'>option1</Menu.Item>
               <Menu.Item key='2'>option2</Menu.Item>
