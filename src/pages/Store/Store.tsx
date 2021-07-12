@@ -60,13 +60,13 @@ const Store: React.FC = () => {
               <Menu.Item key='11'>option11</Menu.Item>
               <Menu.Item key='12'>option12</Menu.Item>
             </SubMenu>
-            <SubMenu key='sub3' title='Производитель'>
+            <SubMenu key='sub4' title='Производитель'>
               <Menu.Item key='9'>option9</Menu.Item>
               <Menu.Item key='10'>option10</Menu.Item>
               <Menu.Item key='11'>option11</Menu.Item>
               <Menu.Item key='12'>option12</Menu.Item>
             </SubMenu>
-            <SubMenu key='sub3' title='Категории'>
+            <SubMenu key='sub5' title='Категории'>
               <Select defaultValue='тенты' style={{ width: 100 }} onChange={handleChange}>
                 <OptGroup label='Type'>
                   <Option value='tent'>Тенты</Option>
