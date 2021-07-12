@@ -5,11 +5,10 @@ import React from 'react';
 import { Button, Col, Divider, Layout, Row, Space } from 'antd';
 import { Link } from 'react-router-dom';
 
+import logo from '../../../assets/logo.png';
 import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import AnonymousMenu from './Menus/AnonymousMenu';
 import UserMenu from './Menus/UserMenu';
-
-import logo from '../../../assets/logo.png';
 
 const { Header } = Layout;
 
@@ -30,7 +29,7 @@ const AppToolbar: React.FC = () => {
               <Button type='dashed'>Карта локаций</Button>
             </Link>
             <Divider style={{ backgroundColor: '#000' }} type='vertical' />
-            <Link to='/modules'>
+            <Link to='/store'>
               <Button type='dashed'>Магазин</Button>
             </Link>
           </Col>
