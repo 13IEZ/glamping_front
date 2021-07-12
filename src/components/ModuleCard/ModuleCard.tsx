@@ -13,14 +13,14 @@ interface IModuleCardProps {
   image: Array<string> | [];
 }
 
-const ModuleCard: React.FC<IModuleCardProps> = ({ title, description, image }) => {
+const ModuleCard: React.FC<IModuleCardProps> = ({ title, description, image, _id }) => {
   const cardImage = config.apiUrl + '/uploads/' + image[0];
 
   return (
     <>
       <Card hoverable style={{ width: 800 }} cover={<img alt='example' src={cardImage} />}>
         <Meta title={title} description={description} />
-        <Link to='/modules/info'>Прдробнее</Link>
+        <Link to={`/store/${_id}`}>Прдробнее</Link>
       </Card>
     </>
   );
