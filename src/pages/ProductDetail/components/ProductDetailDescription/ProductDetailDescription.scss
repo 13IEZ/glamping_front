@@ -1,0 +1,23 @@
+.rating {
+  display: inline-block;
+  top: -2px;
+  position: relative;
+  background-position: 0 -23px;
+  width: 80px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.rating::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 80px;
+  background-image: url(../../../../assets/stars.png);
+  background-position: 0 -39px;
+  height: 16px;
+}
+.product-detail-description {
+  padding: 5%;
+}
