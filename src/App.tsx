@@ -13,6 +13,7 @@ import Register from './pages/Register/Register';
 import ReviewForm from './pages/ReviewForm/ReviewForm';
 import Reviews from './pages/Reviews/Reviews';
 import Store from './pages/Store/Store';
+import GLMap from './pages/Location/GLMap';
 
 function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
@@ -28,6 +29,7 @@ function App(): JSX.Element {
         <ProtectedRoute isAllowed={!!user} path='/reviews/new' exact redirectTo={'/login'} component={ReviewForm} />
         <Route path='/store' exact component={Store} />
         <Route path='/store/:id' exact component={ProductDetail} />
+        <Route path='/location' exact component={GLMap} />
       </Switch>
     </Layout>
   );
