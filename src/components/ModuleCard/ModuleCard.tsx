@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
+
 import config from '../../settings/config';
 
 const { Meta } = Card;
@@ -18,7 +19,7 @@ const ModuleCard: React.FC<IModuleCardProps> = ({ title, description, image, _id
 
   return (
     <>
-      <Card hoverable style={{ width: 800 }} cover={<img alt='example' src={cardImage} />}>
+      <Card hoverable style={{ width: 240 }} cover={<img alt='example' src={cardImage} />}>
         <Meta title={title} description={description} />
         <Link to={`/store/${_id}`}>Прдробнее</Link>
       </Card>
