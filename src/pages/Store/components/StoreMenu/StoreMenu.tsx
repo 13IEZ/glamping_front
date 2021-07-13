@@ -3,6 +3,7 @@ import './StoreMenu.scss';
 import React from 'react';
 
 import { Layout, Menu } from 'antd';
+import { v4 as uuidv4 } from 'uuid';
 
 const { Header } = Layout;
 const StoreMenu: React.FC = () => {
@@ -10,14 +11,14 @@ const StoreMenu: React.FC = () => {
     <>
       <Header>
         <Menu mode='horizontal'>
-          <Menu.Item key='1'>Тенты</Menu.Item>
-          <Menu.Item key='2'>Каркасные дома</Menu.Item>
-          <Menu.Item key='3'>Купола</Menu.Item>
-          <Menu.Item key='4'>Юрты</Menu.Item>
-          <Menu.Item key='5'>Модули</Menu.Item>
-          <Menu.Item key='6'>Трейлеры</Menu.Item>
-          <Menu.Item key='7'>Автодома</Menu.Item>
-          <Menu.Item key='8'>Другое</Menu.Item>
+          <Menu.Item key={uuidv4()}>Тенты</Menu.Item>
+          <Menu.Item key={uuidv4()}>Каркасные дома</Menu.Item>
+          <Menu.Item key={uuidv4()}>Купола</Menu.Item>
+          <Menu.Item key={uuidv4()}>Юрты</Menu.Item>
+          <Menu.Item key={uuidv4()}>Модули</Menu.Item>
+          <Menu.Item key={uuidv4()}>Трейлеры</Menu.Item>
+          <Menu.Item key={uuidv4()}>Автодома</Menu.Item>
+          <Menu.Item key={uuidv4()}>Другое</Menu.Item>
         </Menu>
       </Header>
     </>
