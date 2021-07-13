@@ -8,7 +8,7 @@ import ProtectedRoute from './helpers/ProtectedRoute';
 import { useTypedSelectorHook } from './hooks/useTypedSelector';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
-import ModuleInfo from './pages/ModuleInfo/ModuleInfo';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Register from './pages/Register/Register';
 import ReviewForm from './pages/ReviewForm/ReviewForm';
 import Reviews from './pages/Reviews/Reviews';
@@ -27,7 +27,7 @@ function App(): JSX.Element {
         <Route path='/reviews' exact component={Reviews} />
         <ProtectedRoute isAllowed={!!user} path='/reviews/new' exact redirectTo={'/login'} component={ReviewForm} />
         <Route path='/store' exact component={Store} />
-        <Route path='/modules/info' exact component={ModuleInfo} />
+        <Route path='/store/:id' exact component={ProductDetail} />
       </Switch>
     </Layout>
   );
