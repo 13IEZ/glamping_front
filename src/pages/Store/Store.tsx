@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import { Col, Layout, Menu, Pagination, Row } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 
-import ModuleCard from '../../components/ModuleCard/ModuleCard';
+import StoreItem from './components/StoreItem/StoreItem';
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import StoreMenu from './components/StoreMenu/StoreMenu';
@@ -24,12 +24,14 @@ const Store: React.FC = () => {
 
   const modulesList = modules.map(module => {
     return (
-      <Col className='gutter-row' span={6}>
-        <ModuleCard
+      <Col className='gutter-row' span={7} style={{ marginBottom: 20 }}>
+        <StoreItem
           key={module._id}
           _id={module._id}
           title={module.title}
-          description={module.description}
+          price={module.price}
+          // TODO На данный момент в бэке у модели module нет свойства rating, сделать!
+          rating={5}
           image={module.image}
         />
       </Col>
