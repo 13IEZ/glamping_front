@@ -17,32 +17,30 @@ const AppToolbar: React.FC = () => {
 
   return (
     <Header className='header'>
-      <div className='container'>
-        <Row className='header-nav' justify='space-around' align='middle'>
-          <Col className='header-nav__logo'>
-            <Link to='/'>
-              <img src={logo} alt='logo' />
+      <Row className='header-nav' justify='space-around' align='middle'>
+        <Col className='header-nav__logo'>
+          <Link to='/'>
+            <img src={logo} alt='logo' />
+          </Link>
+        </Col>
+        <Col>
+          <Link to='/location'>
+            <Button type='dashed'>Карта локаций</Button>
+          </Link>
+          <Divider style={{ backgroundColor: '#000' }} type='vertical' />
+          <Link to='/store'>
+            <Button type='dashed'>Магазин</Button>
+          </Link>
+        </Col>
+        <Col>
+          <Space size='large'>
+            <Link className='header-nav__book-btn' to='/location'>
+              <Button type='primary'>Бронировать</Button>
             </Link>
-          </Col>
-          <Col>
-            <Link to='/location'>
-              <Button type='dashed'>Карта локаций</Button>
-            </Link>
-            <Divider style={{ backgroundColor: '#000' }} type='vertical' />
-            <Link to='/store'>
-              <Button type='dashed'>Магазин</Button>
-            </Link>
-          </Col>
-          <Col>
-            <Space size='large'>
-              <Link className='header-nav__book-btn' to='/location'>
-                <Button type='primary'>Бронировать</Button>
-              </Link>
-              {user ? <UserMenu /> : <AnonymousMenu />}
-            </Space>
-          </Col>
-        </Row>
-      </div>
+            {user ? <UserMenu /> : <AnonymousMenu />}
+          </Space>
+        </Col>
+      </Row>
     </Header>
   );
 };
