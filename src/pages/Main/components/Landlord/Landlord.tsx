@@ -21,7 +21,7 @@ const Landlord: React.FC = () => {
             Quod, rem.
           </Paragraph>
           <Button type='primary' onClick={clickHandler}>
-            Сдать землю в аренду
+            Сдать землю в аренду. qqq
           </Button>
         </div>
         <Image
