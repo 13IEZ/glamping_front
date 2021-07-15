@@ -1,14 +1,36 @@
-import React from 'react';
-import { Col, Row } from 'antd';
+import React, { useState } from 'react';
+import { Col, Modal, Row } from 'antd';
+
 import ProductDetailDescription from './components/ProductDetailDescription/ProductDetailDescription';
+import ProductDetailGallery from '../Store/components/ProductDetailGallery/ProductDetailGallery';
+import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
+
 import './ProductDetail.scss';
 
 const ProductDetail: React.FC = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className='container'>
+      <Modal width={1000} title='Carousel' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <CustomCarousel />
+      </Modal>
+
       <Row className='h-medium'>
         <Col span={16} className='border'>
-          Место для галереи
+          <ProductDetailGallery showModal={showModal} />
         </Col>
         <Col span={8} className='border'>
           <ProductDetailDescription />

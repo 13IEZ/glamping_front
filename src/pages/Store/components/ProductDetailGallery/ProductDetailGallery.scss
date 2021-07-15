@@ -1,0 +1,34 @@
+.gallery {
+  width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .gallery__bigImageWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .gallery__img {
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+
+  .gallery__imagesWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .gallery__imageWrapper {
+      width: 100px;
+
+      .gallery__img {
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+}
