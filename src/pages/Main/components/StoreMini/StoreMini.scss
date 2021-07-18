@@ -1,0 +1,48 @@
+@import '../../../../assets/mixins.scss';
+
+.module {
+  max-width: 1240px;
+  background: #e5e5e5;
+  padding: 70px 10px;
+  margin: 0;
+
+  @include respond(big-tablets) {
+    max-width: 720px;
+    flex-direction: column;  
+    padding: 40px 10px;
+    
+  }
+  @include respond(small-tablets) {
+    max-width: 650px;
+  }
+
+  @include respond(small-phone) {
+    max-width: 330px;
+  }
+}
+
+.ant-col-6 {
+  display: flex;
+  flex-basis: 23%;
+  margin: 10px;
+  justify-content: center;
+  
+  @include respond(small-tablets) {
+    flex-basis: 100%;
+    margin: 0;
+  }
+}
+
+.ant-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+

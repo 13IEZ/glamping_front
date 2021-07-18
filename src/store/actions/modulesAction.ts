@@ -18,3 +18,18 @@ export const fetchModules = (): any => {
     }
   };
 };
+
+export const fetchLastFourModules = (): any => {
+  return async (dispatch: Dispatch<ModulesAction>) => {
+    try {
+      const response = await ax.get('modules/last');
+      dispatch({ type: ModulesActionTypes.FETCH_LAST_FOUR_MODULES_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: ModulesActionTypes.FETCH_LAST_FOUR_MODULES_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
