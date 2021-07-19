@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Col, Row } from 'antd';
 import StoreMiniItem from './components/StoreMiniItem';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
@@ -28,10 +29,14 @@ const StoreMini: React.FC = () => {
   });
 
   return (
-    <div className='container'>
-      <Row className='module' justify='space-around' gutter={[2, 2]}>
+    <div className='container module'>
+      <h3 className='title'>Магазин</h3>
+      <Row className='module-card' justify='space-around' gutter={[2, 2]}>
         {lastFourModulesList}
       </Row>
+      <Link to='/store'>
+        <p className='module__link'>Показать все</p>
+      </Link>
     </div>
   );
 };
