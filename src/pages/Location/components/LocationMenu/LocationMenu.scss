@@ -1,9 +1,15 @@
 .map-menu {
+  background: #E8F7FF;
+}
+
+.menu-container {
+  display: flex;
   height: 10%;
   margin-bottom: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #E8F7FF;
 }
 
 .menu-item {

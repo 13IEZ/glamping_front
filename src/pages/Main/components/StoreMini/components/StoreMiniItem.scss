@@ -24,6 +24,7 @@
   @include respond(big-tablets) {
     left: 15%;
   }
+  margin-bottom: 25px;
 }
 
 .ant-card-meta-title {
@@ -32,4 +33,5 @@
 
 .ant-card-body {
   padding: 0 24px;
+  text-align: center;
 }
