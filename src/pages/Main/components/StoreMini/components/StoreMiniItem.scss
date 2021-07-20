@@ -1,0 +1,31 @@
+@import '../../../../../assets/mixins.scss';
+
+.item__price {
+  font-size: 18px;
+  line-height: 21px;
+  color: #999997;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.item__button {
+  font-weight: 500;
+  font-size: 20px;
+  height: 40px;
+  color: #2F2D25;
+  background-color: #FDD74E;
+  border: #FDD74E;
+  outline: none;
+  padding: 0 25px;
+  margin-bottom: 25px;
+}
+
+.ant-card-meta-title {
+  font-size: 24px;
+}
+
+.ant-card-body {
+  padding: 0 24px;
+  text-align: center;
+}

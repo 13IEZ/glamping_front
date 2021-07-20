@@ -2,6 +2,7 @@ import { IModulesState, ModulesAction, ModulesActionTypes } from '../types/modul
 
 const initialState: IModulesState = {
   modules: [],
+  lastFourModules: [],
   error: null,
 };
 
@@ -10,6 +11,10 @@ const modulesReducer = (state = initialState, action: ModulesAction): IModulesSt
     case ModulesActionTypes.FETCH_MODULES_SUCCESS:
       return { ...state, modules: action.payload };
     case ModulesActionTypes.FETCH_MODULES_FAILURE:
+      return { ...state, error: action.payload };
+    case ModulesActionTypes.FETCH_LAST_FOUR_MODULES_SUCCESS:
+      return { ...state, lastFourModules: action.payload };
+    case ModulesActionTypes.FETCH_LAST_FOUR_MODULES_FAILURE:
       return { ...state, error: action.payload };
     default:
       return state;

@@ -1,0 +1,84 @@
+@import '../../../../assets/mixins.scss';
+
+.module {
+  background: #e5e5e5;
+}
+
+.module-card {
+
+  @include respond(big-tablets) {
+    max-width: 720px;
+    flex-direction: column;  
+    padding: 40px 10px;
+    
+  }
+  @include respond(small-tablets) {
+    max-width: 650px;
+  }
+
+  @include respond(small-phone) {
+    max-width: 330px;
+  }
+}
+
+.title {
+  font-weight: 400;
+  font-size: 36px;
+  text-transform: uppercase;
+  line-height: 32px;
+  color: #2f2d25;
+  padding-left: 20px;
+  padding-top: 70px;
+  margin-bottom: 30px;
+}
+
+.module__link {
+  color: #69A042;
+  padding-left: 25px;
+  margin-top: 5px;
+  font-size: 18px;
+  position: relative;
+  padding-bottom: 70px;
+}
+
+.module__link::after {
+  content: '';
+  position: absolute;
+  color: #69a042;
+  background: #69a042;
+  height: 1px;
+  width: 117px;
+  top: 33px;
+  left: 24px;
+}
+
+.ant-col-6 {
+  display: flex;
+  flex-basis: 23%;
+  margin: 10px;
+  justify-content: center;
+  
+  @include respond(big-tablets) {
+    max-width: 50%;
+    margin: 0 20px;
+  }
+
+  @include respond(small-tablets) {
+    max-width: 100%;
+    margin: 0 20px;
+  }
+}
+
+.ant-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+
