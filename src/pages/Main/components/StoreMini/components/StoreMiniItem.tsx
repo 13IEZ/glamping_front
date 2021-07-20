@@ -23,6 +23,7 @@ const StoreMiniItem: React.FC<IModuleCardProps> = ({ title, price, image, _id })
     <Link to={`/store/${_id}`}>
       <Card style={{ width: 270 }} cover={<img alt='module' src={cardImage} style={{ height: 200, width: 270 }} />}>
         <Meta style={{ marginBottom: 22, marginTop: 7, fontSize: 24, textAlign: 'center' }} title={title} />
+        <p className='item__price'>от {price} ₸</p>
 
         <p className='item__price'>от {price} ₸</p>
 

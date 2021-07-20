@@ -1,0 +1,60 @@
+@import '../../../../../assets/mixins.scss';
+
+.item__rent {
+  font-size: 18px;
+  line-height: 21px;
+  color: #999997;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.item__button {
+  font-weight: 500;
+  font-size: 20px;
+  height: 40px;
+  color: #2F2D25;
+  background-color: #FDD74E;
+  border: #FDD74E;
+  outline: none;
+  padding: 0 25px;
+  margin-bottom: 25px;
+}
+
+.ant-card-meta-title {
+  font-size: 24px;
+}
+
+.ant-card-body {
+  padding: 0 24px;
+  text-align: center;
+}
+
+.item__square {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #2F2D25;
+}
+
+.item__place {
+  color: #69a042;
+  padding-left: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 7px 0;
+  text-decoration-line: underline;
+  background: url('../../../../../assets/location.png');
+  background-repeat: no-repeat;
+  background-position-x: 20%;
+  background-position-y: center;
+}
+
+.item__rent {
+  color: #2F2D25;
+  font-size: 18;
+  font-weight: 400;
+  line-height: 22px;
+  margin-bottom: 22px;
+}

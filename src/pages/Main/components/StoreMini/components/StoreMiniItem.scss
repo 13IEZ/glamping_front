@@ -18,6 +18,12 @@
   border: #FDD74E;
   outline: none;
   padding: 0 25px;
+  left: 16%;
+  margin-bottom: 25px;
+
+  @include respond(big-tablets) {
+    left: 15%;
+  }
   margin-bottom: 25px;
 }
 
