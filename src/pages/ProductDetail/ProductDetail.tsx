@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Modal, Row } from 'antd';
 
 import ProductDetailDescription from './components/ProductDetailDescription/ProductDetailDescription';
-import ProductDetailGallery from '../Store/components/ProductDetailGallery/ProductDetailGallery';
+import ProductDetailGallery from './components/ProductDetailGallery/ProductDetailGallery';
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 
 import './ProductDetail.scss';
