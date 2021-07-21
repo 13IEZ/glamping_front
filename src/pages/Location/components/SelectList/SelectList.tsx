@@ -1,5 +1,6 @@
 import React from 'react';
 import { Select } from 'antd';
+
 const { Option } = Select;
 import './SelectList.scss';
 
@@ -19,15 +20,13 @@ const sortCoordinates = (arr: any) => {
 const SelectList: React.FC<any> = props => {
   const coordinates = sortCoordinates(props.coordinates);
   return (
-    <div className='selectList-container'>
-      <Select onChange={props.handleChange} className='selectList'>
-        {coordinates.map((coordinate: any) => (
-          <Option key={coordinate.coordId} value={coordinate.coordId}>
-            {coordinate.hint}
-          </Option>
-        ))}
-      </Select>
-    </div>
+    <Select onChange={props.handleChange} className='select-list-container__select-list'>
+      {coordinates.map((coordinate: any) => (
+        <Option key={coordinate.coordId} value={coordinate.coordId}>
+          {coordinate.hint}
+        </Option>
+      ))}
+    </Select>
   );
 };
 

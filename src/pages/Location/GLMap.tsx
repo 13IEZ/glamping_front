@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
-import { YMaps, Map, Placemark, RulerControl, TypeSelector, GeolocationControl, Clusterer } from 'react-yandex-maps';
+import {
+  YMaps,
+  Map,
+  Placemark,
+  RulerControl,
+  TypeSelector,
+  GeolocationControl,
+  Clusterer,
+  FullscreenControl,
+  ZoomControl,
+} from 'react-yandex-maps';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import './GLMap.scss';
 import LocationMenu from './components/LocationMenu/LocationMenu';
+
+// Массив coordinatesInitial является демонстрационным, показывающим необходимую структуру данных
+// и как с ней работает компонент GLMap. В последующем массив coordinatesInitial может формироваться
+// путем AJAX-запроса к БД
 
 const coordinatesInitial = [
   { coordId: uuidv4(), coords: [45.684758, 69.738521], hint: 'Location at 45.684758, 69.738521', moduleType: 'tent' },
@@ -88,7 +102,7 @@ const GLMap: React.FC<any> = props => {
         state={{
           center: props.coords,
           zoom: 7,
-          controls: ['zoomControl', 'fullscreenControl'],
+          controls: [],
         }}
         width={'100%'}
         height={'90%'}
@@ -116,7 +130,9 @@ const GLMap: React.FC<any> = props => {
 
         <RulerControl options={{ float: 'right' }} />
         <TypeSelector options={{ float: 'right' }} />
+        <FullscreenControl />
         <GeolocationControl options={{ float: 'left' }} />
+        <ZoomControl options={{ float: 'right' }} />
       </Map>
     </YMaps>
   );

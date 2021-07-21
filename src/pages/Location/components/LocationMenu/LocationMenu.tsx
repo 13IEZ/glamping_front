@@ -24,7 +24,7 @@ const LocationMenu: React.FC<any> = props => {
     <>
       <div className='menu-container'>
         <SelectList handleChange={props.handleChange} coordinates={props.coordinates} />
-        <div className='menu_warpper'>
+        <div className='menu_wrapper'>
           <Menu onClick={handleClick} selectedKeys={[current]} mode='horizontal' className='map-menu' inlineIndent={12}>
             <Menu.Item key='tent'>
               {' '}
