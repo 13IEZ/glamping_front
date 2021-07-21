@@ -12,6 +12,7 @@ const Main: React.FC = () => {
     <>
       <CustomCarousel />
       <AboutUs />
+      <LocationMini />
       <StoreMini />
       <LocationMini />
       <ReviewsMini />
