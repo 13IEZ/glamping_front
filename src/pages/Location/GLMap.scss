@@ -1,6 +1,13 @@
+@import '../../assets/mixins.scss';
+
 .container-fluid {
   width: 100%;
-  height: 78vh;
+  height: 80vh;
+  padding: 5px;
+  padding-top: 10px;
+  @include respond(big-tablets) {
+    height: 91vh;
+  }
 }
 
 .selectList {
@@ -11,5 +18,6 @@
   display: flex;
   justify-content: center;
 }
+
 
 
