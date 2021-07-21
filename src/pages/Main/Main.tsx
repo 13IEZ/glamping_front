@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AboutUs from './components/AboutUs/AboutUs';
-import Investor from './components/Investor/Investor';
+// import Investor from './components/Investor/Investor';
 import LocationMini from './components/LocationMini/LocationMini';
 import StoreMini from './components/StoreMini/StoreMini';
 import Landlord from './components/Landlord/Landlord';
@@ -14,7 +14,7 @@ const Main: React.FC = () => {
     <>
       <CustomCarousel />
       <AboutUs />
-      <Investor />
+      {/*<Investor />*/}
       <LocationMini />
       <StoreMini />
       <Landlord />

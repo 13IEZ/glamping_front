@@ -28,6 +28,10 @@ const StoreMini: React.FC = () => {
     );
   });
 
+  const noModules = lastFourModules.length < 1;
+
+  if (noModules) return <></>;
+
   return (
     <div className='container module'>
       <h3 className='title'>Магазин</h3>

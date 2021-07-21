@@ -29,6 +29,10 @@ const LocationMini: React.FC = () => {
     );
   });
 
+  const noLocations = lastFourLocations.length < 1;
+
+  if (noLocations) return <></>;
+
   return (
     <div className='container location'>
       <h3 className='title'>Локации</h3>
