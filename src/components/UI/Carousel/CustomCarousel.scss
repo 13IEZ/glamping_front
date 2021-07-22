@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import '../../../assets/mixins.scss';
+
 .contentStyle {
   color: #fff;
   line-height: 160px;
-  text-align: center;
+  text-align: left;
   background: #364d79;
   height: 80vh;
 }
@@ -10,9 +14,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(https://mirpozitiva.ru/wp-content/uploads/2019/11/1477469601_nature_gora.jpg);
+  background-image: url('../../../assets/img/slide1.png');
   background-size: 100% 100%;
   background-position: center;
+  padding: 10px;
 }
 
 .second-slide {
@@ -42,4 +47,65 @@
   background-image: url(https://picsy.ru/images/photos/1200/1/fotografii-prirody-v-khoroshem-k-34760.jpg);
   background-size: 100% 100%;
   background-position: center;
+}
+
+.title-carousel{
+  font-family: 'Playfair Display', serif;
+  left: 174px;
+  top: 111px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 133px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  @include respond(small-phone) {
+    padding: 5px;
+    font-size: 40px;
+  }
+}
+
+.text-carousel {
+  font-family: 'Roboto', sans-serif;
+  width: 400px;
+  height: 86px;
+  left: 275px;
+  top: 262px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 135%;
+  color: #FFFFFF;
+  @include respond(small-phone) {
+    padding: 5px;
+    width: 280px;
+    font-size: 20px;
+  }
+}
+
+.yellowText{
+  color: #ecf008
+}
+
+.icon-text {
+  display: flex;
+  margin: 20px;
+}
+
+.icon {
+  margin-right: 20px;
+  height: 30px;
+}
+
+.content-slider {
+  margin-left: 230px;
+  margin-top: 111px;
+  @include respond(small-phone) {
+    margin: 10px;
+  }
+}
+
+.carausel_button {
+  background-color: #FDD74E;
 }

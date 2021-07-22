@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Col, Row } from 'antd';
-import StoreMiniItem from './components/StoreMiniItem';
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-import { useActions } from '../../../../hooks/useAction';
 import './StoreMini.scss';
+
+import React, { useEffect } from 'react';
+
+import { Col, Row } from 'antd';
+import { Link } from 'react-router-dom';
+
+import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+import StoreMiniItem from './components/StoreMiniItem';
 
 const StoreMini: React.FC = () => {
   const { lastFourModules } = useTypedSelectorHook(state => state.modules);
