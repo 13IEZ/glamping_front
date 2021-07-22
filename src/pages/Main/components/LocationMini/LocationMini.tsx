@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Col, Row, Button, Divider } from 'antd';
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-import { useActions } from '../../../../hooks/useAction';
-import LocationMiniItem from './components/LocationMiniItem';
 import './LocationMini.scss';
+
+import React, { useEffect } from 'react';
+
+import { Button, Col, Divider, Row } from 'antd';
+import { Link } from 'react-router-dom';
+
+import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+import LocationMiniItem from './components/LocationMiniItem';
 
 const LocationMini: React.FC = () => {
   const { lastFourLocations } = useTypedSelectorHook(state => state.locations);
