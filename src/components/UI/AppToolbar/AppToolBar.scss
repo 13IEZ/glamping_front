@@ -1,54 +1,77 @@
 @import '../../../assets/mixins.scss';
 
-.header {
-  background-color: #fff;
-  box-shadow: 0px 0px 5px 0px #d2d2d2;
-  height: auto;
-  max-width: 1240px;
+.Header {
+  height: 80px;
+  width: 1440px;
   margin: 0 auto;
-  padding: 0 20px;
-}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 0px #ffffff;
 
-.header-nav__logo img {
-  @include respond(big-tablets) {
-    max-width: 80px;
-    max-height: 80px;
-  }
-  @include respond(small-tablets) {
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    max-width: 50px;
-    max-height: 50px;
-  }
-}
+  .Logo {
+    width: 80px;
 
-.ant-row.ant-row-space-around.ant-row-middle.header-nav {
-  @include respond(big-tablets) {
-    justify-content: space-between;
-    padding: 0 10px;
+    img {
+      width: 100%;
+    }
   }
-  @include respond(small-phone) {
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-  }
-}
 
-.ant-typography.header-nav__title,
-.header-nav__book-btn {
-  @include respond(small-tablets) {
-    display: none;
+  .Header-MenuLink {
+    font-size: 18px;
+    color: #69A042;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  } 
+
+  .Header-UserMenu {
+
   }
 }
 
-.mobile__book-btn {
-  display: none;
-  @include respond(small-tablets) {
-    display: block;
-  }
-}
-
-.mobile__book-link {
-  color: #4cabff;
-}
+//.header-nav__logo img {
+//  @include respond(big-tablets) {
+//    max-width: 80px;
+//    max-height: 80px;
+//  }
+//  @include respond(small-tablets) {
+//    justify-content: center;
+//    align-items: center;
+//    padding: 0;
+//    max-width: 50px;
+//    max-height: 50px;
+//  }
+//}
+//
+//.ant-row.ant-row-space-around.ant-row-middle.header-nav {
+//  @include respond(big-tablets) {
+//    justify-content: space-between;
+//    padding: 0 10px;
+//  }
+//  @include respond(small-phone) {
+//    justify-content: center;
+//    align-items: center;
+//    padding: 0;
+//  }
+//}
+//
+//.ant-typography.header-nav__title,
+//.header-nav__book-btn {
+//  @include respond(small-tablets) {
+//    display: none;
+//  }
+//}
+//
+//.mobile__book-btn {
+//  display: none;
+//  @include respond(small-tablets) {
+//    display: block;
+//  }
+//}
+//
+//.mobile__book-link {
+//  color: #4cabff;
+//}

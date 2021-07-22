@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Divider, Menu, Avatar, Typography } from 'antd';
+import { Button, Divider, Menu, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 const { SubMenu } = Menu;
 import './AnonymousMenu.scss';
@@ -26,11 +26,6 @@ const AnonymousMenu: React.FC = () => {
               </Menu.Item>
               <Menu.Item key='setting:2'>
                 <Link to='/login'>Вход</Link>
-              </Menu.Item>
-              <Menu.Item key='setting:3' className='anonymous_menu-mobile__book-btn'>
-                <Link to='/location'>
-                  <Typography className='anonymous_menu-mobile__book-link'>Бронировать</Typography>
-                </Link>
               </Menu.Item>
             </Menu.ItemGroup>
           </SubMenu>
