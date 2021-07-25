@@ -10,19 +10,19 @@ import track from '../../../assets/icons/track-icon.png';
 
 const CustomCarousel: React.FC = () => {
   return (
-    <section>
-      <Carousel autoplay>
+    <section className='carousel'>
+      <Carousel autoplay draggable>
         <div className='contentStyle first-slide'>
           <div className='content-slider'>
             <div className='title-carousel'>GLAMPING</div>
             <div className='text-carousel'>
               Закажи <span className='yellowText'>glam-модуль</span> и остановись в самом красивом месте Казахстана
               <div className='icon-text'>
-                <img className='icon' src={money} />
+                <img className='icon' alt='Not Found' src={money} />
                 <span className='text'>отдыхай или сдавай</span>
               </div>
               <div className='icon-text'>
-                <img className='icon' src={track} />
+                <img className='icon' alt='Not Found' src={track} />
                 <span className='text'>меняй локацию</span>
               </div>
               <Button className='carousel_button' style={{ background: '#FDD74E', border: '1px solid black' }}>
@@ -37,11 +37,11 @@ const CustomCarousel: React.FC = () => {
             <div className='text-carousel'>
               Дополнительный доход от своего земельного участка!
               <div className='icon-text'>
-                <img className='icon' src={money} />
+                <img className='icon' alt='Not Found' src={money} />
                 <span className='text'>дополнительный доход</span>
               </div>
               <div className='icon-text'>
-                <img className='icon' src={track} />
+                <img className='icon' alt='Not Found' src={track} />
                 <span className='text'>оперативное управление</span>
               </div>
               <Button className='carousel_button' style={{ background: '#FDD74E', border: '1px solid black' }}>
@@ -56,11 +56,11 @@ const CustomCarousel: React.FC = () => {
             <div className='text-carousel'>
               Глэмпинг – это отдых на природе с пометкой "люкс"!
               <div className='icon-text'>
-                <img className='icon' src={money} />
+                <img className='icon' alt='Not Found' src={money} />
                 <span className='text'>особый формат отдыха</span>
               </div>
               <div className='icon-text'>
-                <img className='icon' src={track} />
+                <img className='icon' alt='Not Found' src={track} />
                 <span className='text'>гламурный кемпинг</span>
               </div>
               <Button className='carousel_button' style={{ background: '#FDD74E', border: '1px solid black' }}>

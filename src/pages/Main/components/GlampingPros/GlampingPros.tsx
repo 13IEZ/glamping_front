@@ -9,40 +9,40 @@ import cocktailIcon from '../../../../assets/cocktail.png';
 
 const GlampingPros: React.FC = () => {
   return (
-    <div className='container'>
-      <Row className='glamping-pros' gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col className='gutter-row' span={6}>
+    <section className='glamping-pros container'>
+      <Row className='content'>
+        <Col className='gutter-row'>
           <div className='glamping-pros-card'>
-            <img src={tentIcon} />
+            <img src={tentIcon} alt='Not Found' />
             <p className='glamping-pros__text'>Купол с удобными кроватями</p>
           </div>
         </Col>
-        <Col className='gutter-row' span={6}>
-          <div className='glamping-pros'>
-            <img src={showerIcon} />
+        <Col className='gutter-row'>
+          <div className='glamping-pros-card'>
+            <img src={showerIcon} alt='Not Found' />
             <p className='glamping-pros__text'>Ванная комната и бассейн</p>
           </div>
         </Col>
-        <Col className='gutter-row' span={6}>
-          <div className='glamping-pros'>
-            <img src={wifiIcon} />
+        <Col className='gutter-row'>
+          <div className='glamping-pros-card'>
+            <img src={wifiIcon} alt='Not Found' />
             <p className='glamping-pros__text'>Электричество и Wi-Fi</p>
           </div>
         </Col>
-        <Col className='gutter-row' span={6}>
-          <div className='glamping-pros'>
-            <img src={cocktailIcon} />
+        <Col className='gutter-row'>
+          <div className='glamping-pros-card'>
+            <img src={cocktailIcon} alt='Not Found' />
             <p className='glamping-pros__text'>Ресторан и бар</p>
           </div>
         </Col>
-        <Col className='gutter-row' span={6}>
-          <div className='glamping-pros'>
-            <img src={bonfireIcon} />
+        <Col className='gutter-row'>
+          <div className='glamping-pros-card'>
+            <img src={bonfireIcon} alt='Not Found' />
             <p className='glamping-pros__text'>Бесценные посиделки у костра</p>
           </div>
         </Col>
       </Row>
-    </div>
+    </section>
   );
 };
 

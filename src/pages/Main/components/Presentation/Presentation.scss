@@ -2,19 +2,18 @@
 
 .presentation {
   display: flex;
-  align-items: center;
-  max-width: 1240px;
-  margin: 0 auto;
-  width: 100%;
-  height: 420px;
   color: #fff;
-  background:
-  linear-gradient(297.22deg, #112528 -10.29%, rgba(17, 37, 40, 0) 32.21%), url('./../../../../assets/presentation.jpg');
+  background-color: #112528;
+  background-image:
+          linear-gradient(297.22deg, #112528 -10.29%, rgba(17, 37, 40, 0) 32.21%), url('./../../../../assets/presentation.jpg');
+  background-size: auto;
+  background-position: -100px;
+  background-repeat: no-repeat;
 }
 
-.presentation-container {
+.presentation-content {
+  margin: 0 auto;
   padding: 10px;
-  height: 420px;
 }
 
 .presentation-title {
@@ -35,3 +34,7 @@
   }
 }
 
+.presentation-item {
+  margin-top: 30px;
+  margin-left: 650px;
+}

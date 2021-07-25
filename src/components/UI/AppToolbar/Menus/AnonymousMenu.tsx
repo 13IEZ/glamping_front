@@ -1,36 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Divider, Menu, Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Menu } from 'antd';
+
 const { SubMenu } = Menu;
 import './AnonymousMenu.scss';
+import ic from '../../../../assets/icons/account.svg';
 
 const AnonymousMenu: React.FC = () => {
   return (
     <>
-      <div className='anonymous_menu-regular'>
-        <Link to='/register'>
-          <Button>Регистрация</Button>
-        </Link>
-        <Divider style={{ backgroundColor: '#000' }} type='vertical' />
-        <Link to='/login'>
-          <Button>Вход</Button>
-        </Link>
-      </div>
-      <div className='anonymous_menu-mobile'>
-        <Menu mode='horizontal'>
-          <SubMenu key='SubMenu' icon={<Avatar size={32} icon={<UserOutlined />} />} title={`Меню`}>
-            <Menu.ItemGroup title='Действия'>
-              <Menu.Item key='setting:1'>
-                <Link to='/register'>Регистрация</Link>
-              </Menu.Item>
-              <Menu.Item key='setting:2'>
-                <Link to='/login'>Вход</Link>
-              </Menu.Item>
-            </Menu.ItemGroup>
-          </SubMenu>
-        </Menu>
-      </div>
+      <Menu mode='horizontal'>
+        <SubMenu key='SubMenu' icon={<img src={ic} alt='Not found' />} title={'Меню'}>
+          <Menu.ItemGroup title='Действия'>
+            <Menu.Item key='setting:1'>
+              <Link to='/register'>Регистрация</Link>
+            </Menu.Item>
+            <Menu.Item key='setting:2'>
+              <Link to='/login'>Вход</Link>
+            </Menu.Item>
+            <Menu.Item className='mobile-function' key='setting:3'>
+              <Link to='/'>На главную</Link>
+            </Menu.Item>
+          </Menu.ItemGroup>
+        </SubMenu>
+      </Menu>
     </>
   );
 };

@@ -6,6 +6,7 @@ import { Divider } from 'antd';
 import { Link } from 'react-router-dom';
 
 import logo from '../../../assets/logo.png';
+import location_ic from '../../../assets/icons/location.svg';
 import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import AnonymousMenu from './Menus/AnonymousMenu';
 import UserMenu from './Menus/UserMenu';
@@ -14,7 +15,7 @@ const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
 
   return (
-    <div className='Header'>
+    <header className='Header container'>
       <div className='Logo'>
         <Link to='/'>
           <img src={logo} alt='Logo' />
@@ -22,6 +23,7 @@ const AppToolbar: React.FC = () => {
       </div>
       <div>
         <Link className='Header-MenuLink' to='/location'>
+          <img style={{ marginRight: '5px' }} src={location_ic} alt='Not found' />
           Карта локаций
         </Link>
         <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
@@ -30,7 +32,7 @@ const AppToolbar: React.FC = () => {
         </Link>
       </div>
       <div className='Header-UserMenu'>{user ? <UserMenu /> : <AnonymousMenu />}</div>
-    </div>
+    </header>
   );
 };
 

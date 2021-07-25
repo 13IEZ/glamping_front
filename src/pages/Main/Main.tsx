@@ -6,7 +6,6 @@ import AboutApp from './components/AboutApp/AboutApp';
 import GlampingPros from './components/GlampingPros/GlampingPros';
 import LocationMini from './components/LocationMini/LocationMini';
 import Presentation from './components/Presentation/Presentation';
-import ReviewsMini from './components/ReviewsMini/ReviewsMini';
 import StoreMini from './components/StoreMini/StoreMini';
 
 const Main: React.FC = () => {
@@ -14,12 +13,10 @@ const Main: React.FC = () => {
     <>
       <CustomCarousel />
       <AboutApp />
-      <GlampingPros />
-      <LocationMini />
       <StoreMini />
       <LocationMini />
       <Presentation />
-      <ReviewsMini />
+      <GlampingPros />
       <CustomFooter />
     </>
   );
