@@ -1,20 +1,20 @@
 import React from 'react';
 
-import AboutUs from './components/AboutUs/AboutUs';
-import LocationMini from './components/LocationMini/LocationMini';
-import StoreMini from './components/StoreMini/StoreMini';
-import ReviewsMini from './components/ReviewsMini/ReviewsMini';
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 import CustomFooter from '../../components/UI/CustomFooter/CustomFooter';
-import Presentation from './components/Presentation/Presentation';
+import AboutApp from './components/AboutApp/AboutApp';
 import GlampingPros from './components/GlampingPros/GlampingPros';
+import LocationMini from './components/LocationMini/LocationMini';
+import Presentation from './components/Presentation/Presentation';
+import ReviewsMini from './components/ReviewsMini/ReviewsMini';
+import StoreMini from './components/StoreMini/StoreMini';
 
 const Main: React.FC = () => {
   return (
     <>
       <CustomCarousel />
+      <AboutApp />
       <GlampingPros />
-      <AboutUs />
       <LocationMini />
       <StoreMini />
       <LocationMini />
