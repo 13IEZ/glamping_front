@@ -1,16 +1,16 @@
-import { Dispatch } from 'redux';
 import { notification } from 'antd';
-
 import ax from '../../settings/axios-glamping';
-import { ModulesAction, ModulesActionTypes } from '../types/modulesTypes';
+import { reducersActions, ThunkType } from '../types/reducersActions';
+import { IModule } from '../types/reducersTypes';
 
-export const fetchModules = (): any => {
-  return async (dispatch: Dispatch<ModulesAction>) => {
+export const fetchModules = (): ThunkType => {
+  return async dispatch => {
     try {
-      const response = await ax.get('modules');
-      dispatch({ type: ModulesActionTypes.FETCH_MODULES_SUCCESS, payload: response.data });
+      //контроль типов, получаемых с сервера
+      const response = await ax.get<Array<IModule>>('modules');
+      dispatch(reducersActions.fetchModules(response.data));
     } catch (error) {
-      dispatch({ type: ModulesActionTypes.FETCH_MODULES_FAILURE, payload: 'Ошибка при получении данных' });
+      dispatch(reducersActions.fetchModulesFailure('Ошибка при получении данных'));
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
@@ -19,13 +19,13 @@ export const fetchModules = (): any => {
   };
 };
 
-export const fetchLastFourModules = (): any => {
-  return async (dispatch: Dispatch<ModulesAction>) => {
+export const fetchLastFourModules = (): ThunkType => {
+  return async dispatch => {
     try {
-      const response = await ax.get('modules/last');
-      dispatch({ type: ModulesActionTypes.FETCH_LAST_FOUR_MODULES_SUCCESS, payload: response.data });
+      const response = await ax.get<Array<IModule>>('modules/last');
+      dispatch(reducersActions.fetchLastModules(response.data));
     } catch (error) {
-      dispatch({ type: ModulesActionTypes.FETCH_LAST_FOUR_MODULES_FAILURE, payload: 'Ошибка при получении данных' });
+      dispatch(reducersActions.fetchLastModulesFailure('Ошибка при получении данных'));
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',

@@ -1,21 +1,21 @@
-import { UserAction, UserActionTypes } from '../types/users';
 import ax from '../../settings/axios-glamping';
-import { push, CallHistoryMethodAction } from 'connected-react-router';
-import { Dispatch } from 'redux';
+import { push } from 'connected-react-router';
 import { notification } from 'antd';
+import { reducersActions, ThunkType } from '../types/reducersActions';
+import { IUser } from '../types/reducersTypes';
 
-export const signInUser = (userData: { email: string; password: string }): any => {
-  return async (dispatch: Dispatch<UserAction | CallHistoryMethodAction<[string, unknown?]>>) => {
+export const signInUser = (userData: { email: string; password: string }): ThunkType => {
+  return async dispatch => {
     try {
-      const response = await ax.post('/users/sessions', userData);
-      dispatch({ type: UserActionTypes.SIGN_IN_SUCCESS, payload: response.data });
+      const response = await ax.post<IUser>('/users/sessions', userData);
+      dispatch(reducersActions.signInSuccess(response.data));
       dispatch(push('/'));
       notification.success({
         message: 'Успех!',
         description: 'Вы удачно авторизовались!',
       });
     } catch (error) {
-      dispatch({ type: UserActionTypes.SIGN_IN_ERROR, payload: 'Sign In Error' });
+      dispatch(reducersActions.signInError('Sign In Error'));
       notification.error({
         message: 'Неудача!',
         description: 'Что-то пошло не так, проверьте заполняемые данные и соеднинение с интернетом!',
@@ -24,18 +24,18 @@ export const signInUser = (userData: { email: string; password: string }): any =
   };
 };
 
-export const signUpUser = (userData: { email: string; password: string }): any => {
-  return async (dispatch: Dispatch<UserAction | CallHistoryMethodAction<[string, unknown?]>>) => {
+export const signUpUser = (userData: { email: string; password: string }): ThunkType => {
+  return async dispatch => {
     try {
       await ax.post('/users', userData);
-      dispatch({ type: UserActionTypes.SIGN_UP_SUCCESS });
+      dispatch(reducersActions.signUpSuccess());
       dispatch(push('/login'));
       notification.success({
         message: 'Успех!',
         description: 'Вы удачно зарегистрировались!',
       });
     } catch (error) {
-      dispatch({ type: UserActionTypes.SIGN_UP_ERROR, payload: 'Sign Up Error' });
+      dispatch(reducersActions.signUpError('Sign Up Error'));
       notification.error({
         message: 'Неудача!',
         description: 'Что-то пошло не так, проверьте заполняемые данные и соеднинение с интернетом!',
@@ -44,18 +44,18 @@ export const signUpUser = (userData: { email: string; password: string }): any =
   };
 };
 
-export const logoutUser = (): any => {
-  return async (dispatch: Dispatch<UserAction | CallHistoryMethodAction<[string, unknown?]>>) => {
+export const logoutUser = (): ThunkType => {
+  return async dispatch => {
     try {
       await ax.delete('/users/sessions');
-      dispatch({ type: UserActionTypes.LOGOUT_USER_SUCCESS });
+      dispatch(reducersActions.logoutSuccess());
       dispatch(push('/login'));
       notification.success({
         message: 'Успех!',
         description: 'Вы удачно вышли!',
       });
     } catch (error) {
-      dispatch({ type: UserActionTypes.LOGOUT_USER_ERROR, payload: 'Logout Error' });
+      dispatch(reducersActions.logoutError('Logout Error'));
       notification.error({
         message: 'Неудача!',
         description: 'У вас не получилось выйти, попробуйте позже!',

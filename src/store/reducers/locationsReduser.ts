@@ -1,15 +1,16 @@
-import { ILocationsState, LocationsAction, LocationsActionTypes } from '../types/locationsTypes';
+import { ILocationsState } from '../types/reducersTypes';
+import { ActionsType, ActionTypes } from '../types/reducersActions';
 
 const initialState: ILocationsState = {
   lastFourLocations: [],
   error: null,
 };
 
-const locationsReducer = (state = initialState, action: LocationsAction): ILocationsState => {
+const locationsReducer = (state = initialState, action: ActionsType): ILocationsState => {
   switch (action.type) {
-    case LocationsActionTypes.FETCH_LAST_FOUR_LOCATIONS_SUCCESS:
+    case ActionTypes.FETCH_LAST_FOUR_LOCATIONS_SUCCESS:
       return { ...state, lastFourLocations: action.payload };
-    case LocationsActionTypes.FETCH_LAST_FOUR_LOCATIONS_FAILURE:
+    case ActionTypes.FETCH_LAST_FOUR_LOCATIONS_FAILURE:
       return { ...state, error: action.payload };
     default:
       return state;

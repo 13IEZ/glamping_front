@@ -1,4 +1,5 @@
-import { UserState, UserAction, UserActionTypes } from './../types/users';
+import { UserState } from '../types/reducersTypes';
+import { ActionsType, ActionTypes } from '../types/reducersActions';
 
 const initialState: UserState = {
   user: null,
@@ -7,19 +8,19 @@ const initialState: UserState = {
   logoutError: null,
 };
 
-const reducer = (state = initialState, action: UserAction): UserState => {
+const reducer = (state = initialState, action: ActionsType): UserState => {
   switch (action.type) {
-    case UserActionTypes.SIGN_IN_SUCCESS:
+    case ActionTypes.SIGN_IN_SUCCESS:
       return { ...state, user: action.payload, signInError: null };
-    case UserActionTypes.SIGN_IN_ERROR:
+    case ActionTypes.SIGN_IN_ERROR:
       return { ...state, signInError: action.payload };
-    case UserActionTypes.SIGN_UP_SUCCESS:
+    case ActionTypes.SIGN_UP_SUCCESS:
       return { ...state, signUpError: null };
-    case UserActionTypes.SIGN_UP_ERROR:
+    case ActionTypes.SIGN_UP_ERROR:
       return { ...state, signUpError: action.payload };
-    case UserActionTypes.LOGOUT_USER_SUCCESS:
+    case ActionTypes.LOGOUT_USER_SUCCESS:
       return { ...state, logoutError: null, user: null };
-    case UserActionTypes.LOGOUT_USER_ERROR:
+    case ActionTypes.LOGOUT_USER_ERROR:
       return { ...state, logoutError: action.payload };
     default:
       return state;

@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import config from './config';
 import store from '../store/configureStore';
-import { UserState } from '../store/types/users';
+import { UserState } from '../store/types/reducersTypes';
 
 const ax = axios.create({
   baseURL: config.apiUrl,

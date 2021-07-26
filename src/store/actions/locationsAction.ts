@@ -1,19 +1,15 @@
-import { Dispatch } from 'redux';
 import { notification } from 'antd';
-
 import ax from '../../settings/axios-glamping';
-import { LocationsAction, LocationsActionTypes } from '../types/locationsTypes';
+import { reducersActions, ThunkType } from '../types/reducersActions';
+import { ILocation } from '../types/reducersTypes';
 
-export const fetchLastFourLocations = (): any => {
-  return async (dispatch: Dispatch<LocationsAction>) => {
+export const fetchLastFourLocations = (): ThunkType => {
+  return async dispatch => {
     try {
-      const response = await ax.get('locations/last');
-      dispatch({ type: LocationsActionTypes.FETCH_LAST_FOUR_LOCATIONS_SUCCESS, payload: response.data });
+      const response = await ax.get<Array<ILocation>>('locations/last');
+      dispatch(reducersActions.fetchLastFourLocations(response.data));
     } catch (error) {
-      dispatch({
-        type: LocationsActionTypes.FETCH_LAST_FOUR_LOCATIONS_FAILURE,
-        payload: 'Ошибка при получении данных',
-      });
+      dispatch(reducersActions.fetchLastFourLocationsFailure('Ошибка при получении данных'));
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
