@@ -1,14 +1,17 @@
 @import '../../../../assets/mixins.scss';
 
-.anonymous_menu-regular {
-  @include respond(big-tablets) {
-    display: none;
-  }
+.mobile-function {
+  display: none;
+    @include respond(small-phone) {
+      display: block;
+    }
 }
 
-.anonymous_menu-mobile {
-  display: none;
-  @include respond(big-tablets) {
-    display: block;
-  }
+.ant-menu-title-content {
+  font-size: 18px;
+  color: #69A042;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected::after {
+  border-bottom: 2px solid #69A042;
 }

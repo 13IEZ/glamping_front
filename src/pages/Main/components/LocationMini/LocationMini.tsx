@@ -37,7 +37,7 @@ const LocationMini: React.FC = () => {
   if (noLocations) return <></>;
 
   return (
-    <div className='container location'>
+    <div className='location container'>
       <h3 className='title'>Локации</h3>
       <div className='location-header'>
         <div className='location-header-row'>

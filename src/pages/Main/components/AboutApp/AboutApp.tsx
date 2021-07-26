@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const { Title } = Typography;
 const AboutApp: React.FC = () => {
   return (
-    <section className='about_app'>
+    <section className='about_app container'>
       <div>
         <Row>
           <Col className='about_app title' span={24}>

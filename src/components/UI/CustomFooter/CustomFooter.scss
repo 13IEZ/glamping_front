@@ -3,15 +3,6 @@
 
 .footer {
   background-color: #2F2D25;
-  max-width: 1240px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-
-.footer-container__row {
-  margin: 0 auto;
-  padding-top: 10px;
 }
 
 .ant-col.footer-container__item {
@@ -31,7 +22,6 @@
   font-weight: 700;
   font-size: 24px;
   padding-top: 15px;
-
 }
 
 .footer-container__text_addr {
@@ -43,7 +33,6 @@
   font-size: 14px;
   text-align: left;
   width: 100%;
-  padding-left: 130px;
   padding-top: 20px;
   @include respond(big-tablets) {
     text-align: center;

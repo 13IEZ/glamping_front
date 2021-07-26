@@ -1,12 +1,10 @@
 @import '../../../../assets/mixins.scss';
 
 .glamping-pros {
-
   @include respond(big-tablets) {
     max-width: 720px;
     flex-direction: column;  
     padding: 40px 10px;
-    
   }
   @include respond(small-tablets) {
     max-width: 650px;
@@ -15,6 +13,10 @@
   @include respond(small-phone) {
     max-width: 330px;
   }  
+}
+
+.ant-row.content {
+  justify-content: space-between;
 }
 
 .glamping-pros-card {
@@ -46,13 +48,12 @@
 
   @include respond(small-tablets) {
     max-width: 100%;
-    // margin: 0 20px;
   }
 }
 
-.ant-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+//.ant-row {
+//  display: flex;
+//  flex-direction: row;
+//  align-items: center;
+//  justify-content: center;
+//}

@@ -1,9 +1,6 @@
 @import '../../../assets/mixins.scss';
 
 .Header {
-  height: 80px;
-  width: 1440px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,9 +9,11 @@
 
   .Logo {
     width: 80px;
-
     img {
       width: 100%;
+    }
+    @include respond(small-phone) {
+      display: none;
     }
   }
 
@@ -25,10 +24,6 @@
     &:hover {
       text-decoration: underline;
     }
-  } 
-
-  .Header-UserMenu {
-
   }
 }
 
