@@ -9,6 +9,7 @@ import money from '../../../assets/icons/money-icon.png';
 import track from '../../../assets/icons/track-icon.png';
 
 const CustomCarousel: React.FC = () => {
+  console.log('xxx');
   return (
     <section className='carousel'>
       <Carousel autoplay draggable>
