@@ -4,9 +4,9 @@ import React, { useEffect } from 'react';
 
 import { Col, Layout, Pagination, Row } from 'antd';
 
-import StoreItem from './components/StoreItem/StoreItem';
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
+import StoreItem from './components/StoreItem/StoreItem';
 import StoreMenu from './components/StoreMenu/StoreMenu';
 import StoreSidebar from './components/StoreSidebar/StoreSidebar';
 
@@ -14,12 +14,19 @@ const { Content } = Layout;
 
 const Store: React.FC = () => {
   const { modules } = useTypedSelectorHook(state => state.modules);
-
-  const { fetchModules } = useActions();
+  const { pages } = useTypedSelectorHook(state => state.pages);
+  const { fetchStore } = useActions();
+  const { fetchNextPages } = useActions();
 
   useEffect(() => {
-    fetchModules();
+    fetchStore();
   }, []);
+
+  const onChange = (pageNumber: number) => {
+    fetchNextPages(pageNumber - 1);
+  };
+
+  const totalPages = Number(pages) * 10;
 
   const modulesList = modules.map(module => {
     return (
@@ -45,7 +52,6 @@ const Store: React.FC = () => {
         <Layout style={{ padding: '0 24px 24px' }}>
           <Content>
             <StoreMenu />
-
             <Row justify='space-around' gutter={[16, 16]}>
               {modulesList}
               {modulesList}
@@ -54,7 +60,7 @@ const Store: React.FC = () => {
               {modulesList}
             </Row>
             <div className='pagination'>
-              <Pagination defaultCurrent={1} total={50} />
+              <Pagination total={totalPages} onChange={onChange} />
             </div>
           </Content>
         </Layout>
