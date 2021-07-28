@@ -36,7 +36,6 @@ const Store: React.FC = () => {
           _id={product._id}
           title={product.title}
           price={product.price}
-          // TODO На данный момент в бэке у модели module нет свойства rating, сделать!
           rating={5}
           image={product.image}
         />

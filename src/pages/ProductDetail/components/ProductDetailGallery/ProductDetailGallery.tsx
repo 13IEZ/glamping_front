@@ -17,20 +17,20 @@ const ProductDetailGallery: React.FC<IProductDetailGalleryProps> = ({ showModal 
   return (
     <div className='gallery'>
       <div className='gallery__bigImageWrapper' onClick={showModal}>
-        <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='module' />
+        <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
       </div>
       <div className='gallery__imagesWrapper'>
         <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='module' />
+          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
         </div>
         <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='module' />
+          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
         </div>
         <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='module' />
+          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
         </div>
         <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='module' />
+          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
         </div>
       </div>
     </div>

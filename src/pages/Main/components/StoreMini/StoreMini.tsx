@@ -31,18 +31,18 @@ const StoreMini: React.FC = () => {
     );
   });
 
-  const noModules = lastFourProducts.length < 1;
+  const noProducts = lastFourProducts.length < 1;
 
-  if (noModules) return <></>;
+  if (noProducts) return <></>;
 
   return (
-    <div className='container module'>
+    <div className='container product'>
       <h3 className='title'>Магазин</h3>
-      <Row className='module-card' justify='space-around' gutter={[2, 2]}>
+      <Row className='product-card' justify='space-around' gutter={[2, 2]}>
         {lastFourProductsList}
       </Row>
       <Link to='/store'>
-        <p className='module__link'>Показать все</p>
+        <p className='product__link'>Показать все</p>
       </Link>
     </div>
   );
