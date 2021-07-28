@@ -10,39 +10,39 @@ import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 import StoreMiniItem from './components/StoreMiniItem';
 
 const StoreMini: React.FC = () => {
-  const { lastFourModules } = useTypedSelectorHook(state => state.modules);
-  const { fetchLastFourModules } = useActions();
+  const { lastFourProducts } = useTypedSelectorHook(state => state.products);
+  const { fetchLastFourProducts } = useActions();
 
   useEffect(() => {
-    fetchLastFourModules();
+    fetchLastFourProducts();
   }, []);
 
-  const lastFourModulesList = lastFourModules.map(module => {
+  const lastFourProductsList = lastFourProducts.map(product => {
     return (
       <Col span={6} style={{ marginBottom: 20 }}>
         <StoreMiniItem
-          key={module._id}
-          _id={module._id}
-          title={module.title}
-          price={module.price}
-          image={module.image}
+          key={product._id}
+          _id={product._id}
+          title={product.title}
+          price={Number(product.price.$numberDecimal)}
+          image={product.image}
         />
       </Col>
     );
   });
 
-  const noModules = lastFourModules.length < 1;
+  const noProducts = lastFourProducts.length < 1;
 
-  if (noModules) return <></>;
+  if (noProducts) return <></>;
 
   return (
-    <div className='container module'>
+    <div className='container product'>
       <h3 className='title'>Магазин</h3>
-      <Row className='module-card' justify='space-around' gutter={[2, 2]}>
-        {lastFourModulesList}
+      <Row className='product-card' justify='space-around' gutter={[2, 2]}>
+        {lastFourProductsList}
       </Row>
       <Link to='/store'>
-        <p className='module__link'>Показать все</p>
+        <p className='product__link'>Показать все</p>
       </Link>
     </div>
   );

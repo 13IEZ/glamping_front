@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as UserActionCreators from '../store/actions/usersAction';
-import * as ModuleActionCreators from '../store/actions/modulesAction';
+import * as ProductActionCreators from '../store/actions/productsAction';
 import * as LocationsActionCreators from '../store/actions/locationsAction';
 
 const ActionCreators = {
   ...UserActionCreators,
-  ...ModuleActionCreators,
+  ...ProductActionCreators,
   ...LocationsActionCreators,
 };
 

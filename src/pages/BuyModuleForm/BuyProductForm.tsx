@@ -8,7 +8,7 @@ import { LockOutlined } from '@ant-design/icons';
 
 import { useActions } from '../../hooks/useAction';
 
-const BuyModuleForm: React.FC = () => {
+const BuyProductForm: React.FC = () => {
   const [state, setState] = useState({
     email: '',
     password: '',
@@ -48,4 +48,4 @@ const BuyModuleForm: React.FC = () => {
   );
 };
 
-export default BuyModuleForm;
+export default BuyProductForm;

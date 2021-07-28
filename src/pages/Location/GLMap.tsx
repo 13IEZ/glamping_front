@@ -20,40 +20,55 @@ import LocationMenu from './components/LocationMenu/LocationMenu';
 // путем AJAX-запроса к БД
 
 const coordinatesInitial = [
-  { coordId: uuidv4(), coords: [45.684758, 69.738521], hint: 'Location at 45.684758, 69.738521', moduleType: 'tent' },
-  { coordId: uuidv4(), coords: [47.684758, 60.738521], hint: 'Location at 47.684758, 60.738521', moduleType: 'dome' },
-  { coordId: uuidv4(), coords: [47.684758, 79.738521], hint: 'Location at 47.684758, 79.738521', moduleType: 'urt' },
-  { coordId: uuidv4(), coords: [44.684758, 76.738521], hint: 'Location at 44.684758, 76.738521', moduleType: 'dome' },
-  { coordId: uuidv4(), coords: [42.684758, 67.738521], hint: 'Location at 42.684758, 67.738521', moduleType: 'tent' },
-  { coordId: uuidv4(), coords: [51.684758, 71.738521], hint: 'Location at 51.684758, 71.738521', moduleType: 'tent' },
-  { coordId: uuidv4(), coords: [44.684758, 69.738521], hint: 'Location at 44.684758, 69.738521', moduleType: 'dome' },
-  { coordId: uuidv4(), coords: [47.684758, 61.738521], hint: 'Location at 47.684758, 61.738521', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [48.684758, 79.738521], hint: 'Location at 48.684758, 79.738521', moduleType: 'house' },
-  { coordId: uuidv4(), coords: [43.684758, 74.738521], hint: 'Location at 43.684758, 74.738521', moduleType: 'tent' },
-  { coordId: uuidv4(), coords: [45.684758, 76.738521], hint: 'Location at 45.684758, 76.738521', moduleType: 'house' },
-  { coordId: uuidv4(), coords: [42.684758, 66.738521], hint: 'Location at 42.684758, 66.738521', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [50.684758, 72.738521], hint: 'Location at 50.684758, 72.738521', moduleType: 'house' },
-  { coordId: uuidv4(), coords: [44.684758, 77.738521], hint: 'Location at 44.684758, 77.738521', moduleType: 'urt' },
-  { coordId: uuidv4(), coords: [42.151234, 75.543456], hint: 'Location at 42.151234, 75.543456', moduleType: 'house' },
-  { coordId: uuidv4(), coords: [44.255678, 75.997895], hint: 'Location at 44.285678, 75.997895', moduleType: 'tent' },
-  { coordId: uuidv4(), coords: [43.684758, 75.738521], hint: 'Location at 43.684758, 75.738521', moduleType: 'tent' },
-  { coordId: uuidv4(), coords: [43.155678, 72.941234], hint: 'Location at 43.155678, 72.941234', moduleType: 'module' },
-  { coordId: uuidv4(), coords: [43.144758, 76.438521], hint: 'Location at 43.144758, 76.438521', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.151234, 76.513456], hint: 'Location at 43.151234, 76.513456', moduleType: 'module' },
-  { coordId: uuidv4(), coords: [43.145678, 76.941234], hint: 'Location at 43.145678, 76.941234', moduleType: 'dome' },
-  { coordId: uuidv4(), coords: [43.255678, 76.997895], hint: 'Location at 43.255678, 76.997895', moduleType: 'urt' },
-  { coordId: uuidv4(), coords: [43.194758, 76.718521], hint: 'Location at 43.194758, 76.718521', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.161234, 76.543456], hint: 'Location at 43.161234, 76.543456', moduleType: 'dome' },
-  { coordId: uuidv4(), coords: [43.115678, 76.841234], hint: 'Location at 43.115678, 76.841234', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.125678, 76.917895], hint: 'Location at 43.125678, 76.917895', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.194758, 76.748521], hint: 'Location at 43.194758, 76.748521', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.131234, 76.523456], hint: 'Location at 43.131234, 76.523456', moduleType: 'module' },
-  { coordId: uuidv4(), coords: [43.125678, 76.841234], hint: 'Location at 43.125678, 76.841234', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.385678, 76.977895], hint: 'Location at 43.385678, 76.977895', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.684758, 76.738521], hint: 'Location at 43.684758, 76.738521', moduleType: 'trail' },
-  { coordId: uuidv4(), coords: [43.151234, 76.543456], hint: 'Location at 43.151234, 76.543456', moduleType: 'dome' },
-  { coordId: uuidv4(), coords: [43.155678, 76.931234], hint: 'Location at 43.155678, 76.931234', moduleType: 'urt' },
-  { coordId: uuidv4(), coords: [43.285678, 76.997895], hint: 'Location at 43.285678, 76.997895', moduleType: 'urt' },
+  { coordId: uuidv4(), coords: [45.684758, 69.738521], hint: 'Location at 45.684758, 69.738521', productType: 'tent' },
+  { coordId: uuidv4(), coords: [47.684758, 60.738521], hint: 'Location at 47.684758, 60.738521', productType: 'dome' },
+  { coordId: uuidv4(), coords: [47.684758, 79.738521], hint: 'Location at 47.684758, 79.738521', productType: 'urt' },
+  { coordId: uuidv4(), coords: [44.684758, 76.738521], hint: 'Location at 44.684758, 76.738521', productType: 'dome' },
+  { coordId: uuidv4(), coords: [42.684758, 67.738521], hint: 'Location at 42.684758, 67.738521', productType: 'tent' },
+  { coordId: uuidv4(), coords: [51.684758, 71.738521], hint: 'Location at 51.684758, 71.738521', productType: 'tent' },
+  { coordId: uuidv4(), coords: [44.684758, 69.738521], hint: 'Location at 44.684758, 69.738521', productType: 'dome' },
+  { coordId: uuidv4(), coords: [47.684758, 61.738521], hint: 'Location at 47.684758, 61.738521', productType: 'trail' },
+  { coordId: uuidv4(), coords: [48.684758, 79.738521], hint: 'Location at 48.684758, 79.738521', productType: 'house' },
+  { coordId: uuidv4(), coords: [43.684758, 74.738521], hint: 'Location at 43.684758, 74.738521', productType: 'tent' },
+  { coordId: uuidv4(), coords: [45.684758, 76.738521], hint: 'Location at 45.684758, 76.738521', productType: 'house' },
+  { coordId: uuidv4(), coords: [42.684758, 66.738521], hint: 'Location at 42.684758, 66.738521', productType: 'trail' },
+  { coordId: uuidv4(), coords: [50.684758, 72.738521], hint: 'Location at 50.684758, 72.738521', productType: 'house' },
+  { coordId: uuidv4(), coords: [44.684758, 77.738521], hint: 'Location at 44.684758, 77.738521', productType: 'urt' },
+  { coordId: uuidv4(), coords: [42.151234, 75.543456], hint: 'Location at 42.151234, 75.543456', productType: 'house' },
+  { coordId: uuidv4(), coords: [44.255678, 75.997895], hint: 'Location at 44.285678, 75.997895', productType: 'tent' },
+  { coordId: uuidv4(), coords: [43.684758, 75.738521], hint: 'Location at 43.684758, 75.738521', productType: 'tent' },
+  {
+    coordId: uuidv4(),
+    coords: [43.155678, 72.941234],
+    hint: 'Location at 43.155678, 72.941234',
+    productType: 'product',
+  },
+  { coordId: uuidv4(), coords: [43.144758, 76.438521], hint: 'Location at 43.144758, 76.438521', productType: 'trail' },
+  {
+    coordId: uuidv4(),
+    coords: [43.151234, 76.513456],
+    hint: 'Location at 43.151234, 76.513456',
+    productType: 'product',
+  },
+  { coordId: uuidv4(), coords: [43.145678, 76.941234], hint: 'Location at 43.145678, 76.941234', productType: 'dome' },
+  { coordId: uuidv4(), coords: [43.255678, 76.997895], hint: 'Location at 43.255678, 76.997895', productType: 'urt' },
+  { coordId: uuidv4(), coords: [43.194758, 76.718521], hint: 'Location at 43.194758, 76.718521', productType: 'trail' },
+  { coordId: uuidv4(), coords: [43.161234, 76.543456], hint: 'Location at 43.161234, 76.543456', productType: 'dome' },
+  { coordId: uuidv4(), coords: [43.115678, 76.841234], hint: 'Location at 43.115678, 76.841234', productType: 'trail' },
+  { coordId: uuidv4(), coords: [43.125678, 76.917895], hint: 'Location at 43.125678, 76.917895', productType: 'trail' },
+  { coordId: uuidv4(), coords: [43.194758, 76.748521], hint: 'Location at 43.194758, 76.748521', productType: 'trail' },
+  {
+    coordId: uuidv4(),
+    coords: [43.131234, 76.523456],
+    hint: 'Location at 43.131234, 76.523456',
+    productType: 'product',
+  },
+  { coordId: uuidv4(), coords: [43.125678, 76.841234], hint: 'Location at 43.125678, 76.841234', productType: 'trail' },
+  { coordId: uuidv4(), coords: [43.385678, 76.977895], hint: 'Location at 43.385678, 76.977895', productType: 'trail' },
+  { coordId: uuidv4(), coords: [43.684758, 76.738521], hint: 'Location at 43.684758, 76.738521', productType: 'trail' },
+  { coordId: uuidv4(), coords: [43.151234, 76.543456], hint: 'Location at 43.151234, 76.543456', productType: 'dome' },
+  { coordId: uuidv4(), coords: [43.155678, 76.931234], hint: 'Location at 43.155678, 76.931234', productType: 'urt' },
+  { coordId: uuidv4(), coords: [43.285678, 76.997895], hint: 'Location at 43.285678, 76.997895', productType: 'urt' },
 ];
 
 const GLMapForm: React.FC = () => {
@@ -68,7 +83,7 @@ const GLMapForm: React.FC = () => {
   }
 
   function handleCoordinates(value: any) {
-    const filtertedCoordinates: any = coordinatesInitial.filter(coordinate => coordinate.moduleType === value);
+    const filtertedCoordinates: any = coordinatesInitial.filter(coordinate => coordinate.productType === value);
     if (value === 'all') {
       setCoordinates(coordinatesInitial);
     } else {
@@ -106,7 +121,7 @@ const GLMap: React.FC<any> = props => {
         }}
         width={'100%'}
         height={'90%'}
-        modules={['control.ZoomControl', 'control.FullscreenControl', 'geoObject.addon.hint']}
+        products={['control.ZoomControl', 'control.FullscreenControl', 'geoObject.addon.hint']}
       >
         <Clusterer
           options={{
@@ -118,9 +133,9 @@ const GLMap: React.FC<any> = props => {
             <Placemark
               key={coordinate.coordId}
               geometry={coordinate.coords}
-              modules={['geoObject.addon.balloon']}
+              products={['geoObject.addon.balloon']}
               properties={{
-                hintContent: coordinate.hint + ' ' + coordinate.moduleType,
+                hintContent: coordinate.hint + ' ' + coordinate.productType,
                 iconCaption: coordinate.coordId === props.coordId ? coordinate.hint : null,
               }}
               onClick={() => handleLocation(coordinate.hint)}

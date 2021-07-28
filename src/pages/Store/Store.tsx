@@ -13,25 +13,25 @@ import StoreSidebar from './components/StoreSidebar/StoreSidebar';
 const { Content } = Layout;
 
 const Store: React.FC = () => {
-  const { modules } = useTypedSelectorHook(state => state.modules);
+  const { products } = useTypedSelectorHook(state => state.products);
 
-  const { fetchModules } = useActions();
+  const { fetchProducts } = useActions();
 
   useEffect(() => {
-    fetchModules();
+    fetchProducts();
   }, []);
 
-  const modulesList = modules.map(module => {
+  const productsList = products.map(product => {
     return (
       <Col className='gutter-row' span={7} style={{ marginBottom: 20 }}>
         <StoreItem
-          key={module._id}
-          _id={module._id}
-          title={module.title}
-          price={module.price}
-          // TODO На данный момент в бэке у модели module нет свойства rating, сделать!
+          key={product._id}
+          _id={product._id}
+          title={product.title}
+          price={Number(product.price.$numberDecimal)}
+          // TODO На данный момент в бэке у модели product нет свойства rating, сделать!
           rating={5}
-          image={module.image}
+          image={product.image}
         />
       </Col>
     );
@@ -47,11 +47,11 @@ const Store: React.FC = () => {
             <StoreMenu />
 
             <Row justify='space-around' gutter={[16, 16]}>
-              {modulesList}
-              {modulesList}
-              {modulesList}
-              {modulesList}
-              {modulesList}
+              {productsList}
+              {productsList}
+              {productsList}
+              {productsList}
+              {productsList}
             </Row>
             <div className='pagination'>
               <Pagination defaultCurrent={1} total={50} />
