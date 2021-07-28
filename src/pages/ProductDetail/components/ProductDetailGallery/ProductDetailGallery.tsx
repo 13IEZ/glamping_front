@@ -10,9 +10,9 @@ interface IProductDetailGalleryProps {
 }
 
 const ProductDetailGallery: React.FC<IProductDetailGalleryProps> = ({ showModal }) => {
-  const { modules } = useTypedSelectorHook(state => state.modules);
+  const { products } = useTypedSelectorHook(state => state.products);
 
-  const img = modules[1].image[0];
+  const img = products[1].image[0];
 
   return (
     <div className='gallery'>

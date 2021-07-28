@@ -13,13 +13,13 @@ import StoreSidebar from './components/StoreSidebar/StoreSidebar';
 const { Content } = Layout;
 
 const Store: React.FC = () => {
-  const { modules } = useTypedSelectorHook(state => state.modules);
+  const { products } = useTypedSelectorHook(state => state.products);
   const { pages } = useTypedSelectorHook(state => state.pages);
-  const { fetchStore } = useActions();
+  const { fetchProducts } = useActions();
   const { fetchNextPages } = useActions();
 
   useEffect(() => {
-    fetchStore();
+    fetchProducts();
   }, []);
 
   const onChange = (pageNumber: number) => {
@@ -28,17 +28,17 @@ const Store: React.FC = () => {
 
   const totalPages = Number(pages) * 10;
 
-  const modulesList = modules.map(module => {
+  const productsList = products.map(product => {
     return (
       <Col className='gutter-row' span={7} style={{ marginBottom: 20 }}>
         <StoreItem
-          key={module._id}
-          _id={module._id}
-          title={module.title}
-          price={module.price}
+          key={product._id}
+          _id={product._id}
+          title={product.title}
+          price={product.price}
           // TODO На данный момент в бэке у модели module нет свойства rating, сделать!
           rating={5}
-          image={module.image}
+          image={product.image}
         />
       </Col>
     );
@@ -53,11 +53,11 @@ const Store: React.FC = () => {
           <Content>
             <StoreMenu />
             <Row justify='space-around' gutter={[16, 16]}>
-              {modulesList}
-              {modulesList}
-              {modulesList}
-              {modulesList}
-              {modulesList}
+              {productsList}
+              {productsList}
+              {productsList}
+              {productsList}
+              {productsList}
             </Row>
             <div className='pagination'>
               <Pagination total={totalPages} onChange={onChange} />

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import { Card, Divider } from 'antd';
+import { Link } from 'react-router-dom';
 
 import config from '../../../../settings/config';
 
@@ -9,7 +10,9 @@ const { Meta } = Card;
 interface IModuleCardProps {
   _id: string;
   title: string;
-  price: number;
+  price: {
+    $numberDecimal: string;
+  };
   rating: number;
   image: Array<string> | [];
 }
