@@ -7,6 +7,7 @@ import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/local
 import usersReducer from './reducers/usersReducer';
 import productsReducer from './reducers/productsReducer';
 import locationReducer from './reducers/locationsReduser';
+import categoriesReducer from './reducers/categoriesReducer';
 
 declare global {
   interface Window {
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   users: usersReducer,
   products: productsReducer,
   locations: locationReducer,
+  categories: categoriesReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;
