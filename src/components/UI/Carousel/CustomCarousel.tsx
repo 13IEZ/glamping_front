@@ -12,7 +12,7 @@ const CustomCarousel: React.FC = () => {
   console.log('xxx');
   return (
     <section className='carousel'>
-      <Carousel autoplay draggable>
+      <Carousel draggable>
         <div className='contentStyle first-slide'>
           <div className='content-slider'>
             <div className='title-carousel'>GLAMPING</div>
@@ -26,7 +26,7 @@ const CustomCarousel: React.FC = () => {
                 <img className='icon' alt='Not Found' src={track} />
                 <span className='text'>меняй локацию</span>
               </div>
-              <Button className='carousel_button' style={{ background: '#FDD74E', border: '1px solid black' }}>
+              <Button className='carousel_button'>
                 <Link to='/store'>Заказать модуль</Link>
               </Button>
             </div>
@@ -45,7 +45,7 @@ const CustomCarousel: React.FC = () => {
                 <img className='icon' alt='Not Found' src={track} />
                 <span className='text'>оперативное управление</span>
               </div>
-              <Button className='carousel_button' style={{ background: '#FDD74E', border: '1px solid black' }}>
+              <Button className='carousel_button'>
                 <Link to='#'>Сдать участок</Link>
               </Button>
             </div>
@@ -64,7 +64,7 @@ const CustomCarousel: React.FC = () => {
                 <img className='icon' alt='Not Found' src={track} />
                 <span className='text'>гламурный кемпинг</span>
               </div>
-              <Button className='carousel_button' style={{ background: '#FDD74E', border: '1px solid black' }}>
+              <Button className='carousel_button'>
                 <Link to='#'>Забронировать</Link>
               </Button>
             </div>
