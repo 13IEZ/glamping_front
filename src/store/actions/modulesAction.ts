@@ -43,3 +43,18 @@ export const fetchLastFourModules = (sort: string, order: string): any => {
     }
   };
 };
+
+export const fetchModule = (id: string): any => {
+  return async (dispatch: Dispatch<ModulesAction>) => {
+    try {
+      const response = await ax.get(`modules/${id}`);
+      dispatch({ type: ModulesActionTypes.FETCH_MODULE_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: ModulesActionTypes.FETCH_MODULE_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};

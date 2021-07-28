@@ -4,7 +4,7 @@ import { Col, Modal, Row } from 'antd';
 import ProductDetailDescription from './components/ProductDetailDescription/ProductDetailDescription';
 import ProductDetailGallery from './components/ProductDetailGallery/ProductDetailGallery';
 import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
-
+import ProductDetailTab from './components/ProductDetailTab/ProductDetailTab';
 import './ProductDetail.scss';
 
 const ProductDetail: React.FC = () => {
@@ -38,7 +38,7 @@ const ProductDetail: React.FC = () => {
       </Row>
       <Row className='h-medium mt-2'>
         <Col span={24} className='border'>
-          Место для отзывов
+          <ProductDetailTab />
         </Col>
       </Row>
     </div>
