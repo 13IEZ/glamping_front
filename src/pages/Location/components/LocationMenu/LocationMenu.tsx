@@ -8,7 +8,7 @@ import houseIcon from '../../../../assets/icons/house.png';
 import geoIcon from '../../../../assets/icons/geo.png';
 import trailIcon from '../../../../assets/icons/trail.png';
 import avtoIcon from '../../../../assets/icons/avto.png';
-import moduleIcon from '../../../../assets/icons/module.png';
+import productIcon from '../../../../assets/icons/product.png';
 import otherIcon from '../../../../assets/icons/other.png';
 import allIcon from '../../../../assets/icons/all.png';
 
@@ -47,9 +47,9 @@ const LocationMenu: React.FC<any> = props => {
               {' '}
               <img src={trailIcon} /> Трейлеры
             </Menu.Item>
-            <Menu.Item key='module'>
+            <Menu.Item key='product'>
               {' '}
-              <img src={moduleIcon} /> Модули
+              <img src={productIcon} /> Модули
             </Menu.Item>
             <Menu.Item key='avto'>
               {' '}

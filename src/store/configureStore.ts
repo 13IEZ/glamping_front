@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
 import usersReducer from './reducers/usersReducer';
-import modulesReducer from './reducers/modulesReducer';
+import productsReducer from './reducers/productsReducer';
 import locationReducer from './reducers/locationsReduser';
 
 declare global {
@@ -19,7 +19,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   users: usersReducer,
-  modules: modulesReducer,
+  products: productsReducer,
   locations: locationReducer,
   router: connectRouter(history),
 });

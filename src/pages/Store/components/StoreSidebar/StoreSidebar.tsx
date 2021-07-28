@@ -7,15 +7,15 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const StoreSidebar: React.FC = () => {
-  const { fetchModules } = useActions();
+  const { fetchProducts } = useActions();
   return (
     <Sider width={180} className='site-layout-background'>
       <Menu mode='inline' style={{ height: '100%', borderRight: 0 }}>
         <SubMenu key='sub1' title='Цена'>
-          <Menu.Item key={uuidv4()} onClick={() => fetchModules('price', 'asc')}>
+          <Menu.Item key={uuidv4()} onClick={() => fetchProducts('price', 'asc')}>
             По возрастанию
           </Menu.Item>
-          <Menu.Item key={uuidv4()} onClick={() => fetchModules('price', 'desc')}>
+          <Menu.Item key={uuidv4()} onClick={() => fetchProducts('price', 'desc')}>
             По убыванию
           </Menu.Item>
         </SubMenu>
