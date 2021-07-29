@@ -5,8 +5,12 @@ import thunkMiddleware from 'redux-thunk';
 
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
 import locationReducer from './reducers/locationsReduser';
+
+import categoriesReducer from './reducers/categoriesReducer';
+
 import productsReducer from './reducers/productsReducer';
 import usersReducer from './reducers/usersReducer';
+
 
 declare global {
   interface Window {
@@ -22,6 +26,7 @@ const rootReducer = combineReducers({
   pages: productsReducer,
   products: productsReducer,
   locations: locationReducer,
+  categories: categoriesReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;
