@@ -8,7 +8,7 @@ import * as CategoriesActionCreators from '../store/actions/categoriesAction';
 import * as ProductActionCreators from '../store/actions/productsAction';
 import * as StoreActionCreator from '../store/actions/storeAction';
 import * as UserActionCreators from '../store/actions/usersAction';
-
+import * as PichActionCreators from '../store/actions/pichesAction';
 
 const ActionCreators = {
   ...UserActionCreators,
@@ -19,6 +19,7 @@ const ActionCreators = {
 
   ...StoreActionCreator,
 
+  ...PichActionCreators,
 };
 
 export const useActions = (): any => {
