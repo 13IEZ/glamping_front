@@ -36,6 +36,7 @@ const NewProduct: React.FC = () => {
   const { signUpUser } = useActions();
 
   const submitFormHandler = () => {
+    console.log(state);
     signUpUser(state);
   };
 
@@ -111,10 +112,10 @@ const NewProduct: React.FC = () => {
         rules={[{ required: true, message: 'Укажите сезонность!' }]}
       >
         <Select placeholder='Выберите сезонность'>
-          <Option onChange={inputChangeHandler} value='Summer'>
+          <Option onChange={inputChangeHandler} value='summer'>
             Лето
           </Option>
-          <Option onChange={inputChangeHandler} value='All'>
+          <Option onChange={inputChangeHandler} value='all'>
             Всесезонный
           </Option>
         </Select>
