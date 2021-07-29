@@ -1,11 +1,13 @@
+import './ProductDetail.scss';
+
 import React, { useState } from 'react';
+
 import { Col, Modal, Row } from 'antd';
 
+import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 import ProductDetailDescription from './components/ProductDetailDescription/ProductDetailDescription';
 import ProductDetailGallery from './components/ProductDetailGallery/ProductDetailGallery';
-import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 import ProductDetailTab from './components/ProductDetailTab/ProductDetailTab';
-import './ProductDetail.scss';
 
 const ProductDetail: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -27,7 +29,6 @@ const ProductDetail: React.FC = () => {
       <Modal width={1000} title='Carousel' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <CustomCarousel />
       </Modal>
-
       <Row className='h-medium'>
         <Col span={16} className='border'>
           <ProductDetailGallery showModal={showModal} />

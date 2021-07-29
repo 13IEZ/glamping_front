@@ -9,9 +9,7 @@ export interface IProduct {
   image: Array<string>;
   roominess: number;
   description: string;
-  price: {
-    $numberDecimal: string;
-  };
+  price: string;
   published: boolean;
   factory: string;
 }

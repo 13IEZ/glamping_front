@@ -1,7 +1,7 @@
 @import '../../../../assets/mixins.scss';
 
 .about_app {
-
+  background-color: #F9FAF7;
   @include respond(big-tablets) {
     padding: 10px;
   }
@@ -11,22 +11,6 @@
   text-align: center
 }
 
-.test1 {
-  color: #eee;
-  background-image: url("https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png");
-  height: 300px;
-}
-
 .content_text {
-  margin-top: 80px;
-}
-
-.card {
-  background-image: url("https://глэмпинг.рф/blog/glamping-dobroe-1.jpg");
-}
-
-.test2 {
-  background-color: transparent;
-  color: #eee;
-  height: 300px;
+  font-size: 15px;
 }
