@@ -1,11 +1,11 @@
 @import '../../../../assets/mixins.scss';
 
-.module {
-  background: #e5e5e5;
+.store-mini {
+  background: #F9FAF7;
 }
 
 .module-card {
-
+  justify-content: space-between;
   @include respond(big-tablets) {
     max-width: 720px;
     flex-direction: column;  
@@ -27,29 +27,24 @@
   text-transform: uppercase;
   line-height: 32px;
   color: #2f2d25;
-  padding-left: 20px;
   padding-top: 70px;
   margin-bottom: 30px;
+  text-align: start;
 }
 
 .module__link {
   color: #69A042;
-  padding-left: 25px;
+  display: inline-block;
   margin-top: 5px;
   font-size: 18px;
-  position: relative;
+  border-bottom: 2px solid #69a042;
+  &:hover{
+    color: #416129;
+    border-bottom: 2px solid #416129;
+    transition: all 0.2s;
+  }
 }
 
-.module__link::after {
-  content: '';
-  position: absolute;
-  color: #69a042;
-  background: #69a042;
-  height: 1px;
-  width: 117px;
-  top: 33px;
-  left: 24px;
-}
 
 .ant-col-6 {
   display: flex;

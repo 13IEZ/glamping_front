@@ -66,12 +66,10 @@
 }
 
 .text-carousel {
-  font-family: 'Roboto', sans-serif;
   width: 400px;
   height: 86px;
   left: 275px;
   top: 262px;
-  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   font-size: 20px;
@@ -106,6 +104,14 @@
   }
 }
 
-.carausel_button {
+.carousel_button {
   background-color: #FDD74E;
+  border: 2px solid #FDD74E;
+  font-size: 24px;
+  height: auto;
+  &:hover {
+    border: 2px solid #FDD74E;
+    color: #000;
+    background-color: #fff;
+  }
 }

@@ -2,7 +2,7 @@ import './LocationMini.scss';
 
 import React, { useEffect } from 'react';
 
-import { Button, Col, Divider, Row } from 'antd';
+import { Button, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { useActions } from '../../../../hooks/useAction';
@@ -37,29 +37,28 @@ const LocationMini: React.FC = () => {
   if (noLocations) return <></>;
 
   return (
-    <div className='location container'>
-      <h3 className='title'>Локации</h3>
-      <div className='location-header'>
-        <div className='location-header-row'>
-          <Button className='location-header__button location-header__button_dark'>Участки</Button>
-          <Button className='location-header__button location-header__button_light'>Кемпинги</Button>
-          <Divider className='location-header__divider' type='vertical' />
-          <Link to='/location'>
-            <p className='location-header__link'>Показать на карте</p>
-          </Link>
+    <section className='location'>
+      <div className='container'>
+        <h3 className='title'>Локации</h3>
+        <div className='location-header'>
+          <div className='location-header-row'>
+            <Link to='/location'>
+              <p className='location-header__link'>Показать на карте</p>
+            </Link>
+          </div>
+          <div className='location-header-row'>
+            <p className='location-header__text'>Есть земля? Сдавай и зарабатывай</p>
+            <Button className='location-header__button location-header__button_transparent'>Сдать</Button>
+          </div>
         </div>
-        <div className='location-header-row'>
-          <p className='location-header__text'>Есть земля? Сдавай и зарабатывай</p>
-          <Button className='location-header__button location-header__button_transparent'>Сдать</Button>
-        </div>
+        <Row className='location-card' justify='space-around' gutter={[2, 2]}>
+          {lastFourLocationsList}
+        </Row>
+        <Link to='/location'>
+          <p className='location__link'>Показать все</p>
+        </Link>
       </div>
-      <Row className='location-card' justify='space-around' gutter={[2, 2]}>
-        {lastFourLocationsList}
-      </Row>
-      <Link to='/location'>
-        <p className='location__link'>Показать все</p>
-      </Link>
-    </div>
+    </section>
   );
 };
 

@@ -36,15 +36,15 @@ const StoreMini: React.FC = () => {
   if (noProducts) return <></>;
 
   return (
-    <div className='container product'>
-      <h3 className='title'>Магазин</h3>
-      <Row className='product-card' justify='space-around' gutter={[2, 2]}>
-        {lastFourProductsList}
-      </Row>
-      <Link to='/store'>
-        <p className='product__link'>Показать все</p>
-      </Link>
-    </div>
+    <section className='store-mini'>
+      <div className='container'>
+        <h3 className='title'>Магазин</h3>
+        <Row className='module-card'>{lastFourProductsList}</Row>
+        <Link to='/store'>
+          <p className='module__link'>Показать все</p>
+        </Link>
+      </div>
+    </section>
   );
 };
 

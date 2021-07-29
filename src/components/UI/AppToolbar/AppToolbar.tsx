@@ -5,7 +5,7 @@ import React from 'react';
 import { Divider } from 'antd';
 import { Link } from 'react-router-dom';
 
-import logo from '../../../assets/logo.png';
+import logo from '../../../assets/icons/logo.svg';
 import location_ic from '../../../assets/icons/location.svg';
 import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import AnonymousMenu from './Menus/AnonymousMenu';
