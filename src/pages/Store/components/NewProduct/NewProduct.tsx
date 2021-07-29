@@ -131,7 +131,7 @@ const NewProduct: React.FC = () => {
           },
         ]}
       >
-        <Input placeholder='Укажите вместимость в цифрах' onChange={inputChangeHandler} />
+        <InputNumber style={{ width: '100%' }} placeholder='Укажите вместимость в цифрах' />
       </Form.Item>
       <Form.Item {...formItemLayout} name='date' label='Дата изготовления' {...config}>
         <DatePicker />
