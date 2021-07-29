@@ -1,15 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Button } from 'antd';
-import config from '../../../../../settings/config';
 import './StoreMiniItem.scss';
+
+import React from 'react';
+
+import { Button, Card } from 'antd';
+import { Link } from 'react-router-dom';
+
+import config from '../../../../../settings/config';
 
 const { Meta } = Card;
 
 interface IProductCardProps {
   _id: string;
   title: string;
-  price: number;
+  price: {
+    $numberDecimal: string;
+  };
   image: Array<string> | [];
 }
 

@@ -6,7 +6,6 @@ export interface IProduct {
   season: string;
   preview: string;
   rating: number;
-
   image: Array<string>;
   roominess: number;
   description: string;
@@ -17,10 +16,20 @@ export interface IProduct {
   factory: string;
 }
 
+export interface Istore {
+  items: number;
+  pages: number;
+  page: number;
+  pageSize: number;
+  products: Array<IProduct>;
+}
+
 export interface IProductsState {
+  pages: Istore | {};
   products: Array<IProduct> | [];
   lastFourProducts: Array<IProduct> | [];
   error: null | string;
+  currentPage: number;
 }
 
 export enum ProductsActionTypes {
@@ -28,6 +37,18 @@ export enum ProductsActionTypes {
   FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE',
   FETCH_LAST_FOUR_PRODUCTS_SUCCESS = 'FETCH_LAST_FOUR_PRODUCTS_SUCCESS',
   FETCH_LAST_FOUR_PRODUCTS_FAILURE = 'FETCH_LAST_OUR_PRODUCTS_FAILURE',
+  FETCH_STORE_PAGES = 'FETCH_STORE_PAGES',
+  FETCH_STORE_PAGES_ERROR = 'FETCH_STORE_PAGES_ERROR',
+}
+
+interface IFetchStorePagesAction {
+  type: ProductsActionTypes.FETCH_STORE_PAGES;
+  payload: Istore;
+}
+
+interface IFetchStorePagesErrorAction {
+  type: ProductsActionTypes.FETCH_STORE_PAGES_ERROR;
+  payload: string;
 }
 
 interface IFetchProductsSuccessAction {
@@ -51,6 +72,8 @@ interface IFetchLastFourProductsFailureAction {
 }
 
 export type ProductsAction =
+  | IFetchStorePagesAction
+  | IFetchStorePagesErrorAction
   | IFetchProductsSuccessAction
   | IFetchProductsFailureAction
   | IFetchLastFourProductsSuccessAction

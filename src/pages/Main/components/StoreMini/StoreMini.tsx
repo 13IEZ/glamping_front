@@ -24,7 +24,7 @@ const StoreMini: React.FC = () => {
           key={product._id}
           _id={product._id}
           title={product.title}
-          price={Number(product.price.$numberDecimal)}
+          price={product.price}
           image={product.image}
         />
       </Col>
