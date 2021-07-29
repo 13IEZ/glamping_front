@@ -10,7 +10,7 @@ import categoriesReducer from './reducers/categoriesReducer';
 
 import productsReducer from './reducers/productsReducer';
 import usersReducer from './reducers/usersReducer';
-
+import pichesReducer from './reducers/pichesReducer';
 
 declare global {
   interface Window {
@@ -27,6 +27,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   locations: locationReducer,
   categories: categoriesReducer,
+  piches: pichesReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;

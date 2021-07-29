@@ -5,12 +5,14 @@ import * as CategoriesActionCreators from '../store/actions/categoriesAction';
 import * as LocationsActionCreators from '../store/actions/locationsAction';
 import * as ProductActionCreators from '../store/actions/productsAction';
 import * as UserActionCreators from '../store/actions/usersAction';
+import * as PichActionCreators from '../store/actions/pichesAction';
 
 const ActionCreators = {
   ...UserActionCreators,
   ...ProductActionCreators,
   ...LocationsActionCreators,
   ...CategoriesActionCreators,
+  ...PichActionCreators,
 };
 
 export const useActions = (): any => {

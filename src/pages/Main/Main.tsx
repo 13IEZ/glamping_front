@@ -7,12 +7,14 @@ import GlampingPros from './components/GlampingPros/GlampingPros';
 import LocationMini from './components/LocationMini/LocationMini';
 import Presentation from './components/Presentation/Presentation';
 import StoreMini from './components/StoreMini/StoreMini';
+import GlampingMini from './components/GlampingMini/GlampingMini';
 
 const Main: React.FC = () => {
   return (
     <>
       <CustomCarousel />
       <AboutApp />
+      <GlampingMini />
       <StoreMini />
       <LocationMini />
       <Presentation />
