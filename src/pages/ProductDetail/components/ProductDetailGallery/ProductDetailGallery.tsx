@@ -1,8 +1,9 @@
+import './ProductDetailGallery.scss';
+
 import React from 'react';
 
-import config from '../../../../settings/config';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-import './ProductDetailGallery.scss';
+import config from '../../../../settings/config';
 
 interface IProductDetailGalleryProps {
   showModal: () => void;

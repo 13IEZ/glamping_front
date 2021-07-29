@@ -1,13 +1,16 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
-import usersReducer from './reducers/usersReducer';
-import productsReducer from './reducers/productsReducer';
 import locationReducer from './reducers/locationsReduser';
+
 import categoriesReducer from './reducers/categoriesReducer';
+
+import productsReducer from './reducers/productsReducer';
+import usersReducer from './reducers/usersReducer';
+
 
 declare global {
   interface Window {
@@ -20,6 +23,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   users: usersReducer,
+  pages: productsReducer,
   products: productsReducer,
   locations: locationReducer,
   categories: categoriesReducer,
