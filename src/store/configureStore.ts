@@ -4,10 +4,9 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
-import locationReducer from './reducers/locationsReduser';
-
 import categoriesReducer from './reducers/categoriesReducer';
-
+import locationReducer from './reducers/locationsReduser';
+import pichesReducer from './reducers/pichesReducer';
 import productsReducer from './reducers/productsReducer';
 import usersReducer from './reducers/usersReducer';
 
@@ -26,6 +25,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   locations: locationReducer,
   categories: categoriesReducer,
+  piches: pichesReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;

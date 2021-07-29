@@ -1,0 +1,148 @@
+@import '../../../../assets/mixins.scss';
+
+.glamping {
+  background: #F9FAF7;
+}
+
+.glamping-card {
+
+  @include respond(big-tablets) {
+    max-width: 720px;
+    flex-direction: column;
+    padding: 40px 10px;
+  }
+
+  @include respond(small-tablets) {
+    max-width: 650px;
+  }
+
+  @include respond(small-phone) {
+    max-width: 330px;
+  }
+}
+
+.glamping-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 34px 20px;
+
+  @include respond(big-tablets) {
+    max-width: 720px;
+    flex-direction: column;
+    padding: 40px 10px;
+  }
+
+  @include respond(small-tablets) {
+    max-width: 650px;
+    flex-direction: column;
+  }
+
+  @include respond(small-phone) {
+    max-width: 330px;
+    flex-direction: column;
+  }
+}
+
+.glamping-header-row {
+  display: flex;
+
+  @include respond(big-tablets) {
+    max-width: 720px;
+    padding: 10px 10px;
+  }
+
+  @include respond(small-tablets) {
+    max-width: 650px;
+    flex-wrap: wrap;
+  }
+}
+
+.title {
+  font-weight: 400;
+  font-size: 36px;
+  text-transform: uppercase;
+  line-height: 32px;
+  color: #2f2d25;
+  padding-top: 35px;
+}
+
+.glamping-header__button_dark {
+  background-color: #69a042;
+  border-color: #69a042;
+  margin-right: 15px;
+  max-width: 106px;
+}
+
+.glamping-header__button_light {
+  background-color: #c4e0a6;
+  margin-right: 30px;
+  max-width: 120px;
+}
+
+.glamping-header__divider {
+  height: 39px;
+  border: 3px solid #2f2d25;
+  margin-right: 23px;
+}
+
+.glamping-header__link {
+  color: #69A042;
+  position: relative;
+  padding-left: 25px;
+  margin-top: 5px;
+  font-size: 18px;
+  border-bottom: 2px solid #F9FAF7;
+  &:hover {
+    border-bottom: 2px solid #69a042;
+    transition: all 0.2s;
+  }
+}
+
+.glamping-header__link::before {
+  content: '';
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: 0;
+  left: 0;
+  background-image: url('../../../../assets/location.png');
+}
+
+.glamping__link {
+  color: #69A042;
+  margin: 5px 0 50px 0;
+  font-size: 18px;
+  position: relative;
+  border-bottom: 2px solid #69a042;
+  display: inline-block;
+  &:hover{
+    color: #416129;
+    border-bottom: 2px solid #416129;
+    transition: all 0.2s;
+  }
+}
+
+
+.ant-col-6 {
+  display: flex;
+  flex-basis: 23%;
+  margin: 10px;
+  justify-content: center;
+
+  @include respond(big-tablets) {
+    max-width: 50%;
+    margin: 0 20px;
+  }
+
+  @include respond(small-tablets) {
+    max-width: 100%;
+    margin: 0 20px;
+  }
+}
+
+.ant-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

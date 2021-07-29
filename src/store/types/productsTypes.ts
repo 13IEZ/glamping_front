@@ -9,9 +9,7 @@ export interface IProduct {
   image: Array<string>;
   roominess: number;
   description: string;
-  price: {
-    $numberDecimal: string;
-  };
+  price: string;
   published: boolean;
   factory: string;
 }
@@ -36,7 +34,7 @@ export enum ProductsActionTypes {
   FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
   FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE',
   FETCH_LAST_FOUR_PRODUCTS_SUCCESS = 'FETCH_LAST_FOUR_PRODUCTS_SUCCESS',
-  FETCH_LAST_FOUR_PRODUCTS_FAILURE = 'FETCH_LAST_OUR_PRODUCTS_FAILURE',
+  FETCH_LAST_FOUR_PRODUCTS_FAILURE = 'FETCH_LAST_FOUR_PRODUCTS_FAILURE',
   FETCH_STORE_PAGES = 'FETCH_STORE_PAGES',
   FETCH_STORE_PAGES_ERROR = 'FETCH_STORE_PAGES_ERROR',
 }
