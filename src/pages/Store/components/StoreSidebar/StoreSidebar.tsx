@@ -1,21 +1,23 @@
 import React from 'react';
+
 import { Layout, Menu } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
+
 import { useActions } from '../../../../hooks/useAction';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const StoreSidebar: React.FC = () => {
-  const { fetchProducts } = useActions();
+  const { fetchModulesCat } = useActions();
   return (
     <Sider width={180} className='site-layout-background'>
       <Menu mode='inline' style={{ height: '100%', borderRight: 0 }}>
         <SubMenu key='sub1' title='Цена'>
-          <Menu.Item key={uuidv4()} onClick={() => fetchProducts('price', 'asc')}>
+          <Menu.Item key={uuidv4()} onClick={() => fetchModulesCat('price', 'asc')}>
             По возрастанию
           </Menu.Item>
-          <Menu.Item key={uuidv4()} onClick={() => fetchProducts('price', 'desc')}>
+          <Menu.Item key={uuidv4()} onClick={() => fetchModulesCat('price', 'desc')}>
             По убыванию
           </Menu.Item>
         </SubMenu>

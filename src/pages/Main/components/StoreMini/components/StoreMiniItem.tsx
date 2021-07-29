@@ -12,9 +12,7 @@ const { Meta } = Card;
 interface IProductCardProps {
   _id: string;
   title: string;
-  price: {
-    $numberDecimal: string;
-  };
+  price: string;
   image: Array<string> | [];
 }
 
