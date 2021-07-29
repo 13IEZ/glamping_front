@@ -1,15 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Button } from 'antd';
-import config from '../../../../../settings/config';
 import './StoreMiniItem.scss';
+
+import React from 'react';
+
+import { Button, Card } from 'antd';
+import { Link } from 'react-router-dom';
+
+import config from '../../../../../settings/config';
 
 const { Meta } = Card;
 
 interface IProductCardProps {
   _id: string;
   title: string;
-  price: number;
+  price: {
+    $numberDecimal: string;
+  };
   image: Array<string> | [];
 }
 
@@ -21,7 +26,7 @@ const StoreMiniItem: React.FC<IProductCardProps> = ({ title, price, image, _id }
 
   return (
     <Link to={`/store/${_id}`}>
-      <Card style={{ width: 270 }} cover={<img alt='product' src={cardImage} style={{ height: 200, width: 270 }} />}>
+      <Card className='item__card' cover={<img alt='Not found' src={cardImage} className='item__card-img' />}>
         <Meta style={{ marginBottom: 22, marginTop: 7, fontSize: 24, textAlign: 'center' }} title={title} />
         <p className='item__price'>от {price} ₸</p>
         <Button className='item__button' type='primary' onClick={clickHandler}>

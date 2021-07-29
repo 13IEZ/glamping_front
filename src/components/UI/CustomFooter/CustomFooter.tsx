@@ -17,17 +17,17 @@ const CustomFooter: React.FC = () => {
           <Col className='footer-container__item'>
             <List split={false}>
               <List.Item>
-                <Link to='/investor' className='footer-container__text'>
+                <Link to='/investor' className='footer-container__text footer__hover'>
                   Модули
                 </Link>
               </List.Item>
               <List.Item>
-                <Link to='/tourists' className='footer-container__text'>
+                <Link to='/tourists' className='footer-container__text footer__hover'>
                   Участки
                 </Link>
               </List.Item>
               <List.Item>
-                <Link to='/landlords' className='footer-container__text'>
+                <Link to='/landlords' className='footer-container__text footer__hover'>
                   Кемпинги
                 </Link>
               </List.Item>
@@ -51,12 +51,12 @@ const CustomFooter: React.FC = () => {
             </div>
             <List split={false} className='constant-list'>
               <List.Item>
-                <a href='#' className='footer-container__text footer-container__text_tel'>
+                <a href='#' className='footer-container__text footer-container__text_tel footer__hover'>
                   +7 (707) 811 93 18
                 </a>
               </List.Item>
               <List.Item>
-                <a href='#' className='footer-container__text footer-container__text_addr'>
+                <a href='#' className='footer-container__text footer-container__text_addr footer__hover'>
                   РК, г. Алматы, проспект Жибек Жолы, 135/10А, офис 514
                 </a>
               </List.Item>

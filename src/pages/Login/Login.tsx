@@ -2,7 +2,7 @@ import './Login.scss';
 
 import React, { useState } from 'react';
 
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
@@ -53,11 +53,6 @@ const Login: React.FC = () => {
             onChange={inputChangeHandler}
             placeholder='Введите пароль'
           />
-        </Form.Item>
-        <Form.Item>
-          <Form.Item name='remember' valuePropName='checked' noStyle>
-            <Checkbox>Запомнить меня</Checkbox>
-          </Form.Item>
         </Form.Item>
         <Form.Item>
           <Button type='primary' htmlType='submit' className='login-form-button'>

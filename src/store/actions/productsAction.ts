@@ -24,6 +24,21 @@ export const fetchProducts = (sort: string, order: string): any => {
   };
 };
 
+export const fetchProductsByCategory = (id: string): any => {
+  return async (dispatch: Dispatch<ProductsAction>) => {
+    try {
+      const response = await ax.get('products/category/' + id);
+      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
 export const fetchLastFourProducts = (sort: string, order: string): any => {
   return async (dispatch: Dispatch<ProductsAction>) => {
     try {

@@ -9,6 +9,19 @@
   margin-bottom: 20px;
 }
 
+.item__card {
+  width: 270px;
+  transition: all 0.2s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+ &-img {
+   height: 200px;
+   width: 270px
+ }
+
+}
+
 .item__button {
   font-weight: 500;
   font-size: 20px;
@@ -19,6 +32,12 @@
   outline: none;
   padding: 0 25px;
   margin-bottom: 25px;
+  &:hover{
+    background-color: #fff;
+    border: 2px solid #FDD74E;
+    color: #000;
+    transition: all 0.2s;
+  }
 }
 
 .ant-card-meta-title {

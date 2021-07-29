@@ -49,4 +49,13 @@
   font-size: 24px;
   display: block;
   padding-right: 30px;
+  &:hover{
+    color: #69a042;
+  }
+}
+
+.footer__hover {
+  &:hover{
+    color: #69a042;
+  }
 }
