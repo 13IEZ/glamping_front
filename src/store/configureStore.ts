@@ -4,13 +4,11 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
-import locationReducer from './reducers/locationsReduser';
-
 import categoriesReducer from './reducers/categoriesReducer';
-
+import locationReducer from './reducers/locationsReduser';
+import pichesReducer from './reducers/pichesReducer';
 import productsReducer from './reducers/productsReducer';
 import usersReducer from './reducers/usersReducer';
-import pichesReducer from './reducers/pichesReducer';
 
 declare global {
   interface Window {

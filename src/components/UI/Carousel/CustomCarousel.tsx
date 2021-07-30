@@ -17,17 +17,17 @@ const CustomCarousel: React.FC = () => {
           <div className='content-slider'>
             <div className='title-carousel'>GLAMPING</div>
             <div className='text-carousel'>
-              Закажи <span className='yellowText'>glam-модуль</span> и остановись в самом красивом месте Казахстана
+              Глэмпинг – это отдых на природе с пометкой "люкс"!
               <div className='icon-text'>
                 <img className='icon' alt='Not Found' src={money} />
-                <span className='text'>отдыхай или сдавай</span>
+                <span className='text'>особый формат отдыха</span>
               </div>
               <div className='icon-text'>
                 <img className='icon' alt='Not Found' src={track} />
-                <span className='text'>меняй локацию</span>
+                <span className='text'>гламурный кемпинг</span>
               </div>
               <Button className='carousel_button'>
-                <Link to='/store'>Заказать модуль</Link>
+                <Link to='#'>Забронировать</Link>
               </Button>
             </div>
           </div>
@@ -55,17 +55,17 @@ const CustomCarousel: React.FC = () => {
           <div className='content-slider'>
             <div className='title-carousel'>GLAMPING</div>
             <div className='text-carousel'>
-              Глэмпинг – это отдых на природе с пометкой "люкс"!
+              Закажи <span className='yellowText'>glam-модуль</span> и остановись в самом красивом месте Казахстана
               <div className='icon-text'>
                 <img className='icon' alt='Not Found' src={money} />
-                <span className='text'>особый формат отдыха</span>
+                <span className='text'>отдыхай или сдавай</span>
               </div>
               <div className='icon-text'>
                 <img className='icon' alt='Not Found' src={track} />
-                <span className='text'>гламурный кемпинг</span>
+                <span className='text'>меняй локацию</span>
               </div>
               <Button className='carousel_button'>
-                <Link to='#'>Забронировать</Link>
+                <Link to='/store'>Заказать модуль</Link>
               </Button>
             </div>
           </div>
