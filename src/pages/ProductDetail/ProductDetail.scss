@@ -1,18 +1,17 @@
-//.ProductDetail {
-//  width: 1240px;
-//  margin: 0 auto;
-//  padding: 0 20px;
-
   .border {
     border: 1px solid black;
   }
 
-  .mt-2 {
-    margin-top: 40px;
+  .tabs {
+    height: 30%;
+    padding: 10px;
   }
 
   .h-medium {
-    height: 480px;
+    height: 400px;
   }
-//}
+
+  .ant-tabs-content-holder {
+    padding-left: 15px;
+  }
 
