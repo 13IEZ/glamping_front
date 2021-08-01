@@ -15,7 +15,7 @@ const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
 
   return (
-    <header className='Header container'>
+    <header id='header' className='Header container'>
       <div className='Logo'>
         <Link to='/'>
           <img src={logo} alt='Logo' />

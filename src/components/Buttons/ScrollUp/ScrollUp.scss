@@ -1,0 +1,15 @@
+
+.ant-anchor-ink {
+  display: none;
+}
+
+.Scroll-up {
+  position: fixed;
+  right: 13%;
+  z-index: 9999;
+  bottom: 15%;
+  transition: all 0.2s;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

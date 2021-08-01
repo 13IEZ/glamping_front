@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 const { Title } = Typography;
 const AboutApp: React.FC = () => {
   return (
-    <section className='about_app container'>
-      <div>
+    <section className='about_app'>
+      <div className='container'>
         <Row>
           <Col className='about_app title' span={24}>
             <Title level={3}>Добро пожаловать на Glamping.kz!</Title>
