@@ -17,8 +17,6 @@ const GlampingMini: React.FC = () => {
     fetchLastFourPiches();
   }, []);
 
-  console.log(lastFourPiches);
-
   const lastFourPichesList = lastFourPiches.map(pich => {
     return (
       <Col span={6} style={{ marginBottom: 20 }}>
