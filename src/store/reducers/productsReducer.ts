@@ -5,6 +5,7 @@ const initialState: IProductsState = {
   pages: '',
   currentPage: 0,
   lastFourProducts: [],
+  currentProduct: {},
   error: null,
 };
 
@@ -21,6 +22,10 @@ const productsReducer = (state = initialState, action: ProductsAction): IProduct
     case ProductsActionTypes.FETCH_LAST_FOUR_PRODUCTS_SUCCESS:
       return { ...state, lastFourProducts: action.payload };
     case ProductsActionTypes.FETCH_LAST_FOUR_PRODUCTS_FAILURE:
+      return { ...state, error: action.payload };
+    case ProductsActionTypes.FETCH_CURRENT_PRODUCT_SUCCESS:
+      return { ...state, currentProduct: action.payload };
+    case ProductsActionTypes.FETCH_CURRENT_PRODUCT_FAILURE:
       return { ...state, error: action.payload };
     default:
       return state;

@@ -86,3 +86,23 @@ export const fetchNextPages = (currentPage: number) => {
     }
   };
 };
+
+export const fetchCurrentProduct = (id: string): any => {
+  return async (dispatch: Dispatch<ProductsAction>) => {
+    try {
+      const response = await ax.get(`products/${id}`);
+      dispatch({ type: ProductsActionTypes.FETCH_CURRENT_PRODUCT_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: ProductsActionTypes.FETCH_CURRENT_PRODUCT_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+      dispatch({ type: ProductsActionTypes.FETCH_STORE_PAGES_ERROR, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};

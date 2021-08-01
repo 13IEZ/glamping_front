@@ -28,6 +28,7 @@ export interface IProductsState {
   lastFourProducts: Array<IProduct> | [];
   error: null | string;
   currentPage: number;
+  currentProduct: Partial<IProduct>;
 }
 
 export enum ProductsActionTypes {
@@ -37,6 +38,8 @@ export enum ProductsActionTypes {
   FETCH_LAST_FOUR_PRODUCTS_FAILURE = 'FETCH_LAST_FOUR_PRODUCTS_FAILURE',
   FETCH_STORE_PAGES = 'FETCH_STORE_PAGES',
   FETCH_STORE_PAGES_ERROR = 'FETCH_STORE_PAGES_ERROR',
+  FETCH_CURRENT_PRODUCT_SUCCESS = 'FETCH_CURRENT_PRODUCT_SUCCESS',
+  FETCH_CURRENT_PRODUCT_FAILURE = 'FETCH_CURRENT_PRODUCT_FAILURE',
 }
 
 interface IFetchStorePagesAction {
@@ -69,10 +72,21 @@ interface IFetchLastFourProductsFailureAction {
   payload: string;
 }
 
+interface IFetchCurrentProductSuccessAction {
+  type: ProductsActionTypes.FETCH_CURRENT_PRODUCT_SUCCESS;
+  payload: IProduct;
+}
+
+interface IFetchCurrentProductFailureAction {
+  type: ProductsActionTypes.FETCH_CURRENT_PRODUCT_FAILURE;
+  payload: string;
+}
 export type ProductsAction =
   | IFetchStorePagesAction
   | IFetchStorePagesErrorAction
   | IFetchProductsSuccessAction
   | IFetchProductsFailureAction
   | IFetchLastFourProductsSuccessAction
-  | IFetchLastFourProductsFailureAction;
+  | IFetchLastFourProductsFailureAction
+  | IFetchCurrentProductSuccessAction
+  | IFetchCurrentProductFailureAction;
