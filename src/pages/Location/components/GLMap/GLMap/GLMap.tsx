@@ -28,14 +28,9 @@ const GLMap: React.FC<IGLMapProps> = ({ centerCoordinate, locations }) => {
     <Placemark key={location._id} geometry={location.coords} onClick={() => handleLocation(location._id)} />
   ));
 
-  const clickHandler = (e: any) => {
-    console.log(e._sourceEvent.originalEvent.coords);
-  };
-
   return (
     <YMaps>
       <Map
-        onClick={clickHandler}
         state={{
           center: centerCoordinate,
           zoom: 7,
