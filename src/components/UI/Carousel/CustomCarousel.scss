@@ -2,39 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import '../../../assets/mixins.scss';
 
+.carousel {
+  position: relative;
+}
+
 .contentStyle {
-  color: #fff;
-  line-height: 160px;
-  text-align: left;
-  background: #364d79;
   height: 80vh;
 }
 
 .first-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('../../../assets/img/slide1.png');
+  background-image: url('../../../assets/img/slide-1.jpg');
   background-size: 100% 100%;
   background-position: center;
   padding: 10px;
 }
 
 .second-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(https://i.pinimg.com/originals/ae/a6/a7/aea6a732b744cb9db860514c5ba1c86f.jpg);
+  background-image: url('../../../assets/img/slide-2.jpg');
   background-size: 100% 100%;
   background-position: center;
 }
 
 .third-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url(https://storge.pic2.me/upload/923/5961f5b35dc26.jpg);
+  background-image: url('../../../assets/img/slide-3.jpg');
   background-size: 100% 100%;
   background-position: center;
 }
@@ -50,15 +40,25 @@
 }
 
 .title-carousel{
-  font-family: 'Playfair Display', serif;
-  left: 174px;
-  top: 111px;
   font-style: normal;
+  line-height: 75px;
   font-weight: bold;
-  font-size: 60px;
-  line-height: 133px;
+  font-size: 64px;
+  margin: 40px 0 10px 0;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: #fff;
+  &-2slide{
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 120px;
+    line-height: 160px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 0;
+  }
   @include respond(small-phone) {
     padding: 5px;
     font-size: 40px;
@@ -66,15 +66,12 @@
 }
 
 .text-carousel {
-  width: 400px;
-  height: 86px;
-  left: 275px;
-  top: 262px;
-  font-style: normal;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 32px;
   line-height: 135%;
   color: #FFFFFF;
+  padding: 20px 0 60px 0;
+  margin: 0;
   @include respond(small-phone) {
     padding: 5px;
     width: 280px;
@@ -89,16 +86,23 @@
 .icon-text {
   display: flex;
   margin: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  line-height: 129%;
 }
 
 .icon {
+  height: auto;
+  width: 55px;
   margin-right: 20px;
-  height: 30px;
 }
 
 .content-slider {
-  margin-left: 230px;
-  margin-top: 111px;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   @include respond(small-phone) {
     margin: 10px;
   }
@@ -109,9 +113,30 @@
   border: 2px solid #FDD74E;
   font-size: 24px;
   height: auto;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+  min-width: 283px;
+  min-height: 73px;
   &:hover {
     border: 2px solid #FDD74E;
     color: #000;
     background-color: #fff;
   }
+}
+
+.carousel-prev {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  z-index: 9999999;
+  cursor: pointer;
+}
+
+.carousel-next {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  z-index: 9999999;
+  cursor: pointer;
 }

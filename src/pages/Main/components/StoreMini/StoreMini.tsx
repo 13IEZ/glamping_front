@@ -19,14 +19,8 @@ const StoreMini: React.FC = () => {
 
   const lastFourProductsList = lastFourProducts.map(product => {
     return (
-      <Col span={6} style={{ marginBottom: 20 }}>
-        <StoreMiniItem
-          key={product._id}
-          _id={product._id}
-          title={product.title}
-          price={product.price}
-          image={product.image}
-        />
+      <Col key={product._id} span={6} style={{ marginBottom: 20 }}>
+        <StoreMiniItem _id={product._id} title={product.title} price={product.price} image={product.image} />
       </Col>
     );
   });

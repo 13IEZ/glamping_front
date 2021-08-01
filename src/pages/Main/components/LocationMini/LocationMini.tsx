@@ -19,9 +19,8 @@ const LocationMini: React.FC = () => {
 
   const lastFourLocationsList = lastFourLocations.map(location => {
     return (
-      <Col span={6} style={{ marginBottom: 20 }}>
+      <Col key={location._id} span={6} style={{ marginBottom: 20 }}>
         <LocationMiniItem
-          key={location._id}
           _id={location._id}
           title={location.title}
           rent={location.rent}
