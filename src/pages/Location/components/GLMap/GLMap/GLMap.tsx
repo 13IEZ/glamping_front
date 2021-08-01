@@ -1,16 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-  Clusterer,
-  FullscreenControl,
-  GeolocationControl,
-  Map,
-  Placemark,
-  RulerControl,
-  TypeSelector,
-  YMaps,
-  ZoomControl,
-} from 'react-yandex-maps';
+import { Clusterer, Map, Placemark, YMaps } from 'react-yandex-maps';
 
 import { ILocation } from '../../../../../store/types/locationsTypes';
 
@@ -37,7 +27,7 @@ const GLMap: React.FC<IGLMapProps> = ({ centerCoordinate, locations }) => {
           controls: [],
         }}
         width={'100%'}
-        height={'90%'}
+        height={'100%'}
         products={['control.ZoomControl', 'control.FullscreenControl', 'geoObject.addon.hint']}
       >
         <Clusterer
@@ -49,11 +39,11 @@ const GLMap: React.FC<IGLMapProps> = ({ centerCoordinate, locations }) => {
           {placeMarks}
         </Clusterer>
 
-        <RulerControl options={{ float: 'right' }} />
-        <TypeSelector options={{ float: 'right' }} />
-        <FullscreenControl />
-        <GeolocationControl options={{ float: 'left' }} />
-        <ZoomControl options={{ float: 'right' }} />
+        {/*<RulerControl options={{ float: 'right' }} />*/}
+        {/*<TypeSelector options={{ float: 'right' }} />*/}
+        {/*<FullscreenControl />*/}
+        {/*<GeolocationControl options={{ float: 'left' }} />*/}
+        {/*<ZoomControl options={{ float: 'right' }} />*/}
       </Map>
     </YMaps>
   );

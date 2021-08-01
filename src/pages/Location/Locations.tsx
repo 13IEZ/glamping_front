@@ -25,10 +25,8 @@ const Locations: React.FC = () => {
   };
 
   return (
-    <div className='container-fluid'>
-      <div className='menu-container'>
-        <SelectList onSelectorChange={onSelectorChange} locations={locations} />
-      </div>
+    <div className='locations'>
+      <SelectList onSelectorChange={onSelectorChange} locations={locations} />
       <GLMap centerCoordinate={centerCoordinate} locations={locations} />
     </div>
   );

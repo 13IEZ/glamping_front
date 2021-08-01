@@ -19,7 +19,7 @@ const SelectList: React.FC<ISelectListProps> = ({ onSelectorChange, locations })
   ));
 
   return (
-    <Select onChange={onSelectorChange} className='select-list-container__select-list'>
+    <Select onChange={onSelectorChange} className='select-list'>
       {selectOptions}
     </Select>
   );
