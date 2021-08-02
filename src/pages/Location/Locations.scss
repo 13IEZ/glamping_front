@@ -3,25 +3,10 @@
 .locations {
   margin: 0 auto;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 115px);
+  max-width: 1440px;
 }
 
-// TODO ДОДЕЛАТЬ ЭТУ АДАПТИВНОСТЬ
-
-//@media screen and (min-width: 320px) {
-//  .locations {
-//  }
-//}
-//
-//@media screen and (min-width: 768px) {
-//  .locations {
-//  }
-//}
-//
-//@media screen and (min-width: 1024px) {
-//  .locations {
-//  }
-//}
 
 
 
