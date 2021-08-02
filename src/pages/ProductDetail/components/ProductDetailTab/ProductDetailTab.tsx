@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Tabs, Col, Divider, Typography } from 'antd';
+import { Tabs, Col, Divider, Typography, Pagination } from 'antd';
 import ReviewForm from '../../../ReviewForm/ReviewForm';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useAction';
@@ -35,10 +35,19 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
   const { user } = useTypedSelectorHook(state => state.users);
   const { reviews } = useTypedSelectorHook(state => state.reviews);
   const { fetchReviews } = useActions();
+  console.log(reviews);
+  const { pages } = useTypedSelectorHook(state => state.pages);
+  const { fetchNextPages } = useActions();
 
   useEffect(() => {
     fetchReviews(productId);
-  }, []);
+  }, [productId]);
+
+  const onChange = (pageNumber: number) => {
+    fetchNextPages(pageNumber - 1, productId);
+  };
+
+  const totalPages = Number(pages) * 10;
 
   const reviewsList = reviews.map(review => {
     return (
@@ -64,10 +73,19 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
         {user !== null ? <ReviewForm /> : null}
         {reviewsList.length !== 0 ? (
           <Paragraph>
-            {' '}
-            {reviewsList} {reviewsList}
+            {reviewsList}
+            {reviewsList}
+            {reviewsList}
+            {reviewsList}
           </Paragraph>
         ) : null}
+        <div className='pagination'>
+          {totalPages !== 0 ? (
+            <Pagination total={totalPages} onChange={onChange} />
+          ) : (
+            <Paragraph>Отзывов пока нет</Paragraph>
+          )}
+        </div>
       </TabPane>
       <TabPane tab='Характеристики' key='2'>
         <Paragraph>Сезон: {season}</Paragraph>

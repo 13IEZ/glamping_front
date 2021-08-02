@@ -19,7 +19,8 @@ const ProductDetail: React.FC = (props: any) => {
 
   useEffect(() => {
     fetchCurrentProduct(idCurrentProduct);
-  }, []);
+    console.log(idCurrentProduct);
+  }, [idCurrentProduct]);
 
   const showModal = () => {
     setIsModalVisible(true);
