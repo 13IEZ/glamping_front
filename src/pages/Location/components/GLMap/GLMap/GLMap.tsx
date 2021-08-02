@@ -38,12 +38,6 @@ const GLMap: React.FC<IGLMapProps> = ({ centerCoordinate, locations }) => {
         >
           {placeMarks}
         </Clusterer>
-
-        {/*<RulerControl options={{ float: 'right' }} />*/}
-        {/*<TypeSelector options={{ float: 'right' }} />*/}
-        {/*<FullscreenControl />*/}
-        {/*<GeolocationControl options={{ float: 'left' }} />*/}
-        {/*<ZoomControl options={{ float: 'right' }} />*/}
       </Map>
     </YMaps>
   );
