@@ -22,7 +22,7 @@ const AppToolbar: React.FC = () => {
         </Link>
       </div>
       <div>
-        <Link className='Header-MenuLink' to='/location'>
+        <Link className='Header-MenuLink' to='/locations'>
           <img style={{ marginRight: '5px' }} src={location_ic} alt='Not found' />
           Карта локаций
         </Link>

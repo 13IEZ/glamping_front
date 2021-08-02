@@ -4,6 +4,24 @@ import { notification } from 'antd';
 import ax from '../../settings/axios-glamping';
 import { LocationsAction, LocationsActionTypes } from '../types/locationsTypes';
 
+export const fetchLocations = (): any => {
+  return async (dispatch: Dispatch<LocationsAction>) => {
+    try {
+      const response = await ax.get('locations');
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({
+        type: LocationsActionTypes.FETCH_LOCATIONS_FAILURE,
+        payload: 'Ошибка при получении данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
 export const fetchLastFourLocations = (): any => {
   return async (dispatch: Dispatch<LocationsAction>) => {
     try {

@@ -53,7 +53,7 @@ const LocationMini: React.FC = () => {
         <Row className='location-card' justify='space-around' gutter={[2, 2]}>
           {lastFourLocationsList}
         </Row>
-        <Link to='/location'>
+        <Link to='/locations'>
           <p className='location__link'>Показать все</p>
         </Link>
       </div>

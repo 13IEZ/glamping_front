@@ -1,31 +1,26 @@
 import React from 'react';
 import { Select } from 'antd';
 
-const { Option } = Select;
 import './SelectList.scss';
+import { ILocation } from '../../../../store/types/locationsTypes';
 
-const sortCoordinates = (arr: any) => {
-  const result = arr.sort(function (a: any, b: any) {
-    if (a.hint < b.hint) {
-      return -1;
-    }
-    if (a.hint > b.hint) {
-      return 1;
-    }
-    return 0;
-  });
-  return result;
-};
+const { Option } = Select;
 
-const SelectList: React.FC<any> = props => {
-  const coordinates = sortCoordinates(props.coordinates);
+interface ISelectListProps {
+  onSelectorChange: (id: string) => void;
+  locations: Array<ILocation> | [];
+}
+
+const SelectList: React.FC<ISelectListProps> = ({ onSelectorChange, locations }) => {
+  const selectOptions = locations.map(location => (
+    <Option key={location._id} value={location._id}>
+      {location.title}
+    </Option>
+  ));
+
   return (
-    <Select onChange={props.handleChange} className='select-list-container__select-list'>
-      {coordinates.map((coordinate: any) => (
-        <Option key={coordinate.coordId} value={coordinate.coordId}>
-          {coordinate.hint}
-        </Option>
-      ))}
+    <Select onChange={onSelectorChange} className='select-list'>
+      {selectOptions}
     </Select>
   );
 };

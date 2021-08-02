@@ -1,5 +1,6 @@
 export interface ILocation {
   _id: string;
+  coords: [number, number] | [];
   title: string;
   image: Array<string>;
   description: string;
@@ -14,13 +15,26 @@ export interface ILocation {
 }
 
 export interface ILocationsState {
+  locations: Array<ILocation> | [];
   lastFourLocations: Array<ILocation> | [];
   error: null | string;
 }
 
 export enum LocationsActionTypes {
+  FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS',
+  FETCH_LOCATIONS_FAILURE = 'FETCH_LOCATIONS_FAILURE',
   FETCH_LAST_FOUR_LOCATIONS_SUCCESS = 'FETCH_LAST_FOUR_LOCATIONS_SUCCESS',
   FETCH_LAST_FOUR_LOCATIONS_FAILURE = 'FETCH_LAST_FOUR_LOCATIONS_FAILURE',
+}
+
+interface IFetchLocationsSuccessAction {
+  type: LocationsActionTypes.FETCH_LOCATIONS_SUCCESS;
+  payload: Array<ILocation>;
+}
+
+interface IFetchLocationsFailureAction {
+  type: LocationsActionTypes.FETCH_LOCATIONS_FAILURE;
+  payload: string;
 }
 
 interface IFetchLastFourLocationsSuccessAction {
@@ -33,4 +47,8 @@ interface IFetchLastFourLocationsFailureAction {
   payload: string;
 }
 
-export type LocationsAction = IFetchLastFourLocationsSuccessAction | IFetchLastFourLocationsFailureAction;
+export type LocationsAction =
+  | IFetchLocationsSuccessAction
+  | IFetchLocationsFailureAction
+  | IFetchLastFourLocationsSuccessAction
+  | IFetchLastFourLocationsFailureAction;
