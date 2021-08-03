@@ -22,9 +22,7 @@ const StoreItem: React.FC<IModuleCardProps> = ({ title, price, image, _id }) => 
     <Link to={`/store/${_id}`}>
       <Card style={{ width: 300 }} cover={<img alt='product' src={cardImage} style={{ height: 200 }} />}>
         <Divider />
-
         <Meta style={{ marginBottom: 15 }} title={title} />
-
         <div style={{ marginBottom: 10 }}>
           <span className='rating'></span>
           <a>(30 отзывов)</a>

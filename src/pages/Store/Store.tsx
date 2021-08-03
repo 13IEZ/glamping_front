@@ -30,7 +30,7 @@ const Store: React.FC = () => {
 
   const productsList = products.map(product => {
     return (
-      <Col className='gutter-row' span={7} style={{ marginBottom: 20 }}>
+      <Col className='gutter-row' style={{ margin: 10 }}>
         <StoreItem
           key={product._id}
           _id={product._id}
@@ -43,26 +43,22 @@ const Store: React.FC = () => {
     );
   });
 
+  const noPages = totalPages < 2;
+
   return (
     <div className='container'>
-      <Layout>
+      <Layout className='store-body'>
         <StoreSidebar />
-
-        <Layout style={{ padding: '0 24px 24px' }}>
-          <Content>
-            <StoreMenu />
-            <Row justify='space-around' gutter={[16, 16]}>
-              {productsList}
-              {productsList}
-              {productsList}
-              {productsList}
-              {productsList}
-            </Row>
-            <div className='pagination'>
-              <Pagination total={totalPages} onChange={onChange} />
-            </div>
-          </Content>
-        </Layout>
+        <Content>
+          <StoreMenu />
+          <Row className='store-content'>
+            {productsList}
+            {productsList}
+            {productsList}
+            {productsList}
+          </Row>
+          <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
+        </Content>
       </Layout>
     </div>
   );
