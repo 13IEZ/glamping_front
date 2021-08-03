@@ -1,0 +1,48 @@
+.rating-five,
+.rating-four,
+.rating-three,
+.rating-two,
+.rating-one {
+    display: inline-block;
+    top: -2px;
+    position: relative;
+    background-position: 0 -23px;
+    width: 80px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .rating-five::after,
+  .rating-four::after,
+  .rating-three::after,
+  .rating-two::after,
+  .rating-one::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 80px;
+    background-image: url(../../../../../assets/stars.png);
+    background-position: 0 -39px;
+    height: 16px;
+  }
+  
+  .rating-four::after {
+    width: 64px;
+  }
+
+  .rating-three::after {
+    width: 48px;
+  }
+
+  .rating-two::after {
+    width: 32px;
+  }
+
+  .rating-one::after {
+    width: 16px;
+  }
+
+  .capitalize {
+      text-transform: capitalize;
+  }

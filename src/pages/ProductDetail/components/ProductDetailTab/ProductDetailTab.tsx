@@ -1,20 +1,23 @@
-import React from 'react';
-import { Tabs } from 'antd';
+import React, { useEffect } from 'react';
+import { Tabs, Col, Divider, Typography, Pagination } from 'antd';
+import ReviewForm from '../../../ReviewForm/ReviewForm';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+import { useActions } from '../../../../hooks/useAction';
+import ReviewItem from './components/ReviewItem';
 import './ProductDetailTab.scss';
-const { TabPane } = Tabs;
 
-function callback(key: any) {
-  console.log(key);
-}
+const { TabPane } = Tabs;
+const { Paragraph } = Typography;
 
 interface ICurrentProductProps {
+  productId?: string;
   season?: string;
   roominess?: number;
   description?: string;
   factory?: string;
 }
 
-const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, description, factory }) => {
+const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, description, factory, productId }) => {
   switch (season) {
     case 'summer':
       season = 'Лето';
@@ -29,20 +32,68 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
       season = 'Нет информации';
   }
 
+  const { user } = useTypedSelectorHook(state => state.users);
+  const { reviews } = useTypedSelectorHook(state => state.reviews);
+  const { fetchReviews } = useActions();
+  console.log(reviews);
+  const { pages } = useTypedSelectorHook(state => state.pages);
+  const { fetchNextPages } = useActions();
+
+  useEffect(() => {
+    fetchReviews(productId);
+  }, [productId]);
+
+  const onChange = (pageNumber: number) => {
+    fetchNextPages(pageNumber - 1, productId);
+  };
+
+  const totalPages = Number(pages) * 10;
+
+  const reviewsList = reviews.map(review => {
+    return (
+      <Col span={24} style={{ marginBottom: 20 }}>
+        <ReviewItem
+          key={review._id}
+          _id={review._id}
+          pros={review.pros}
+          cons={review.cons}
+          review={review.review}
+          date={review.date}
+          user={review.username}
+          rating={review.rating}
+        />
+        <Divider />
+      </Col>
+    );
+  });
+
   return (
-    <Tabs defaultActiveKey='1' type='card' onChange={callback}>
+    <Tabs defaultActiveKey='1' type='card'>
       <TabPane tab='Отзывы' key='1'>
-        Здесь будут отзывы
+        {user !== null ? <ReviewForm /> : null}
+        {reviewsList.length !== 0 ? (
+          <Paragraph>
+            {reviewsList}
+            {reviewsList}
+            {reviewsList}
+            {reviewsList}
+          </Paragraph>
+        ) : null}
+        <div className='pagination'>
+          {totalPages !== 0 ? (
+            <Pagination total={totalPages} onChange={onChange} />
+          ) : (
+            <Paragraph>Отзывов пока нет</Paragraph>
+          )}
+        </div>
       </TabPane>
       <TabPane tab='Характеристики' key='2'>
-        <p>Сезон: {season}</p>
-        <p>Вместимость: {roominess}</p>
-        <p>Описание: {description}</p>
-        <p>Производитель: {factory}</p>
+        <Paragraph>Сезон: {season}</Paragraph>
+        <Paragraph>Вместимость: {roominess}</Paragraph>
+        <Paragraph>Описание: {description}</Paragraph>
+        <Paragraph>Производитель: {factory}</Paragraph>
       </TabPane>
-      <TabPane tab='Условия покупки' key='3'>
-        Контент будет позже
-      </TabPane>
+      <TabPane tab='Условия покупки' key='3'></TabPane>
     </Tabs>
   );
 };

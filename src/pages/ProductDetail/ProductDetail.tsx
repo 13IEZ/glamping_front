@@ -19,7 +19,8 @@ const ProductDetail: React.FC = (props: any) => {
 
   useEffect(() => {
     fetchCurrentProduct(idCurrentProduct);
-  }, []);
+    console.log(idCurrentProduct);
+  }, [idCurrentProduct]);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -55,6 +56,7 @@ const ProductDetail: React.FC = (props: any) => {
             roominess={currentProduct.roominess}
             description={currentProduct.description}
             factory={currentProduct.factory}
+            productId={currentProduct._id}
           />
         </Col>
       </Row>
