@@ -10,23 +10,23 @@ export const fetchReviews = (productId: string): any => {
     try {
       const response = await ax.get(`/reviews/pages?product=${productId}`);
       dispatch({ type: ReviewsActionTypes.FETCH_REVIEWS_SUCCESS, payload: response.data.reviews });
-      dispatch({ type: ReviewsActionTypes.FETCH_STORE_PAGES, payload: response.data.pages });
+      dispatch({ type: ReviewsActionTypes.FETCH_REVIEW_PAGES, payload: response.data.pages });
     } catch (error) {
       dispatch({ type: ReviewsActionTypes.FETCH_REVIEWS_FAILURE, payload: 'Ошибка при получении данных' });
       notification.error({
-        message: 'Неудача REVIEW!',
+        message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
       });
-      dispatch({ type: ReviewsActionTypes.FETCH_STORE_PAGES_ERROR, payload: 'Ошибка при получении данных' });
+      dispatch({ type: ReviewsActionTypes.FETCH_REVIEW_PAGES_ERROR, payload: 'Ошибка при получении данных' });
       notification.error({
-        message: 'Неудача PAGES!',
+        message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
       });
     }
   };
 };
 
-export const fetchNextPages = (currentPage: number, productId: string) => {
+export const fetchNextReviewPages = (currentPage: number, productId: string) => {
   return async (dispatch: Dispatch<ReviewsAction>) => {
     try {
       const response = await ax.get(`reviews/pages?product=${productId}&page=${currentPage}`);

@@ -9,16 +9,15 @@ export interface IReview {
   rating: number;
 }
 
-export interface Istore {
+export interface IPage {
   items: number;
   pages: number;
   page: number;
-  pageSize: number;
   reviews: Array<IReview>;
 }
 
 export interface IReviewsState {
-  pages: Istore | {};
+  pages: IPage | {};
   reviews: Array<IReview> | [];
   error: null | string;
   currentPage: number;
@@ -27,17 +26,17 @@ export interface IReviewsState {
 export enum ReviewsActionTypes {
   FETCH_REVIEWS_SUCCESS = 'FETCH_REVIEWS_SUCCESS',
   FETCH_REVIEWS_FAILURE = 'FETCH_REVIEWS_FAILURE',
-  FETCH_STORE_PAGES = 'FETCH_STORE_PAGES',
-  FETCH_STORE_PAGES_ERROR = 'FETCH_STORE_PAGES_ERROR',
+  FETCH_REVIEW_PAGES = 'FETCH_REVIEW_PAGES',
+  FETCH_REVIEW_PAGES_ERROR = 'FETCH_REVIEW_PAGES_ERROR',
 }
 
-interface IFetchStorePagesAction {
-  type: ReviewsActionTypes.FETCH_STORE_PAGES;
-  payload: Istore;
+interface IFetchReviewPagesAction {
+  type: ReviewsActionTypes.FETCH_REVIEW_PAGES;
+  payload: IPage;
 }
 
-interface IFetchStorePagesErrorAction {
-  type: ReviewsActionTypes.FETCH_STORE_PAGES_ERROR;
+interface IFetchReviewPagesErrorAction {
+  type: ReviewsActionTypes.FETCH_REVIEW_PAGES_ERROR;
   payload: string;
 }
 
@@ -52,7 +51,7 @@ interface IFetchReviewsFailureAction {
 }
 
 export type ReviewsAction =
-  | IFetchStorePagesAction
-  | IFetchStorePagesErrorAction
+  | IFetchReviewPagesAction
+  | IFetchReviewPagesErrorAction
   | IFetchReviewsSuccessAction
   | IFetchReviewsFailureAction;
