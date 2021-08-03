@@ -40,3 +40,20 @@ export const fetchNextPages = (currentPage: number, productId: string) => {
     }
   };
 };
+
+export const createReview = (state: any) => {
+  return async () => {
+    try {
+      await ax.post('reviews', state);
+      notification.success({
+        message: 'Успех!',
+        description: 'Комментарий успешно создан!',
+      });
+    } catch (error) {
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при создании комментария!',
+      });
+    }
+  };
+};

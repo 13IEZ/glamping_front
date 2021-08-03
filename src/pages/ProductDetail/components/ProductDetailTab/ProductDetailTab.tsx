@@ -35,7 +35,6 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
   const { user } = useTypedSelectorHook(state => state.users);
   const { reviews } = useTypedSelectorHook(state => state.reviews);
   const { fetchReviews } = useActions();
-  console.log(reviews);
   const { pages } = useTypedSelectorHook(state => state.pages);
   const { fetchNextPages } = useActions();
 
@@ -51,15 +50,14 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
 
   const reviewsList = reviews.map(review => {
     return (
-      <Col span={24} style={{ marginBottom: 20 }}>
+      <Col key={review._id} span={24} style={{ marginBottom: 20 }}>
         <ReviewItem
-          key={review._id}
           _id={review._id}
           pros={review.pros}
           cons={review.cons}
           review={review.review}
           date={review.date}
-          user={review.username}
+          user={review.user.username}
           rating={review.rating}
         />
         <Divider />
@@ -70,14 +68,17 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
   return (
     <Tabs defaultActiveKey='1' type='card'>
       <TabPane tab='Отзывы' key='1'>
-        {user !== null ? <ReviewForm /> : null}
+        {user !== null && productId && <ReviewForm productId={productId} />}
+
         {reviewsList.length !== 0 ? (
-          <Paragraph>
-            {reviewsList}
-            {reviewsList}
-            {reviewsList}
-            {reviewsList}
-          </Paragraph>
+          <>
+            <Paragraph>
+              {reviewsList}
+              {reviewsList}
+              {reviewsList}
+              {reviewsList}
+            </Paragraph>
+          </>
         ) : null}
         <div className='pagination'>
           {totalPages !== 0 ? (

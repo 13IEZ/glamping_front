@@ -1,53 +1,81 @@
+import './PreviewForm.scss';
+
 import React, { useState } from 'react';
 
-import {
-  Button,
-  Form,
-  Input,
-} from 'antd';
+import { Button, Form, Input, Rate } from 'antd';
 
 import { useActions } from '../../hooks/useAction';
-import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 
-const { TextArea } = Input;
-const ReviewForm: React.FC = () => {
-  
-  const { user } = useTypedSelectorHook(state => state.users);
+interface IReviewFormProps {
+  productId: string;
+}
+
+const ReviewForm: React.FC<IReviewFormProps> = ({ productId }) => {
+  const { createReview, fetchReviews } = useActions();
+
   const [state, setState] = useState({
-    name: {user},
-    note: '',
+    review: '',
+    pros: '',
+    cons: '',
+    rating: 1,
+    product: productId,
   });
-  const { signInUser } = useActions();
 
-  const submitFormHandler = () => {
-    signInUser(state);
+  const [rating, setRating] = useState(1);
+
+  const submitFormHandler = async () => {
+    await createReview(state, productId);
+
+    setState({
+      review: '',
+      pros: '',
+      cons: '',
+      rating: 1,
+      product: productId,
+    });
+
+    setRating(1);
+
+    fetchReviews(productId);
   };
 
-  const inputChangeHandler = (e: any) => {
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setState(prevState => {
-      return { ...prevState, [name]: value };
-    });
+    setState(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const ratingChangeHandler = (value: number) => {
+    if (value === 0) return;
+    setState(prevState => ({ ...prevState, rating: value }));
+    setRating(value);
   };
 
   return (
-    <div className='Form'>
-      <Form name='note' className='review-form' initialValues={{ remember: true }} onFinish={submitFormHandler}>
-        <h2 className='Form-header'>Отзыв</h2>
-        <Form.Item name="note" label="Note" rules={[{ required: true }]}>
-          <TextArea rows={4} 
-            name='Note'
-            className='form_input'
-            placeholder='Опишите ваши впечатления'
-            onChange={inputChangeHandler}/> 
-        </Form.Item>
-        <Form.Item>
-          <Button type='primary' htmlType='submit' className='review-form-button'>
-            Отправить
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
+    <Form name='nest-messages' onFinish={submitFormHandler}>
+      <Form.Item>
+        <Input.TextArea
+          name='review'
+          required={true}
+          onChange={inputChangeHandler}
+          value={state.review}
+          placeholder='Комментарий'
+        />
+      </Form.Item>
+      <Form.Item>
+        <Input.TextArea name='pros' onChange={inputChangeHandler} value={state.pros} placeholder='Достоинства' />
+      </Form.Item>
+      <Form.Item>
+        <Input.TextArea name='cons' onChange={inputChangeHandler} value={state.cons} placeholder='Недостатки' />
+      </Form.Item>
+      <span>
+        <Rate className='rate' onChange={ratingChangeHandler} value={rating} />
+      </span>
+      <Form.Item>
+        <Button type='primary' htmlType='submit'>
+          Оставить отзыв
+        </Button>
+      </Form.Item>
+    </Form>
   );
 };
 
