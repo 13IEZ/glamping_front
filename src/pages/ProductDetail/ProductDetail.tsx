@@ -1,10 +1,9 @@
 import './ProductDetail.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-import { Col, Modal, Row } from 'antd';
+import { Col, Row } from 'antd';
 
-import CustomCarousel from '../../components/UI/Carousel/CustomCarousel';
 import ProductDetailDescription from './components/ProductDetailDescription/ProductDetailDescription';
 import ProductDetailGallery from './components/ProductDetailGallery/ProductDetailGallery';
 import ProductDetailTab from './components/ProductDetailTab/ProductDetailTab';
@@ -13,7 +12,6 @@ import { useActions } from '../../hooks/useAction';
 
 const ProductDetail: React.FC = (props: any) => {
   const idCurrentProduct = props.match.params.id;
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const { currentProduct } = useTypedSelectorHook(state => state.products);
   const { fetchCurrentProduct } = useActions();
 
@@ -22,34 +20,19 @@ const ProductDetail: React.FC = (props: any) => {
     console.log(idCurrentProduct);
   }, [idCurrentProduct]);
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
   if (Object.keys(currentProduct).length === 0) return <></>;
 
   return (
     <div className='container'>
-      <Modal width={1000} title='Carousel' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <CustomCarousel />
-      </Modal>
-      <Row className='h-medium'>
-        <Col span={16} className='border'>
-          <ProductDetailGallery showModal={showModal} />
+      <Row wrap={false}>
+        <Col flex='65%' className='border'>
+          <ProductDetailGallery images={currentProduct.image ? currentProduct.image : []} />
         </Col>
-        <Col span={8} className='border'>
+        <Col flex='35%' className='border'>
           <ProductDetailDescription />
         </Col>
       </Row>
-      <Row className='h-medium mt-2'>
+      <Row className='mt-2'>
         <Col span={24} className='tabs'>
           <ProductDetailTab
             season={currentProduct.season}
