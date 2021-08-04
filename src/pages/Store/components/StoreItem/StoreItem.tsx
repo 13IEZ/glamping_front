@@ -25,7 +25,7 @@ const StoreItem: React.FC<IModuleCardProps> = ({ title, price, image, _id }) => 
         <Meta style={{ marginBottom: 15 }} title={title} />
         <div style={{ marginBottom: 10 }}>
           <span className='rating'></span>
-          <a>(30 отзывов)</a>
+          <span>(30 отзывов)</span>
         </div>
 
         <h4>Цена</h4>

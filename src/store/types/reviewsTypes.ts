@@ -1,5 +1,4 @@
 export interface IReview {
-  username: string;
   _id: string;
   pros: string;
   cons: string;

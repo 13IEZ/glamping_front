@@ -30,15 +30,8 @@ const Store: React.FC = () => {
 
   const productsList = products.map(product => {
     return (
-      <Col className='gutter-row' style={{ margin: 10 }}>
-        <StoreItem
-          key={product._id}
-          _id={product._id}
-          title={product.title}
-          price={product.price}
-          rating={5}
-          image={product.image}
-        />
+      <Col key={product._id} className='gutter-row' style={{ margin: 10 }}>
+        <StoreItem _id={product._id} title={product.title} price={product.price} rating={5} image={product.image} />
       </Col>
     );
   });

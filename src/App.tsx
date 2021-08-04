@@ -10,7 +10,6 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Register from './pages/Register/Register';
-import ReviewForm from './pages/ReviewForm/ReviewForm';
 import Reviews from './pages/Reviews/Reviews';
 import NewProduct from './pages/Store/components/NewProduct/NewProduct';
 import Store from './pages/Store/Store';
@@ -27,7 +26,6 @@ function App(): JSX.Element {
         <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
         <ProtectedRoute isAllowed={!user} path='/login' exact redirectTo='/' component={Login} />
         <Route path='/reviews' exact component={Reviews} />
-        <ProtectedRoute isAllowed={!!user} path='/reviews/new' exact redirectTo={'/login'} component={ReviewForm} />
         <Route path='/store' exact component={Store} />
         <ProtectedRoute isAllowed={!!user} path='/store/new' exact redirectTo={'/login'} component={NewProduct} />
         <Route path='/store/:id' exact component={ProductDetail} />
