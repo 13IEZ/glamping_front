@@ -36,14 +36,14 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
   const { reviews } = useTypedSelectorHook(state => state.reviews);
   const { fetchReviews } = useActions();
   const { pages } = useTypedSelectorHook(state => state.pages);
-  const { fetchNextPages } = useActions();
+  const { fetchNextReviewPages } = useActions();
 
   useEffect(() => {
     fetchReviews(productId);
   }, [productId]);
 
   const onChange = (pageNumber: number) => {
-    fetchNextPages(pageNumber - 1, productId);
+    fetchNextReviewPages(pageNumber - 1, productId);
   };
 
   const totalPages = Number(pages) * 10;
@@ -81,7 +81,7 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
           </>
         ) : null}
         <div className='pagination'>
-          {totalPages !== 0 ? (
+          {reviewsList.length !== 0 ? (
             <Pagination total={totalPages} onChange={onChange} />
           ) : (
             <Paragraph>Отзывов пока нет</Paragraph>

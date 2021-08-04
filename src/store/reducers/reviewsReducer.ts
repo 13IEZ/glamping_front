@@ -9,9 +9,9 @@ const initialState: IReviewsState = {
 
 const reviewsReducer = (state = initialState, action: ReviewsAction): IReviewsState => {
   switch (action.type) {
-    case ReviewsActionTypes.FETCH_STORE_PAGES:
+    case ReviewsActionTypes.FETCH_REVIEW_PAGES:
       return { ...state, pages: action.payload };
-    case ReviewsActionTypes.FETCH_STORE_PAGES_ERROR:
+    case ReviewsActionTypes.FETCH_REVIEW_PAGES_ERROR:
       return { ...state, error: action.payload };
     case ReviewsActionTypes.FETCH_REVIEWS_SUCCESS: {
       const data: any = action.payload;
