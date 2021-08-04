@@ -2,6 +2,7 @@ export interface ILocation {
   _id: string;
   coords: [number, number] | [];
   title: string;
+  region: string;
   image: Array<string>;
   description: string;
   square: number;
