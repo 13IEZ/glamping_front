@@ -1,38 +1,31 @@
 import './ProductDetailGallery.scss';
 
-import React from 'react';
-
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+import React, { useRef } from 'react';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 import config from '../../../../settings/config';
 
-interface IProductDetailGalleryProps {
-  showModal: () => void;
+interface ProductDetailGalleryProps {
+  images: Array<string> | [];
 }
 
-const ProductDetailGallery: React.FC<IProductDetailGalleryProps> = ({ showModal }) => {
-  const { products } = useTypedSelectorHook(state => state.products);
+const ProductDetailGallery: React.FC<ProductDetailGalleryProps> = ({ images }) => {
+  const imgArr = images.map(elem => {
+    return { original: config.apiUrl + '/uploads/' + elem, thumbnail: config.apiUrl + '/uploads/' + elem };
+  });
 
-  const img = products[1].image[0];
+  const carousel = useRef<ImageGallery>(null);
 
   return (
-    <div className='gallery'>
-      <div className='gallery__bigImageWrapper' onClick={showModal}>
-        <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
-      </div>
-      <div className='gallery__imagesWrapper'>
-        <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
-        </div>
-        <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
-        </div>
-        <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
-        </div>
-        <div className='gallery__imageWrapper' onClick={showModal}>
-          <img className='gallery__img' src={config.apiUrl + '/uploads/' + img} alt='product' />
-        </div>
-      </div>
+    <div className='ProductDetailGallery'>
+      <ImageGallery
+        onClick={() => carousel?.current?.fullScreen()}
+        ref={carousel}
+        showNav={false}
+        showPlayButton={false}
+        showFullscreenButton={false}
+        items={imgArr}
+      />
     </div>
   );
 };
