@@ -22,7 +22,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   users: usersReducer,
-  pages: productsReducer,
   products: productsReducer,
   locations: locationReducer,
   categories: categoriesReducer,

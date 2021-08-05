@@ -33,9 +33,8 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
   }
 
   const { user } = useTypedSelectorHook(state => state.users);
-  const { reviews } = useTypedSelectorHook(state => state.reviews);
+  const { reviews, pages } = useTypedSelectorHook(state => state.reviews);
   const { fetchReviews } = useActions();
-  const { pages } = useTypedSelectorHook(state => state.pages);
   const { fetchNextReviewPages } = useActions();
 
   useEffect(() => {

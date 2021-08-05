@@ -13,8 +13,7 @@ import StoreSidebar from './components/StoreSidebar/StoreSidebar';
 const { Content } = Layout;
 
 const Store: React.FC = () => {
-  const { products } = useTypedSelectorHook(state => state.products);
-  const { pages } = useTypedSelectorHook(state => state.pages);
+  const { products, pages } = useTypedSelectorHook(state => state.products);
   const { fetchProducts } = useActions();
   const { fetchNextPages } = useActions();
   const { sortOptions } = useTypedSelectorHook(state => state.categories);
