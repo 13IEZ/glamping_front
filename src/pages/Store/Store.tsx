@@ -17,6 +17,10 @@ const Store: React.FC = () => {
   const { pages } = useTypedSelectorHook(state => state.pages);
   const { fetchProducts } = useActions();
   const { fetchNextPages } = useActions();
+  const { sortOptions } = useTypedSelectorHook(state => state.categories);
+  const { filterOptions } = useTypedSelectorHook(state => state.categories);
+
+  let paginator;
 
   useEffect(() => {
     fetchProducts();
@@ -38,6 +42,19 @@ const Store: React.FC = () => {
 
   const noPages = totalPages < 2;
 
+  if (
+    sortOptions.fieldName === 'empty' &&
+    sortOptions.fieldValue === 'empty' &&
+    filterOptions.fieldName === 'empty' &&
+    filterOptions.fieldValue === 'empty'
+  ) {
+    paginator = (
+      <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
+    );
+  } else {
+    paginator = null;
+  }
+
   return (
     <div className='container'>
       <Layout className='store-body'>
@@ -50,7 +67,7 @@ const Store: React.FC = () => {
             {productsList}
             {productsList}
           </Row>
-          <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
+          {paginator}
         </Content>
       </Layout>
     </div>

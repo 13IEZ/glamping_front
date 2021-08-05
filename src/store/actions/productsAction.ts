@@ -26,14 +26,33 @@ export const fetchProducts = (): any => {
   };
 };
 
-export const fetchModulesCat = (sort: string, order: string): any => {
+export const fetchNextPages = (currentPage: number) => {
   return async (dispatch: Dispatch<ProductsAction>) => {
     try {
-      let response;
-      if (sort) {
+      const response = await ax.get(`products/pages?page=${currentPage}`);
+      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data.products });
+    } catch (error) {
+      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
+export const fetchModulesCat = (filter: string, _id: string, sort: string, order: string): any => {
+  return async (dispatch: Dispatch<ProductsAction>) => {
+    try {
+      let response: any;
+      if (!(filter || sort)) {
+        response = await ax.get('products');
+      } else if (filter !== 'empty' && sort === 'empty') {
+        response = await ax.get('products?filter=' + filter + '&_id=' + _id);
+      } else if (filter === 'empty' && sort !== 'empty') {
         response = await ax.get('products?sort=' + sort + '&order=' + order);
       } else {
-        response = await ax.get('products');
+        response = await ax.get('products?filter=' + filter + '&_id=' + _id + '&sort=' + sort + '&order=' + order);
       }
       dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data });
     } catch (error) {
@@ -64,21 +83,6 @@ export const fetchLastFourProducts = (): any => {
       dispatch({ type: ProductsActionTypes.FETCH_LAST_FOUR_PRODUCTS_SUCCESS, payload: response.data });
     } catch (error) {
       dispatch({ type: ProductsActionTypes.FETCH_LAST_FOUR_PRODUCTS_FAILURE, payload: 'Ошибка при получении данных' });
-      notification.error({
-        message: 'Неудача!',
-        description: 'Произошла ошибка при получении данных',
-      });
-    }
-  };
-};
-
-export const fetchNextPages = (currentPage: number) => {
-  return async (dispatch: Dispatch<ProductsAction>) => {
-    try {
-      const response = await ax.get(`products/pages?page=${currentPage}`);
-      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data.products });
-    } catch (error) {
-      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_FAILURE, payload: 'Ошибка при получении данных' });
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
