@@ -2,9 +2,9 @@ export interface ILocation {
   _id: string;
   coords: [number, number] | [];
   title: string;
+  description: string;
   region: string;
   image: Array<string>;
-  description: string;
   square: number;
   rent: number;
   status: boolean;

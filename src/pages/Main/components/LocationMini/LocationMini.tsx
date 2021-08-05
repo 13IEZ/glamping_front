@@ -23,6 +23,7 @@ const LocationMini: React.FC = () => {
         <LocationItem
           key={location._id}
           _id={location._id}
+          description={location.description}
           title={location.title}
           square={location.square}
           image={location.image}

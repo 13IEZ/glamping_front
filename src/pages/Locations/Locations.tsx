@@ -22,6 +22,7 @@ const Locations: React.FC = () => {
         <LocationItem
           _id={location._id}
           title={location.title}
+          description={location.description}
           square={location.square}
           image={location.image}
           region={location.region}

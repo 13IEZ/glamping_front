@@ -1,5 +1,10 @@
 @import '../../../../../assets/mixins.scss';
 
+.location-item__card {
+  height: 390px;
+  overflow: hidden;
+}
+
 .item__rent {
   font-size: 18px;
   line-height: 21px;
