@@ -8,14 +8,14 @@ import config from '../../../settings/config';
 const { Meta } = Card;
 
 interface IAccommodationCardProps {
-  // _id: string;
+  _id: string;
   title: string;
   rent: string;
   rating: number;
   image: Array<string> | [];
 }
 
-const CurrentLocationItem: React.FC<IAccommodationCardProps> = ({ title, rent, image }) => {
+const CurrentLocationAccommodation: React.FC<IAccommodationCardProps> = ({ title, rent, image }) => {
   const cardImage = config.apiUrl + '/uploads/' + image[0];
 
   return (
@@ -35,4 +35,4 @@ const CurrentLocationItem: React.FC<IAccommodationCardProps> = ({ title, rent, i
   );
 };
 
-export default CurrentLocationItem;
+export default CurrentLocationAccommodation;

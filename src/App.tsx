@@ -14,6 +14,7 @@ import Reviews from './pages/Reviews/Reviews';
 import NewProduct from './pages/Store/components/NewProduct/NewProduct';
 import Store from './pages/Store/Store';
 import Locations from './pages/Location/Locations';
+import CurrentLocation from './pages/CurrentLocation/CurrentLocation';
 
 function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
@@ -30,6 +31,7 @@ function App(): JSX.Element {
         <ProtectedRoute isAllowed={!!user} path='/store/new' exact redirectTo={'/login'} component={NewProduct} />
         <Route path='/store/:id' exact component={ProductDetail} />
         <Route path='/locations' exact component={Locations} />
+        <Route path='/locations/:id' exact component={CurrentLocation} />
       </Switch>
     </Layout>
   );
