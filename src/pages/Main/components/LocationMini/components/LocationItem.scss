@@ -1,5 +1,10 @@
 @import '../../../../../assets/mixins.scss';
 
+.location-item__card {
+  height: 390px;
+  overflow: hidden;
+}
+
 .item__rent {
   font-size: 18px;
   line-height: 21px;
@@ -31,30 +36,30 @@
 }
 
 .item__square {
+  margin: 10px;
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
   color: #2F2D25;
 }
 
-.item__place {
+.location-item__place {
   color: #69a042;
-  padding-left: 15px;
   font-size: 14px;
   font-weight: 400;
   line-height: 30px;
-  margin: 7px 0;
+  margin-bottom: 10px;
   text-decoration-line: underline;
-  background: url('../../../../../assets/location.png');
-  background-repeat: no-repeat;
-  background-position-x: 20%;
-  background-position-y: center;
+
+  &::before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    background-image: url('../../../../../assets/location.png');
+    background-repeat: no-repeat;
+  }
 }
 
-.item__rent {
-  color: #2F2D25;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 22px;
-  margin-bottom: 22px;
-}

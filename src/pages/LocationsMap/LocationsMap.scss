@@ -1,0 +1,29 @@
+@import '../../assets/mixins.scss';
+
+.locations-map {
+  margin: 0 auto;
+  width: 100%;
+  height: calc(100vh - (85px + 80px));
+  max-width: 1440px;
+  
+  .locations-map__button {
+    font-weight: 500;
+    font-size: 20px;
+    height: 40px;
+    color: #2F2D25;
+    background-color: #FDD74E;
+    border: #FDD74E;
+    outline: none;
+    padding: 0 25px;
+    margin: 5px 0 5px 10px;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .locations-map {
+    height: calc(100vh - (50px + 77px));
+  }
+}
+
+
+
