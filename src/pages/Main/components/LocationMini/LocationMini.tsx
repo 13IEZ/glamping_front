@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-import LocationMiniItem from './components/LocationMiniItem';
+import LocationItem from './components/LocationItem';
 
 const LocationMini: React.FC = () => {
   const { lastFourLocations } = useTypedSelectorHook(state => state.locations);
@@ -20,12 +20,14 @@ const LocationMini: React.FC = () => {
   const lastFourLocationsList = lastFourLocations.map(location => {
     return (
       <Col key={location._id} span={6} style={{ marginBottom: 20 }}>
-        <LocationMiniItem
+        <LocationItem
+          key={location._id}
           _id={location._id}
+          description={location.description}
           title={location.title}
-          rent={location.rent}
           square={location.square}
           image={location.image}
+          region={location.region}
         />
       </Col>
     );
@@ -41,7 +43,7 @@ const LocationMini: React.FC = () => {
         <h3 className='title'>Локации</h3>
         <div className='location-header'>
           <div className='location-header-row'>
-            <Link to='/location'>
+            <Link to='/locations-map'>
               <p className='location-header__link'>Показать на карте</p>
             </Link>
           </div>
