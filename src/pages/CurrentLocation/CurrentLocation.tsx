@@ -16,9 +16,6 @@ const CurrentLocation: React.FC = (props: any) => {
 
   useEffect(() => {
     fetchAccommodations(idCurrentLocation);
-  }, [idCurrentLocation]);
-
-  useEffect(() => {
     fetchCurrentLocation(idCurrentLocation);
   }, [idCurrentLocation]);
 
