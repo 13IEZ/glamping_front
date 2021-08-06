@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import CurrentLocationGallery from './components/CurrentLocationGallery/CurrentLocationGallery';
-import CurrentLocationAccommodation from './components/CurrentLocationAccommodation';
+import CurrentLocationAccommodation from './components/CurrentLocationAccommodation/CurrentLocationAccommodation';
 import CurrentLocationDescription from './components/CurrentLocationDescription/CurrentLocationDescription';
 import './CurrentLocation.scss';
 
@@ -24,7 +24,7 @@ const CurrentLocation: React.FC = (props: any) => {
 
   const accommodationsList = accommodations.map(accommodation => {
     return (
-      <Col key={accommodation._id} className='gutter-row' style={{ margin: 10 }}>
+      <Col key={accommodation._id} span={6} style={{ marginBottom: 20 }}>
         <CurrentLocationAccommodation
           _id={accommodation._id}
           title={accommodation.title}
@@ -37,7 +37,7 @@ const CurrentLocation: React.FC = (props: any) => {
   });
 
   return (
-    <div className='container background'>
+    <div className='container current-location'>
       <CurrentLocationGallery images={currentLocation.image ? currentLocation.image : []} />
       <CurrentLocationDescription
         title={currentLocation.title}
@@ -46,7 +46,7 @@ const CurrentLocation: React.FC = (props: any) => {
         road={currentLocation.road}
         water={currentLocation.water}
       />
-      <Row className='current-location-content'>
+      <Row className='current-location-card' justify='space-around' gutter={[2, 2]}>
         {accommodationsList}
         {accommodationsList}
       </Row>
