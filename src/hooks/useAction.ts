@@ -7,6 +7,7 @@ import * as PichActionCreators from '../store/actions/pichesAction';
 import * as ProductActionCreators from '../store/actions/productsAction';
 import * as UserActionCreators from '../store/actions/usersAction';
 import * as ReviewsActionCreators from '../store/actions/reviewsAction';
+import * as AccommodationsActionCreator from '../store/actions/accommodationsAction';
 
 const ActionCreators = {
   ...UserActionCreators,
@@ -15,6 +16,7 @@ const ActionCreators = {
   ...CategoriesActionCreators,
   ...PichActionCreators,
   ...ReviewsActionCreators,
+  ...AccommodationsActionCreator,
 };
 
 export const useActions = (): any => {

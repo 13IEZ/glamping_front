@@ -39,3 +39,18 @@ export const fetchLastFourLocations = (): any => {
     }
   };
 };
+
+export const fetchCurrentLocation = (currentLocationId: string): any => {
+  return async (dispatch: Dispatch<LocationsAction>) => {
+    try {
+      const response = await ax.get(`locations/${currentLocationId}`);
+      dispatch({ type: LocationsActionTypes.FETCH_CURRENT_LOCATION_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: LocationsActionTypes.FETCH_CURRENT_LOCATION_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
