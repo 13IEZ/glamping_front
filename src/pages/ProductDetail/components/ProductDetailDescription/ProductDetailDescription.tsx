@@ -1,6 +1,8 @@
-import React from 'react';
-import { Divider, Button } from 'antd';
 import './ProductDetailDescription.scss';
+
+import React from 'react';
+
+import { Button, Divider } from 'antd';
 
 const ProductDetailDescription: React.FC = () => {
   return (
@@ -8,12 +10,12 @@ const ProductDetailDescription: React.FC = () => {
       <h3>ЮРТА</h3>
       <div>
         <span className='rating'></span>
-        <a>(30 отзывов)</a>
+        <a className='product-detail reviews'>(30 отзывов)</a>
       </div>
       <Divider />
       <h4>Цена</h4>
       <p>1 000 000 ₸</p>
-      <Button type='primary'>Купить</Button>
+      <Button className='product-detail button'>Купить</Button>
       <Divider />
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat quod rerum a eveniet veniam unde

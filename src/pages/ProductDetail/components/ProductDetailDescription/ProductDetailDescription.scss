@@ -21,3 +21,22 @@
 .product-detail-description {
   padding: 5%;
 }
+
+.button {
+  background-color: #FDD74E;
+  border: 2px solid #FDD74E;
+}
+
+.button:hover {
+  background-color: #fff;
+  border: 2px solid #FDD74E;
+  color: black;
+}
+
+.reviews {
+  color: #69a042;
+}
+
+.reviews:hover {
+  color: #c4e0a6;
+}

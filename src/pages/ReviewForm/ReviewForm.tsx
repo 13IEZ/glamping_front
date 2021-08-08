@@ -71,7 +71,7 @@ const ReviewForm: React.FC<IReviewFormProps> = ({ productId }) => {
         <Rate className='rate' onChange={ratingChangeHandler} value={rating} />
       </span>
       <Form.Item>
-        <Button type='primary' htmlType='submit'>
+        <Button className='review_button' htmlType='submit'>
           Оставить отзыв
         </Button>
       </Form.Item>
