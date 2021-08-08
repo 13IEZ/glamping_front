@@ -15,9 +15,17 @@ interface ICurrentProductProps {
   roominess?: number;
   description?: string;
   factory?: string;
+  reviewsQuantity?: number;
 }
 
-const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, description, factory, productId }) => {
+const ProductDetailTab: React.FC<ICurrentProductProps> = ({
+  season,
+  roominess,
+  description,
+  factory,
+  productId,
+  reviewsQuantity,
+}) => {
   switch (season) {
     case 'summer':
       season = 'Лето';
@@ -66,7 +74,7 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({ season, roominess, d
 
   return (
     <Tabs defaultActiveKey='1' type='card'>
-      <TabPane tab='Отзывы' key='1'>
+      <TabPane tab={<>Отзывы ({reviewsQuantity})</>} key='1'>
         {user !== null && productId && <ReviewForm productId={productId} />}
 
         {reviewsList.length !== 0 ? (

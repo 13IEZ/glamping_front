@@ -44,6 +44,7 @@ const ProductDetail: React.FC = (props: any) => {
             description={currentProduct.description}
             factory={currentProduct.factory}
             productId={currentProduct._id}
+            reviewsQuantity={currentProduct.reviewsQuantity}
           />
         </Col>
       </Row>

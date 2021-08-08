@@ -26,7 +26,9 @@ const ProductDetailDescription: React.FC<ICurrentProductProps> = ({ title, ratin
       <Divider />
       <Title level={5}>Цена</Title>
       <Paragraph>{price} ₸</Paragraph>
-      <Button type='primary'>Купить</Button>
+      <Button className='item__button' type='primary'>
+        Купить
+      </Button>
       <Divider />
       <Paragraph>{description}</Paragraph>
     </div>
