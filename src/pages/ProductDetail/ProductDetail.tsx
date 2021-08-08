@@ -24,11 +24,16 @@ const ProductDetail: React.FC = (props: any) => {
   return (
     <div className='container'>
       <Row wrap={false}>
-        <Col flex='65%' className='border'>
+        <Col flex='65%'>
           <ProductDetailGallery images={currentProduct.image ? currentProduct.image : []} />
         </Col>
-        <Col flex='35%' className='border'>
-          <ProductDetailDescription />
+        <Col flex='35%'>
+          <ProductDetailDescription
+            title={currentProduct.title}
+            rating={currentProduct.rating}
+            price={currentProduct.price}
+            description={currentProduct.description}
+          />
         </Col>
       </Row>
       <Row className='mt-2'>
