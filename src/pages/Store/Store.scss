@@ -5,7 +5,7 @@
 }
 
 .store-body {
-  background-color: #F9FAF7;
+  background: #f9faf7;
   @include respond(small-phone) {
     display: block;
   }

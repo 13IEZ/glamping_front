@@ -29,7 +29,7 @@ const StoreItem: React.FC<IModuleCardProps> = ({ title, price, image, _id }) => 
         </div>
 
         <h4>Цена</h4>
-        <p>{price}</p>
+        <p>{price.replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₸</p>
       </Card>
     </Link>
   );

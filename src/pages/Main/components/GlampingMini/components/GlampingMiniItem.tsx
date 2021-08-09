@@ -1,8 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Button } from 'antd';
-import config from '../../../../../settings/config';
 import './GlampingMiniItem.scss';
+
+import React from 'react';
+
+import { Button, Card } from 'antd';
+import { Link } from 'react-router-dom';
+
+import config from '../../../../../settings/config';
 
 const { Meta } = Card;
 

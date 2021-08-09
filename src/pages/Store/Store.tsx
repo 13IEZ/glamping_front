@@ -7,7 +7,6 @@ import { Col, Layout, Pagination, Row } from 'antd';
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import StoreItem from './components/StoreItem/StoreItem';
-import StoreMenu from './components/StoreMenu/StoreMenu';
 import StoreSidebar from './components/StoreSidebar/StoreSidebar';
 
 const { Content } = Layout;
@@ -59,7 +58,6 @@ const Store: React.FC = () => {
       <Layout className='store-body'>
         <StoreSidebar />
         <Content>
-          <StoreMenu />
           <Row className='store-content'>
             {productsList}
             {productsList}
