@@ -128,11 +128,11 @@
 }
 
 .location-header__button_transparent {
-  border: 2px solid #fdd74e;
+  border: 2px solid #FDD74E;
+  background-color: #FDD74E;
   color: #2f2d25;
   max-width: 88px;
   &:hover {
-    background-color: #FDD74E;
     transition: all 0.2s;
     border: 2px solid #FDD74E;
     color: #2f2d25;

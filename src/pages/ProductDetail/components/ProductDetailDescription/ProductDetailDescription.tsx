@@ -13,6 +13,7 @@ interface ICurrentProductProps {
 }
 
 const ProductDetailDescription: React.FC<ICurrentProductProps> = ({ title, rating, price, description }) => {
+
   return (
     <div className='product-detail-description'>
       <Title level={4}>{title}</Title>

@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
-import { Tabs, Col, Divider, Typography, Pagination } from 'antd';
-import ReviewForm from '../../../ReviewForm/ReviewForm';
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-import { useActions } from '../../../../hooks/useAction';
-import ReviewItem from './components/ReviewItem';
 import './ProductDetailTab.scss';
+
+import React, { useEffect } from 'react';
+
+import { Col, Divider, Pagination, Tabs, Typography } from 'antd';
+
+import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+import ReviewForm from '../../../ReviewForm/ReviewForm';
+import ReviewItem from './components/ReviewItem';
 
 const { TabPane } = Tabs;
 const { Paragraph } = Typography;
