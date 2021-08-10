@@ -1,27 +1,37 @@
+import React from 'react';
+import { Divider, Button, Typography } from 'antd';
 import './ProductDetailDescription.scss';
 
-import React from 'react';
+const { Paragraph } = Typography;
+const { Title } = Typography;
 
-import { Button, Divider } from 'antd';
+interface ICurrentProductProps {
+  title?: string;
+  rating?: number;
+  price?: string;
+  description?: string;
+}
 
-const ProductDetailDescription: React.FC = () => {
+const ProductDetailDescription: React.FC<ICurrentProductProps> = ({ title, rating, price, description }) => {
+
   return (
     <div className='product-detail-description'>
-      <h3>ЮРТА</h3>
+      <Title level={4}>{title}</Title>
       <div>
-        <span className='rating'></span>
-        <a className='product-detail reviews'>(30 отзывов)</a>
+        {rating === 5 ? <span className='rating-five'></span> : null}
+        {rating === 4 ? <span className='rating-four'></span> : null}
+        {rating === 3 ? <span className='rating-three'></span> : null}
+        {rating === 2 ? <span className='rating-two'></span> : null}
+        {rating === 1 ? <span className='rating-one'></span> : null}
       </div>
       <Divider />
-      <h4>Цена</h4>
-      <p>1 000 000 ₸</p>
-      <Button className='product-detail button'>Купить</Button>
+      <Title level={5}>Цена</Title>
+      <Paragraph>{price} ₸</Paragraph>
+      <Button className='item__button' type='primary'>
+        Купить
+      </Button>
       <Divider />
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat quod rerum a eveniet veniam unde
-        reprehenderit cum ipsam possimus distinctio aliquid ad, enim, incidunt mollitia in, laboriosam esse tempore.
-        Similique.
-      </p>
+      <Paragraph>{description}</Paragraph>
     </div>
   );
 };

@@ -12,6 +12,7 @@ export interface IProduct {
   price: string;
   published: boolean;
   factory: string;
+  reviewsQuantity: number;
 }
 
 export interface Istore {

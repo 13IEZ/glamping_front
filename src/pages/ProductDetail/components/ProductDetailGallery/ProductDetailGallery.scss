@@ -1,9 +1,13 @@
 .ProductDetailGallery {
-  width: 50%;
+  width: 60%;
   height: 400px;
   display: flex;
   align-items: center;
   margin: 0 auto;
+}
+
+.image-gallery {
+  width: 100%;
 }
 
 .image-gallery-image {
