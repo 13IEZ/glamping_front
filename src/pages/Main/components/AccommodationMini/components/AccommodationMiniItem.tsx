@@ -9,15 +9,14 @@ import config from '../../../../../settings/config';
 
 const { Meta } = Card;
 
-interface locationCardProps {
+interface accommodationCardProps {
   _id: string;
   title: string;
-  rent: number;
-  // square: number;
+  rent: string;
   image: Array<string> | [];
 }
 
-const GlampingMiniItem: React.FC<locationCardProps> = ({ title, rent, image, _id }) => {
+const AccommodationMiniItem: React.FC<accommodationCardProps> = ({ title, rent, image, _id }) => {
   const cardImage = config.apiUrl + '/uploads/' + image[0];
   const clickHandler: any = () => {
     console.log('clicked for location');
@@ -25,10 +24,9 @@ const GlampingMiniItem: React.FC<locationCardProps> = ({ title, rent, image, _id
 
   return (
     <div>
-      <Link to={`/location/${_id}`}>
+      <Link to={`/accommodations/${_id}`}>
         <Card className='item__card' cover={<img alt='Not found' src={cardImage} className='item__card-img' />}>
           <Meta style={{ marginTop: 22, fontSize: 24, textAlign: 'center' }} title={title} />
-          {/*<p className='item__square'>{square} соток</p>*/}
           <p className='item__place'>Туркестан</p>
           <p className='item__rent'>{rent} ₸ в месяц</p>
           <Button className='item__button' type='primary' onClick={clickHandler}>
@@ -40,4 +38,4 @@ const GlampingMiniItem: React.FC<locationCardProps> = ({ title, rent, image, _id
   );
 };
 
-export default GlampingMiniItem;
+export default AccommodationMiniItem;
