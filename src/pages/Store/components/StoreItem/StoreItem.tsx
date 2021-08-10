@@ -20,7 +20,7 @@ const StoreItem: React.FC<IModuleCardProps> = ({ title, price, image, _id }) => 
 
   return (
     <Link to={`/store/${_id}`}>
-      <Card style={{ width: 300 }} cover={<img alt='product' src={cardImage} style={{ height: 200 }} />}>
+      <Card style={{ width: 300 }} cover={<img alt='product' src={cardImage} style={{ height: 200 }} />} hoverable>
         <Divider />
         <Meta style={{ marginBottom: 15 }} title={title} />
         <div style={{ marginBottom: 10 }}>
