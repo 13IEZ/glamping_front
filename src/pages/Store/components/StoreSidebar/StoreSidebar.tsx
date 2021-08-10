@@ -2,7 +2,7 @@ import './StoreSidebar.scss';
 
 import React from 'react';
 
-import { Button, Layout, Menu } from 'antd';
+import { Button, Divider, Layout, Menu } from 'antd';
 
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
@@ -69,6 +69,7 @@ const StoreSidebar: React.FC = () => {
             <Menu.Item key='2.1' onClick={() => sortHandler('price', 'desc')}>
               По убыванию
             </Menu.Item>
+            <Divider />
           </SubMenu>
           <SubMenu key='sub2' title='Вместимость' className='site-layout-background'>
             <Menu.Item key='1.2' onClick={() => filterHandler('roominess', '1')}>
@@ -86,6 +87,7 @@ const StoreSidebar: React.FC = () => {
             <Menu.Item key='5.2' onClick={() => filterHandler('roominess', '5')}>
               5-и и более местный
             </Menu.Item>
+            <Divider />
           </SubMenu>
           <SubMenu key='sub3' title='Сезоность' className='site-layout-background'>
             <Menu.Item key='1.3' onClick={() => filterHandler('season', 'summer')}>
@@ -97,12 +99,15 @@ const StoreSidebar: React.FC = () => {
             <Menu.Item key='3.3' onClick={() => filterHandler('season', 'all')}>
               Все сезоны
             </Menu.Item>
+            <Divider />
           </SubMenu>
           <SubMenu key='sub4' title='Производитель' className='site-layout-background'>
             {factoriesList}
+            <Divider />
           </SubMenu>
           <SubMenu key='sub5' title='Категории' className='site-layout-background'>
             {categoriesList}
+            <Divider />
           </SubMenu>
           <Button className='sidebar-button' onClick={() => emptyRefsHandler()}>
             Очистить фильтры
