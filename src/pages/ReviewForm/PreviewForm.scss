@@ -2,3 +2,14 @@
   margin-bottom: 20px;
   color: red;
 }
+
+.review_button {
+  background-color: #FDD74E;
+  border: 2px solid #FDD74E;
+}
+
+.review_button:hover {
+  background-color: #fff;
+  border: 2px solid #FDD74E;
+  color: black;
+}
