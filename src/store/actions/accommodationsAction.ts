@@ -23,3 +23,21 @@ export const fetchAccommodations = (currentLocationId: string): any => {
     }
   };
 };
+
+export const fetchLastFourAccommodations = (): any => {
+  return async (dispatch: Dispatch<AccommodationsAction>) => {
+    try {
+      const response = await ax.get('/accommodations/last');
+      dispatch({ type: AccommodationsActionTypes.FETCH_LAST_FOUR_ACCOMMODATIONS_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({
+        type: AccommodationsActionTypes.FETCH_LAST_FOUR_ACCOMMODATIONS_FAILURE,
+        payload: 'Ошибка при получении данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};

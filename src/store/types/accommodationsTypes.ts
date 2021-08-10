@@ -18,12 +18,15 @@ export interface IAccommodation {
 
 export interface IAccommodationsState {
   accommodations: Array<IAccommodation> | [];
+  lastFourAccommodations: Array<IAccommodation> | [];
   error: null | string;
 }
 
 export enum AccommodationsActionTypes {
   FETCH_ACCOMMODATIONS_SUCCESS = 'FETCH_ACCOMMODATIONS_SUCCESS',
   FETCH_ACCOMMODATIONS_FAILURE = 'FETCH_ACCOMMODATIONS_FAILURE',
+  FETCH_LAST_FOUR_ACCOMMODATIONS_SUCCESS = 'FETCH_LAST_FOUR_ACCOMMODATIONS_SUCCESS',
+  FETCH_LAST_FOUR_ACCOMMODATIONS_FAILURE = 'FETCH_LAST_FOUR_ACCOMMODATIONS_FAILURE',
 }
 
 interface IFetchAccommodationsSuccessAction {
@@ -36,4 +39,18 @@ interface IFetchAccommodationsFailureAction {
   payload: string;
 }
 
-export type AccommodationsAction = IFetchAccommodationsSuccessAction | IFetchAccommodationsFailureAction;
+interface IFetchLastFourAccommodationsSuccessAction {
+  type: AccommodationsActionTypes.FETCH_LAST_FOUR_ACCOMMODATIONS_SUCCESS;
+  payload: Array<IAccommodation>;
+}
+
+interface IFetchLastFourAccommodationsFailureAction {
+  type: AccommodationsActionTypes.FETCH_LAST_FOUR_ACCOMMODATIONS_FAILURE;
+  payload: string;
+}
+
+export type AccommodationsAction =
+  | IFetchAccommodationsSuccessAction
+  | IFetchAccommodationsFailureAction
+  | IFetchLastFourAccommodationsSuccessAction
+  | IFetchLastFourAccommodationsFailureAction;

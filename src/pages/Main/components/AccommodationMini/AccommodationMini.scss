@@ -1,10 +1,10 @@
 @import '../../../../assets/mixins.scss';
 
-.glamping {
+.accommodation {
   background: #F9FAF7;
 }
 
-.glamping-card {
+.accommodation-card {
 
   @include respond(big-tablets) {
     max-width: 720px;
@@ -21,7 +21,7 @@
   }
 }
 
-.glamping-header {
+.accommodation-header {
   display: flex;
   justify-content: space-between;
   padding: 20px 20px 34px 20px;
@@ -43,7 +43,7 @@
   }
 }
 
-.glamping-header-row {
+.accommodation-header-row {
   display: flex;
 
   @include respond(big-tablets) {
@@ -66,26 +66,26 @@
   padding-top: 35px;
 }
 
-.glamping-header__button_dark {
+.accommodation-header__button_dark {
   background-color: #69a042;
   border-color: #69a042;
   margin-right: 15px;
   max-width: 106px;
 }
 
-.glamping-header__button_light {
+.accommodation-header__button_light {
   background-color: #c4e0a6;
   margin-right: 30px;
   max-width: 120px;
 }
 
-.glamping-header__divider {
+.accommodation-header__divider {
   height: 39px;
   border: 3px solid #2f2d25;
   margin-right: 23px;
 }
 
-.glamping-header__link {
+.accommodation-header__link {
   color: #69A042;
   position: relative;
   padding-left: 25px;
@@ -98,7 +98,7 @@
   }
 }
 
-.glamping-header__link::before {
+.accommodation-header__link::before {
   content: '';
   position: absolute;
   height: 24px;
@@ -108,7 +108,7 @@
   background-image: url('../../../../assets/location.png');
 }
 
-.glamping__link {
+.accommodation__link {
   color: #69A042;
   margin: 5px 0 50px 0;
   font-size: 18px;
@@ -121,7 +121,6 @@
     transition: all 0.2s;
   }
 }
-
 
 .ant-col-6 {
   display: flex;
