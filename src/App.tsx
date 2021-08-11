@@ -16,7 +16,7 @@ import Store from './pages/Store/Store';
 import CurrentLocation from './pages/CurrentLocation/CurrentLocation';
 import LocationsMap from './pages/LocationsMap/LocationsMap';
 import Locations from './pages/Locations/Locations';
-
+import CurrentAccommodation from './pages/CurrentAccommodation/CurrentAccommodation';
 
 function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
@@ -35,6 +35,7 @@ function App(): JSX.Element {
         <Route path='/locations-map' exact component={LocationsMap} />
         <Route path='/locations' exact component={Locations} />
         <Route path='/locations/:id' exact component={CurrentLocation} />
+        <Route path='/accommodations/:id' exact component={CurrentAccommodation} />
       </Switch>
     </Layout>
   );
