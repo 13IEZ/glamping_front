@@ -1,105 +1,114 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
-import { v4 as uuidv4 } from 'uuid';
-
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const StoreSidebar: React.FC = () => {
-  const { fetchModulesCat, fetchProducts, setSortOptions, setFilterOptions } = useActions();
+  const { fetchModulesCat } = useActions();
   const { categories } = useTypedSelectorHook(state => state.categories);
   const { factories } = useTypedSelectorHook(state => state.categories);
-  const { sortOptions } = useTypedSelectorHook(state => state.categories);
-  const { filterOptions } = useTypedSelectorHook(state => state.categories);
+
+  const [filters, setFilters] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    fetchModulesCat(filters);
+  }, [filters]);
+
+  const handleClick = (event: any) => {
+    const keyStr = event.key;
+    let filtersArrCopy = [...filters];
+
+    if (filtersArrCopy.includes(keyStr)) {
+      setFilters(prevState => {
+        filtersArrCopy = prevState.filter(item => item !== keyStr);
+        return [...filtersArrCopy];
+      });
+      return;
+    }
+
+    if (keyStr.includes('price')) {
+      setFilters(prevState => {
+        filtersArrCopy = prevState.filter(item => !item.includes('price'));
+        return [...filtersArrCopy, keyStr];
+      });
+      return;
+    } else {
+      setFilters(prevState => [...prevState, keyStr]);
+      return;
+    }
+  };
 
   const factoriesList = factories.map(factory => (
-    <Menu.Item key={uuidv4()} onClick={() => filterHandler('factoryId', factory._id)}>
+    <Menu.Item key={'factory_' + factory._id} onClick={handleClick}>
       {factory.title}
     </Menu.Item>
   ));
 
   const categoriesList = categories.map(category => (
-    <Menu.Item key={uuidv4()} onClick={() => filterHandler('categoryId', category._id)}>
+    <Menu.Item key={'category_' + category._id} onClick={handleClick}>
       {category.title}
     </Menu.Item>
   ));
 
-  const emptyRefsHandler = () => {
-    setSortOptions('empty', 'empty');
-    setFilterOptions('empty', 'empty');
-    fetchProducts();
-  };
-
-  const filterHandler = (fieldName: string, fieldValue: string) => {
-    setFilterOptions(fieldName, fieldValue);
-    if (sortOptions.fieldName === 'empty') {
-      fetchModulesCat(fieldName, fieldValue, 'empty', 'empty');
-    } else {
-      fetchModulesCat(fieldName, fieldValue, sortOptions.fieldName, sortOptions.fieldValue);
-    }
-  };
-
-  const sortHandler = (fieldName: string, fieldValue: string) => {
-    setSortOptions(fieldName, fieldValue);
-    if (filterOptions.fieldName === 'empty') {
-      fetchModulesCat('empty', 'empty', fieldName, fieldValue);
-    } else {
-      fetchModulesCat(filterOptions.fieldName, filterOptions.fieldValue, fieldName, fieldValue);
-    }
+  const clearHandleClick = () => {
+    setFilters([]);
   };
 
   return (
     <>
       <Sider className='site-layout-background' width={200}>
-        <Menu mode='inline' style={{ height: '100%', borderRight: 0 }}>
-          <SubMenu key='sub1' title='Цена'>
-            <Menu.Item key={uuidv4()} onClick={() => sortHandler('price', 'asc')}>
+        <Menu
+          mode='inline'
+          selectedKeys={filters}
+          defaultOpenKeys={['sortSub', 'roominessSub', 'seasonSub', 'factorySub', 'categorySub', 'clearSub']}
+          style={{ height: '100%', borderRight: 0 }}
+        >
+          <SubMenu key='sortSub' title='Цена'>
+            <Menu.Item key='priceAsc' onClick={handleClick}>
               По возрастанию
             </Menu.Item>
-            <Menu.Item key={uuidv4()} onClick={() => sortHandler('price', 'desc')}>
+            <Menu.Item key='priceDesc' onClick={handleClick}>
               По убыванию
             </Menu.Item>
           </SubMenu>
-          <SubMenu key='sub2' title='Вместимость'>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '1')}>
+          <SubMenu key='roominessSub' title='Вместимость'>
+            <Menu.Item key='roominess1' onClick={handleClick}>
               1-о местный
             </Menu.Item>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '2')}>
+            <Menu.Item key='roominess2' onClick={handleClick}>
               2-ух местный
             </Menu.Item>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '3')}>
+            <Menu.Item key='roominess3' onClick={handleClick}>
               3-ех местный
             </Menu.Item>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '4')}>
+            <Menu.Item key='roominess4' onClick={handleClick}>
               4-ех местный
             </Menu.Item>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '5')}>
+            <Menu.Item key='roominess5' onClick={handleClick}>
               5-и и более местный
             </Menu.Item>
           </SubMenu>
-          <SubMenu key='sub3' title='Сезоность'>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'summer')}>
+          <SubMenu key='seasonSub' title='Сезоность'>
+            <Menu.Item key='seasonSummer' onClick={handleClick}>
               Лето
             </Menu.Item>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'winter')}>
+            <Menu.Item key='seasonWinter' onClick={handleClick}>
               Зима
             </Menu.Item>
-            <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'all')}>
+            <Menu.Item key='seasonAll' onClick={handleClick}>
               Все сезоны
             </Menu.Item>
           </SubMenu>
-          <SubMenu key='sub4' title='Производитель'>
+          <SubMenu key='factorySub' title='Производитель'>
             {factoriesList}
           </SubMenu>
-          <SubMenu key='sub5' title='Категории'>
+          <SubMenu key='categorySub' title='Категории'>
             {categoriesList}
           </SubMenu>
-          <SubMenu key='sub6' title='Очистить'>
-            <Menu.Item key={uuidv4()} onClick={() => emptyRefsHandler()}>
+          <SubMenu key='clearSub' title='Очистить'>
+            <Menu.Item key='clearAll' onClick={clearHandleClick}>
               Очистить
             </Menu.Item>
           </SubMenu>
