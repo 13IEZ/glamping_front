@@ -1,7 +1,10 @@
+import './StoreSidebar.scss';
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu } from 'antd';
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+
+import { Button, Divider, Layout, Menu } from 'antd';
+
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -65,15 +68,16 @@ const StoreSidebar: React.FC = () => {
           defaultOpenKeys={['sortSub', 'roominessSub', 'seasonSub', 'factorySub', 'categorySub', 'clearSub']}
           style={{ height: '100%', borderRight: 0 }}
         >
-          <SubMenu key='sortSub' title='Цена'>
+          <SubMenu key='sortSub' title='Цена' className='site-layout-background'>
             <Menu.Item key='priceAsc' onClick={handleClick}>
               По возрастанию
             </Menu.Item>
             <Menu.Item key='priceDesc' onClick={handleClick}>
               По убыванию
             </Menu.Item>
+            <Divider />
           </SubMenu>
-          <SubMenu key='roominessSub' title='Вместимость'>
+          <SubMenu key='roominessSub' title='Вместимость' className='site-layout-background'>
             <Menu.Item key='roominess1' onClick={handleClick}>
               1-о местный
             </Menu.Item>
@@ -89,8 +93,9 @@ const StoreSidebar: React.FC = () => {
             <Menu.Item key='roominess5' onClick={handleClick}>
               5-и и более местный
             </Menu.Item>
+            <Divider />
           </SubMenu>
-          <SubMenu key='seasonSub' title='Сезоность'>
+          <SubMenu key='seasonSub' title='Сезоность' className='site-layout-background'>
             <Menu.Item key='seasonSummer' onClick={handleClick}>
               Лето
             </Menu.Item>
@@ -100,17 +105,20 @@ const StoreSidebar: React.FC = () => {
             <Menu.Item key='seasonAll' onClick={handleClick}>
               Все сезоны
             </Menu.Item>
+            <Divider />
           </SubMenu>
-          <SubMenu key='factorySub' title='Производитель'>
+          <SubMenu key='factorySub' title='Производитель' className='site-layout-background'>
             {factoriesList}
+            <Divider />
           </SubMenu>
-          <SubMenu key='categorySub' title='Категории'>
+          <SubMenu key='categorySub' title='Категории' className='site-layout-background'>
             {categoriesList}
+            <Divider />
           </SubMenu>
           <SubMenu key='clearSub' title='Очистить'>
-            <Menu.Item key='clearAll' onClick={clearHandleClick}>
-              Очистить
-            </Menu.Item>
+            <Button className='sidebar-button' onClick={clearHandleClick}>
+              Очистить фильтры
+            </Button>
           </SubMenu>
         </Menu>
       </Sider>
