@@ -7,7 +7,7 @@
 .store-body {
   background: #f9faf7;
   position: relative;
-  @include respond(small-phone) {
+  @include respond(small-tablets) {
     display: block;
   }
 }

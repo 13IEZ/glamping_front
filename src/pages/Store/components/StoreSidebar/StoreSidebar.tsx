@@ -3,6 +3,7 @@ import './StoreSidebar.scss';
 import React from 'react';
 
 import { Button, Divider, Layout, Menu } from 'antd';
+import { v4 as uuidv4 } from 'uuid';
 
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
@@ -18,13 +19,13 @@ const StoreSidebar: React.FC = () => {
   const { filterOptions } = useTypedSelectorHook(state => state.categories);
 
   const factoriesList = factories.map(factory => (
-    <Menu.Item key={factory._id} onClick={() => filterHandler('factoryId', factory._id)}>
+    <Menu.Item key={uuidv4()} onClick={() => filterHandler('factoryId', factory._id)}>
       {factory.title}
     </Menu.Item>
   ));
 
   const categoriesList = categories.map(category => (
-    <Menu.Item key={category._id} onClick={() => filterHandler('categoryId', category._id)}>
+    <Menu.Item key={uuidv4()} onClick={() => filterHandler('categoryId', category._id)}>
       {category.title}
     </Menu.Item>
   ));
@@ -63,40 +64,40 @@ const StoreSidebar: React.FC = () => {
           defaultOpenKeys={['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6']}
         >
           <SubMenu key='sub1' title='Цена' className='site-layout-background'>
-            <Menu.Item key='1.1' onClick={() => sortHandler('price', 'asc')}>
+            <Menu.Item key={uuidv4()} onClick={() => sortHandler('price', 'asc')}>
               По возрастанию
             </Menu.Item>
-            <Menu.Item key='2.1' onClick={() => sortHandler('price', 'desc')}>
+            <Menu.Item key={uuidv4()} onClick={() => sortHandler('price', 'desc')}>
               По убыванию
             </Menu.Item>
             <Divider />
           </SubMenu>
           <SubMenu key='sub2' title='Вместимость' className='site-layout-background'>
-            <Menu.Item key='1.2' onClick={() => filterHandler('roominess', '1')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '1')}>
               1-о местный
             </Menu.Item>
-            <Menu.Item key='2.2' onClick={() => filterHandler('roominess', '2')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '2')}>
               2-ух местный
             </Menu.Item>
-            <Menu.Item key='3.2' onClick={() => filterHandler('roominess', '3')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '3')}>
               3-ех местный
             </Menu.Item>
-            <Menu.Item key='4.2' onClick={() => filterHandler('roominess', '4')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '4')}>
               4-ех местный
             </Menu.Item>
-            <Menu.Item key='5.2' onClick={() => filterHandler('roominess', '5')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '5')}>
               5-и и более местный
             </Menu.Item>
             <Divider />
           </SubMenu>
           <SubMenu key='sub3' title='Сезоность' className='site-layout-background'>
-            <Menu.Item key='1.3' onClick={() => filterHandler('season', 'summer')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'summer')}>
               Лето
             </Menu.Item>
-            <Menu.Item key='2.3' onClick={() => filterHandler('season', 'winter')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'winter')}>
               Зима
             </Menu.Item>
-            <Menu.Item key='3.3' onClick={() => filterHandler('season', 'all')}>
+            <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'all')}>
               Все сезоны
             </Menu.Item>
             <Divider />
