@@ -55,7 +55,7 @@ const StoreSidebar: React.FC = () => {
 
   return (
     <>
-      <Sider className='site-layout-background' width={238}>
+      <Sider className='site-layout' width={238}>
         <Menu
           mode='inline'
           style={{ height: '100%', borderRight: 0 }}

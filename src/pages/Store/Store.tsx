@@ -1,8 +1,8 @@
 import './Store.scss';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Col, Layout, Pagination, Row } from 'antd';
+import { Button, Col, Layout, Pagination, Row } from 'antd';
 
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
@@ -17,6 +17,7 @@ const Store: React.FC = () => {
   const { fetchNextPages } = useActions();
   const { sortOptions } = useTypedSelectorHook(state => state.categories);
   const { filterOptions } = useTypedSelectorHook(state => state.categories);
+  const [className, setClassName] = useState('sidebar');
 
   let paginator;
 
@@ -53,19 +54,38 @@ const Store: React.FC = () => {
     paginator = null;
   }
 
+  const openSidebar = () => {
+    setClassName('sidebar-active');
+  };
+
+  const closeSidebar = () => {
+    setClassName('sidebar');
+  };
+
   return (
     <div className='container'>
       <Layout className='store-body'>
-        <StoreSidebar />
-        <Content>
-          <Row className='store-content'>
-            {productsList}
-            {productsList}
-            {productsList}
-            {productsList}
-          </Row>
-          {paginator}
-        </Content>
+        <Button className='openbtn' onClick={openSidebar}>
+          ☰
+        </Button>
+        <Button className='closebtn' onClick={closeSidebar}>
+          скрыть фильтры
+        </Button>
+        <div className={className}>
+          <StoreSidebar />
+        </div>
+
+        <div className='content'>
+          <Content className='cont'>
+            <Row className='store-content'>
+              {productsList}
+              {productsList}
+              {productsList}
+              {productsList}
+            </Row>
+            {paginator}
+          </Content>
+        </div>
       </Layout>
     </div>
   );

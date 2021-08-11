@@ -1,4 +1,4 @@
-import './GlampingMiniItem.scss';
+import './AccommodationMiniItem.scss';
 
 import React from 'react';
 
