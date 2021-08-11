@@ -6,35 +6,40 @@
 
 .store-body {
   background: #f9faf7;
+  position: relative;
   @include respond(small-phone) {
     display: block;
   }
 }
 
 .store-content {
-  margin-left: 0px;
   @include respond(small-phone) {
     margin-left: -80px;
   }
 }
 
 .sidebar  {
-  height: 90%; /* 100% Full-height */
-  width: 250px; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 16px; /* Stay at the top */
-  left: 0;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  @include respond(small-phone) {
+  width: 250px; 
+  padding: 10px 10px 130px; 
+  @include respond(small-tablets) {
+    overflow-x: hidden;
+    top: 16px; 
+    left: -15%;
     width: 0;
+    z-index: 2;
+    position: absolute;
+  }
+}
+
+.buttons {
+  display: none;
+  @include respond(small-tablets) {
+    display: flex;
   }
 }
 
 .sidebar-active  {
-  @include respond(small-phone) {
+  @include respond(small-tablets) {
     width: 250px;
   }
 }

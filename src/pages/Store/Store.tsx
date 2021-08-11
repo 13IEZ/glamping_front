@@ -65,14 +65,19 @@ const Store: React.FC = () => {
   return (
     <div className='container'>
       <Layout className='store-body'>
-        <Button className='openbtn' onClick={openSidebar}>
-          ☰
-        </Button>
-        <Button className='closebtn' onClick={closeSidebar}>
-          скрыть фильтры
-        </Button>
-        <div className={className}>
-          <StoreSidebar />
+        <div className='sider'>
+          <div className='buttons'>
+            <Button className='openbtn' onClick={openSidebar}>
+              показать фильтры
+            </Button>
+            <Button className='closebtn' onClick={closeSidebar}>
+              скрыть фильтры
+            </Button>
+          </div>
+
+          <div className={className}>
+            <StoreSidebar />
+          </div>
         </div>
 
         <div className='content'>
