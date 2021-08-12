@@ -3,8 +3,17 @@
 .locations-map {
   margin: 0 auto;
   width: 100%;
-  height: calc(100vh - (85px + 80px));
-  max-width: 1440px;
+  height: calc(100vh - 80px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .locations-header {
+    max-width: 600px;
+    position: absolute;
+    top: 20px;
+    z-index: 2;
+  }
   
   .locations-map__button {
     font-weight: 500;
@@ -21,7 +30,7 @@
 
 @media screen and (min-width: 540px) {
   .locations-map {
-    height: calc(100vh - (50px + 77px));
+    height: calc(100vh - 77px);
   }
 }
 
