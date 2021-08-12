@@ -19,4 +19,19 @@
       @content;
     } //480px
   }
+  @if $breakpoint == IphonePlus {
+    @media only screen and (max-width: 25.875em) {
+      @content;
+    } //414px
+  }
+  @if $breakpoint == Iphone6 {
+    @media only screen and (max-width: 23.438em) {
+      @content;
+    } //375px
+  }
+  @if $breakpoint == Iphone5 {
+    @media only screen and (max-width: 20.000em) {
+      @content;
+    } //320px
+  }
 }
