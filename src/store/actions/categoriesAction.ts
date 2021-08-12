@@ -47,30 +47,3 @@ export const fetchFactories = (): any => {
     }
   };
 };
-
-export const setSortOptions = (fieldName: string, fieldValue: string): any => {
-  return async (dispatch: Dispatch<CategoriesAction>) => {
-    try {
-      dispatch({
-        type: CategoryActionTypes.SET_SORT_OPTIONS,
-        payload: { fieldName, fieldValue },
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
-
-export const setFilterOptions = (fieldName: string, fieldValue: string): any => {
-  return async (dispatch: Dispatch<CategoriesAction>) => {
-    console.log(fieldName, fieldValue);
-    try {
-      dispatch({
-        type: CategoryActionTypes.SET_FILTER_OPTIONS,
-        payload: { fieldName, fieldValue },
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};

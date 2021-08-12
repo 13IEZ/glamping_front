@@ -20,11 +20,11 @@
 }
 
 .sidebar  {
-  width: 250px; 
-  padding: 10px 10px 130px; 
+  width: 250px;
+  padding: 10px 10px 130px;
   @include respond(small-tablets) {
     overflow-x: hidden;
-    top: 16px; 
+    top: 16px;
     left: -15%;
     width: 0;
     z-index: 2;
@@ -61,8 +61,6 @@
   }
 }
 
-
-
 .btn {
   background-color: #FDD74E;
   border: 2px solid #FDD74E;
@@ -83,4 +81,3 @@
   @include respond(small-phone) {
     margin-left: -10px;
   }
-}

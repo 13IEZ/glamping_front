@@ -15,11 +15,8 @@ const Store: React.FC = () => {
   const { products, pages } = useTypedSelectorHook(state => state.products);
   const { fetchProducts } = useActions();
   const { fetchNextPages } = useActions();
-  const { sortOptions } = useTypedSelectorHook(state => state.categories);
-  const { filterOptions } = useTypedSelectorHook(state => state.categories);
   const [className, setClassName] = useState('sidebar');
 
-  let paginator;
 
   useEffect(() => {
     fetchProducts();
@@ -41,19 +38,6 @@ const Store: React.FC = () => {
 
   const noPages = totalPages < 2;
 
-  if (
-    sortOptions.fieldName === 'empty' &&
-    sortOptions.fieldValue === 'empty' &&
-    filterOptions.fieldName === 'empty' &&
-    filterOptions.fieldValue === 'empty'
-  ) {
-    paginator = (
-      <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
-    );
-  } else {
-    paginator = null;
-  }
-
   const openSidebar = () => {
     setClassName('sidebar-active');
   };
@@ -74,7 +58,6 @@ const Store: React.FC = () => {
               скрыть фильтры
             </Button>
           </div>
-
           <div className={className}>
             <StoreSidebar />
           </div>
@@ -87,7 +70,7 @@ const Store: React.FC = () => {
               {productsList}
               {productsList}
             </Row>
-            {paginator}
+            <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
           </Content>
         </div>
       </Layout>
