@@ -1,13 +1,12 @@
 import './Store.scss';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Col, Layout, Pagination, Row } from 'antd';
+import { Button, Col, Layout, Pagination, Row } from 'antd';
 
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import StoreItem from './components/StoreItem/StoreItem';
-import StoreMenu from './components/StoreMenu/StoreMenu';
 import StoreSidebar from './components/StoreSidebar/StoreSidebar';
 
 const { Content } = Layout;
@@ -18,6 +17,7 @@ const Store: React.FC = () => {
   const { fetchNextPages } = useActions();
   const { sortOptions } = useTypedSelectorHook(state => state.categories);
   const { filterOptions } = useTypedSelectorHook(state => state.categories);
+  const [className, setClassName] = useState('sidebar');
 
   let paginator;
 
@@ -54,20 +54,42 @@ const Store: React.FC = () => {
     paginator = null;
   }
 
+  const openSidebar = () => {
+    setClassName('sidebar-active');
+  };
+
+  const closeSidebar = () => {
+    setClassName('sidebar');
+  };
+
   return (
     <div className='container'>
       <Layout className='store-body'>
-        <StoreSidebar />
-        <Content>
-          <StoreMenu />
-          <Row className='store-content'>
-            {productsList}
-            {productsList}
-            {productsList}
-            {productsList}
-          </Row>
-          {paginator}
-        </Content>
+        <div className='sider'>
+          <div className='buttons'>
+            <Button className='btn openbtn' onClick={openSidebar}>
+              показать фильтры
+            </Button>
+            <Button className='btn closebtn' onClick={closeSidebar}>
+              скрыть фильтры
+            </Button>
+          </div>
+
+          <div className={className}>
+            <StoreSidebar />
+          </div>
+        </div>
+        <div className='content'>
+          <Content className='cont'>
+            <Row className='store-content'>
+              {productsList}
+              {productsList}
+              {productsList}
+              {productsList}
+            </Row>
+            {paginator}
+          </Content>
+        </div>
       </Layout>
     </div>
   );

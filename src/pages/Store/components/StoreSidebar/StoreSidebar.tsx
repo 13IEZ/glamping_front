@@ -1,6 +1,8 @@
+import './StoreSidebar.scss';
+
 import React from 'react';
 
-import { Layout, Menu } from 'antd';
+import { Button, Divider, Layout, Menu } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useActions } from '../../../../hooks/useAction';
@@ -54,17 +56,23 @@ const StoreSidebar: React.FC = () => {
 
   return (
     <>
-      <Sider className='site-layout-background' width={200}>
-        <Menu mode='inline' style={{ height: '100%', borderRight: 0 }}>
-          <SubMenu key='sub1' title='Цена'>
+      <Sider className='site-layout' width={238}>
+        <Menu
+          mode='inline'
+          style={{ height: '100%', borderRight: 0 }}
+          className='site-layout-background'
+          defaultOpenKeys={['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6']}
+        >
+          <SubMenu key='sub1' title='Цена' className='site-layout-background'>
             <Menu.Item key={uuidv4()} onClick={() => sortHandler('price', 'asc')}>
               По возрастанию
             </Menu.Item>
             <Menu.Item key={uuidv4()} onClick={() => sortHandler('price', 'desc')}>
               По убыванию
             </Menu.Item>
+            <Divider />
           </SubMenu>
-          <SubMenu key='sub2' title='Вместимость'>
+          <SubMenu key='sub2' title='Вместимость' className='site-layout-background'>
             <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '1')}>
               1-о местный
             </Menu.Item>
@@ -80,8 +88,9 @@ const StoreSidebar: React.FC = () => {
             <Menu.Item key={uuidv4()} onClick={() => filterHandler('roominess', '5')}>
               5-и и более местный
             </Menu.Item>
+            <Divider />
           </SubMenu>
-          <SubMenu key='sub3' title='Сезоность'>
+          <SubMenu key='sub3' title='Сезоность' className='site-layout-background'>
             <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'summer')}>
               Лето
             </Menu.Item>
@@ -91,18 +100,19 @@ const StoreSidebar: React.FC = () => {
             <Menu.Item key={uuidv4()} onClick={() => filterHandler('season', 'all')}>
               Все сезоны
             </Menu.Item>
+            <Divider />
           </SubMenu>
-          <SubMenu key='sub4' title='Производитель'>
+          <SubMenu key='sub4' title='Производитель' className='site-layout-background'>
             {factoriesList}
+            <Divider />
           </SubMenu>
-          <SubMenu key='sub5' title='Категории'>
+          <SubMenu key='sub5' title='Категории' className='site-layout-background'>
             {categoriesList}
+            <Divider />
           </SubMenu>
-          <SubMenu key='sub6' title='Очистить'>
-            <Menu.Item key={uuidv4()} onClick={() => emptyRefsHandler()}>
-              Очистить
-            </Menu.Item>
-          </SubMenu>
+          <Button className='sidebar-button' onClick={() => emptyRefsHandler()}>
+            Очистить фильтры
+          </Button>
         </Menu>
       </Sider>
     </>
