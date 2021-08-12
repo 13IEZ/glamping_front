@@ -36,6 +36,8 @@ export enum AccommodationsActionTypes {
   FETCH_LAST_FOUR_ACCOMMODATIONS_FAILURE = 'FETCH_LAST_FOUR_ACCOMMODATIONS_FAILURE',
   FETCH_CURRENT_ACCOMMODATION_SUCCESS = 'FETCH_CURRENT_ACCOMMODATION_SUCCESS',
   FETCH_CURRENT_ACCOMMODATION_FAILURE = 'FETCH_CURRENT_ACCOMMODATION_FAILURE',
+  BOOK_ACCOMMODATION_SUCCESS = 'BOOK_ACCOMMODATION_SUCCESS',
+  BOOK_ACCOMMODATION_FAILURE = 'BOOK_ACCOMMODATION_FAILURE',
 }
 
 interface IFetchAccommodationsSuccessAction {
@@ -68,10 +70,21 @@ interface IFetchCurrentAccommodationFailureAction {
   payload: string;
 }
 
+interface IBookAccommodationSuccessAction {
+  type: AccommodationsActionTypes.BOOK_ACCOMMODATION_SUCCESS;
+}
+
+interface IBookAccommodationFailureAction {
+  type: AccommodationsActionTypes.BOOK_ACCOMMODATION_FAILURE;
+  payload: string;
+}
+
 export type AccommodationsAction =
   | IFetchAccommodationsSuccessAction
   | IFetchAccommodationsFailureAction
   | IFetchLastFourAccommodationsSuccessAction
   | IFetchLastFourAccommodationsFailureAction
   | IFetchCurrentAccommodationSuccessAction
-  | IFetchCurrentAccommodationFailureAction;
+  | IFetchCurrentAccommodationFailureAction
+  | IBookAccommodationSuccessAction
+  | IBookAccommodationFailureAction;

@@ -59,3 +59,21 @@ export const fetchCurrentAccommodation = (currentAccommodationId: string): any =
     }
   };
 };
+
+export const bookAccommodation = (currentAccommodationId: string, startDay: any, endDay: any): any => {
+  return async (dispatch: Dispatch<AccommodationsAction>) => {
+    try {
+      await ax.put(`accommodations/booked/${currentAccommodationId}?startDay=${startDay}&endDay=${endDay}`);
+      dispatch({ type: AccommodationsActionTypes.BOOK_ACCOMMODATION_SUCCESS });
+    } catch (error) {
+      dispatch({
+        type: AccommodationsActionTypes.BOOK_ACCOMMODATION_FAILURE,
+        payload: 'Ошибка при отправке данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при отправке данных',
+      });
+    }
+  };
+};

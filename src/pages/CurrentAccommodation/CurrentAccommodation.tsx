@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { Col, Button, Space, DatePicker, Typography, Divider, Pagination } from 'antd';
+import { Col, Space, Typography, Divider, Pagination } from 'antd';
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import CurrentAccommodationGallery from './components/CurrentAccommodationGallery/CurrentAccommodationGallery';
 import CurrentAccommodationDescription from './components/CurrentAccommodationDescription/CurrentAccommodationDescription';
 import ReviewItem from './components/ReviewItem/ReviewItem';
+import Calendar from './components/Calendar/Calendar';
 import './CurrentAccommodation.scss';
 
-const { RangePicker } = DatePicker;
 const { Paragraph } = Typography;
 const { Title } = Typography;
 
@@ -61,15 +61,9 @@ const CurrentAccommodation: React.FC = (props: any) => {
           road={currentAccommodation.road}
           water={currentAccommodation.water}
         />
-
-        <div className='datePicker'>
-          <Space direction='vertical' size={12}>
-            <RangePicker />
-          </Space>
-          <Button className='item__button' style={{ marginTop: 20 }}>
-            Бронировать
-          </Button>
-        </div>
+        <Space direction='vertical' size={12}>
+          <Calendar accommodationId={currentAccommodation._id} />
+        </Space>
         <Title level={4}>Отзывы {currentAccommodation.reviewsQuantity}</Title>
         {reviewsList.length !== 0 ? (
           <>

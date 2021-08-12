@@ -28,6 +28,10 @@ const accommodationsReducer = (state = initialState, action: AccommodationsActio
     }
     case AccommodationsActionTypes.FETCH_CURRENT_ACCOMMODATION_FAILURE:
       return { ...state, error: action.payload };
+    case AccommodationsActionTypes.BOOK_ACCOMMODATION_SUCCESS:
+      return { ...state, error: null };
+    case AccommodationsActionTypes.BOOK_ACCOMMODATION_FAILURE:
+      return { ...state, error: action.payload };
     default:
       return state;
   }
