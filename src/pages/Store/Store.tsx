@@ -13,9 +13,9 @@ const { Content } = Layout;
 
 const Store: React.FC = () => {
   const { products, pages } = useTypedSelectorHook(state => state.products);
+  const [className, setClassName] = useState('sidebar');
   const { fetchProducts } = useActions();
   const { fetchNextPages } = useActions();
-  const [className, setClassName] = useState('sidebar');
 
   useEffect(() => {
     fetchProducts();
@@ -50,10 +50,10 @@ const Store: React.FC = () => {
       <Layout className='store-body'>
         <div className='sider'>
           <div className='buttons'>
-            <Button className='openbtn' onClick={openSidebar}>
+            <Button className='btn openbtn' onClick={openSidebar}>
               показать фильтры
             </Button>
-            <Button className='closebtn' onClick={closeSidebar}>
+            <Button className='btn closebtn' onClick={closeSidebar}>
               скрыть фильтры
             </Button>
           </div>

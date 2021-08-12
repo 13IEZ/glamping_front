@@ -1,5 +1,7 @@
 import './StoreSidebar.scss';
+
 import React, { useState, useEffect } from 'react';
+
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 
@@ -61,7 +63,7 @@ const StoreSidebar: React.FC = () => {
 
   return (
     <>
-      <Sider className='site-layout-background' width={200}>
+      <Sider className='site-layout-background' width={238}>
         <Menu
           mode='inline'
           selectedKeys={filters}
