@@ -60,10 +60,10 @@ export const fetchCurrentAccommodation = (currentAccommodationId: string): any =
   };
 };
 
-export const bookAccommodation = (currentAccommodationId: string, startDay: any, endDay: any): any => {
+export const bookAccommodation = (currentAccommodationId: string, startDate: any, endDate: any): any => {
   return async (dispatch: Dispatch<AccommodationsAction>) => {
     try {
-      await ax.put(`accommodations/booked/${currentAccommodationId}?startDay=${startDay}&endDay=${endDay}`);
+      await ax.put(`accommodations/booked/${currentAccommodationId}?startDate=${startDate}&endDate=${endDate}`);
       dispatch({ type: AccommodationsActionTypes.BOOK_ACCOMMODATION_SUCCESS });
     } catch (error) {
       dispatch({
