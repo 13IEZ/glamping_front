@@ -1,13 +1,12 @@
 import './Store.scss';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Col, Layout, Pagination, Row } from 'antd';
+import { Button, Col, Layout, Pagination, Row } from 'antd';
 
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import StoreItem from './components/StoreItem/StoreItem';
-import StoreMenu from './components/StoreMenu/StoreMenu';
 import StoreSidebar from './components/StoreSidebar/StoreSidebar';
 
 const { Content } = Layout;
@@ -16,10 +15,7 @@ const Store: React.FC = () => {
   const { products, pages } = useTypedSelectorHook(state => state.products);
   const { fetchProducts } = useActions();
   const { fetchNextPages } = useActions();
-  const { sortOptions } = useTypedSelectorHook(state => state.categories);
-  const { filterOptions } = useTypedSelectorHook(state => state.categories);
-
-  let paginator;
+  const [className, setClassName] = useState('sidebar');
 
   useEffect(() => {
     fetchProducts();
@@ -41,33 +37,43 @@ const Store: React.FC = () => {
 
   const noPages = totalPages < 2;
 
-  if (
-    sortOptions.fieldName === 'empty' &&
-    sortOptions.fieldValue === 'empty' &&
-    filterOptions.fieldName === 'empty' &&
-    filterOptions.fieldValue === 'empty'
-  ) {
-    paginator = (
-      <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
-    );
-  } else {
-    paginator = null;
-  }
+  const openSidebar = () => {
+    setClassName('sidebar-active');
+  };
+
+  const closeSidebar = () => {
+    setClassName('sidebar');
+  };
 
   return (
     <div className='container'>
       <Layout className='store-body'>
-        <StoreSidebar />
-        <Content>
-          <StoreMenu />
-          <Row className='store-content'>
-            {productsList}
-            {productsList}
-            {productsList}
-            {productsList}
-          </Row>
-          {paginator}
-        </Content>
+        <div className='sider'>
+          <div className='buttons'>
+            <Button className='openbtn' onClick={openSidebar}>
+              показать фильтры
+            </Button>
+            <Button className='closebtn' onClick={closeSidebar}>
+              скрыть фильтры
+            </Button>
+          </div>
+
+          <div className={className}>
+            <StoreSidebar />
+          </div>
+        </div>
+
+        <div className='content'>
+          <Content className='cont'>
+            <Row className='store-content'>
+              {productsList}
+              {productsList}
+              {productsList}
+              {productsList}
+            </Row>
+            <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
+          </Content>
+        </div>
       </Layout>
     </div>
   );

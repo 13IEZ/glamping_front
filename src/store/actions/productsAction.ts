@@ -41,19 +41,11 @@ export const fetchNextPages = (currentPage: number) => {
   };
 };
 
-export const fetchModulesCat = (filter: string, _id: string, sort: string, order: string): any => {
+export const fetchModulesCat = (filterOptions: string[]): any => {
   return async (dispatch: Dispatch<ProductsAction>) => {
     try {
-      let response: any;
-      if (!(filter || sort)) {
-        response = await ax.get('products');
-      } else if (filter !== 'empty' && sort === 'empty') {
-        response = await ax.get('products?filter=' + filter + '&_id=' + _id);
-      } else if (filter === 'empty' && sort !== 'empty') {
-        response = await ax.get('products?sort=' + sort + '&order=' + order);
-      } else {
-        response = await ax.get('products?filter=' + filter + '&_id=' + _id + '&sort=' + sort + '&order=' + order);
-      }
+      const queryStr = JSON.stringify(filterOptions);
+      const response = await ax.get('products/filters/' + queryStr);
       dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data });
     } catch (error) {
       dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_FAILURE, payload: 'Ошибка при получении данных' });
