@@ -9,3 +9,12 @@
 .ant-tabs-tab-btn {
   font-size: 20px;
 }
+
+.ant-tabs-tab-btn:hover {
+  color: #69A042
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #69A042 !important; 
+  font-weight: 500;
+}

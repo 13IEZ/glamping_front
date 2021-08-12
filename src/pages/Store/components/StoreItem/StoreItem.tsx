@@ -20,7 +20,7 @@ const StoreItem: React.FC<IModuleCardProps> = ({ title, price, image, _id }) => 
 
   return (
     <Link to={`/store/${_id}`}>
-      <Card style={{ width: 300 }} cover={<img alt='product' src={cardImage} style={{ height: 200 }} />}>
+      <Card style={{ width: 300 }} cover={<img alt='product' src={cardImage} style={{ height: 200 }} />} hoverable>
         <Divider />
         <Meta style={{ marginBottom: 15 }} title={title} />
         <div style={{ marginBottom: 10 }}>
@@ -29,7 +29,7 @@ const StoreItem: React.FC<IModuleCardProps> = ({ title, price, image, _id }) => 
         </div>
 
         <h4>Цена</h4>
-        <p>{price}</p>
+        <p>{price.replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₸</p>
       </Card>
     </Link>
   );

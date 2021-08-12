@@ -5,8 +5,82 @@
 }
 
 .store-body {
-  background-color: #F9FAF7;
-  @include respond(small-phone) {
+  background: #f9faf7;
+  position: relative;
+  height: 100%;
+  @include respond(small-tablets) {
     display: block;
+  }
+}
+
+.store-content {
+  @include respond(small-phone) {
+    margin-left: -30px;
+  }
+}
+
+.sidebar  {
+  width: 250px; 
+  padding: 10px 10px 130px; 
+  @include respond(small-tablets) {
+    overflow-x: hidden;
+    top: 16px; 
+    left: -15%;
+    width: 0;
+    z-index: 2;
+    position: absolute;
+  }
+}
+
+.buttons {
+  display: none;
+  @include respond(small-tablets) {
+    display: flex;
+  }
+}
+
+.sidebar-active  {
+  @include respond(small-tablets) {
+    width: 250px;
+  }
+}
+
+.content {
+  margin-left: 50px;
+  padding: 1px 16px;
+  height: 1000px;
+  background: #f9faf7;
+  @include respond(big-tablets) {
+    overflow: hidden;
+    margin-left: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  @include respond(small-phone) {
+    margin-left: 0;
+  }
+}
+
+
+
+.btn {
+  background-color: #FDD74E;
+  border: 2px solid #FDD74E;
+  margin-right: 2px;
+
+}
+
+.btn:focus {
+  color: black;
+  background-color: #fff;
+  border: 2px solid #FDD74E;
+}
+
+.buttons {
+  @include respond(small-tablets) {
+    margin-left: 205px;
+  }
+  @include respond(small-phone) {
+    margin-left: -10px;
   }
 }
