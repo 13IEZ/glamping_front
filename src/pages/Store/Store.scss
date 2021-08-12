@@ -20,7 +20,6 @@
 }
 
 .sidebar  {
-
   width: 250px;
   padding: 10px 10px 130px;
   @include respond(small-tablets) {
@@ -51,7 +50,6 @@
   padding: 1px 16px;
   height: 1000px;
   background: #f9faf7;
-
   @include respond(big-tablets) {
     overflow: hidden;
     margin-left: 10px;
@@ -83,5 +81,3 @@
   @include respond(small-phone) {
     margin-left: -10px;
   }
-
-}
