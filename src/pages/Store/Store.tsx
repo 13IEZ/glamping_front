@@ -67,10 +67,10 @@ const Store: React.FC = () => {
       <Layout className='store-body'>
         <div className='sider'>
           <div className='buttons'>
-            <Button className='openbtn' onClick={openSidebar}>
+            <Button className='btn openbtn' onClick={openSidebar}>
               показать фильтры
             </Button>
-            <Button className='closebtn' onClick={closeSidebar}>
+            <Button className='btn closebtn' onClick={closeSidebar}>
               скрыть фильтры
             </Button>
           </div>
@@ -79,7 +79,6 @@ const Store: React.FC = () => {
             <StoreSidebar />
           </div>
         </div>
-
         <div className='content'>
           <Content className='cont'>
             <Row className='store-content'>
