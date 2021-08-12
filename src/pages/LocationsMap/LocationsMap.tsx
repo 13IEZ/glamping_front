@@ -28,7 +28,7 @@ const LocationsMap: React.FC = () => {
 
   return (
     <div className='locations-map'>
-      <div>
+      <div className='locations-header'>
         <SelectList onSelectorChange={onSelectorChange} locations={locations} />
         <Button className='locations-map__button' type='primary'>
           <Link to='/locations'>Каталог локаций</Link>
