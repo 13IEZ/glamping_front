@@ -17,9 +17,12 @@ export interface IPage {
 
 export interface IReviewsState {
   pages: IPage | {};
+  accommodationReviewPages: IPage | {};
   reviews: Array<IReview> | [];
+  accommodationReviews: Array<IReview> | [];
   error: null | string;
   currentPage: number;
+  currentAccommodationReviewPage: number;
 }
 
 export enum ReviewsActionTypes {
@@ -27,6 +30,10 @@ export enum ReviewsActionTypes {
   FETCH_REVIEWS_FAILURE = 'FETCH_REVIEWS_FAILURE',
   FETCH_REVIEW_PAGES = 'FETCH_REVIEW_PAGES',
   FETCH_REVIEW_PAGES_ERROR = 'FETCH_REVIEW_PAGES_ERROR',
+  FETCH_ACCOMMODATION_REVIEWS_SUCCESS = 'FETCH_ACCOMMODATION_REVIEWS_SUCCESS',
+  FETCH_ACCOMMODATION_REVIEWS_FAILURE = 'FETCH_ACCOMMODATION_REVIEWS_FAILURE',
+  FETCH_ACCOMMODATION_REVIEW_PAGES = 'FETCH_ACCOMMODATION_REVIEW_PAGES',
+  FETCH_ACCOMMODATION_REVIEW_PAGES_ERROR = 'FETCH_ACCOMMODATION_REVIEW_PAGES_ERROR',
 }
 
 interface IFetchReviewPagesAction {
@@ -49,8 +56,32 @@ interface IFetchReviewsFailureAction {
   payload: string;
 }
 
+interface IFetchAccommodationReviewPagesAction {
+  type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEW_PAGES;
+  payload: IPage;
+}
+
+interface IFetchAccommodationReviewPagesErrorAction {
+  type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEW_PAGES_ERROR;
+  payload: string;
+}
+
+interface IFetchAccommodationReviewsSuccessAction {
+  type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEWS_SUCCESS;
+  payload: Array<IReview>;
+}
+
+interface IFetchAccommodationReviewsFailureAction {
+  type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEWS_FAILURE;
+  payload: string;
+}
+
 export type ReviewsAction =
   | IFetchReviewPagesAction
   | IFetchReviewPagesErrorAction
   | IFetchReviewsSuccessAction
-  | IFetchReviewsFailureAction;
+  | IFetchReviewsFailureAction
+  | IFetchAccommodationReviewPagesAction
+  | IFetchAccommodationReviewPagesErrorAction
+  | IFetchAccommodationReviewsSuccessAction
+  | IFetchAccommodationReviewsFailureAction;

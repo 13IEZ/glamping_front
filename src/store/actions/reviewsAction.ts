@@ -57,3 +57,57 @@ export const createReview = (state: any) => {
     }
   };
 };
+
+export const fetchAccommodationReviews = (accommodationId: string): any => {
+  return async (dispatch: Dispatch<ReviewsAction>) => {
+    try {
+      const response = await ax.get(`/reviews/pages?accommodation=${accommodationId}`);
+      dispatch({
+        type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEWS_SUCCESS,
+        payload: response.data.accommodationReviews,
+      });
+      dispatch({
+        type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEW_PAGES,
+        payload: response.data.accommodationReviewPages,
+      });
+    } catch (error) {
+      dispatch({
+        type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEWS_FAILURE,
+        payload: 'Ошибка при получении данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+      dispatch({
+        type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEW_PAGES_ERROR,
+        payload: 'Ошибка при получении данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
+export const fetchNextAccommodationReviewPages = (currentPage: number, accommodationId: string) => {
+  return async (dispatch: Dispatch<ReviewsAction>) => {
+    try {
+      const response = await ax.get(`reviews/pages?accommodation=${accommodationId}&page=${currentPage}`);
+      dispatch({
+        type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEWS_SUCCESS,
+        payload: response.data.accommodationReviews,
+      });
+    } catch (error) {
+      dispatch({
+        type: ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEWS_FAILURE,
+        payload: 'Ошибка при получении данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
