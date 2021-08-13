@@ -30,6 +30,7 @@ export interface IProductsState {
   error: null | string;
   currentPage: number;
   currentProduct: Partial<IProduct>;
+  filters: Array<string>;
 }
 
 export enum ProductsActionTypes {
@@ -41,6 +42,12 @@ export enum ProductsActionTypes {
   FETCH_STORE_PAGES_ERROR = 'FETCH_STORE_PAGES_ERROR',
   FETCH_CURRENT_PRODUCT_SUCCESS = 'FETCH_CURRENT_PRODUCT_SUCCESS',
   FETCH_CURRENT_PRODUCT_FAILURE = 'FETCH_CURRENT_PRODUCT_FAILURE',
+  SET_FILTERS = 'SET_FILTERS',
+}
+
+interface ISetFilters {
+  type: ProductsActionTypes.SET_FILTERS;
+  payload: Array<string>;
 }
 
 interface IFetchStorePagesAction {
@@ -82,6 +89,7 @@ interface IFetchCurrentProductFailureAction {
   type: ProductsActionTypes.FETCH_CURRENT_PRODUCT_FAILURE;
   payload: string;
 }
+
 export type ProductsAction =
   | IFetchStorePagesAction
   | IFetchStorePagesErrorAction
@@ -90,4 +98,5 @@ export type ProductsAction =
   | IFetchLastFourProductsSuccessAction
   | IFetchLastFourProductsFailureAction
   | IFetchCurrentProductSuccessAction
-  | IFetchCurrentProductFailureAction;
+  | IFetchCurrentProductFailureAction
+  | ISetFilters;
