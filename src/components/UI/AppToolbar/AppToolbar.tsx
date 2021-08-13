@@ -5,12 +5,12 @@ import React, { useEffect } from 'react';
 import { Divider } from 'antd';
 import { Link } from 'react-router-dom';
 
-import logo from '../../../assets/icons/logo.svg';
 import location_ic from '../../../assets/icons/location.svg';
+import logo from '../../../assets/icons/logo.svg';
+import { useActions } from '../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import AnonymousMenu from './Menus/AnonymousMenu';
 import UserMenu from './Menus/UserMenu';
-import { useActions } from '../../../hooks/useAction';
 
 const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
