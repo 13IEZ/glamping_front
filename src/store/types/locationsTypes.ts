@@ -15,10 +15,20 @@ export interface ILocation {
   owner: string;
 }
 
+export interface ILocationPage {
+  items: number;
+  locationPages: number;
+  page: number;
+  pageSize: number;
+  locations: Array<ILocation>;
+}
+
 export interface ILocationsState {
   locations: Array<ILocation> | [];
   lastFourLocations: Array<ILocation> | [];
   currentLocation: Partial<ILocation>;
+  pages: ILocationPage | {};
+  currentPage: number;
   error: null | string;
 }
 
@@ -29,6 +39,8 @@ export enum LocationsActionTypes {
   FETCH_LAST_FOUR_LOCATIONS_FAILURE = 'FETCH_LAST_FOUR_LOCATIONS_FAILURE',
   FETCH_CURRENT_LOCATION_SUCCESS = 'FETCH_CURRENT_LOCATION_SUCCESS',
   FETCH_CURRENT_LOCATION_FAILURE = 'FETCH_CURRENT_LOCATION_FAILURE',
+  FETCH_LOCATION_PAGES = 'FETCH_LOCATION_PAGES',
+  FETCH_LOCATION_PAGES_ERROR = 'FETCH_LOCATION_PAGES_ERROR',
 }
 
 interface IFetchLocationsSuccessAction {
@@ -61,10 +73,22 @@ interface IFetchCurrentLocationFailureAction {
   payload: string;
 }
 
+interface IFetchLocationPagesAction {
+  type: LocationsActionTypes.FETCH_LOCATION_PAGES;
+  payload: ILocationPage;
+}
+
+interface IFetchLocationPagesErrorAction {
+  type: LocationsActionTypes.FETCH_LOCATION_PAGES_ERROR;
+  payload: string;
+}
+
 export type LocationsAction =
   | IFetchLocationsSuccessAction
   | IFetchLocationsFailureAction
   | IFetchLastFourLocationsSuccessAction
   | IFetchLastFourLocationsFailureAction
   | IFetchCurrentLocationSuccessAction
-  | IFetchCurrentLocationFailureAction;
+  | IFetchCurrentLocationFailureAction
+  | IFetchLocationPagesAction
+  | IFetchLocationPagesErrorAction;

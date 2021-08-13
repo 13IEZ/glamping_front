@@ -1,3 +1,15 @@
-.store-body {
+@import '../../assets/mixins.scss';
+
+.location-body {
   background-color: transparent;
+}
+
+.ant-layout-content {
+  text-align: center;
+}
+
+.location-content {
+  @include respond(small-phone) {
+    margin-left: -30px;
+  }
 }
