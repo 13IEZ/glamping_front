@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Col, Layout, Row } from 'antd';
+import { Col, Layout, Row, Pagination } from 'antd';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import LocationItem from '../Main/components/LocationMini/components/LocationItem';
 import { useActions } from '../../hooks/useAction';
@@ -9,12 +9,20 @@ import './Locations.scss';
 const { Content } = Layout;
 
 const Locations: React.FC = () => {
-  const { locations } = useTypedSelectorHook(state => state.locations);
+  const { locations, pages } = useTypedSelectorHook(state => state.locations);
   const { fetchLocations } = useActions();
+  const { fetchNextLocationPages } = useActions();
 
   useEffect(() => {
     fetchLocations();
   }, []);
+
+  const onChange = (pageNumber: number) => {
+    fetchNextLocationPages(pageNumber - 1);
+  };
+
+  const totalPages = Number(pages) * 10;
+  const noPages = totalPages < 2;
 
   const locationsList = locations.map(location => {
     return (
@@ -36,6 +44,7 @@ const Locations: React.FC = () => {
       <Layout className='store-body'>
         <Content>
           <Row className='store-content'>{locationsList}</Row>
+          <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
         </Content>
       </Layout>
     </div>

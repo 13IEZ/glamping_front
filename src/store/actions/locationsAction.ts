@@ -7,13 +7,31 @@ import { LocationsAction, LocationsActionTypes } from '../types/locationsTypes';
 export const fetchLocations = (): any => {
   return async (dispatch: Dispatch<LocationsAction>) => {
     try {
-      const response = await ax.get('locations');
-      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_SUCCESS, payload: response.data });
+      const response = await ax.get('locations/pages');
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_SUCCESS, payload: response.data.locations });
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATION_PAGES, payload: response.data.pages });
     } catch (error) {
-      dispatch({
-        type: LocationsActionTypes.FETCH_LOCATIONS_FAILURE,
-        payload: 'Ошибка при получении данных',
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
       });
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATION_PAGES_ERROR, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
+export const fetchNextLocationPages = (currentPage: number): any => {
+  return async (dispatch: Dispatch<LocationsAction>) => {
+    try {
+      const response = await ax.get(`locations/pages?page=${currentPage}`);
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_SUCCESS, payload: response.data.locations });
+    } catch (error) {
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_FAILURE, payload: 'Ошибка при получении данных' });
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
