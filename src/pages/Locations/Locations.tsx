@@ -41,9 +41,9 @@ const Locations: React.FC = () => {
 
   return (
     <div className='container'>
-      <Layout className='store-body'>
+      <Layout className='location-body'>
         <Content>
-          <Row className='store-content'>{locationsList}</Row>
+          <Row className='location-content'>{locationsList}</Row>
           <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
         </Content>
       </Layout>
