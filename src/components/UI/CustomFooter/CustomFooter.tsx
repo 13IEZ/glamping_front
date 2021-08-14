@@ -17,18 +17,18 @@ const CustomFooter: React.FC = () => {
           <Col className='footer-container__item'>
             <List split={false}>
               <List.Item>
-                <Link to='/investor' className='footer-container__text footer__hover'>
-                  Модули
+                <Link to='/store' className='footer-container__text footer__hover'>
+                  Продукты
                 </Link>
               </List.Item>
               <List.Item>
-                <Link to='/tourists' className='footer-container__text footer__hover'>
-                  Участки
+                <Link to='/locations-map' className='footer-container__text footer__hover'>
+                  Локации
                 </Link>
               </List.Item>
               <List.Item>
-                <Link to='/landlords' className='footer-container__text footer__hover'>
-                  Кемпинги
+                <Link to='/' className='footer-container__text footer__hover'>
+                  Глемпинги
                 </Link>
               </List.Item>
             </List>
@@ -39,24 +39,27 @@ const CustomFooter: React.FC = () => {
 
           <Col className='footer-container__item'>
             <div className='socials'>
-              <a href='#' className='socials__link'>
+              <a href='mailto:sattyarba@gmail.com' className='socials__link'>
                 <MailOutlined style={{ fontSize: '32px' }} />
               </a>
-              <a href='#' className='socials__link'>
+              <a href='https://www.facebook.com' className='socials__link'>
                 <FacebookOutlined style={{ fontSize: '32px' }} />
               </a>
-              <a href='#' className='socials__link'>
+              <a href='https://www.instagram.com/' className='socials__link'>
                 <InstagramOutlined style={{ fontSize: '32px' }} />
               </a>
             </div>
             <List split={false} className='constant-list'>
               <List.Item>
-                <a href='#' className='footer-container__text footer-container__text_tel footer__hover'>
+                <a href='tel:+77078119318' className='footer-container__text footer-container__text_tel footer__hover'>
                   +7 (707) 811 93 18
                 </a>
               </List.Item>
               <List.Item>
-                <a href='#' className='footer-container__text footer-container__text_addr footer__hover'>
+                <a
+                  href='http://glamping-ci.ddns.net:3000/'
+                  className='footer-container__text footer-container__text_addr footer__hover'
+                >
                   РК, г. Алматы, проспект Жибек Жолы, 135/10А, офис 514
                 </a>
               </List.Item>
