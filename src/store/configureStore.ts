@@ -11,6 +11,7 @@ import productsReducer from './reducers/productsReducer';
 import usersReducer from './reducers/usersReducer';
 import reviewsReducer from './reducers/reviewsReducer';
 import accommodationsReducer from './reducers/accommodationReducer';
+import reservationsReducer from './reducers/reservationsReducer';
 
 declare global {
   interface Window {
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   piches: pichesReducer,
   reviews: reviewsReducer,
   accommodations: accommodationsReducer,
+  reservations: reservationsReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;

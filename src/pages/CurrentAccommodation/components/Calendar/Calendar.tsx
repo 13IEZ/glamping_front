@@ -6,18 +6,25 @@ import './Calendar.scss';
 const { RangePicker } = DatePicker;
 interface ICalendarProps {
   accommodationId?: string;
+  reservedDates: any;
 }
-
-const Calendar: React.FC<ICalendarProps> = ({ accommodationId }) => {
+const Calendar: React.FC<ICalendarProps> = ({ reservedDates }) => {
   const disabledDate = (current: any) => {
     // Can not select days before today and today
-    return current && current < moment().endOf('day');
+    for (let i = 0; i < reservedDates.length; i++) {
+      if (
+        (current && current < moment().endOf('day')) ||
+        (current > moment(reservedDates[i].startDate) && current < moment(reservedDates[i].endDate).endOf('day'))
+      )
+        return true;
+    }
+    return false;
   };
 
-  const onChange = (bookedDays: any, bookedDaysString: any) => {
+  const onChange = (value: any, bookedDaysString: any) => {
     console.log(bookedDaysString);
   };
-  console.log(accommodationId);
+
   const book = () => {
     // bookAccommodation(accommodationId, bookedDaysString);
   };

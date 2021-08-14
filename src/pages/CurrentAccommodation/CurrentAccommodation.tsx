@@ -19,6 +19,21 @@ const CurrentAccommodation: React.FC = (props: any) => {
   const { fetchAccommodationReviews } = useActions();
   const { fetchNextAccommodationReviewPages } = useActions();
 
+  const { reservations } = useTypedSelectorHook(state => state.reservations);
+  const { fetchReservations } = useActions();
+
+  useEffect(() => {
+    fetchReservations(idCurrentAccommodation);
+  }, [idCurrentAccommodation]);
+
+  console.log(reservations);
+
+  const reservedDates = reservations.map(reservation => {
+    return { startDate: reservation.startDate, endDate: reservation.endDate };
+  });
+
+  console.log(reservedDates);
+
   useEffect(() => {
     fetchCurrentAccommodation(idCurrentAccommodation);
     fetchAccommodationReviews(idCurrentAccommodation);
@@ -62,7 +77,7 @@ const CurrentAccommodation: React.FC = (props: any) => {
           water={currentAccommodation.water}
         />
         <Space direction='vertical' size={12}>
-          <Calendar accommodationId={currentAccommodation._id} />
+          <Calendar accommodationId={currentAccommodation._id} reservedDates={reservedDates} />
         </Space>
         <Title level={4}>Отзывы {currentAccommodation.reviewsQuantity}</Title>
         {reviewsList.length !== 0 ? (
