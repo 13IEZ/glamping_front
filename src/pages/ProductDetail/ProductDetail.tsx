@@ -46,7 +46,7 @@ const ProductDetail: React.FC = (props: any) => {
               season={currentProduct.season}
               roominess={currentProduct.roominess}
               description={currentProduct.description}
-              factory={currentProduct.factory}
+              factory={currentProduct.factoryId?.title}
               productId={currentProduct._id}
               reviewsQuantity={currentProduct.reviewsQuantity}
             />

@@ -1,3 +1,8 @@
+export interface IFactory {
+  _id: string;
+  title: string;
+}
+
 export interface IProduct {
   _id: string;
   title: string;
@@ -11,7 +16,7 @@ export interface IProduct {
   description: string;
   price: string;
   published: boolean;
-  factory: string;
+  factoryId: IFactory;
   reviewsQuantity: number;
 }
 
