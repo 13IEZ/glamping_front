@@ -11,6 +11,7 @@ import productsReducer from './reducers/productsReducer';
 import usersReducer from './reducers/usersReducer';
 import reviewsReducer from './reducers/reviewsReducer';
 import accommodationsReducer from './reducers/accommodationReducer';
+import reservationsReducer from './reducers/reservationsReducer';
 
 declare global {
   interface Window {
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   locations: locationReducer,
   categories: categoriesReducer,
+  reservations: reservationsReducer,
   piches: pichesReducer,
   reviews: reviewsReducer,
   accommodations: accommodationsReducer,
