@@ -17,7 +17,6 @@ const Store: React.FC = () => {
   const { fetchNextPages } = useActions();
   const [className, setClassName] = useState('sidebar');
 
-
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -64,12 +63,7 @@ const Store: React.FC = () => {
         </div>
         <div className='content'>
           <Content className='cont'>
-            <Row className='store-content'>
-              {productsList}
-              {productsList}
-              {productsList}
-              {productsList}
-            </Row>
+            <Row className='store-content'>{productsList}</Row>
             <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
           </Content>
         </div>

@@ -23,31 +23,36 @@ const ProductDetail: React.FC = (props: any) => {
 
   return (
     <div className='container'>
-      <Row wrap={false}>
-        <Col flex='65%'>
-          <ProductDetailGallery images={currentProduct.image ? currentProduct.image : []} />
-        </Col>
-        <Col flex='35%'>
-          <ProductDetailDescription
-            title={currentProduct.title}
-            rating={currentProduct.rating}
-            price={currentProduct.price}
-            description={currentProduct.description}
-          />
-        </Col>
-      </Row>
-      <Row className='mt-2'>
-        <Col span={24} className='tabs'>
-          <ProductDetailTab
-            season={currentProduct.season}
-            roominess={currentProduct.roominess}
-            description={currentProduct.description}
-            factory={currentProduct.factory}
-            productId={currentProduct._id}
-            reviewsQuantity={currentProduct.reviewsQuantity}
-          />
-        </Col>
-      </Row>
+      <div className='wrapper-top'>
+        <Row wrap={false}>
+          <Col flex='65%'>
+            <ProductDetailGallery images={currentProduct.image ? currentProduct.image : []} />
+          </Col>
+          <Col flex='35%'>
+            <ProductDetailDescription
+              title={currentProduct.title}
+              rating={currentProduct.rating}
+              price={currentProduct.price}
+              description={currentProduct.description}
+            />
+          </Col>
+        </Row>
+      </div>
+
+      <div className='wrapper-bottom'>
+        <Row className='mt-2'>
+          <Col span={24} className='tabs'>
+            <ProductDetailTab
+              season={currentProduct.season}
+              roominess={currentProduct.roominess}
+              description={currentProduct.description}
+              factory={currentProduct.factory}
+              productId={currentProduct._id}
+              reviewsQuantity={currentProduct.reviewsQuantity}
+            />
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 };
