@@ -1,7 +1,7 @@
 @import '../../assets/mixins.scss';
 
 .pagination {
-  margin-top: 5px;
+  margin: 30px 0;
 }
 
 .store-body {
@@ -56,7 +56,13 @@
     width: 100%;
     height: 100%;
   }
-  @include respond(small-phone) {
+  @include respond(IphonePlus) {
+    margin-left: 20px;
+  }
+  @include respond(Iphone6) {
+    margin-left: 15px;
+  }
+  @include respond(Iphone5) {
     margin-left: 0;
   }
 }
@@ -78,8 +84,38 @@
   @include respond(small-tablets) {
     margin-left: 205px;
   }
-  @include respond(small-phone) {
+  @include respond(IphonePlus) {
+    margin-left: 40px;
+  }
+  @include respond(Iphone6) {
+    margin-left: 15px;
+  }
+  @include respond(Iphone5) {
     margin-left: -10px;
   }
+}
+
+.ant-pagination-item-active {
+  border-color: #69A042 !important;
+}
+
+.ant-pagination-item-active a{
+  color: #69A042 !important;
+}
+
+.ant-pagination-item a:hover {
+  color: #69A042 !important;
+}
+
+.ant-pagination-item:hover {
+  border-color: #69A042 !important;
+}
+
+.ant-pagination-item-link:hover {
+  border-color: #69A042 !important;
+}
+
+.anticon .anticon-left:hover {
+  color: #69A042;
 }
 

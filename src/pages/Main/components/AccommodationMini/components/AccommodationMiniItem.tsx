@@ -28,7 +28,7 @@ const AccommodationMiniItem: React.FC<accommodationCardProps> = ({ title, rent, 
         <Card className='item__card' cover={<img alt='Not found' src={cardImage} className='item__card-img' />}>
           <Meta style={{ marginTop: 22, fontSize: 24, textAlign: 'center' }} title={title} />
           <p className='item__place'>Туркестан</p>
-          <p className='item__rent'>{rent} ₸ в месяц</p>
+          <p className='item__rent'>{rent.replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₸ в месяц</p>
           <Button className='item__button' type='primary' onClick={clickHandler}>
             Снять
           </Button>

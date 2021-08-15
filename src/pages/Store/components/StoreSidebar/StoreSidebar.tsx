@@ -1,6 +1,7 @@
 import './StoreSidebar.scss';
 import React, { useEffect } from 'react';
 import { Button, Divider, Layout, Menu } from 'antd';
+
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 
@@ -107,13 +108,15 @@ const StoreSidebar: React.FC = () => {
           </SubMenu>
           <SubMenu key='categorySub' title='Категории' className='site-layout-background'>
             {categoriesList}
-            <Divider />
+            <div className='divider'>
+              <Divider />
+            </div>
           </SubMenu>
-          <SubMenu key='clearSub' title='Очистить'>
+          <div className='button-clear'>
             <Button className='sidebar-button' onClick={clearHandleClick}>
               Очистить фильтры
             </Button>
-          </SubMenu>
+          </div>
         </Menu>
       </Sider>
     </>
