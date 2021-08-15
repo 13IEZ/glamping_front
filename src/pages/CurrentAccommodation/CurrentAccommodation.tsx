@@ -20,11 +20,11 @@ const CurrentAccommodation: React.FC = (props: any) => {
   const { fetchNextAccommodationReviewPages } = useActions();
 
   const { reservations } = useTypedSelectorHook(state => state.reservations);
-  const { fetchReservations } = useActions();
+  const { fetchAccommodationReservations } = useActions();
   const { user } = useTypedSelectorHook(state => state.users);
 
   useEffect(() => {
-    fetchReservations(idCurrentAccommodation);
+    fetchAccommodationReservations(idCurrentAccommodation);
   }, [idCurrentAccommodation]);
 
   const reservedDates = reservations.map(reservation => {
