@@ -1,6 +1,6 @@
 import './Store.scss';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Button, Col, Layout, Pagination, Row } from 'antd';
 
@@ -13,28 +13,28 @@ const { Content } = Layout;
 
 const Store: React.FC = () => {
   const { products, pages } = useTypedSelectorHook(state => state.products);
-  const { fetchProducts } = useActions();
   const { fetchNextPages } = useActions();
   const [className, setClassName] = useState('sidebar');
-
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  const { filters } = useTypedSelectorHook(state => state.products);
 
   const onChange = (pageNumber: number) => {
-    fetchNextPages(pageNumber - 1);
+    fetchNextPages(pageNumber - 1, filters);
   };
 
   const totalPages = Number(pages) * 10;
 
-  const productsList = products.map(product => {
-    return (
-      <Col key={product._id} className='gutter-row' style={{ margin: 10 }}>
-        <StoreItem _id={product._id} title={product.title} price={product.price} rating={5} image={product.image} />
-      </Col>
-    );
-  });
+  let productsList;
+  if (products.length > 0) {
+    productsList = products.map(product => {
+      return (
+        <Col key={product._id} className='gutter-row' style={{ margin: 10 }}>
+          <StoreItem _id={product._id} title={product.title} price={product.price} rating={5} image={product.image} />
+        </Col>
+      );
+    });
+  } else {
+    productsList = null;
+  }
 
   const noPages = totalPages < 2;
 
