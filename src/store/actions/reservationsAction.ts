@@ -21,3 +21,20 @@ export const fetchReservations = (accommodationId: string): any => {
     }
   };
 };
+
+export const createReservation = (reservation: {}): any => {
+  return async () => {
+    try {
+      await ax.post('reservations', reservation);
+      notification.success({
+        message: 'Успех!',
+        description: 'Бронирование прошло успешно!',
+      });
+    } catch (error) {
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при бронировании!',
+      });
+    }
+  };
+};

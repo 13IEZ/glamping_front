@@ -1,7 +1,10 @@
+import { IAccommodation } from './accommodationsTypes';
+import { IPich } from './pichesTypes';
+
 export interface IReservation {
   _id: string;
-  pich: string;
-  accommodation: string;
+  pich: IPich;
+  accommodation: IAccommodation;
   startDate: any;
   endDate: any;
   user: any;
