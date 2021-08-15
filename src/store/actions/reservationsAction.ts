@@ -8,10 +8,10 @@ export const fetchAccommodationReservations = (accommodationId: string): any => 
   return async (dispatch: Dispatch<ReservationsAction>) => {
     try {
       const response = await ax.get(`/reservations?accommodation=${accommodationId}`);
-      dispatch({ type: ReservationsActionTypes.FETCH_RESERVATIONS_SUCCESS, payload: response.data });
+      dispatch({ type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS, payload: response.data });
     } catch (error) {
       dispatch({
-        type: ReservationsActionTypes.FETCH_RESERVATIONS_FAILURE,
+        type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_FAILURE,
         payload: 'Ошибка при получении данных',
       });
       notification.error({

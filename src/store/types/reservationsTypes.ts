@@ -12,22 +12,22 @@ export interface IReservation {
 }
 
 export interface IReservationsState {
-  reservations: Array<IReservation> | [];
+  accommodationReservations: Array<IReservation> | [];
   error: null | string;
 }
 
 export enum ReservationsActionTypes {
-  FETCH_RESERVATIONS_SUCCESS = 'FETCH_RESERVATIONS_SUCCESS',
-  FETCH_RESERVATIONS_FAILURE = 'FETCH_RESERVATIONS_FAILURE',
+  FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS = 'FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS',
+  FETCH_ACCOMMODATION_RESERVATIONS_FAILURE = 'FETCH_ACCOMMODATION_RESERVATIONS_FAILURE',
 }
 
 interface IFetchAccommodationReservationsSuccessAction {
-  type: ReservationsActionTypes.FETCH_RESERVATIONS_SUCCESS;
+  type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS;
   payload: Array<IReservation>;
 }
 
 interface IFetchAccommodationReservationsFailureAction {
-  type: ReservationsActionTypes.FETCH_RESERVATIONS_FAILURE;
+  type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_FAILURE;
   payload: string;
 }
 
