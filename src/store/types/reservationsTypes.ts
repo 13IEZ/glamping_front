@@ -13,11 +13,6 @@ export interface IReservation {
 
 export interface IReservationsState {
   accommodationReservations: Array<IReservation> | [];
-  accommodation: IAccommodation;
-  pich: IPich;
-  user: IUser;
-  startDate: string;
-  endDate: string;
   reservations: Array<IReservation> | [];
   reservationsOfUser: Array<IReservation> | [];
   error: null | string;
