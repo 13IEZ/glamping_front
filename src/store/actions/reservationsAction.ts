@@ -74,5 +74,8 @@ export const fetchReservationsOfUser = (id: string): any => {
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
-
+      });
+    }
+  };
+};
       
