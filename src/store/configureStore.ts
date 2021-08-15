@@ -27,6 +27,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   locations: locationReducer,
   categories: categoriesReducer,
+  reservations: reservationsReducer,
   piches: pichesReducer,
   reviews: reviewsReducer,
   accommodations: accommodationsReducer,

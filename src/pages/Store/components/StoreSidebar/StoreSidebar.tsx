@@ -1,7 +1,5 @@
 import './StoreSidebar.scss';
-
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect } from 'react';
 import { Button, Divider, Layout, Menu } from 'antd';
 
 import { useActions } from '../../../../hooks/useAction';
@@ -11,11 +9,10 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const StoreSidebar: React.FC = () => {
-  const { fetchModulesCat } = useActions();
+  const { fetchModulesCat, setFilters } = useActions();
   const { categories } = useTypedSelectorHook(state => state.categories);
   const { factories } = useTypedSelectorHook(state => state.categories);
-
-  const [filters, setFilters] = useState<Array<string>>([]);
+  const { filters } = useTypedSelectorHook(state => state.products);
 
   useEffect(() => {
     fetchModulesCat(filters);
@@ -26,21 +23,17 @@ const StoreSidebar: React.FC = () => {
     let filtersArrCopy = [...filters];
 
     if (filtersArrCopy.includes(keyStr)) {
-      setFilters(prevState => {
-        filtersArrCopy = prevState.filter(item => item !== keyStr);
-        return [...filtersArrCopy];
-      });
+      filtersArrCopy = filters.filter(item => item !== keyStr);
+      setFilters(filtersArrCopy);
       return;
     }
 
     if (keyStr.includes('price')) {
-      setFilters(prevState => {
-        filtersArrCopy = prevState.filter(item => !item.includes('price'));
-        return [...filtersArrCopy, keyStr];
-      });
+      filtersArrCopy = filters.filter(item => !item.includes('price'));
+      setFilters([...filtersArrCopy, keyStr]);
       return;
     } else {
-      setFilters(prevState => [...prevState, keyStr]);
+      setFilters([...filtersArrCopy, keyStr]);
       return;
     }
   };
