@@ -31,7 +31,6 @@ const rootReducer = combineReducers({
   piches: pichesReducer,
   reviews: reviewsReducer,
   accommodations: accommodationsReducer,
-  reservations: reservationsReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;
