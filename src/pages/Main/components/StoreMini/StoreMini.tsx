@@ -34,7 +34,7 @@ const StoreMini: React.FC = () => {
       <div className='container'>
         <h3 className='title'>Магазин</h3>
         <Row className='module-card'>{lastFourProductsList}</Row>
-        <Link to='/store'>
+        <Link to='/store/[]'>
           <p className='module__link'>Показать все</p>
         </Link>
       </div>
