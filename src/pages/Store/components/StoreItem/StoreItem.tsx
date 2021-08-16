@@ -19,7 +19,7 @@ const StoreItem: React.FC<IModuleCardProps> = ({ title, price, image, _id }) => 
   const cardImage = config.apiUrl + '/uploads/' + image[0];
 
   return (
-    <Link to={`/store/${_id}`}>
+    <Link to={`/storedetail/${_id}`}>
       <Card style={{ width: 300 }} cover={<img alt='product' src={cardImage} style={{ height: 200 }} />} hoverable>
         <Divider />
         <Meta style={{ marginBottom: 15 }} title={title} />

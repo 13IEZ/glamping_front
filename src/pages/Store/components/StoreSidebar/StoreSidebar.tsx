@@ -1,39 +1,48 @@
 import './StoreSidebar.scss';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button, Divider, Layout, Menu } from 'antd';
-
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+import { useHistory, useParams } from 'react-router-dom';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const StoreSidebar: React.FC = () => {
-  const { fetchModulesCat, setFilters } = useActions();
+  const history = useHistory();
+  const { fetchModulesCat } = useActions();
   const { categories } = useTypedSelectorHook(state => state.categories);
   const { factories } = useTypedSelectorHook(state => state.categories);
-  const { filters } = useTypedSelectorHook(state => state.products);
+  const filters = useRef<string[]>([]);
+  const params: any = useParams();
 
   useEffect(() => {
-    fetchModulesCat(filters);
-  }, [filters]);
+    fetchModulesCat(JSON.parse(params.queryStr));
+    filters.current = JSON.parse(params.queryStr);
+  }, []);
 
   const handleClick = (event: any) => {
     const keyStr = event.key;
-    let filtersArrCopy = [...filters];
+    let filtersArrCopy = [...filters.current];
 
     if (filtersArrCopy.includes(keyStr)) {
-      filtersArrCopy = filters.filter(item => item !== keyStr);
-      setFilters(filtersArrCopy);
+      filtersArrCopy = filters.current.filter(item => item !== keyStr);
+      filters.current = [...filtersArrCopy];
+      history.push('/store/' + JSON.stringify(filtersArrCopy));
+      fetchModulesCat(filters.current);
       return;
     }
 
     if (keyStr.includes('price')) {
-      filtersArrCopy = filters.filter(item => !item.includes('price'));
-      setFilters([...filtersArrCopy, keyStr]);
+      filtersArrCopy = filters.current.filter(item => !item.includes('price'));
+      filters.current = [...filtersArrCopy, keyStr];
+      history.push('/store/' + JSON.stringify([...filtersArrCopy, keyStr]));
+      fetchModulesCat(filters.current);
       return;
     } else {
-      setFilters([...filtersArrCopy, keyStr]);
+      filters.current = [...filtersArrCopy, keyStr];
+      history.push('/store/' + JSON.stringify([...filtersArrCopy, keyStr]));
+      fetchModulesCat(filters.current);
       return;
     }
   };
@@ -51,7 +60,9 @@ const StoreSidebar: React.FC = () => {
   ));
 
   const clearHandleClick = () => {
-    setFilters([]);
+    filters.current = [];
+    history.push('/store/[]');
+    fetchModulesCat(filters.current);
   };
 
   return (
@@ -59,7 +70,7 @@ const StoreSidebar: React.FC = () => {
       <Sider className='site-layout-background' width={238}>
         <Menu
           mode='inline'
-          selectedKeys={filters}
+          selectedKeys={filters.current}
           defaultOpenKeys={['sortSub', 'roominessSub', 'seasonSub', 'factorySub', 'categorySub', 'clearSub']}
           style={{ height: '100%', borderRight: 0 }}
         >
