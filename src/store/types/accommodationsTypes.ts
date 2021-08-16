@@ -20,12 +20,24 @@ export interface IAccommodation {
   water: boolean;
   road: boolean;
   reviewsQuantity: number;
+  category: string;
+}
+
+export interface IAccommodationPage {
+  items: number;
+  pages: number;
+  page: number;
+  pageSize: number;
+  allAccommodations: Array<IAccommodation>;
 }
 
 export interface IAccommodationsState {
   accommodations: Array<IAccommodation> | [];
   lastFourAccommodations: Array<IAccommodation> | [];
   currentAccommodation: Partial<IAccommodation>;
+  allAccommodations: Array<IAccommodation> | [];
+  pages: IAccommodationPage | {};
+  currentPage: number;
   error: null | string;
 }
 
@@ -38,6 +50,10 @@ export enum AccommodationsActionTypes {
   FETCH_CURRENT_ACCOMMODATION_FAILURE = 'FETCH_CURRENT_ACCOMMODATION_FAILURE',
   BOOK_ACCOMMODATION_SUCCESS = 'BOOK_ACCOMMODATION_SUCCESS',
   BOOK_ACCOMMODATION_FAILURE = 'BOOK_ACCOMMODATION_FAILURE',
+  FETCH_ALL_ACCOMMODATIONS_SUCCESS = 'FETCH_ALL_ACCOMMODATIONS_SUCCESS',
+  FETCH_ALL_ACCOMMODATIONS_FAILURE = 'FETCH_ALL_ACCOMMODATIONS_FAILURE',
+  FETCH_ACCOMMODATION_PAGES = 'FETCH_ACCOMMODATION_PAGES',
+  FETCH_ACCOMMODATION_PAGES_ERROR = 'FETCH_ACCOMMODATION_PAGES_ERROR',
 }
 
 interface IFetchAccommodationsSuccessAction {
@@ -79,6 +95,26 @@ interface IBookAccommodationFailureAction {
   payload: string;
 }
 
+interface IFetchAllAccommodationsSuccessAction {
+  type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS;
+  payload: Array<IAccommodation>;
+}
+
+interface IFetchAllAccommodationsFailureAction {
+  type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE;
+  payload: string;
+}
+
+interface IFetchAccommodationPagesAction {
+  type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES;
+  payload: IAccommodationPage;
+}
+
+interface IFetchAccommodationPagesErrorAction {
+  type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES_ERROR;
+  payload: string;
+}
+
 export type AccommodationsAction =
   | IFetchAccommodationsSuccessAction
   | IFetchAccommodationsFailureAction
@@ -87,4 +123,8 @@ export type AccommodationsAction =
   | IFetchCurrentAccommodationSuccessAction
   | IFetchCurrentAccommodationFailureAction
   | IBookAccommodationSuccessAction
-  | IBookAccommodationFailureAction;
+  | IBookAccommodationFailureAction
+  | IFetchAllAccommodationsSuccessAction
+  | IFetchAllAccommodationsFailureAction
+  | IFetchAccommodationPagesAction
+  | IFetchAccommodationPagesErrorAction;

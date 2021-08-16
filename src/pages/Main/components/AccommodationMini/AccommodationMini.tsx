@@ -23,6 +23,11 @@ const AccommodationMini: React.FC = () => {
           title={accommodation.title}
           rent={accommodation.rent}
           image={accommodation.image}
+          description={accommodation.description}
+          roominess={accommodation.roominess}
+          season={accommodation.season}
+          category={accommodation.category}
+          rating={accommodation.rating}
         />
       </Col>
     );

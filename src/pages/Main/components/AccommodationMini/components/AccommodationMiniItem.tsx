@@ -14,6 +14,11 @@ interface accommodationCardProps {
   title: string;
   rent: string;
   image: Array<string> | [];
+  description: string;
+  roominess: number;
+  season: string;
+  category: string;
+  rating: number;
 }
 
 const AccommodationMiniItem: React.FC<accommodationCardProps> = ({ title, rent, image, _id }) => {
