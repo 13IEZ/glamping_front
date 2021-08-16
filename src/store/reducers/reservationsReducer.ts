@@ -1,6 +1,7 @@
 import { IReservationsState, ReservationsAction, ReservationsActionTypes } from '../types/reservationsTypes';
 
 const initialState: IReservationsState = {
+  accommodationReservations: [],
   reservations: [],
   reservationsOfUser: [],
   error: null,
@@ -8,6 +9,10 @@ const initialState: IReservationsState = {
 
 const reservationsReducer = (state = initialState, action: ReservationsAction): IReservationsState => {
   switch (action.type) {
+    case ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS:
+      return { ...state, accommodationReservations: action.payload };
+    case ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_FAILURE:
+      return { ...state, error: action.payload };
     case ReservationsActionTypes.FETCH_RESERVATIONS_SUCCESS:
       return { ...state, reservations: action.payload };
     case ReservationsActionTypes.FETCH_RESERVATIONS_FAILURE:

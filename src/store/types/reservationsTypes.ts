@@ -4,24 +4,37 @@ import { IUser } from './users';
 
 export interface IReservation {
   _id: string;
-  accommodation: IAccommodation;
   pich: IPich;
-  user: IUser;
+  accommodation: IAccommodation;
   startDate: string;
   endDate: string;
+  user: IUser;
 }
 
 export interface IReservationsState {
+  accommodationReservations: Array<IReservation> | [];
   reservations: Array<IReservation> | [];
   reservationsOfUser: Array<IReservation> | [];
   error: null | string;
 }
 
 export enum ReservationsActionTypes {
+  FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS = 'FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS',
+  FETCH_ACCOMMODATION_RESERVATIONS_FAILURE = 'FETCH_ACCOMMODATION_RESERVATIONS_FAILURE',
   FETCH_RESERVATIONS_SUCCESS = 'FETCH_RESERVATIONS_SUCCESS',
   FETCH_RESERVATIONS_FAILURE = 'FETCH_RESERVATIONS_FAILURE',
   FETCH_RESERVATIONS_OF_USER_SUCCESS = 'FETCH_RESERVATIONS_OF_USER_SUCCESS',
   FETCH_RESERVATIONS_OF_USER_FAILURE = 'FETCH_RESERVATIONS_OF_USER_FAILURE',
+}
+
+interface IFetchAccommodationReservationsSuccessAction {
+  type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS;
+  payload: Array<IReservation>;
+}
+
+interface IFetchAccommodationReservationsFailureAction {
+  type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_FAILURE;
+  payload: string;
 }
 
 interface IFetchReservationsSuccessAction {
@@ -45,6 +58,8 @@ interface IFetchReservationsOfUserFailureAction {
 }
 
 export type ReservationsAction =
+  | IFetchAccommodationReservationsSuccessAction
+  | IFetchAccommodationReservationsFailureAction
   | IFetchReservationsSuccessAction
   | IFetchReservationsFailureAction
   | IFetchReservationsOfUserSuccessAction
