@@ -34,7 +34,7 @@ interface IFetchAccommodationReservationsSuccessAction {
 
 interface IFetchAccommodationReservationsFailureAction {
   type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_FAILURE;
-  payload: Array<IReservation>;
+  payload: string;
 }
 
 interface IFetchReservationsSuccessAction {
@@ -64,4 +64,3 @@ export type ReservationsAction =
   | IFetchReservationsFailureAction
   | IFetchReservationsOfUserSuccessAction
   | IFetchReservationsOfUserFailureAction;
-
