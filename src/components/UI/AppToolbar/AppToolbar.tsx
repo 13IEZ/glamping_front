@@ -32,7 +32,7 @@ const AppToolbar: React.FC = () => {
           Карта локаций
         </Link>
         <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
-        <Link className='Header-MenuLink' to='/store'>
+        <Link className='Header-MenuLink' to='/store/[]'>
           Магазин
         </Link>
       </div>

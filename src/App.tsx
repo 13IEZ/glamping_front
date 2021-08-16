@@ -30,9 +30,9 @@ function App(): JSX.Element {
         <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
         <ProtectedRoute isAllowed={!user} path='/login' exact redirectTo='/' component={Login} />
         <Route path='/reviews' exact component={Reviews} />
-        <Route path='/store' exact component={Store} />
+        <Route path='/store/:queryStr' component={Store} />
         <ProtectedRoute isAllowed={!!user} path='/store/new' exact redirectTo={'/login'} component={NewProduct} />
-        <Route path='/store/:id' exact component={ProductDetail} />
+        <Route path='/storedetail/:id' exact component={ProductDetail} />
         <Route path='/locations-map' exact component={LocationsMap} />
         <Route path='/locations' exact component={Locations} />
         <Route path='/locations/:id' exact component={CurrentLocation} />
