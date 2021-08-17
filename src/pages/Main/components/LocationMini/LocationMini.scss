@@ -29,17 +29,12 @@
   @include respond(big-tablets) {
     max-width: 720px;
     flex-direction: column;  
-    padding: 40px 10px;
+    padding: 20px 10px;
+    margin-left: 20px;
   }
-
-  @include respond(small-tablets) {
-    max-width: 650px;
-    flex-direction: column;  
-  }
-
-  @include respond(small-phone) {
-    max-width: 330px;
-    flex-direction: column;  
+  
+  @include respond(IPhone5) {
+    margin-left: -10px;  
   }
 }
 
@@ -55,6 +50,7 @@
     max-width: 650px;
     flex-wrap: wrap;
   }
+
 }
 
 .title {
@@ -64,6 +60,10 @@
   line-height: 32px;
   color: #2f2d25;
   padding-top: 35px;
+  margin-left: 10px;
+  @include respond(big-tablets) {
+    margin-bottom: 0 !important;
+  }
 }
 
 .location-header__button {
@@ -99,9 +99,15 @@
   color: #69A042;
   position: relative;
   padding-left: 25px;
-  margin-top: 5px;
+  margin: 5px 0 0 30px;
   font-size: 18px;
   border-bottom: 2px solid #F9FAF7;
+  @include respond(big-tablets) {
+    margin: 5px 0 0 30px;
+  }
+  @include respond(IPhonePlus) {
+    margin-left: 50px !important;
+  }
   &:hover {
     border-bottom: 2px solid #69a042;
     transition: all 0.2s;
@@ -115,7 +121,7 @@
   width: 24px;
   top: 0;
   left: 0;
-  background-image: url('../../../../assets/location.png');
+  background-image: url('../../../../assets/img/location.png');
 }
 
 .location-header__text {
@@ -123,8 +129,16 @@
   font-weight: 400;
   line-height: 21px;
   color: #2f2d25;
-  margin-top: 11px;
-  margin-right: 18px;
+  margin: 11px 18px 0 0;
+
+  @include respond(big-tablets) {
+    margin: 11px 18px 0 50px;
+  }
+
+  @include respond(IPhone5) {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .location-header__button_transparent {
@@ -141,11 +155,24 @@
 
 .location__link {
   color: #69A042;
-  margin: 5px 0 50px 0;
+  margin: 5px 0 50px 50px;
   font-size: 18px;
   position: relative;
   border-bottom: 2px solid #69a042;
   display: inline-block;
+
+  @include respond(big-tablets) {
+    margin: 0 0 50px 70px;
+  }
+  @include respond(IphonePlus) {
+    margin: 0 0 50px 30px;
+  }
+  @include respond(Iphone6) {
+    margin: 0 0 50px 30px;
+  }
+  @include respond(Iphone5) {
+    margin: 0 0 50px 10px;
+  }
   &:hover{
     color: #416129;
     border-bottom: 2px solid #416129;

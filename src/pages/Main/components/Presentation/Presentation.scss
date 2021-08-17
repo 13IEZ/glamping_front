@@ -5,7 +5,7 @@
   color: #fff;
   background-color: #112528;
   background-image:
-          linear-gradient(297.22deg, #112528 -10.29%, rgba(17, 37, 40, 0) 32.21%), url('./../../../../assets/presentation.jpg');
+      linear-gradient(297.22deg, #112528 -10.29%, rgba(17, 37, 40, 0) 32.21%), url('./../../../../assets/img/presentation.jpg');
   background-size: auto;
   background-position: -100px;
   background-repeat: no-repeat;
@@ -14,6 +14,9 @@
 .presentation-content {
   margin: 0 auto;
   padding: 10px;
+  @include respond(IPhonePlus) {
+    width: 400px;
+  }
 }
 
 .presentation-title {
@@ -25,16 +28,32 @@
   }
 }
 
-.presentation-list-title, .presentation-list {
+.presentation-list-title .presentation-list {
   font-size: 18px;
   line-height: 27px;
   @include respond(big-tablets) {
     font-size: 16px;
     line-height: 23px;
+    width: 1000px;
+  }
+  @include respond(IPad) {
+    width: 568px;
+  }
+  @include respond(IPhonePlus) {
+    width: 200px;
   }
 }
 
 .presentation-item {
   margin-top: 30px;
   margin-left: 650px;
+  @include respond(big-tablets) {
+    margin-left: 10px;
+  }
+  @include respond(IPad) {
+    margin-left: 10px;
+  }
+  @include respond(IPhonePlus) {
+    width: 300px;
+  }
 }

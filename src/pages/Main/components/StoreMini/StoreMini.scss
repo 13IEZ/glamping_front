@@ -10,7 +10,6 @@
     max-width: 720px;
     flex-direction: column;  
     padding: 40px 10px;
-    
   }
   @include respond(small-tablets) {
     max-width: 650px;
@@ -28,20 +27,40 @@
   line-height: 32px;
   color: #2f2d25;
   padding-top: 70px;
-  margin-bottom: 30px;
+  margin: 0 0 30px 50px;
   text-align: start;
+  @include respond(big-tablets) {
+    margin: 0 0 30px 70px;
+  }
+  @include respond(small-phone) {
+    margin: 0;
+    text-align: center;
+  }
 }
+
 
 .module__link {
   color: #69A042;
   display: inline-block;
-  margin-top: 5px;
   font-size: 18px;
   border-bottom: 2px solid #69a042;
   &:hover{
     color: #416129;
     border-bottom: 2px solid #416129;
     transition: all 0.2s;
+  }
+}
+
+.module__link__store {
+  margin: 5px 0 0 50px;
+  @include respond(big-tablets) {
+    margin: 0 70px;
+  }
+  @include respond(IphonePlus) {
+    margin: 0 30px;
+  }
+  @include respond(Iphone5) {
+    margin: 0 5px;
   }
 }
 

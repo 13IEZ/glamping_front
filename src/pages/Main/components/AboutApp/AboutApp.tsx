@@ -19,7 +19,7 @@ const AboutApp: React.FC = () => {
           <Col span={6}>
             <Card
               hoverable
-              style={{ width: 250 }}
+              style={{ width: 270 }}
               cover={
                 <img
                   alt='example'
@@ -32,15 +32,15 @@ const AboutApp: React.FC = () => {
                 <Link className='about_app link' to='#'>
                   Бронировать
                 </Link>{' '}
-                вы найдете огромную базу данных с разнообразными "Глэмпингами" расположенных в самых красивых местах
-                Казахстана и готовых принять в гости!
+                вы найдете огромную базу данных с разнообразными "Глэмпингами" в самых красивых местах Казахстана и
+                готовых принять в гости!
               </p>
             </Card>
           </Col>
           <Col span={6}>
             <Card
               hoverable
-              style={{ width: 250 }}
+              style={{ width: 270 }}
               cover={
                 <img
                   alt='example'
@@ -61,7 +61,7 @@ const AboutApp: React.FC = () => {
           <Col span={6}>
             <Card
               hoverable
-              style={{ width: 250 }}
+              style={{ width: 270 }}
               cover={
                 <img
                   alt='example'
@@ -82,7 +82,7 @@ const AboutApp: React.FC = () => {
           <Col span={6}>
             <Card
               hoverable
-              style={{ width: 250 }}
+              style={{ width: 270 }}
               cover={
                 <img alt='example' src='https://i.pinimg.com/originals/df/6c/91/df6c915c6839c950947229259ad83749.jpg' />
               }

@@ -45,7 +45,7 @@
 
 .accommodation-header-row {
   display: flex;
-
+  margin-left: 20px;
   @include respond(big-tablets) {
     max-width: 720px;
     padding: 10px 10px;
@@ -55,15 +55,36 @@
     max-width: 650px;
     flex-wrap: wrap;
   }
+  @include respond(small-phone) {
+    margin-bottom: -20px;
+  }
 }
 
-.title {
+.accommodation .title {
   font-weight: 400;
   font-size: 36px;
   text-transform: uppercase;
   line-height: 32px;
   color: #2f2d25;
   padding-top: 35px;
+  margin-left: 55px;
+  @include respond(big-tablets) {
+    margin: 0 0 0 65px;
+  }
+  @include respond(small-phone) {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.accommodation-header {
+  @include respond(big-tablets) {
+    margin-left: 25px;
+    padding: 10px;
+  }
+  @include respond(small-phone) {
+    padding: 10px;
+  }
 }
 
 .accommodation-header__button_dark {
@@ -89,9 +110,10 @@
   color: #69A042;
   position: relative;
   padding-left: 25px;
-  margin-top: 5px;
+  margin: 5px 0 0 10px;
   font-size: 18px;
   border-bottom: 2px solid #F9FAF7;
+  
   &:hover {
     border-bottom: 2px solid #69a042;
     transition: all 0.2s;
@@ -105,16 +127,28 @@
   width: 24px;
   top: 0;
   left: 0;
-  background-image: url('../../../../assets/location.png');
+  background-image: url('../../../../assets/img/location.png');
 }
 
 .accommodation__link {
   color: #69A042;
-  margin: 5px 0 50px 0;
+  margin: 5px 0 50px 55px;
   font-size: 18px;
   position: relative;
   border-bottom: 2px solid #69a042;
   display: inline-block;
+  @include respond(big-tablets) {
+    margin-left: 70px;
+  }
+  @include respond(IphonePlus) {
+    margin-left: 30px;
+  }
+  @include respond(Iphone6) {
+    margin-left: 30px;
+  }
+  @include respond(Iphone5) {
+    margin-left: 10px;
+  }
   &:hover{
     color: #416129;
     border-bottom: 2px solid #416129;
@@ -144,4 +178,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  @include respond(small-phone) {
+    padding: 10px;
+  }
+}
+
+.ant-row .ant-row-space-around .accommodation-card {
+  @include respond(big-tablets) {
+    padding: 10px;
+  }
+  @include respond(small-phone) {
+    padding: 10px;
+  }
 }
