@@ -1,11 +1,13 @@
+import './AccommodationMini.scss';
+
 import React, { useEffect } from 'react';
+
 import { Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 import AccommodationMiniItem from './components/AccommodationMiniItem';
-import './AccommodationMini.scss';
 
 const AccommodationMini: React.FC = () => {
   const { lastFourAccommodations } = useTypedSelectorHook(state => state.accommodations);
@@ -35,7 +37,7 @@ const AccommodationMini: React.FC = () => {
   return (
     <section className='accommodation'>
       <div className='container'>
-        <h3 className='title'>Глэмпинги</h3>
+        <h3 className='accommodation title'>Глэмпинги</h3>
         <div className='accommodation-header'>
           <div className='accommodation-header-row'>
             <Link to='/locations-map'>

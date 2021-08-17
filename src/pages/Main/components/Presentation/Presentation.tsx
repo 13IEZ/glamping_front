@@ -5,8 +5,8 @@ import React from 'react';
 const Presentation: React.FC = () => {
   return (
     <section className='presentation'>
-      <div className='presentation-content'>
-        <div className='container'>
+      <div className='container'>
+        <div className='presentation-content'>
           <div className='presentation-item'>
             <p className='presentation-title'>
               Мы – это группа компаний, учредители и члены Казахстанской ассоциации кемпингового туризма и караванинга.

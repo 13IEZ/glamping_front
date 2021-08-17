@@ -1,27 +1,28 @@
 @import '../../../assets/mixins.scss';
 
 .Header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  padding: 15px 0;
-  box-shadow: 0px 0px 5px 0px #ffffff;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0px 0px 5px 0px #ffffff;
+  }
 
   .Logo {
     width: 150px;
     img {
       width: 100%;
     }
-    @include respond(small-phone) {
-      display: none;
-    }
   }
 
   .Header-MenuLink {
     font-size: 18px;
     color: #69A042;
-    
+    @include respond(small-phone) {
+      display: none;
+    }
     &:hover {
       text-decoration: underline;
     }

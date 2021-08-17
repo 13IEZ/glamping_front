@@ -21,22 +21,24 @@ const AppToolbar: React.FC = () => {
   }, []);
   return (
     <header id='header' className='Header container'>
-      <div className='Logo'>
-        <Link to='/'>
-          <img src={logo} alt='Logo' />
-        </Link>
+      <div className='container'>
+        <div className='Logo'>
+          <Link to='/'>
+            <img src={logo} alt='Logo' />
+          </Link>
+        </div>
+        <div>
+          <Link className='Header-MenuLink' to='/locations-map'>
+            <img style={{ marginRight: '5px' }} src={location_ic} alt='Not found' />
+            Карта локаций
+          </Link>
+          <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
+          <Link className='Header-MenuLink' to='/store/[]'>
+            Магазин
+          </Link>
+        </div>
+        <div className='Header-UserMenu'>{user ? <UserMenu /> : <AnonymousMenu />}</div>
       </div>
-      <div>
-        <Link className='Header-MenuLink' to='/locations-map'>
-          <img style={{ marginRight: '5px' }} src={location_ic} alt='Not found' />
-          Карта локаций
-        </Link>
-        <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
-        <Link className='Header-MenuLink' to='/store/[]'>
-          Магазин
-        </Link>
-      </div>
-      <div className='Header-UserMenu'>{user ? <UserMenu /> : <AnonymousMenu />}</div>
     </header>
   );
 };

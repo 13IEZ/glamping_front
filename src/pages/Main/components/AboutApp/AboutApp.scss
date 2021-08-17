@@ -7,12 +7,24 @@
   }
 }
 
-.title {
-  text-align: center
+.about_app .title {
+  text-align: left;
+  margin-left: 110px;
+  @include respond(big-tablets) {
+    margin-left: 55px;
+  }
+  @include respond(IPad) {
+    margin-left: 100px;
+  }
+  @include respond(small-phone) {
+    text-align: center;
+    margin: 0;
+  }
 }
 
 .content_text {
   font-size: 15px;
+  padding-top: 10px;
 }
 
 .link {
