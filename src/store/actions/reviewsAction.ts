@@ -26,6 +26,27 @@ export const fetchReviews = (productId: string): any => {
   };
 };
 
+export const fetchReviewsOfUser = (userId: string): any => {
+  return async (dispatch: Dispatch<ReviewsAction>) => {
+    try {
+      const response = await ax.get(`/reviews?user=${userId}`);
+      dispatch({
+        type: ReviewsActionTypes.FETCH_REVIEWS_OF_USER_SUCCESS,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: ReviewsActionTypes.FETCH_REVIEWS_OF_USER_FAILURE,
+        payload: 'Ошибка при получении данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
 export const fetchNextReviewPages = (currentPage: number, productId: string) => {
   return async (dispatch: Dispatch<ReviewsAction>) => {
     try {
