@@ -8,17 +8,20 @@ import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import StoreItem from './components/StoreItem/StoreItem';
 import StoreSidebar from './components/StoreSidebar/StoreSidebar';
+import { useParams } from 'react-router-dom';
 
 const { Content } = Layout;
 
 const Store: React.FC = () => {
-  const { products, pages } = useTypedSelectorHook(state => state.products);
+  const { products, pages, currentPage } = useTypedSelectorHook(state => state.products);
   const { fetchNextPages } = useActions();
+  const { setCurrentPage } = useActions();
   const [className, setClassName] = useState('sidebar');
-  const { filters } = useTypedSelectorHook(state => state.products);
+  const params: any = useParams();
 
   const onChange = (pageNumber: number) => {
-    fetchNextPages(pageNumber - 1, filters);
+    setCurrentPage(pageNumber);
+    fetchNextPages(pageNumber - 1, JSON.parse(params.queryStr));
   };
 
   const totalPages = Number(pages) * 10;
@@ -65,7 +68,9 @@ const Store: React.FC = () => {
         <div className='content'>
           <Content className='cont'>
             <Row className='store-content'>{productsList}</Row>
-            <div className='pagination'>{noPages ? <></> : <Pagination total={totalPages} onChange={onChange} />}</div>
+            <div className='pagination'>
+              {noPages ? <></> : <Pagination total={totalPages} onChange={onChange} current={currentPage} />}
+            </div>
           </Content>
         </div>
       </Layout>

@@ -11,6 +11,7 @@ const { SubMenu } = Menu;
 const StoreSidebar: React.FC = () => {
   const history = useHistory();
   const { fetchModulesCat } = useActions();
+  const { setStoreIsOpened } = useActions();
   const { categories } = useTypedSelectorHook(state => state.categories);
   const { factories } = useTypedSelectorHook(state => state.categories);
   const filters = useRef<string[]>([]);
@@ -19,6 +20,8 @@ const StoreSidebar: React.FC = () => {
   useEffect(() => {
     fetchModulesCat(JSON.parse(params.queryStr));
     filters.current = JSON.parse(params.queryStr);
+    setStoreIsOpened(true);
+    return () => setStoreIsOpened(false);
   }, []);
 
   const handleClick = (event: any) => {

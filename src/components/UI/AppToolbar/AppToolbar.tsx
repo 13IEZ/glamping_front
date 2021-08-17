@@ -14,6 +14,7 @@ import UserMenu from './Menus/UserMenu';
 
 const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
+  const { storeIsOpened } = useTypedSelectorHook(state => state.products);
   const { fetchCategories, fetchFactories } = useActions();
   useEffect(() => {
     fetchCategories();
@@ -32,9 +33,11 @@ const AppToolbar: React.FC = () => {
           Карта локаций
         </Link>
         <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
-        <Link className='Header-MenuLink' to='/store/[]'>
-          Магазин
-        </Link>
+        {!storeIsOpened ? (
+          <Link className='Header-MenuLink' to='/store/[]'>
+            Магазин
+          </Link>
+        ) : null}
       </div>
       <div className='Header-UserMenu'>{user ? <UserMenu /> : <AnonymousMenu />}</div>
     </header>
