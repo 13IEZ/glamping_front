@@ -37,7 +37,13 @@ function App(): JSX.Element {
         <Route path='/locations' exact component={Locations} />
         <Route path='/locations/:id' exact component={CurrentLocation} />
         <Route path='/accommodations/:id' exact component={CurrentAccommodation} />
-        <Route path='/user-personal-area' exact component={UserPersonalArea} />
+        <ProtectedRoute
+          isAllowed={!!user}
+          path='/user-personal-area'
+          exact
+          redirectTo='/login'
+          component={UserPersonalArea}
+        />
       </Switch>
     </Layout>
   );

@@ -38,6 +38,7 @@ export const fetchModulesCat = (filterOptions: Array<string>): any => {
       const response = await ax.get('products/filters?queryStr=' + queryStr);
       dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data.products });
       dispatch({ type: ProductsActionTypes.FETCH_STORE_PAGES, payload: response.data.pages });
+      dispatch({ type: ProductsActionTypes.SET_CURRENT_PAGE, payload: 1 });
     } catch (error) {
       dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_FAILURE, payload: 'Ошибка при получении данных' });
     }
@@ -74,9 +75,15 @@ export const fetchLastFourProducts = (): any => {
   };
 };
 
-export const setFilters = (filters: Array<string>): any => {
+export const setCurrentPage = (currentPage: number): any => {
   return async (dispatch: Dispatch<ProductsAction>) => {
-    dispatch({ type: ProductsActionTypes.SET_FILTERS, payload: filters });
+    dispatch({ type: ProductsActionTypes.SET_CURRENT_PAGE, payload: currentPage });
+  };
+};
+
+export const setStoreIsOpened = (storeIsOpened: boolean): any => {
+  return async (dispatch: Dispatch<ProductsAction>) => {
+    dispatch({ type: ProductsActionTypes.SET_STORE_IS_OPENED, payload: storeIsOpened });
   };
 };
 

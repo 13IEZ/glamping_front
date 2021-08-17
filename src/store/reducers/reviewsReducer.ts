@@ -2,6 +2,7 @@ import { IReviewsState, ReviewsAction, ReviewsActionTypes } from '../types/revie
 
 const initialState: IReviewsState = {
   reviews: [],
+  reviewsOfUser: [],
   accommodationReviews: [],
   pages: '',
   accommodationReviewPages: '',
@@ -24,6 +25,12 @@ const reviewsReducer = (state = initialState, action: ReviewsAction): IReviewsSt
       return { ...state, reviews: data, currentPage: 0 };
     }
     case ReviewsActionTypes.FETCH_REVIEWS_FAILURE:
+      return { ...state, error: action.payload };
+
+    case ReviewsActionTypes.FETCH_REVIEWS_OF_USER_SUCCESS:
+      return { ...state, reviewsOfUser: action.payload };
+
+    case ReviewsActionTypes.FETCH_REVIEWS_OF_USER_FAILURE:
       return { ...state, error: action.payload };
 
     case ReviewsActionTypes.FETCH_ACCOMMODATION_REVIEWS_SUCCESS: {

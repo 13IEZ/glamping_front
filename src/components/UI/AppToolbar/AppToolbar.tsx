@@ -14,6 +14,7 @@ import UserMenu from './Menus/UserMenu';
 
 const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
+  const { storeIsOpened } = useTypedSelectorHook(state => state.products);
   const { fetchCategories, fetchFactories } = useActions();
   useEffect(() => {
     fetchCategories();
