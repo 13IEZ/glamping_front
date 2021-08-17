@@ -9,10 +9,9 @@ const { RangePicker } = DatePicker;
 interface ICalendarProps {
   accommodationId?: string;
   reservedDates: any;
-  user: any;
 }
 
-const Calendar: React.FC<ICalendarProps> = ({ accommodationId, reservedDates, user }) => {
+const Calendar: React.FC<ICalendarProps> = ({ accommodationId, reservedDates }) => {
   const { createReservation } = useActions();
   const disabledDate = (current: any) => {
     // Can not select days before today and today
@@ -32,7 +31,6 @@ const Calendar: React.FC<ICalendarProps> = ({ accommodationId, reservedDates, us
     const newReservation = {
       startDate: bookedDaysString[0],
       endDate: bookedDaysString[1],
-      user: user.user._id,
       accommodation: accommodationId,
     };
     setReservation(newReservation);
