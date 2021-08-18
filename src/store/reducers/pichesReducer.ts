@@ -12,6 +12,10 @@ const pichesReducer = (state = initialState, action: PichesAction): IPichesState
       return { ...state, lastFourPiches: action.payload };
     case PichesActionTypes.FETCH_LAST_FOUR_PICHES_FAILURE:
       return { ...state, error: action.payload };
+    case PichesActionTypes.FETCH_PICHES_LOCATIONID_SUCCESS:
+      return { ...state, piches: action.payload };
+    case PichesActionTypes.FETCH_PICHES_LOCATIONID_FAILURE:
+      return { ...state, error: action.payload };
     default:
       return state;
   }

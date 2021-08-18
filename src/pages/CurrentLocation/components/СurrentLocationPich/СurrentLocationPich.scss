@@ -1,0 +1,22 @@
+.pich-description {
+  height: 120px;
+}
+
+.pich-item-button {
+  font-weight: 500;
+  font-size: 20px;
+  height: 40px;
+  color: #2F2D25;
+  background-color: #FDD74E;
+  border: #FDD74E;
+  outline: none;
+  padding: 0 25px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  &:hover{
+    background-color: #fff;
+    border: 2px solid #FDD74E;
+    color: #000;
+    transition: all 0.2s;
+  }
+}

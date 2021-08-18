@@ -27,6 +27,8 @@ export interface IPichesState {
 export enum PichesActionTypes {
   FETCH_LAST_FOUR_PICHES_SUCCESS = 'FETCH_LAST_FOUR_PICHES_SUCCESS',
   FETCH_LAST_FOUR_PICHES_FAILURE = 'FETCH_LAST_FOUR_PICHES_FAILURE',
+  FETCH_PICHES_LOCATIONID_SUCCESS = 'FETCH_PICHES_LOCATIONID_SUCCESS',
+  FETCH_PICHES_LOCATIONID_FAILURE = 'FETCH_PICHES_LOCATIONID_FAILURE',
 }
 
 interface IFetchLastFourPichesSuccessAction {
@@ -39,4 +41,18 @@ interface IFetchLastFourPichesFailureAction {
   payload: string;
 }
 
-export type PichesAction = IFetchLastFourPichesSuccessAction | IFetchLastFourPichesFailureAction;
+interface IFetchLocationIdPichesSuccessAction {
+  type: PichesActionTypes.FETCH_PICHES_LOCATIONID_SUCCESS;
+  payload: Array<IPich>;
+}
+
+interface IFetchLocationIdPichesFailureAction {
+  type: PichesActionTypes.FETCH_PICHES_LOCATIONID_FAILURE;
+  payload: string;
+}
+
+export type PichesAction =
+  | IFetchLastFourPichesSuccessAction
+  | IFetchLastFourPichesFailureAction
+  | IFetchLocationIdPichesSuccessAction
+  | IFetchLocationIdPichesFailureAction;
