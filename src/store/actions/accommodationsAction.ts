@@ -5,26 +5,53 @@ import { Dispatch } from 'redux';
 import ax from '../../settings/axios-glamping';
 import { AccommodationsAction, AccommodationsActionTypes } from '../types/accommodationsTypes';
 
-export const fetchAllAccommodations = () => {
+// export const fetchAllAccommodations = () => {
+//   return async (dispatch: Dispatch<AccommodationsAction>) => {
+//     try {
+//       const response = await ax.get('accommodations/pages');
+//       dispatch({
+//         type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS,
+//         payload: response.data.allAccommodations,
+//       });
+//       dispatch({ type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES, payload: response.data.pages });
+//     } catch (error) {
+//       dispatch({
+//         type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE,
+//         payload: 'Ошибка при получении данных',
+//       });
+//       notification.error({
+//         message: 'Неудача!',
+//         description: 'Произошла ошибка при получении данных',
+//       });
+//       dispatch({
+//         type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES_ERROR,
+//         payload: 'Ошибка при получении данных',
+//       });
+//       notification.error({
+//         message: 'Неудача!',
+//         description: 'Произошла ошибка при получении данных',
+//       });
+//     }
+//   };
+// };
+
+export const fetchNextAccommodationPages = (currentPage: number, filterOptions: Array<string>): any => {
   return async (dispatch: Dispatch<AccommodationsAction>) => {
     try {
-      const response = await ax.get('accommodations/pages');
+      let queryStr;
+      if (filterOptions.length > 0) {
+        queryStr = JSON.stringify(filterOptions);
+      } else {
+        queryStr = '[]';
+      }
+      const response = await ax.get(`accommodations/pages?page=${currentPage}&queryStr=` + queryStr);
       dispatch({
         type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS,
         payload: response.data.allAccommodations,
       });
-      dispatch({ type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES, payload: response.data.pages });
     } catch (error) {
       dispatch({
         type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE,
-        payload: 'Ошибка при получении данных',
-      });
-      notification.error({
-        message: 'Неудача!',
-        description: 'Произошла ошибка при получении данных',
-      });
-      dispatch({
-        type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES_ERROR,
         payload: 'Ошибка при получении данных',
       });
       notification.error({
@@ -35,24 +62,33 @@ export const fetchAllAccommodations = () => {
   };
 };
 
-export const fetchNextAccommodationPages = (currentPage: number): any => {
+export const fetchProductCategory = (filterOptions: Array<string>): any => {
   return async (dispatch: Dispatch<AccommodationsAction>) => {
     try {
-      const response = await ax.get(`accommodations/pages?page=${currentPage}`);
+      let queryStr;
+      if (filterOptions.length > 0) {
+        queryStr = JSON.stringify(filterOptions);
+      } else {
+        queryStr = '[]';
+      }
+      const response = await ax.get('accommodations/filters?queryStr=' + queryStr);
       dispatch({
         type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS,
         payload: response.data.allAccommodations,
       });
+      dispatch({ type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES, payload: response.data.pages });
     } catch (error) {
       dispatch({
         type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE,
         payload: 'Ошибка при получении данных',
       });
-      notification.error({
-        message: 'Неудача!',
-        description: 'Произошла ошибка при получении данных',
-      });
     }
+  };
+};
+
+export const setAccommodationFilters = (filters: Array<string>): any => {
+  return async (dispatch: Dispatch<AccommodationsAction>) => {
+    dispatch({ type: AccommodationsActionTypes.SET_ACCOMMODATIONS_FILTERS, payload: filters });
   };
 };
 

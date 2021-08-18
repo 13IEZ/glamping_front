@@ -7,11 +7,14 @@ const initialState: IAccommodationsState = {
   allAccommodations: [],
   pages: '',
   currentPage: 0,
+  filters: [],
   error: null,
 };
 
 const accommodationsReducer = (state = initialState, action: AccommodationsAction): IAccommodationsState => {
   switch (action.type) {
+    case AccommodationsActionTypes.SET_ACCOMMODATIONS_FILTERS:
+      return { ...state, filters: action.payload };
     case AccommodationsActionTypes.FETCH_ACCOMMODATIONS_SUCCESS:
       return { ...state, accommodations: action.payload };
     case AccommodationsActionTypes.FETCH_ACCOMMODATIONS_FAILURE:

@@ -38,6 +38,7 @@ export interface IAccommodationsState {
   allAccommodations: Array<IAccommodation> | [];
   pages: IAccommodationPage | {};
   currentPage: number;
+  filters: Array<string>;
   error: null | string;
 }
 
@@ -54,6 +55,12 @@ export enum AccommodationsActionTypes {
   FETCH_ALL_ACCOMMODATIONS_FAILURE = 'FETCH_ALL_ACCOMMODATIONS_FAILURE',
   FETCH_ACCOMMODATION_PAGES = 'FETCH_ACCOMMODATION_PAGES',
   FETCH_ACCOMMODATION_PAGES_ERROR = 'FETCH_ACCOMMODATION_PAGES_ERROR',
+  SET_ACCOMMODATIONS_FILTERS = 'SET_ACCOMMODATIONS_FILTERS',
+}
+
+interface ISetAccommodationsFilters {
+  type: AccommodationsActionTypes.SET_ACCOMMODATIONS_FILTERS;
+  payload: Array<string>;
 }
 
 interface IFetchAccommodationsSuccessAction {
@@ -127,4 +134,5 @@ export type AccommodationsAction =
   | IFetchAllAccommodationsSuccessAction
   | IFetchAllAccommodationsFailureAction
   | IFetchAccommodationPagesAction
-  | IFetchAccommodationPagesErrorAction;
+  | IFetchAccommodationPagesErrorAction
+  | ISetAccommodationsFilters;
