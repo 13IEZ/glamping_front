@@ -17,3 +17,18 @@ export const fetchLastFourPiches = (): any => {
     }
   };
 };
+
+export const fetchPichesByLocationId = (locationId: number): any => {
+  return async (dispatch: Dispatch<PichesAction>) => {
+    try {
+      const response = await ax.get('piches?locationId=' + locationId);
+      dispatch({ type: PichesActionTypes.FETCH_PICHES_LOCATIONID_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: PichesActionTypes.FETCH_PICHES_LOCATIONID_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};

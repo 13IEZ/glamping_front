@@ -22,3 +22,18 @@
     max-width: 330px;
   }
 }
+
+.pich-list-title {
+  font-weight: 400;
+  font-size: 30px;
+  text-transform: uppercase;
+  line-height: 32px;
+  color: #2f2d25;
+  padding-top: 35px;
+  margin-left: 10px;
+  text-align: center;
+  width: 100%;
+  @include respond(big-tablets) {
+    margin-bottom: 0 !important;
+  }
+}
