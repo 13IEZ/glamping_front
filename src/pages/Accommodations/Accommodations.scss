@@ -1,0 +1,15 @@
+@import '../../assets/mixins.scss';
+
+.accommodation-body {
+  background-color: transparent;
+}
+
+.ant-layout-content {
+  text-align: center;
+}
+
+.accommodation-content {
+  @include respond(small-phone) {
+    margin-left: -30px;
+  }
+}

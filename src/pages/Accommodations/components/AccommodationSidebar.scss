@@ -1,0 +1,34 @@
+.site-layout-background {
+    background: #F9FAF7;
+    height: 100%;
+    padding-top: 4px;
+  }
+  
+  .button-clear {
+    background-color: #F9FAF7;
+  }
+  
+  .sidebar-button {
+    display: inline-block;
+    background-color: #FDD74E;
+    border: 2px solid #FDD74E;
+    left: 15%;
+    margin-top: 20px;
+  }
+  
+  .sidebar-button:hover {
+    background-color: #fff;
+    border: 2px solid #FDD74E;
+    color: black;
+  }
+  
+  .sidebar-button:active {
+    background-color: #fff;
+    border: 2px solid #FDD74E;
+    color: black;
+  }
+  
+  .ant-divider-horizontal {
+    margin: 0;
+    background-color: #F9FAF7;
+  }
