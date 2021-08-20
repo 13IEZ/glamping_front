@@ -89,7 +89,24 @@
   justify-content: center;
 }
 
+.store-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
 
+.store-header__button_transparent {
+  border: 2px solid #FDD74E;
+  background-color: #FDD74E;
+  color: #2f2d25;
+  max-width: 200px;
+  margin-right: 50px;
+  &:hover {
+    transition: all 0.2s;
+    border: 2px solid #FDD74E;
+    color: #2f2d25;
+  }
+}
 
 
 
