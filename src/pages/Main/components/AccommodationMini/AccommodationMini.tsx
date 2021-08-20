@@ -42,7 +42,7 @@ const AccommodationMini: React.FC = () => {
   return (
     <section className='accommodation'>
       <div className='container'>
-        <h3 className='accommodation title'>Глэмпинги</h3>
+        <h3 className='accommodation title'>ТОП-Размещений</h3>
         <div className='accommodation-header'>
           <div className='accommodation-header-row'>
             <Link to='/locations-map'>

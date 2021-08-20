@@ -40,7 +40,7 @@ const LocationMini: React.FC = () => {
   return (
     <section className='location'>
       <div className='container'>
-        <h3 className='title'>Локации</h3>
+        <h3 className='title'>Глэмпинги</h3>
         <div className='location-header'>
           <div className='location-header-row'>
             <Link to='/locations-map'>
