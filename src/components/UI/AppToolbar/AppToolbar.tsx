@@ -14,14 +14,13 @@ import UserMenu from './Menus/UserMenu';
 
 const AppToolbar: React.FC = () => {
   const { user } = useTypedSelectorHook(state => state.users);
-  const { storeIsOpened } = useTypedSelectorHook(state => state.products);
   const { fetchCategories, fetchFactories } = useActions();
   useEffect(() => {
     fetchCategories();
     fetchFactories();
   }, []);
   return (
-    <header id='header' className='Header container'>
+    <header id='header' className='Header'>
       <div className='container'>
         <div className='Logo'>
           <Link to='/'>
@@ -31,7 +30,7 @@ const AppToolbar: React.FC = () => {
         <div>
           <Link className='Header-MenuLink' to='/locations-map'>
             <img style={{ marginRight: '5px' }} src={location_ic} alt='Not found' />
-            Карта локаций
+            Карта глэмпингов
           </Link>
           <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
           <Link className='Header-MenuLink' to='/store/[]'>

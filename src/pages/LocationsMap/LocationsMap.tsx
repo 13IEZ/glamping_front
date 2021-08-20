@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-
 import './LocationsMap.scss';
 
-import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
-import { useActions } from '../../hooks/useAction';
+import React, { useEffect, useState } from 'react';
 
-import GLMap from './components/GLMap/GLMap/GLMap';
-import SelectList from './components/SelectList/SelectList';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
+
+import { useActions } from '../../hooks/useAction';
+import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
+import GLMap from './components/GLMap/GLMap/GLMap';
+import SelectList from './components/SelectList/SelectList';
 
 const LocationsMap: React.FC = () => {
   const [centerCoordinate, setCenterCoordinate] = useState<[number, number]>([43.1524, 76.5542]);
@@ -31,7 +31,7 @@ const LocationsMap: React.FC = () => {
       <div className='locations-header'>
         <SelectList onSelectorChange={onSelectorChange} locations={locations} />
         <Button className='locations-map__button' type='primary'>
-          <Link to='/locations'>Каталог локаций</Link>
+          <Link to='/locations'>Каталог глэмпингов</Link>
         </Button>
       </div>
       <GLMap centerCoordinate={centerCoordinate} locations={locations} />

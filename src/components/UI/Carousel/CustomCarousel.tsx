@@ -16,47 +16,48 @@ const CustomCarousel: React.FC = () => {
     <section className='carousel'>
       <ScrollUp />
       <Carousel autoplay autoplaySpeed={5000} draggable arrows nextArrow={<NextArrow />} prevArrow={<PrevArrow />}>
-        <div className='contentStyle first-slide'>
+        <div className='contentStyle third-slide'>
           <div className='content-slider container'>
-            <h2 className='title-carousel'>
-              Есть земля и хочешь <br /> на ней зарабаывать?
-            </h2>
-            <p className='text-carousel'>Мы поможем сдавать ее в аренду</p>
+            <h2 className='title-carousel'>Отдыхай гламурно!</h2>
+            <p className='text-carousel'>
+              Глэмпинг — роскошь наедине с природой. <br />
+              Комфорт вдали от цивилизации.
+            </p>
             <Button className='carousel_button'>
-              <Link to='#'>Сдать землю</Link>
+              <Link to='/locations-map'>Выбрать глэмпинг</Link>
             </Button>
           </div>
         </div>
 
         <div className='contentStyle second-slide'>
           <div className='content-slider container'>
-            <h2 className='title-carousel-2slide'>GLAMPING</h2>
+            <h2 className='title-carousel-2slide'>Зарабатывай отдыхая!</h2>
             <p className='text-carousel'>
-              Закажи <span className='yellowText'>glam-модуль</span> и остановись <br /> в самом красивом месте
+              Закажи <span className='yellowText'>glam-модуль</span> и установи его <br /> в самом красивом месте
               Казахстана
             </p>
             <div className='icon-text'>
               <img className='icon' alt='Not Found' src={money} />
-              <span className='text'>дополнительный доход</span>
+              <span className='text'>получай пассивный доход</span>
             </div>
             <div className='icon-text'>
               <img className='icon' alt='Not Found' src={track} />
-              <span className='text'>Меняй локацию</span>
+              <span className='text'>меняй глэмпинг</span>
             </div>
             <Button className='carousel_button'>
-              <Link to='#'>Заказать модуль</Link>
+              <Link to='/store/[]'>Заказать модуль</Link>
             </Button>
           </div>
         </div>
 
-        <div className='contentStyle third-slide'>
+        <div className='contentStyle first-slide'>
           <div className='content-slider container'>
-            <h2 className='title-carousel'>Отдыхай уже сейчас</h2>
-            <p className='text-carousel'>
-              Глэмпинг — это пожалуй лучшее удовольствие. <br />С комфортом вдали от цивилизации.
-            </p>
+            <h2 className='title-carousel'>
+              Есть земля и хочешь <br /> на ней зарабатывать?
+            </h2>
+            <p className='text-carousel'>Мы поможем создать глэмпинг</p>
             <Button className='carousel_button'>
-              <Link to='/store'>На карту</Link>
+              <Link to='#'>Создать глэмпинг</Link>
             </Button>
           </div>
         </div>
