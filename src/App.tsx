@@ -6,19 +6,20 @@ import { Route, Switch } from 'react-router';
 import AppToolbar from './components/UI/AppToolbar/AppToolbar';
 import ProtectedRoute from './helpers/ProtectedRoute';
 import { useTypedSelectorHook } from './hooks/useTypedSelector';
+import Accommodations from './pages/Accommodations/Accommodations';
+import CurrentAccommodation from './pages/CurrentAccommodation/CurrentAccommodation';
 import CurrentLocation from './pages/CurrentLocation/CurrentLocation';
 import Locations from './pages/Locations/Locations';
 import LocationsMap from './pages/LocationsMap/LocationsMap';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
+import PitchRentalForm from './pages/Pitches/PitchRentalForm';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Register from './pages/Register/Register';
 import Reviews from './pages/Reviews/Reviews';
 import NewProduct from './pages/Store/components/NewProduct/NewProduct';
 import Store from './pages/Store/Store';
-import CurrentAccommodation from './pages/CurrentAccommodation/CurrentAccommodation';
 import UserPersonalArea from './pages/UserPersonalArea/UserPersonalArea';
-import Accommodations from './pages/Accommodations/Accommodations';
 
 function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
@@ -39,6 +40,7 @@ function App(): JSX.Element {
         <Route path='/locations/:id' exact component={CurrentLocation} />
         <Route path='/accommodations' exact component={Accommodations} />
         <Route path='/accommodations/:id' exact component={CurrentAccommodation} />
+        <Route path='/pich/:id' exact component={PitchRentalForm} />
         <ProtectedRoute
           isAllowed={!!user}
           path='/user-personal-area'
