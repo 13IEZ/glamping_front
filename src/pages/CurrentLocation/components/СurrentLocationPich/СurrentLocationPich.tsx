@@ -1,10 +1,11 @@
+import './СurrentLocationPich.scss';
+
 import React from 'react';
 
 import { Button, Card } from 'antd';
 import { Link } from 'react-router-dom';
 
 import config from '../../../../settings/config';
-import './СurrentLocationPich.scss';
 
 const { Meta } = Card;
 
@@ -13,7 +14,7 @@ interface IPichesCardProps {
   title: string;
   description: string;
   image: Array<string> | [];
-  number: number;
+  number: string;
   free: boolean;
 }
 

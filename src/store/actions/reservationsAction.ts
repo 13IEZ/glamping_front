@@ -1,5 +1,5 @@
-import { Dispatch } from 'redux';
 import { notification } from 'antd';
+import { Dispatch } from 'redux';
 
 import ax from '../../settings/axios-glamping';
 import { ReservationsAction, ReservationsActionTypes } from '../types/reservationsTypes';
@@ -12,6 +12,24 @@ export const fetchAccommodationReservations = (accommodationId: string): any => 
     } catch (error) {
       dispatch({
         type: ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_FAILURE,
+        payload: 'Ошибка при получении данных',
+      });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
+export const fetchPitchReservations = (pitchId: string): any => {
+  return async (dispatch: Dispatch<ReservationsAction>) => {
+    try {
+      const response = await ax.get(`/reservations?pitch=${pitchId}`);
+      dispatch({ type: ReservationsActionTypes.FETCH_PITCH_RESERVATIONS_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({
+        type: ReservationsActionTypes.FETCH_PITCH_RESERVATIONS_FAILURE,
         payload: 'Ошибка при получении данных',
       });
       notification.error({
@@ -78,4 +96,3 @@ export const fetchReservationsOfUser = (id: string): any => {
     }
   };
 };
-      

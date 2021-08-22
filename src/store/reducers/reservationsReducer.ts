@@ -2,6 +2,7 @@ import { IReservationsState, ReservationsAction, ReservationsActionTypes } from 
 
 const initialState: IReservationsState = {
   accommodationReservations: [],
+  pitchReservations: [],
   reservations: [],
   reservationsOfUser: [],
   error: null,
@@ -12,6 +13,10 @@ const reservationsReducer = (state = initialState, action: ReservationsAction): 
     case ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_SUCCESS:
       return { ...state, accommodationReservations: action.payload };
     case ReservationsActionTypes.FETCH_ACCOMMODATION_RESERVATIONS_FAILURE:
+      return { ...state, error: action.payload };
+    case ReservationsActionTypes.FETCH_PITCH_RESERVATIONS_SUCCESS:
+      return { ...state, accommodationReservations: action.payload };
+    case ReservationsActionTypes.FETCH_PITCH_RESERVATIONS_FAILURE:
       return { ...state, error: action.payload };
     case ReservationsActionTypes.FETCH_RESERVATIONS_SUCCESS:
       return { ...state, reservations: action.payload };

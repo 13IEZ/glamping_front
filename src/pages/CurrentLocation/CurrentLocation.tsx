@@ -1,12 +1,15 @@
+import './CurrentLocation.scss';
+
 import React, { useEffect } from 'react';
+
 import { Col, Row } from 'antd';
+
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
-import CurrentLocationGallery from './components/CurrentLocationGallery/CurrentLocationGallery';
 import CurrentLocationAccommodation from './components/CurrentLocationAccommodation/CurrentLocationAccommodation';
 import CurrentLocationDescription from './components/CurrentLocationDescription/CurrentLocationDescription';
+import CurrentLocationGallery from './components/CurrentLocationGallery/CurrentLocationGallery';
 import CurrentLocationPich from './components/СurrentLocationPich/СurrentLocationPich';
-import './CurrentLocation.scss';
 
 const CurrentLocation: React.FC = (props: any) => {
   const idCurrentLocation = props.match.params.id;
@@ -69,12 +72,10 @@ const CurrentLocation: React.FC = (props: any) => {
         <h3 className='pich-list-title'>Список пичей для размешения</h3>
       </Row>
       <Row className='current-location-card' justify='space-around' gutter={[2, 2]}>
-        {pichesList}
+        {accommodationsList}
       </Row>
-
       <Row className='current-location-card' justify='space-around' gutter={[2, 2]}>
-        {accommodationsList}
-        {accommodationsList}
+        {pichesList}
       </Row>
     </div>
   );

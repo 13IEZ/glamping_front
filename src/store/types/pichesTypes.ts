@@ -1,13 +1,13 @@
 export interface IPich {
   _id: string;
   title: string;
-  number: number;
+  number: string;
   productId: string;
   locationId: string;
   roominess: number;
   season: string;
   image: Array<string>;
-  rent: number;
+  rent: string;
   free: boolean;
   startDate: string;
   endDate: string;
@@ -21,6 +21,7 @@ export interface IPich {
 export interface IPichesState {
   piches: Array<IPich> | [];
   lastFourPiches: Array<IPich> | [];
+  currentPitch: Partial<IPich>;
   error: null | string;
 }
 
@@ -29,6 +30,8 @@ export enum PichesActionTypes {
   FETCH_LAST_FOUR_PICHES_FAILURE = 'FETCH_LAST_FOUR_PICHES_FAILURE',
   FETCH_PICHES_LOCATIONID_SUCCESS = 'FETCH_PICHES_LOCATIONID_SUCCESS',
   FETCH_PICHES_LOCATIONID_FAILURE = 'FETCH_PICHES_LOCATIONID_FAILURE',
+  FETCH_CURRENT_PITCH_SUCCESS = 'FETCH_CURRENT_PITCH_SUCCESS',
+  FETCH_CURRENT_PITCH_FAILURE = 'FETCH_CURRENT_PITCH_FAILURE',
 }
 
 interface IFetchLastFourPichesSuccessAction {
@@ -51,8 +54,20 @@ interface IFetchLocationIdPichesFailureAction {
   payload: string;
 }
 
+interface IFetchCurrentIdPitchSuccessAction {
+  type: PichesActionTypes.FETCH_CURRENT_PITCH_SUCCESS;
+  payload: IPich;
+}
+
+interface IFetchCurrentIdPitchFailureAction {
+  type: PichesActionTypes.FETCH_CURRENT_PITCH_FAILURE;
+  payload: string;
+}
+
 export type PichesAction =
   | IFetchLastFourPichesSuccessAction
   | IFetchLastFourPichesFailureAction
   | IFetchLocationIdPichesSuccessAction
-  | IFetchLocationIdPichesFailureAction;
+  | IFetchLocationIdPichesFailureAction
+  | IFetchCurrentIdPitchSuccessAction
+  | IFetchCurrentIdPitchFailureAction;

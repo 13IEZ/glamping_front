@@ -30,7 +30,7 @@ const AboutApp: React.FC = () => {
               <p className='content_text'>
                 В разделе{' '}
                 <Link className='about_app link' to='/locations'>
-                  Глэпинги
+                  Глэмпинги
                 </Link>{' '}
                 вы найдете огромную базу данных с разнообразными "Глэмпингами" в самых красивых местах Казахстана и
                 готовых принять в гости!
