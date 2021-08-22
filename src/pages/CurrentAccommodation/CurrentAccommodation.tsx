@@ -5,6 +5,7 @@ import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import CurrentAccommodationGallery from './components/CurrentAccommodationGallery/CurrentAccommodationGallery';
 import CurrentAccommodationDescription from './components/CurrentAccommodationDescription/CurrentAccommodationDescription';
 import ReviewItem from './components/ReviewItem/ReviewItem';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import Calendar from './components/Calendar/Calendar';
 import './CurrentAccommodation.scss';
 
@@ -20,6 +21,7 @@ const CurrentAccommodation: React.FC = (props: any) => {
   const { fetchNextAccommodationReviewPages } = useActions();
   const { accommodationReservations } = useTypedSelectorHook(state => state.reservations);
   const { fetchAccommodationReservations } = useActions();
+  const { user } = useTypedSelectorHook(state => state.users);
 
   useEffect(() => {
     fetchAccommodationReservations(idCurrentAccommodation);
@@ -74,6 +76,8 @@ const CurrentAccommodation: React.FC = (props: any) => {
         <Space direction='vertical' size={12}>
           <Calendar accommodationId={currentAccommodation._id} reservedDates={reservedDates} />
         </Space>
+        <Paragraph>Оставьте комментарий</Paragraph>
+        {user !== null && idCurrentAccommodation && <ReviewForm idCurrentAccommodation={idCurrentAccommodation} />}
         <Title level={4}>Отзывы {currentAccommodation.reviewsQuantity}</Title>
         {reviewsList.length !== 0 ? (
           <>
