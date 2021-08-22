@@ -7,10 +7,11 @@ import { Button, Form, Input, Rate } from 'antd';
 import { useActions } from '../../hooks/useAction';
 
 interface IReviewFormProps {
-  productId: string;
+  productId?: string;
+  idCurrentAccommodation?: string;
 }
 
-const ReviewForm: React.FC<IReviewFormProps> = ({ productId }) => {
+const ReviewForm: React.FC<IReviewFormProps> = ({ productId, idCurrentAccommodation }) => {
   const { createReview, fetchReviews } = useActions();
 
   const [state, setState] = useState({
@@ -19,12 +20,13 @@ const ReviewForm: React.FC<IReviewFormProps> = ({ productId }) => {
     cons: '',
     rating: 1,
     product: productId,
+    accommodation: idCurrentAccommodation,
   });
 
   const [rating, setRating] = useState(1);
 
   const submitFormHandler = async () => {
-    await createReview(state, productId);
+    await createReview(state, productId || idCurrentAccommodation);
 
     setState({
       review: '',
@@ -32,11 +34,16 @@ const ReviewForm: React.FC<IReviewFormProps> = ({ productId }) => {
       cons: '',
       rating: 1,
       product: productId,
+      accommodation: idCurrentAccommodation,
     });
 
     setRating(1);
 
-    fetchReviews(productId);
+    if (productId) {
+      fetchReviews(productId);
+    } else if (idCurrentAccommodation) {
+      fetchReviews(idCurrentAccommodation);
+    }
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
