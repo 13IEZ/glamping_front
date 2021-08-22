@@ -1,12 +1,15 @@
+import './CurrentAccommodation.scss';
+
 import React, { useEffect } from 'react';
-import { Col, Space, Typography, Divider, Pagination } from 'antd';
+
+import { Col, Divider, Pagination, Space, Typography } from 'antd';
+
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
-import CurrentAccommodationGallery from './components/CurrentAccommodationGallery/CurrentAccommodationGallery';
-import CurrentAccommodationDescription from './components/CurrentAccommodationDescription/CurrentAccommodationDescription';
-import ReviewItem from './components/ReviewItem/ReviewItem';
 import Calendar from './components/Calendar/Calendar';
-import './CurrentAccommodation.scss';
+import CurrentAccommodationDescription from './components/CurrentAccommodationDescription/CurrentAccommodationDescription';
+import CurrentAccommodationGallery from './components/CurrentAccommodationGallery/CurrentAccommodationGallery';
+import ReviewItem from './components/ReviewItem/ReviewItem';
 
 const { Paragraph } = Typography;
 const { Title } = Typography;

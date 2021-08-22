@@ -9,13 +9,12 @@ const { Title } = Typography;
 
 interface ICurrentPitchProps {
   title?: string;
-  rating?: number;
   rent?: string;
   description?: string;
   number?: string;
 }
 
-const PitchDetailDescription: React.FC<ICurrentPitchProps> = ({ title, rating, rent, description, number }) => {
+const PitchDetailDescription: React.FC<ICurrentPitchProps> = ({ title, rent, description, number }) => {
   // let freeVar;
   // let freeStyle: any;
   // if (free) {
@@ -30,13 +29,6 @@ const PitchDetailDescription: React.FC<ICurrentPitchProps> = ({ title, rating, r
       <Title level={4}>{'ПИТЧ ' + number}</Title>
       {/* <p style={freeStyle}>{freeVar}</p> */}
       <Title level={4}>{title}</Title>
-      <div>
-        {rating === 5 ? <span className='rating-five'></span> : null}
-        {rating === 4 ? <span className='rating-four'></span> : null}
-        {rating === 3 ? <span className='rating-three'></span> : null}
-        {rating === 2 ? <span className='rating-two'></span> : null}
-        {rating === 1 ? <span className='rating-one'></span> : null}
-      </div>
       <Divider />
       <Title level={5}>Цена</Title>
       <Paragraph>{rent} ₸</Paragraph>

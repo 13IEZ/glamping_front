@@ -33,7 +33,7 @@ function App(): JSX.Element {
         <ProtectedRoute isAllowed={!user} path='/login' exact redirectTo='/' component={Login} />
         <Route path='/reviews' exact component={Reviews} />
         <Route path='/store/:queryStr' component={Store} />
-        <ProtectedRoute isAllowed={!!user} path={'/newProduct'} exact redirectTo='/login' component={NewProduct} />
+        <ProtectedRoute isAllowed={!!user} path='/newProduct' exact redirectTo='/login' component={NewProduct} />
         <Route path='/storedetail/:id' exact component={ProductDetail} />
         <Route path='/locations-map' exact component={LocationsMap} />
         <Route path='/locations' exact component={Locations} />
