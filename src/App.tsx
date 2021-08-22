@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Layout } from 'antd';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, useLocation } from 'react-router';
 
 import AppToolbar from './components/UI/AppToolbar/AppToolbar';
 import ProtectedRoute from './helpers/ProtectedRoute';
@@ -20,9 +20,12 @@ import Reviews from './pages/Reviews/Reviews';
 import NewProduct from './pages/Store/components/NewProduct/NewProduct';
 import Store from './pages/Store/Store';
 import UserPersonalArea from './pages/UserPersonalArea/UserPersonalArea';
+import CustomFooter from './components/UI/CustomFooter/CustomFooter';
+
 
 function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
+  const location = useLocation();
 
   return (
     <Layout style={{ backgroundColor: '#f9faf7' }}>
@@ -49,6 +52,7 @@ function App(): JSX.Element {
           component={UserPersonalArea}
         />
       </Switch>
+      {location.pathname === '/locations-map' || location.pathname === '/' ? null : <CustomFooter />}
     </Layout>
   );
 }
