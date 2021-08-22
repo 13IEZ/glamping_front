@@ -1,3 +1,5 @@
+import './PitchRentalForm.scss';
+
 import React, { useEffect, useState } from 'react';
 
 import { Button, Col, Divider, Form, Input, InputNumber, Row, Select, Typography } from 'antd';
@@ -95,7 +97,9 @@ const PitchRentalForm: React.FC = (props: any) => {
       </div>
       <Divider />
       <Form form={form} name='dynamic_rule' onFinish={submitFormHandler} className='PitchForm'>
-        <Title level={3}>Опишите ваш модуль для заявки</Title>
+        <Title className='PitchTitle' level={3}>
+          Опишите ваш модуль для заявки
+        </Title>
         <Form.Item
           {...formItemLayout}
           name='title'
