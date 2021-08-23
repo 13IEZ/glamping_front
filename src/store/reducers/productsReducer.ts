@@ -2,6 +2,7 @@ import { IProductsState, ProductsAction, ProductsActionTypes } from '../types/pr
 
 const initialState: IProductsState = {
   products: [],
+  productsOfUser: [],
   pages: '',
   currentPage: 0,
   lastFourProducts: [],
@@ -23,6 +24,10 @@ const productsReducer = (state = initialState, action: ProductsAction): IProduct
     case ProductsActionTypes.FETCH_PRODUCTS_SUCCESS:
       return { ...state, products: action.payload };
     case ProductsActionTypes.FETCH_PRODUCTS_FAILURE:
+      return { ...state, error: action.payload };
+    case ProductsActionTypes.FETCH_PRODUCTS_OF_USER_SUCCESS:
+      return { ...state, productsOfUser: action.payload };
+    case ProductsActionTypes.FETCH_PRODUCTS_OF_USER_FAILURE:
       return { ...state, error: action.payload };
     case ProductsActionTypes.FETCH_LAST_FOUR_PRODUCTS_SUCCESS:
       return { ...state, lastFourProducts: action.payload };

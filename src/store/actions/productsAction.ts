@@ -106,3 +106,18 @@ export const fetchCurrentProduct = (id: string): any => {
     }
   };
 };
+
+export const fetchProductsOfUser = (id: string): any => {
+  return async (dispatch: Dispatch<ProductsAction>) => {
+    try {
+      const response = await ax.get('products?user=' + id);
+      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_OF_USER_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS_OF_USER_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
