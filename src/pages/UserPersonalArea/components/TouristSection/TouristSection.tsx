@@ -69,7 +69,7 @@ const TouristSection: React.FC = () => {
       <h2>Туристам</h2>
       <Col span={24} className='tabs'>
         <Tabs defaultActiveKey='1' type='card'>
-          <TabPane tab='Ваши бырони' key='1'>
+          <TabPane tab='Ваши брони' key='1'>
             <Table
               columns={columnsOfReservations}
               dataSource={adaptiveReservations}
