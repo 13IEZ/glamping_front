@@ -34,7 +34,7 @@ const Calendar: React.FC<ICalendarProps> = ({ pitchId, reservedDates }) => {
     const newReservation = {
       startDate: bookedDaysString[0],
       endDate: bookedDaysString[1],
-      accommodation: pitchId,
+      pich: pitchId,
     };
     setReservation(newReservation);
   };
