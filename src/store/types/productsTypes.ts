@@ -1,3 +1,4 @@
+import { ICategory } from './categoriesTypes';
 export interface IFactory {
   _id: string;
   title: string;
@@ -6,7 +7,7 @@ export interface IFactory {
 export interface IProduct {
   _id: string;
   title: string;
-  categoryId: string;
+  categoryId: ICategory;
   userId: string;
   season: string;
   preview: string;
@@ -31,6 +32,7 @@ export interface Istore {
 export interface IProductsState {
   pages: Istore | {};
   products: Array<IProduct> | [];
+  productsOfUser: Array<IProduct> | [];
   lastFourProducts: Array<IProduct> | [];
   error: null | string;
   currentPage: number;
@@ -41,6 +43,8 @@ export interface IProductsState {
 export enum ProductsActionTypes {
   FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
   FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE',
+  FETCH_PRODUCTS_OF_USER_SUCCESS = 'FETCH_PRODUCTS_OF_USER_SUCCESS',
+  FETCH_PRODUCTS_OF_USER_FAILURE = 'FETCH_PRODUCTS_OF_USER_FAILURE',
   FETCH_LAST_FOUR_PRODUCTS_SUCCESS = 'FETCH_LAST_FOUR_PRODUCTS_SUCCESS',
   FETCH_LAST_FOUR_PRODUCTS_FAILURE = 'FETCH_LAST_FOUR_PRODUCTS_FAILURE',
   FETCH_STORE_PAGES = 'FETCH_STORE_PAGES',
@@ -81,6 +85,16 @@ interface IFetchProductsFailureAction {
   payload: string;
 }
 
+interface IFetchProductsOfUserSuccessAction {
+  type: ProductsActionTypes.FETCH_PRODUCTS_OF_USER_SUCCESS;
+  payload: Array<IProduct>;
+}
+
+interface IFetchProductsOfUserFailureAction {
+  type: ProductsActionTypes.FETCH_PRODUCTS_OF_USER_FAILURE;
+  payload: string;
+}
+
 interface IFetchLastFourProductsSuccessAction {
   type: ProductsActionTypes.FETCH_LAST_FOUR_PRODUCTS_SUCCESS;
   payload: Array<IProduct>;
@@ -111,4 +125,6 @@ export type ProductsAction =
   | IFetchCurrentProductSuccessAction
   | IFetchCurrentProductFailureAction
   | ISetCurrentPage
-  | ISetStoreIsOpened;
+  | ISetStoreIsOpened
+  | IFetchProductsOfUserSuccessAction
+  | IFetchProductsOfUserFailureAction;
