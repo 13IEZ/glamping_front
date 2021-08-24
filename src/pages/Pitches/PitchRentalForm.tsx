@@ -6,7 +6,6 @@ import { Button, Col, Divider, Form, Input, InputNumber, Row, Select, Typography
 
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
-import { fetchPitchReservations } from '../../store/actions/reservationsAction';
 import Calendar from './components/Calendar/Calendar';
 import PitchDetailDescription from './components/PitchDetailDescription/PitchDetailDescription';
 import PitchDetailGallery from './components/PitchDetailGallery/PitchDetailGallery';
@@ -29,6 +28,7 @@ const PitchRentalForm: React.FC = (props: any) => {
   const { currentPitch } = useTypedSelectorHook(state => state.piches);
   const { pitchReservations } = useTypedSelectorHook(state => state.reservations);
   const { fetchCurrentPitch } = useActions();
+  const { fetchPitchReservations } = useActions();
   const config = {
     rules: [{ type: 'object' as const, required: true, message: 'Укажите дату изготовления!' }],
   };
@@ -37,10 +37,6 @@ const PitchRentalForm: React.FC = (props: any) => {
     fetchPitchReservations(idCurrentPitch);
     fetchCurrentPitch(idCurrentPitch);
   }, [idCurrentPitch]);
-
-  const reservedDates = pitchReservations.map((reservation: { startDate: any; endDate: any }) => {
-    return { startDate: reservation.startDate, endDate: reservation.endDate };
-  });
 
   const [state, setState] = useState({
     title: '',
@@ -53,6 +49,11 @@ const PitchRentalForm: React.FC = (props: any) => {
     description: '',
     reservedDates: '',
   });
+
+  const reservedDates = pitchReservations.map((reservation: { startDate: any; endDate: any }) => {
+    return { startDate: reservation.startDate, endDate: reservation.endDate };
+  });
+
   const { signUpUser } = useActions();
 
   const submitFormHandler = () => {
@@ -78,6 +79,7 @@ const PitchRentalForm: React.FC = (props: any) => {
   };
 
   if (Object.keys(currentPitch).length === 0) return <></>;
+
   return (
     <div className='container'>
       <div className='wrapper-top'>

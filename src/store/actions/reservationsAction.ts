@@ -22,10 +22,10 @@ export const fetchAccommodationReservations = (accommodationId: string): any => 
   };
 };
 
-export const fetchPitchReservations = (pitchId: string): any => {
+export const fetchPitchReservations = (pichId: string): any => {
   return async (dispatch: Dispatch<ReservationsAction>) => {
     try {
-      const response = await ax.get(`/reservations?pitch=${pitchId}`);
+      const response = await ax.get(`/reservations?pich=${pichId}`);
       dispatch({ type: ReservationsActionTypes.FETCH_PITCH_RESERVATIONS_SUCCESS, payload: response.data });
     } catch (error) {
       dispatch({

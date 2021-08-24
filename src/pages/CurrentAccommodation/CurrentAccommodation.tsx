@@ -6,11 +6,11 @@ import { Col, Divider, Pagination, Space, Typography } from 'antd';
 
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import Calendar from './components/Calendar/Calendar';
 import CurrentAccommodationDescription from './components/CurrentAccommodationDescription/CurrentAccommodationDescription';
 import CurrentAccommodationGallery from './components/CurrentAccommodationGallery/CurrentAccommodationGallery';
 import ReviewItem from './components/ReviewItem/ReviewItem';
-import ReviewForm from '../ReviewForm/ReviewForm';
 
 const { Paragraph } = Typography;
 const { Title } = Typography;
@@ -28,16 +28,13 @@ const CurrentAccommodation: React.FC = (props: any) => {
 
   useEffect(() => {
     fetchAccommodationReservations(idCurrentAccommodation);
+    fetchCurrentAccommodation(idCurrentAccommodation);
+    fetchAccommodationReviews(idCurrentAccommodation);
   }, [idCurrentAccommodation]);
 
   const reservedDates = accommodationReservations.map(reservation => {
     return { startDate: reservation.startDate, endDate: reservation.endDate };
   });
-
-  useEffect(() => {
-    fetchCurrentAccommodation(idCurrentAccommodation);
-    fetchAccommodationReviews(idCurrentAccommodation);
-  }, [idCurrentAccommodation]);
 
   const onChange = (pageNumber: number) => {
     fetchNextAccommodationReviewPages(pageNumber - 1, idCurrentAccommodation);
