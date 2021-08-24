@@ -6,3 +6,13 @@
   padding: 0 15%;
   margin-top: 5%;
 }
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.anticon-check-square {
+  margin-right: 10px;
+}
