@@ -60,20 +60,21 @@ const CurrentLocation: React.FC = (props: any) => {
   return (
     <div className='container current-location'>
       <CurrentLocationGallery images={currentLocation.image ? currentLocation.image : []} />
-      <CurrentLocationDescription
-        title={currentLocation.title}
-        description={currentLocation.description}
-        electricity={currentLocation.electricity}
-        road={currentLocation.road}
-        water={currentLocation.water}
-      />
-
-      <Row>
-        <h3 className='pich-list-title'>Список пичей для размешения</h3>
-      </Row>
+      <CurrentLocationDescription {...currentLocation} />
+      {accommodationsList.length !== 0 ? (
+        <Row>
+          <h3 className='pich-list-title'>Список размещений</h3>
+        </Row>
+      ) : null}
       <Row className='current-location-card' justify='space-around' gutter={[2, 2]}>
         {accommodationsList}
       </Row>
+
+      {pichesList.length !== 0 ? (
+        <Row>
+          <h3 className='pich-list-title'>Список пичей для размещения</h3>
+        </Row>
+      ) : null}
       <Row className='current-location-card' justify='space-around' gutter={[2, 2]}>
         {pichesList}
       </Row>

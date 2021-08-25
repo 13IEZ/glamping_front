@@ -1,3 +1,5 @@
+@import '../../../../assets/mixins.scss';
+
 .location-description {
   font-size: 18px;
   line-height: 21px;
@@ -5,4 +7,22 @@
   font-weight: 400;
   padding: 0 15%;
   margin-top: 5%;
+}
+
+.location-grid {
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.anticon-check-square,
+.anticon-minus-square {
+  margin-right: 10px;
+}
+
+.infrastructure {
+  @include respond(small-phone) {
+    display: none;
+  }
 }
