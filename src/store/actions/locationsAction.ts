@@ -72,3 +72,20 @@ export const fetchCurrentLocation = (currentLocationId: string): any => {
     }
   };
 };
+
+export const createLocation = (location: {}): any => {
+  return async () => {
+    try {
+      await ax.post('locations', location);
+      notification.success({
+        message: 'Успех!',
+        description: 'Создание глэмпинга прошло успешно!',
+      });
+    } catch (error) {
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при создании глэмпинга!',
+      });
+    }
+  };
+};

@@ -1,0 +1,802 @@
+import React, { useState } from 'react';
+import { Form, Select, Button, Upload, Input, InputNumber, Typography } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { Map, Placemark, YMaps } from 'react-yandex-maps';
+import { useActions } from '../../hooks/useAction';
+import './NewLocation.scss';
+
+const { Title } = Typography;
+const { TextArea } = Input;
+const { Option } = Select;
+
+const formItemLayout = {
+  labelCol: {
+    span: 6,
+  },
+  wrapperCol: {
+    span: 14,
+  },
+};
+
+const normFile = (e: any) => {
+  if (Array.isArray(e)) {
+    return e;
+  }
+  return e && e.fileList;
+};
+
+const NewLocation: React.FC = () => {
+  const [centerCoordinate] = useState<[number, number]>([43.1524, 76.5542]);
+  const { createLocation } = useActions();
+  const [state, setState] = useState({
+    title: '',
+    region: '',
+    coords: [],
+    image: '',
+    square: '',
+    description: '',
+    rent: '',
+    electricity: '',
+    water: '',
+    road: '',
+    pool: '',
+    biking: '',
+    hiking: '',
+    riding: '',
+    yoga: '',
+    motorbike: '',
+    alpinism: '',
+    trekking: '',
+    tennis: '',
+    cinema: '',
+    fishing: '',
+    aquapark: '',
+    golf: '',
+    volleyball: '',
+    boardGames: '',
+    diving: '',
+    ramp: '',
+    dogPlayground: '',
+    nursery: '',
+    fireplace: '',
+    summerHouse: '',
+    grill: '',
+    wifi: '',
+    laundry: '',
+    sauna: '',
+    sportsGround: '',
+    playground: '',
+    beach: '',
+    indoorPool: '',
+    pharmacy: '',
+    miniZoo: '',
+    store: '',
+    cafe: '',
+    restaurant: '',
+    parking: '',
+    fileList: [],
+  });
+  const [placemark, setPlacemark] = useState([]);
+
+  const onFinish = (values: any) => {
+    const data = { ...values, coords: placemark };
+    createLocation(data);
+    console.log(data);
+  };
+
+  const inputChangeHandler = (e: any) => {
+    const { name, value } = e.target;
+    setState(prevState => {
+      return { ...prevState, [name]: value };
+    });
+  };
+
+  const createPlacemark = (event: any) => {
+    const coords = event.get('coords');
+    setPlacemark(coords);
+  };
+
+  return (
+    <>
+      <Title level={4} style={{ textAlign: 'center' }}>
+        Создайте глэмпинг
+      </Title>
+      <YMaps>
+        <Map
+          state={{
+            center: centerCoordinate,
+            zoom: 7,
+            controls: [],
+          }}
+          width={'100%'}
+          height={'100%'}
+          products={['control.ZoomControl', 'control.FullscreenControl', 'geoObject.addon.hint']}
+          onClick={(event: any) => {
+            createPlacemark(event);
+          }}
+        >
+          {placemark.length > 0 ? <Placemark geometry={placemark} options={{ draggable: true }} /> : null}
+        </Map>
+      </YMaps>
+
+      <Form name='validate_other' {...formItemLayout} onFinish={onFinish} style={{ marginTop: 25 }}>
+        <Form.Item
+          {...formItemLayout}
+          style={{ display: 'none' }}
+          name='coords'
+          label='Координаты'
+          rules={[
+            {
+              message: 'Укажите координаты!',
+            },
+          ]}
+        >
+          <Input type='text' value={state.coords} />
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='title'
+          label='Название'
+          rules={[
+            {
+              required: true,
+              message: 'Укажите название!',
+            },
+          ]}
+        >
+          <Input value={state.title} placeholder='Введите название глэмпинга' />
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='region'
+          label='Название региона'
+          rules={[
+            {
+              required: true,
+              message: 'Укажите название регионa!',
+            },
+          ]}
+        >
+          <Input placeholder='Введите регион' />
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='square'
+          label='Площадь'
+          rules={[
+            {
+              required: true,
+              message: 'Укажите площадь!',
+            },
+          ]}
+        >
+          <InputNumber style={{ width: '100%' }} placeholder='Укажите площадь в цифрах' />
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='description'
+          label='Описание'
+          rules={[
+            {
+              required: true,
+              message: 'Введите описание!',
+            },
+          ]}
+        >
+          <TextArea rows={4} name='Note' className='form_input' placeholder='Опишите ваш глэмпинг' />
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='rent'
+          label='Цена аренды за 1 питчу'
+          rules={[
+            {
+              required: true,
+              message: 'Укажите желаемую цену аренды за 1 питчу!',
+            },
+          ]}
+        >
+          <InputNumber style={{ width: '100%' }} placeholder='Укажите желаемую цену аренды в цифрах' />
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='electricity'
+          label='Электричество'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='water'
+          label='Вода'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='road'
+          label='Подъездные пути'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='pool'
+          label='Бассейн'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='biking'
+          label='Езда на велосипеде'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='hiking'
+          label='Пешие туры'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='riding'
+          label='Катание на лошадях'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='yoga'
+          label='Йога'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='motorbike'
+          label='Мотоцикл'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='alpinism'
+          label='Альпинизм'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='trekking'
+          label='Треккинг'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='tennis'
+          label='Теннис'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='cinema'
+          label='Просмотр фильмов'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='fishing'
+          label='Рыбалка'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='aquapark'
+          label='Аквапарк'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='golf'
+          label='Гольф'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='volleyball'
+          label='Воллейбол'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='boardGames'
+          label='Настольные игры'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='diving'
+          label='Дайвинг'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='ramp'
+          label='Пандусы'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='dogPlayground'
+          label='Площадка для собак'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='nursery'
+          label='Детская комната'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='fireplace'
+          label='Кострище'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='summerHouse'
+          label='Беседка'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='grill'
+          label='Гриль'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='wifi'
+          label='Wi-Fi'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='laundry'
+          label='Прачечная'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='sauna'
+          label='Сауна'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='sportsGround'
+          label='Спортивная площадка'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='playground'
+          label='Детская площадка'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='beach'
+          label='Пляж'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='indoorPool'
+          label='Крытый бассейн'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='pharmacy'
+          label='Аптека'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='miniZoo'
+          label='Минизоопарк'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='store'
+          label='Магазин'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='cafe'
+          label='Кафе'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='restaurant'
+          label='Ресторан'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='parking'
+          label='Паркинг'
+          rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
+        >
+          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+            <Option onChange={inputChangeHandler} value='true'>
+              Есть
+            </Option>
+            <Option onChange={inputChangeHandler} value='false'>
+              Нет
+            </Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          name='fileList'
+          label='Фото'
+          valuePropName='fileList'
+          getValueFromEvent={normFile}
+          rules={[
+            {
+              required: true,
+              message: 'Загрузите фото глэмпинга!',
+            },
+          ]}
+        >
+          <Upload style={{ color: 'blue' }} name='logo' action='/upload.do' listType='picture'>
+            <Button icon={<UploadOutlined />}>Загрузить фото</Button>
+          </Upload>
+        </Form.Item>
+        <Form.Item
+          wrapperCol={{
+            span: 12,
+            offset: 6,
+          }}
+        >
+          <Button type='primary' htmlType='submit'>
+            Отправить
+          </Button>
+        </Form.Item>
+      </Form>
+    </>
+  );
+};
+
+export default NewLocation;

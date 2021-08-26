@@ -2,7 +2,7 @@ import './LocationMini.scss';
 
 import React, { useEffect } from 'react';
 
-import { Button, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { useActions } from '../../../../hooks/useAction';
@@ -49,7 +49,9 @@ const LocationMini: React.FC = () => {
           </div>
           <div className='location-header-row'>
             <p className='location-header__text'>Есть земля? Сдавай и зарабатывай</p>
-            <Button className='location-header__button location-header__button_transparent'>Сдать</Button>
+            <Link className='location-header__button location-header__button_transparent' to='/locations/new-location'>
+              Сдать
+            </Link>
           </div>
         </div>
         <Row className='location-card' justify='space-around' gutter={[2, 2]}>
