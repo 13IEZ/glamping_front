@@ -54,13 +54,27 @@ const TouristSection: React.FC = () => {
     },
   ];
 
-  const adaptiveReservations = reservationsOfUser.map(r => {
+  const adaptiveReservations: any = [];
+
+  reservationsOfUser.forEach(r => {
+    if (r.accommodation) {
+      const adaptiveReservation = {
+        _id: r._id,
+        key: r._id,
+        user: r.user.username,
+        accommodation: r.accommodation.title,
+        startDate: r.startDate,
+        endDate: r.endDate,
+      };
+
+      adaptiveReservations.push(adaptiveReservation);
+    }
+  });
+
+  const adaptiveReviews = reviewsOfUser.map(review => {
     return {
-      _id: r._id,
-      user: r.user.username,
-      accommodation: r.accommodation.title,
-      startDate: r.startDate,
-      endDate: r.endDate,
+      ...review,
+      key: review._id,
     };
   });
 
@@ -78,7 +92,7 @@ const TouristSection: React.FC = () => {
             />
           </TabPane>
           <TabPane tab='Отзывы' key='2'>
-            <Table columns={columnsOfReviews} dataSource={reviewsOfUser} pagination={false} scroll={{ y: 240 }} />
+            <Table columns={columnsOfReviews} dataSource={adaptiveReviews} pagination={false} scroll={{ y: 240 }} />
           </TabPane>
         </Tabs>
       </Col>
