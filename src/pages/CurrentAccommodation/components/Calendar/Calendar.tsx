@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import moment from 'moment';
-import { DatePicker, Space, Button } from 'antd';
 import './Calendar.scss';
+
+import React, { useState } from 'react';
+
+import { Button, DatePicker, Space } from 'antd';
+import moment from 'moment';
+
 import { useActions } from '../../../../hooks/useAction';
 
 const { RangePicker } = DatePicker;
