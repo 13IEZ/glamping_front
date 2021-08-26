@@ -123,9 +123,9 @@ const PitchRentalForm: React.FC = (props: any) => {
         <Title className='PitchTitle' level={3}>
           Опишите ваш модуль для заявки
         </Title>
-        <Form.Item {...formItemLayout} name='fileList' label='Upload'>
+        <Form.Item {...formItemLayout} name='fileList' label='Загрузите фото модуля'>
           <Upload>
-            <Button>Click to upload</Button>
+            <Button>Кликните для загрузки</Button>
           </Upload>
         </Form.Item>
         <Form.Item
