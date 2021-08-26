@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, Col, DatePicker, Divider, Form, Input, InputNumber, Row, Select, Typography, Upload } from 'antd';
 import moment from 'moment';
 
+import { UploadOutlined } from '@ant-design/icons';
+
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import PitchDetailDescription from './components/PitchDetailDescription/PitchDetailDescription';
@@ -39,7 +41,7 @@ const PitchRentalForm: React.FC = (props: any) => {
   }, [idCurrentPitch]);
 
   const [state, setState] = useState({
-    fileList: '',
+    fileList: [],
     title: '',
     category: '',
     season: '',
@@ -99,7 +101,13 @@ const PitchRentalForm: React.FC = (props: any) => {
     setReservation(newReservation);
   };
 
-  console.log(state);
+  const normFile = (e: any) => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
 
   return (
     <div className='container'>
@@ -123,21 +131,23 @@ const PitchRentalForm: React.FC = (props: any) => {
         <Title className='PitchTitle' level={3}>
           Опишите ваш модуль для заявки
         </Title>
-        <Form.Item {...formItemLayout} name='fileList' label='Загрузите фото модуля'>
-          <Upload>
-            <Button>Кликните для загрузки</Button>
+        <Form.Item
+          {...formItemLayout}
+          name='fileList'
+          label='Загрузите фото модуля'
+          valuePropName='fileList'
+          getValueFromEvent={normFile}
+          rules={[{ required: true, message: 'Загрузите фото!' }]}
+        >
+          <Upload name='logo' action='/upload.do' listType='picture'>
+            <Button icon={<UploadOutlined />}>Кликните для загрузки</Button>
           </Upload>
         </Form.Item>
         <Form.Item
           {...formItemLayout}
           name='title'
           label='Название'
-          rules={[
-            {
-              required: true,
-              message: 'Укажите название!',
-            },
-          ]}
+          rules={[{ required: true, message: 'Укажите название!' }]}
         >
           <Input onChange={inputChangeHandler} placeholder='Введите название модуля' />
         </Form.Item>
@@ -196,12 +206,7 @@ const PitchRentalForm: React.FC = (props: any) => {
           {...formItemLayout}
           name='roominess'
           label='Вместимость'
-          rules={[
-            {
-              required: true,
-              message: 'Укажите вместимость!',
-            },
-          ]}
+          rules={[{ required: true, message: 'Укажите вместимость!' }]}
         >
           <InputNumber style={{ width: '100%' }} placeholder='Укажите вместимость в цифрах' />
         </Form.Item>
@@ -209,12 +214,7 @@ const PitchRentalForm: React.FC = (props: any) => {
           {...formItemLayout}
           label='Цена аренды за сутки'
           name='rent'
-          rules={[
-            {
-              required: true,
-              message: 'Укажите цену аренды!',
-            },
-          ]}
+          rules={[{ required: true, message: 'Укажите цену аренды!' }]}
         >
           <InputNumber style={{ width: '100%' }} placeholder='12345...' />
         </Form.Item>
@@ -222,16 +222,16 @@ const PitchRentalForm: React.FC = (props: any) => {
           {...formItemLayout}
           name='description'
           label='Описание'
-          rules={[
-            {
-              required: true,
-              message: 'Укажите описание!',
-            },
-          ]}
+          rules={[{ required: true, message: 'Укажите описание!' }]}
         >
           <TextArea rows={4} name='Note' className='form_input' placeholder='Опишите ваш модуль' />
         </Form.Item>
-        <Form.Item {...formItemLayout} name='reservedDays' label='Укажите даты брони'>
+        <Form.Item
+          {...formItemLayout}
+          name='reservedDays'
+          label='Укажите даты брони'
+          rules={[{ required: true, message: 'Укажите даты брони!' }]}
+        >
           <RangePicker disabledDate={disabledDate} onChange={onChange} />
         </Form.Item>
         <Form.Item {...formTailLayout}>

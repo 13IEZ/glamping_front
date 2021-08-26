@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+
 import { Col, Row, Table, Tabs } from 'antd';
 
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 
 const { TabPane } = Tabs;
 
@@ -91,7 +92,7 @@ const TouristSection: React.FC = () => {
 
   return (
     <Row className='mt-2'>
-      <h2>Блок туристам</h2>
+      <h2>Блок туриста</h2>
       <Col span={24} className='tabs'>
         <Tabs defaultActiveKey='1' type='card'>
           <TabPane tab='Ваши брони' key='1'>

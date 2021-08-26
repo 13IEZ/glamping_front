@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Typography } from 'antd';
 
 const { Paragraph } = Typography;
@@ -51,7 +52,7 @@ const CurrentAccommodationDescription: React.FC<IAccommodationItemProps> = ({
       <Paragraph> Вместимость: {roominess} </Paragraph>
       <Paragraph> {description} </Paragraph>
       <Paragraph> Инфрастуктура: </Paragraph>
-      {electricity ? <Paragraph>- Элкетричество</Paragraph> : null}
+      {electricity ? <Paragraph>- Электричество</Paragraph> : null}
       {road ? <Paragraph>- Подьездные пути</Paragraph> : null}
       {water ? <Paragraph>- Вода</Paragraph> : null}
     </div>

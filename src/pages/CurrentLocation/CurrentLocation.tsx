@@ -72,7 +72,7 @@ const CurrentLocation: React.FC = (props: any) => {
 
       {pichesList.length !== 0 ? (
         <Row>
-          <h3 className='pich-list-title'>Список пичей для размещения</h3>
+          <h3 className='pich-list-title'>Список питчей для размещения</h3>
         </Row>
       ) : null}
       <Row className='current-location-card' justify='space-around' gutter={[2, 2]}>
