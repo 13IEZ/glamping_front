@@ -12,3 +12,7 @@ body {
   padding: 0 20px;
   width: 100%;
 }
+
+.content_body {
+  min-height: calc(100vh - 368px);
+}
