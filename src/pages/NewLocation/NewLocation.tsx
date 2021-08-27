@@ -32,7 +32,6 @@ const NewLocation: React.FC = () => {
     title: '',
     region: '',
     coords: [],
-    image: '',
     square: '',
     description: '',
     rent: '',
@@ -80,8 +79,12 @@ const NewLocation: React.FC = () => {
 
   const onFinish = (values: any) => {
     const data = { ...values, coords: placemark };
-    createLocation(data);
-    console.log(data);
+    if (placemark.length === 0) {
+      alert('Отметьте глэмпинг на карте');
+    } else {
+      createLocation(data);
+      console.log(data);
+    }
   };
 
   const inputChangeHandler = (e: any) => {
@@ -109,7 +112,7 @@ const NewLocation: React.FC = () => {
             controls: [],
           }}
           width={'100%'}
-          height={'100%'}
+          height={'400px'}
           products={['control.ZoomControl', 'control.FullscreenControl', 'geoObject.addon.hint']}
           onClick={(event: any) => {
             createPlacemark(event);
@@ -120,19 +123,6 @@ const NewLocation: React.FC = () => {
       </YMaps>
 
       <Form name='validate_other' {...formItemLayout} onFinish={onFinish} style={{ marginTop: 25 }}>
-        <Form.Item
-          {...formItemLayout}
-          style={{ display: 'none' }}
-          name='coords'
-          label='Координаты'
-          rules={[
-            {
-              message: 'Укажите координаты!',
-            },
-          ]}
-        >
-          <Input type='text' value={state.coords} />
-        </Form.Item>
         <Form.Item
           {...formItemLayout}
           name='title'
@@ -159,6 +149,24 @@ const NewLocation: React.FC = () => {
         >
           <Input placeholder='Введите регион' />
         </Form.Item>
+        <Form.Item name='region' label='Регион' hasFeedback rules={[{ required: true, message: 'Укажите область!' }]}>
+          <Select placeholder='Выберите область Казахстана'>
+            <Option value='Акмолинская область'>Акмолинская область</Option>
+            <Option value='Актюбинская область'>Актюбинская область</Option>
+            <Option value='Алматинская область'>Алматинская область</Option>
+            <Option value='Атырауская область'>Атырауская область</Option>
+            <Option value='Восточно-Казахстанская область'>Восточно-Казахстанская область</Option>
+            <Option value='Жамбылская область'>Жамбылская область</Option>
+            <Option value='Западно-Казахстанская область'>Западно-Казахстанская область</Option>
+            <Option value='Карагандинская область'>Карагандинская область</Option>
+            <Option value='Костанайская область'>Костанайская область</Option>
+            <Option value='Кызылординская область'>Кызылординская область</Option>
+            <Option value='Мангистауская область'>Мангистауская область</Option>
+            <Option value='Павлодарская область'>Павлодарская область</Option>
+            <Option value='Северо-Казахстанская область'>Северо-Казахстанская область</Option>
+            <Option value='Туркестанская область'>Туркестанская область</Option>
+          </Select>
+        </Form.Item>
         <Form.Item
           {...formItemLayout}
           name='square'
@@ -170,7 +178,7 @@ const NewLocation: React.FC = () => {
             },
           ]}
         >
-          <InputNumber style={{ width: '100%' }} placeholder='Укажите площадь в цифрах' />
+          <InputNumber style={{ width: '100%' }} placeholder='Укажите площадь в цифрах (га)' />
         </Form.Item>
         <Form.Item
           {...formItemLayout}
@@ -780,9 +788,20 @@ const NewLocation: React.FC = () => {
             },
           ]}
         >
-          <Upload style={{ color: 'blue' }} name='logo' action='/upload.do' listType='picture'>
+          <Upload style={{ color: 'blue' }} name='logo' listType='picture'>
             <Button icon={<UploadOutlined />}>Загрузить фото</Button>
           </Upload>
+        </Form.Item>
+        <Form.Item
+          {...formItemLayout}
+          name='coords'
+          rules={[
+            {
+              message: 'Отметьте глэмпинг на карте!',
+            },
+          ]}
+        >
+          <Input style={{ visibility: 'hidden' }} type='text' value={state.coords} />
         </Form.Item>
         <Form.Item
           wrapperCol={{
