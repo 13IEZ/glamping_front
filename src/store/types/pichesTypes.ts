@@ -3,7 +3,7 @@ export interface IPich {
   title: string;
   number: string;
   productId: string;
-  locationId: string;
+  locationId: string | any;
   roominess: number;
   season: string;
   image: Array<string>;
