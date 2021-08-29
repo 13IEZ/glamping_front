@@ -29,8 +29,8 @@ const AboutApp: React.FC = () => {
             >
               <p className='content_text'>
                 В разделе{' '}
-                <Link className='about_app link' to='/locations'>
-                  Глэмпинги
+                <Link className='about_app link' to='/accommodations'>
+                  Размещения
                 </Link>{' '}
                 вы найдете огромную базу данных с разнообразными "Глэмпингами" в самых красивых местах Казахстана и
                 готовых принять в гости!
@@ -50,7 +50,7 @@ const AboutApp: React.FC = () => {
             >
               <p className='content_text'>
                 Раздел{' '}
-                <Link className='about_app link' to='/store'>
+                <Link className='about_app link' to='/store/[]'>
                   Магазин
                 </Link>{' '}
                 имеет широкий выбор жилых модулей на любой вкус, цвет, размер и кошелёк и готов предложить вам купить
@@ -71,8 +71,8 @@ const AboutApp: React.FC = () => {
             >
               <p className='content_text'>
                 В разделе{' '}
-                <Link className='about_app link' to='/location'>
-                  Локации
+                <Link className='about_app link' to='/locations'>
+                  Глэмпинг
                 </Link>{' '}
                 вы найдете огромную базу данных с участками для удобного расположения вашего модуля в самых красивых
                 местах Казахстана!

@@ -17,8 +17,8 @@ const CustomFooter: React.FC = () => {
           <Col className='footer-container__item'>
             <List split={false}>
               <List.Item>
-                <Link to='/store' className='footer-container__text footer__hover'>
-                  Продукты
+                <Link to='/store/:queryStr' className='footer-container__text footer__hover'>
+                  Магазин
                 </Link>
               </List.Item>
               <List.Item>
@@ -27,7 +27,7 @@ const CustomFooter: React.FC = () => {
                 </Link>
               </List.Item>
               <List.Item>
-                <Link to='/' className='footer-container__text footer__hover'>
+                <Link to='/locations' className='footer-container__text footer__hover'>
                   Глемпинги
                 </Link>
               </List.Item>
