@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { Col, Row, Tabs, Table } from 'antd';
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
+
+import { Col, Row, Table, Tabs } from 'antd';
+
 import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 
 const { TabPane } = Tabs;
 
@@ -51,7 +53,7 @@ const InvestorSection: React.FC = () => {
 
   return (
     <Row className='mt-2'>
-      <h2>Мои модули для продажи</h2>
+      <h2>Блок продажи модулей</h2>
       <Col span={24} className='tabs'>
         <Tabs defaultActiveKey='1' type='card'>
           <TabPane tab='Модули' key='1'>

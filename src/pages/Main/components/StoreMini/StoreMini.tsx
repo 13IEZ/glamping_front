@@ -2,7 +2,7 @@ import './StoreMini.scss';
 
 import React, { useEffect } from 'react';
 
-import { Col, Row, Button } from 'antd';
+import { Button, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { useActions } from '../../../../hooks/useAction';
@@ -34,7 +34,9 @@ const StoreMini: React.FC = () => {
       <div className='container'>
         <div className='store-header'>
           <h3 className='title'>Магазин</h3>
-          <Button className='location-header__button store-header__button_transparent'>Разместить товар</Button>
+          <Button className='location-header__button store-header__button_transparent'>
+            <Link to='/newProduct'>Разместить товар</Link>
+          </Button>
         </div>
         <Row className='module-card'>{lastFourProductsList}</Row>
         <Link className='module__link__store' to='/store/[]'>
