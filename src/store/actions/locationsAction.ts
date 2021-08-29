@@ -76,7 +76,7 @@ export const fetchCurrentLocation = (currentLocationId: string): any => {
 export const createLocation = (location: {}): any => {
   return async () => {
     try {
-      await ax.post('locations', location);
+      await ax.post('locations', location, { headers: { 'Content-Type': 'multipart/form-data' } });
       notification.success({
         message: 'Успех!',
         description: 'Создание глэмпинга прошло успешно!',

@@ -4,6 +4,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Map, Placemark, YMaps } from 'react-yandex-maps';
 import { useActions } from '../../hooks/useAction';
 import './NewLocation.scss';
+import { UploadFile } from 'antd/lib/upload/interface';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -24,6 +25,34 @@ const normFile = (e: any) => {
   }
   return e && e.fileList;
 };
+
+// export interface RcFile extends File {
+//   uid: string;
+//   readonly lastModifiedDate: Date;
+//   readonly webkitRelativePath: string;
+// }
+
+// interface File extends Blob {
+//   readonly lastModified: number;
+//   readonly name: string;
+// }
+
+// interface Blob {
+//   readonly size: number;
+//   readonly type: string;
+//   arrayBuffer(): Promise<ArrayBuffer>;
+//   slice(start?: number, end?: number, contentType?: string): Blob;
+//   stream(): ReadableStream;
+//   text(): Promise<string>;
+// }
+
+export interface UploadChangeParam {
+  // file: T;
+  fileList: Array<UploadFile>;
+  event?: {
+    percent: number;
+  };
+}
 
 const NewLocation: React.FC = () => {
   const [centerCoordinate] = useState<[number, number]>([43.1524, 76.5542]);
@@ -73,17 +102,32 @@ const NewLocation: React.FC = () => {
     cafe: '',
     restaurant: '',
     parking: '',
-    fileList: [],
+    // fileList: File,
   });
   const [placemark, setPlacemark] = useState([]);
 
+  const formData = new FormData();
+
   const onFinish = (values: any) => {
     const data = { ...values, coords: placemark };
+    Object.keys(data).forEach(key => {
+      formData.append(key, data[key]);
+    });
+    const arrayImage = [];
+    for (let i = 0; i < values.upload.length; i++) {
+      arrayImage[i] = values.upload[i].originFileObj;
+    }
+    console.log(arrayImage);
+    for (const file of arrayImage) {
+      formData.append('files', file);
+      console.log(formData.get('files'));
+    }
+
     if (placemark.length === 0) {
       alert('Отметьте глэмпинг на карте');
     } else {
-      createLocation(data);
-      console.log(data);
+      console.log(formData.get('title'));
+      createLocation(formData);
     }
   };
 
@@ -93,6 +137,13 @@ const NewLocation: React.FC = () => {
       return { ...prevState, [name]: value };
     });
   };
+
+  // const handleChange = ({fileList}: UploadChangeParam) =>{
+  //   console.log({fileList})
+  //   setState(prevState => {
+  //     return { ...prevState, image: {fileList} }
+  //   })
+  // }
 
   const createPlacemark = (event: any) => {
     const coords = event.get('coords');
@@ -122,7 +173,7 @@ const NewLocation: React.FC = () => {
         </Map>
       </YMaps>
 
-      <Form name='validate_other' {...formItemLayout} onFinish={onFinish} style={{ marginTop: 25 }}>
+      <Form name='validate_other' onFinish={onFinish} {...formItemLayout} style={{ marginTop: 25 }}>
         <Form.Item
           {...formItemLayout}
           name='title'
@@ -134,20 +185,7 @@ const NewLocation: React.FC = () => {
             },
           ]}
         >
-          <Input value={state.title} placeholder='Введите название глэмпинга' />
-        </Form.Item>
-        <Form.Item
-          {...formItemLayout}
-          name='region'
-          label='Название региона'
-          rules={[
-            {
-              required: true,
-              message: 'Укажите название регионa!',
-            },
-          ]}
-        >
-          <Input placeholder='Введите регион' />
+          <Input placeholder='Введите название глэмпинга' />
         </Form.Item>
         <Form.Item name='region' label='Регион' hasFeedback rules={[{ required: true, message: 'Укажите область!' }]}>
           <Select placeholder='Выберите область Казахстана'>
@@ -213,12 +251,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -764,7 +798,7 @@ const NewLocation: React.FC = () => {
         <Form.Item
           {...formItemLayout}
           name='parking'
-          label='Паркинг'
+          label='Парковка'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
@@ -777,19 +811,20 @@ const NewLocation: React.FC = () => {
           </Select>
         </Form.Item>
         <Form.Item
-          name='fileList'
+          name='upload'
           label='Фото'
+          // fileList={state.fileList}
           valuePropName='fileList'
           getValueFromEvent={normFile}
           rules={[
             {
               required: true,
-              message: 'Загрузите фото глэмпинга!',
+              message: 'Загрузите схему участка и фото глэмпинга!',
             },
           ]}
         >
-          <Upload style={{ color: 'blue' }} name='logo' listType='picture'>
-            <Button icon={<UploadOutlined />}>Загрузить фото</Button>
+          <Upload name='logo' beforeUpload={() => false} action='/upload.do' listType='picture'>
+            <Button icon={<UploadOutlined />}>Загрузить схему и фото</Button>
           </Upload>
         </Form.Item>
         <Form.Item
