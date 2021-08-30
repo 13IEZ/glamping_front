@@ -24,7 +24,7 @@ const TouristSection: React.FC = () => {
     {
       title: 'Размещение',
       dataIndex: 'accommodation',
-      width: 150,
+      width: 300,
     },
     {
       title: 'Начальная дата',
