@@ -1,9 +1,14 @@
+@import '../../../../assets/mixins.scss';
+
 .ProductDetailGallery {
-  width: 60%;
+  max-width: 90%;
   height: 400px;
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 130px auto 0;
+  @include respond(small-tablets) {
+    margin: 0;
+  }
 }
 
 .image-gallery {

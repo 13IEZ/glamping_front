@@ -60,7 +60,7 @@ const CurrentAccommodation: React.FC = (props: any) => {
   });
 
   return (
-    <div className='container' style={{ backgroundColor: '#e5e5e5', paddingTop: 50 }}>
+    <div className='container' style={{ paddingTop: 50 }}>
       <CurrentAccommodationGallery images={currentAccommodation.image ? currentAccommodation.image : []} />
       <div className='current-accommodation'>
         <CurrentAccommodationDescription

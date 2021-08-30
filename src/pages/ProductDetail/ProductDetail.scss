@@ -1,3 +1,4 @@
+@import '../../assets/mixins.scss';
 
 .border {
   border: 1px solid black;
@@ -13,9 +14,15 @@
 }
 
 .wrapper-top {
-  margin-top: 150px;
+  margin-top: 25px;
 }
 
 .wrapper-bottom {
   margin-top: 130px;
+}
+
+.ant-row {
+  @include respond(small-tablets) {
+    flex-direction: column;
+  }
 }
