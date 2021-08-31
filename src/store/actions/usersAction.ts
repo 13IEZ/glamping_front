@@ -1,8 +1,9 @@
-import { UserAction, UserActionTypes } from '../types/users';
-import ax from '../../settings/axios-glamping';
-import { push, CallHistoryMethodAction } from 'connected-react-router';
-import { Dispatch } from 'redux';
 import { notification } from 'antd';
+import { CallHistoryMethodAction, push } from 'connected-react-router';
+import { Dispatch } from 'redux';
+
+import ax from '../../settings/axios-glamping';
+import { UserAction, UserActionTypes } from '../types/users';
 
 export const signInUser = (userData: { email: string; password: string }): any => {
   return async (dispatch: Dispatch<UserAction | CallHistoryMethodAction<[string, unknown?]>>) => {

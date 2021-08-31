@@ -1,9 +1,12 @@
 import './StoreSidebar.scss';
+
 import React, { useEffect, useRef } from 'react';
+
 import { Button, Divider, Layout, Menu } from 'antd';
+import { useHistory, useParams } from 'react-router-dom';
+
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-import { useHistory, useParams } from 'react-router-dom';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -13,7 +16,7 @@ const StoreSidebar: React.FC = () => {
   const { fetchModulesCat } = useActions();
   const { setStoreIsOpened } = useActions();
   const { categories } = useTypedSelectorHook(state => state.categories);
-  const { factories } = useTypedSelectorHook(state => state.categories);
+  const { factories } = useTypedSelectorHook(state => state.factories);
   const filters = useRef<string[]>([]);
   const params: any = useParams();
 

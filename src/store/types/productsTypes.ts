@@ -1,5 +1,11 @@
-import { ICategory } from './categoriesTypes';
+import { IUser } from './users';
+
 export interface IFactory {
+  _id: string;
+  title: string;
+}
+
+export interface ICategory {
   _id: string;
   title: string;
 }
@@ -8,14 +14,15 @@ export interface IProduct {
   _id: string;
   title: string;
   categoryId: ICategory;
-  userId: string;
+  userId: IUser;
   season: string;
-  preview: string;
   rating: number;
   image: Array<string>;
   roominess: number;
   description: string;
+  year: Date;
   price: string;
+  rent: string;
   published: boolean;
   factoryId: IFactory;
   reviewsQuantity: number;

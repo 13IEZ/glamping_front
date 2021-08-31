@@ -13,14 +13,13 @@ export interface IAccommodation {
   rent: string;
   status: boolean;
   published: boolean;
-  categoryId: any;
+  category: string;
   season: string;
   roominess: number;
   electricity: boolean;
   water: boolean;
   road: boolean;
   reviewsQuantity: number;
-  category: string;
 }
 
 export interface IAccommodationPage {

@@ -2,23 +2,21 @@ import { notification } from 'antd';
 import { Dispatch } from 'redux';
 
 import ax from '../../settings/axios-glamping';
-import { CategoriesAction, CategoryActionTypes } from '../types/categoriesTypes';
+import { FactoriesAction, FactoryActionTypes } from '../types/factoriesTypes';
 
-export const fetchCategories = (): any => {
-  return async (dispatch: Dispatch<CategoriesAction>) => {
+export const fetchFactories = (): any => {
+  return async (dispatch: Dispatch<FactoriesAction>) => {
     try {
-      const response = await ax.get('categories');
-
+      const response = await ax.get('factories');
       dispatch({
-        type: CategoryActionTypes.FETCH_CATEGORY_SUCCESS,
+        type: FactoryActionTypes.FETCH_FACTORY_SUCCESS,
         payload: response.data,
       });
     } catch (error) {
       dispatch({
-        type: CategoryActionTypes.FETCH_CATEGORY_FAILURE,
+        type: FactoryActionTypes.FETCH_FACTORY_FAILURE,
         payload: 'Ошибка при получении данных',
       });
-
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
