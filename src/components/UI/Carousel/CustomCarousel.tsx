@@ -57,7 +57,7 @@ const CustomCarousel: React.FC = () => {
             </h2>
             <p className='text-carousel'>Мы поможем создать глэмпинг</p>
             <Button className='carousel_button'>
-              <Link to='#'>Создать глэмпинг</Link>
+              <Link to='/locations/new-location'>Создать глэмпинг</Link>
             </Button>
           </div>
         </div>

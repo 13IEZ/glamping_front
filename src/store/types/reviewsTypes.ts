@@ -6,6 +6,7 @@ export interface IReview {
   date: any;
   user: any;
   rating: number;
+  accommodation?: any;
 }
 
 export interface IPage {

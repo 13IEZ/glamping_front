@@ -6,6 +6,7 @@ const initialState: IReservationsState = {
   reservations: [],
   reservationsOfUser: [],
   error: null,
+  reservationsOfLandOwner: [],
 };
 
 const reservationsReducer = (state = initialState, action: ReservationsAction): IReservationsState => {
@@ -25,6 +26,10 @@ const reservationsReducer = (state = initialState, action: ReservationsAction): 
     case ReservationsActionTypes.FETCH_RESERVATIONS_OF_USER_SUCCESS:
       return { ...state, reservationsOfUser: action.payload };
     case ReservationsActionTypes.FETCH_RESERVATIONS_OF_USER_FAILURE:
+      return { ...state, error: action.payload };
+    case ReservationsActionTypes.FETCH_RESERVATIONS_OF_LAND_OWNER_SUCCESS:
+      return { ...state, reservationsOfLandOwner: action.payload };
+    case ReservationsActionTypes.FETCH_RESERVATIONS_OF_LAND_OWNER_FAILURE:
       return { ...state, error: action.payload };
     default:
       return state;

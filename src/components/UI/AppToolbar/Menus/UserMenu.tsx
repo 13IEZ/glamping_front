@@ -1,10 +1,13 @@
-import React from 'react';
-import { Menu } from 'antd';
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
-import { useActions } from '../../../../hooks/useAction';
 import './UserMenu.scss';
-import ic from '../../../../assets/icons/account.svg';
+
+import React from 'react';
+
+import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
+
+import ic from '../../../../assets/icons/account.svg';
+import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 
 const { SubMenu } = Menu;
 
@@ -21,7 +24,7 @@ const UserMenu: any = () => {
       <SubMenu className='user_menu-title' key='SubMenu' icon={<img src={ic} alt='Not found' />} title={user?.email}>
         <Menu.ItemGroup>
           <Menu.Item key='setting:1'>
-            <Link to='/'>Личный кабинет</Link>
+            <Link to='/user-personal-area'>Личный кабинет</Link>
           </Menu.Item>
           <Menu.Item className='mobile-function' key='setting:2'>
             <Link to='/'>На главную</Link>

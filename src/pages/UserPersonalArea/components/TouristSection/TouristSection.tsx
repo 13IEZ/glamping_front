@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+
 import { Col, Row, Table, Tabs } from 'antd';
 
-import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 
 const { TabPane } = Tabs;
 
@@ -21,9 +22,9 @@ const TouristSection: React.FC = () => {
 
   const columnsOfReservations = [
     {
-      title: 'Глэмпинг',
+      title: 'Размещение',
       dataIndex: 'accommodation',
-      width: 150,
+      width: 300,
     },
     {
       title: 'Начальная дата',
@@ -52,6 +53,11 @@ const TouristSection: React.FC = () => {
       dataIndex: 'cons',
       width: 200,
     },
+    {
+      title: 'Размещение',
+      dataIndex: 'accommodation',
+      width: 200,
+    },
   ];
 
   const adaptiveReservations: any = [];
@@ -71,16 +77,22 @@ const TouristSection: React.FC = () => {
     }
   });
 
-  const adaptiveReviews = reviewsOfUser.map(review => {
-    return {
-      ...review,
-      key: review._id,
-    };
+  const adaptiveReviews: any = [];
+
+  reviewsOfUser.forEach(review => {
+    if (review.accommodation) {
+      const adaptiveReview = {
+        ...review,
+        key: review._id,
+        accommodation: review.accommodation.title,
+      };
+      adaptiveReviews.push(adaptiveReview);
+    }
   });
 
   return (
     <Row className='mt-2'>
-      <h2>Туристам</h2>
+      <h2>Блок туриста</h2>
       <Col span={24} className='tabs'>
         <Tabs defaultActiveKey='1' type='card'>
           <TabPane tab='Ваши брони' key='1'>
