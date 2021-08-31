@@ -4,7 +4,6 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Map, Placemark, YMaps } from 'react-yandex-maps';
 import { useActions } from '../../hooks/useAction';
 import './NewLocation.scss';
-import { UploadFile } from 'antd/lib/upload/interface';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -26,124 +25,35 @@ const normFile = (e: any) => {
   return e && e.fileList;
 };
 
-// export interface RcFile extends File {
-//   uid: string;
-//   readonly lastModifiedDate: Date;
-//   readonly webkitRelativePath: string;
-// }
-
-// interface File extends Blob {
-//   readonly lastModified: number;
-//   readonly name: string;
-// }
-
-// interface Blob {
-//   readonly size: number;
-//   readonly type: string;
-//   arrayBuffer(): Promise<ArrayBuffer>;
-//   slice(start?: number, end?: number, contentType?: string): Blob;
-//   stream(): ReadableStream;
-//   text(): Promise<string>;
-// }
-
-export interface UploadChangeParam {
-  // file: T;
-  fileList: Array<UploadFile>;
-  event?: {
-    percent: number;
-  };
-}
-
 const NewLocation: React.FC = () => {
   const [centerCoordinate] = useState<[number, number]>([43.1524, 76.5542]);
   const { createLocation } = useActions();
-  const [state, setState] = useState({
-    title: '',
-    region: '',
-    coords: [],
-    square: '',
-    description: '',
-    rent: '',
-    electricity: '',
-    water: '',
-    road: '',
-    pool: '',
-    biking: '',
-    hiking: '',
-    riding: '',
-    yoga: '',
-    motorbike: '',
-    alpinism: '',
-    trekking: '',
-    tennis: '',
-    cinema: '',
-    fishing: '',
-    aquapark: '',
-    golf: '',
-    volleyball: '',
-    boardGames: '',
-    diving: '',
-    ramp: '',
-    dogPlayground: '',
-    nursery: '',
-    fireplace: '',
-    summerHouse: '',
-    grill: '',
-    wifi: '',
-    laundry: '',
-    sauna: '',
-    sportsGround: '',
-    playground: '',
-    beach: '',
-    indoorPool: '',
-    pharmacy: '',
-    miniZoo: '',
-    store: '',
-    cafe: '',
-    restaurant: '',
-    parking: '',
-    // fileList: File,
-  });
+
   const [placemark, setPlacemark] = useState([]);
 
   const formData = new FormData();
 
   const onFinish = (values: any) => {
     const data = { ...values, coords: placemark };
+
     Object.keys(data).forEach(key => {
       formData.append(key, data[key]);
     });
+
     const arrayImage = [];
     for (let i = 0; i < values.upload.length; i++) {
       arrayImage[i] = values.upload[i].originFileObj;
     }
-    console.log(arrayImage);
     for (const file of arrayImage) {
       formData.append('files', file);
-      console.log(formData.get('files'));
     }
 
     if (placemark.length === 0) {
       alert('Отметьте глэмпинг на карте');
     } else {
-      console.log(formData.get('title'));
       createLocation(formData);
     }
   };
-
-  const inputChangeHandler = (e: any) => {
-    const { name, value } = e.target;
-    setState(prevState => {
-      return { ...prevState, [name]: value };
-    });
-  };
-
-  // const handleChange = ({fileList}: UploadChangeParam) =>{
-  //   console.log({fileList})
-  //   setState(prevState => {
-  //     return { ...prevState, image: {fileList} }
-  //   })
-  // }
 
   const createPlacemark = (event: any) => {
     const coords = event.get('coords');
@@ -262,12 +172,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -277,12 +183,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -292,12 +194,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -307,12 +205,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -322,12 +216,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -337,12 +227,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -352,12 +238,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -367,12 +249,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -382,12 +260,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -397,12 +271,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -412,12 +282,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -427,12 +293,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -442,12 +304,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -457,12 +315,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -472,12 +326,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -487,12 +337,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -502,12 +348,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -517,12 +359,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -532,12 +370,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -547,12 +381,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -562,12 +392,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -577,12 +403,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -592,12 +414,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -607,12 +425,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -622,12 +436,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -637,12 +447,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -652,12 +458,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -667,12 +469,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -682,12 +480,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -697,12 +491,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -712,12 +502,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -727,12 +513,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -742,12 +524,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -757,12 +535,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -772,12 +546,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -787,12 +557,8 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -802,18 +568,13 @@ const NewLocation: React.FC = () => {
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
           <Select placeholder='Укажите наличие или отсутствие данной опции'>
-            <Option onChange={inputChangeHandler} value='true'>
-              Есть
-            </Option>
-            <Option onChange={inputChangeHandler} value='false'>
-              Нет
-            </Option>
+            <Option value='true'>Есть</Option>
+            <Option value='false'>Нет</Option>
           </Select>
         </Form.Item>
         <Form.Item
           name='upload'
           label='Фото'
-          // fileList={state.fileList}
           valuePropName='fileList'
           getValueFromEvent={normFile}
           rules={[
@@ -836,7 +597,7 @@ const NewLocation: React.FC = () => {
             },
           ]}
         >
-          <Input style={{ visibility: 'hidden' }} type='text' value={state.coords} />
+          <Input style={{ visibility: 'hidden' }} value={placemark} />
         </Form.Item>
         <Form.Item
           wrapperCol={{
@@ -844,7 +605,7 @@ const NewLocation: React.FC = () => {
             offset: 6,
           }}
         >
-          <Button type='primary' htmlType='submit'>
+          <Button className='item__button' type='primary' htmlType='submit'>
             Отправить
           </Button>
         </Form.Item>
