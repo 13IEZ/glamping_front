@@ -34,11 +34,11 @@ const NewLocation: React.FC = () => {
   const formData = new FormData();
 
   const onFinish = (values: any) => {
-    const data = { ...values, coords: placemark };
-
-    Object.keys(data).forEach(key => {
-      formData.append(key, data[key]);
+    Object.keys(values).forEach(key => {
+      formData.append(key, values[key]);
     });
+
+    formData.append('coords', JSON.stringify(placemark));
 
     const arrayImage = [];
     for (let i = 0; i < values.upload.length; i++) {
