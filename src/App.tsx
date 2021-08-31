@@ -21,7 +21,6 @@ import Reviews from './pages/Reviews/Reviews';
 import NewProduct from './pages/Store/components/NewProduct/NewProduct';
 import Store from './pages/Store/Store';
 import UserPersonalArea from './pages/UserPersonalArea/UserPersonalArea';
-import CustomFooter from './components/UI/CustomFooter/CustomFooter';
 import NewLocation from './pages/NewLocation/NewLocation';
 
 function App(): JSX.Element {
