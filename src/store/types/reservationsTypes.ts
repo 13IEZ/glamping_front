@@ -17,6 +17,7 @@ export interface IReservationsState {
   reservations: Array<IReservation> | [];
   reservationsOfUser: Array<IReservation> | [];
   error: null | string;
+  reservationsOfLandOwner: Array<IReservation> | [];
 }
 
 export enum ReservationsActionTypes {
@@ -28,6 +29,8 @@ export enum ReservationsActionTypes {
   FETCH_RESERVATIONS_FAILURE = 'FETCH_RESERVATIONS_FAILURE',
   FETCH_RESERVATIONS_OF_USER_SUCCESS = 'FETCH_RESERVATIONS_OF_USER_SUCCESS',
   FETCH_RESERVATIONS_OF_USER_FAILURE = 'FETCH_RESERVATIONS_OF_USER_FAILURE',
+  FETCH_RESERVATIONS_OF_LAND_OWNER_SUCCESS = 'FETCH_RESERVATIONS_OF_LAND_OWNER_SUCCESS',
+  FETCH_RESERVATIONS_OF_LAND_OWNER_FAILURE = 'FETCH_RESERVATIONS_OF_LAND_OWNER_FAILURE',
 }
 
 interface IFetchAccommodationReservationsSuccessAction {
@@ -70,6 +73,16 @@ interface IFetchReservationsOfUserFailureAction {
   payload: string;
 }
 
+interface IFetchReservationsOfLandOwnerSuccessAction {
+  type: ReservationsActionTypes.FETCH_RESERVATIONS_OF_LAND_OWNER_SUCCESS;
+  payload: Array<IReservation>;
+}
+
+interface IFetchReservationsOfLandOwnerFailureAction {
+  type: ReservationsActionTypes.FETCH_RESERVATIONS_OF_LAND_OWNER_FAILURE;
+  payload: string;
+}
+
 export type ReservationsAction =
   | IFetchAccommodationReservationsSuccessAction
   | IFetchAccommodationReservationsFailureAction
@@ -78,4 +91,6 @@ export type ReservationsAction =
   | IFetchReservationsSuccessAction
   | IFetchReservationsFailureAction
   | IFetchReservationsOfUserSuccessAction
-  | IFetchReservationsOfUserFailureAction;
+  | IFetchReservationsOfUserFailureAction
+  | IFetchReservationsOfLandOwnerSuccessAction
+  | IFetchReservationsOfLandOwnerFailureAction;

@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import { Route, Switch, useLocation } from 'react-router';
 
 import AppToolbar from './components/UI/AppToolbar/AppToolbar';
+import CustomFooter from './components/UI/CustomFooter/CustomFooter';
 import ProtectedRoute from './helpers/ProtectedRoute';
 import { useTypedSelectorHook } from './hooks/useTypedSelector';
 import Accommodations from './pages/Accommodations/Accommodations';

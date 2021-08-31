@@ -17,18 +17,18 @@ const CustomFooter: React.FC = () => {
           <Col className='footer-container__item'>
             <List split={false}>
               <List.Item>
-                <Link to='/store' className='footer-container__text footer__hover'>
-                  Продукты
+                <Link to='/store/[]' className='footer-container__text footer__hover'>
+                  Магазин
                 </Link>
+              </List.Item>
+              <List.Item>
+                <a href='https://glamping.kz/' className='footer-container__text footer__hover'>
+                  О нас
+                </a>
               </List.Item>
               <List.Item>
                 <Link to='/locations-map' className='footer-container__text footer__hover'>
-                  Локации
-                </Link>
-              </List.Item>
-              <List.Item>
-                <Link to='/' className='footer-container__text footer__hover'>
-                  Глемпинги
+                  Глэмпинги
                 </Link>
               </List.Item>
             </List>

@@ -2,7 +2,9 @@ import './NewProduct.scss';
 
 import React, { useState } from 'react';
 
-import { Button, DatePicker, Form, Input, InputNumber, Select, Typography } from 'antd';
+import { Button, DatePicker, Form, Input, InputNumber, Select, Typography, Upload } from 'antd';
+
+import { UploadOutlined } from '@ant-design/icons';
 
 import { useActions } from '../../../../hooks/useAction';
 
@@ -56,9 +58,30 @@ const NewProduct: React.FC = () => {
       console.log('Failed:', errorInfo);
     }
   };
+
+  const normFile = (e: any) => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
+
   return (
     <Form form={form} name='dynamic_rule' onFinish={submitFormHandler}>
       <Title level={4}>Создайте объявление</Title>
+      <Form.Item
+        {...formItemLayout}
+        name='fileList'
+        label='Загрузите фото модуля'
+        valuePropName='fileList'
+        getValueFromEvent={normFile}
+        rules={[{ required: true, message: 'Загрузите фото!' }]}
+      >
+        <Upload name='logo' action='/upload.do' listType='picture'>
+          <Button icon={<UploadOutlined />}>Кликните для загрузки</Button>
+        </Upload>
+      </Form.Item>
       <Form.Item
         {...formItemLayout}
         name='title'
@@ -131,7 +154,7 @@ const NewProduct: React.FC = () => {
           },
         ]}
       >
-        <InputNumber style={{ width: '100%' }} placeholder='Укажите вместимость в цифрах' />
+        <InputNumber style={{ width: '100%' }} placeholder='Укажите число спальных мест' />
       </Form.Item>
       <Form.Item {...formItemLayout} name='date' label='Дата изготовления' {...config}>
         <DatePicker />

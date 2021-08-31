@@ -1,6 +1,7 @@
 import React from 'react';
 import TouristSection from './components/TouristSection/TouristSection';
 import InvestorSection from './components/InvestorSection/InvestorSection';
+import LandOwnerSection from './components/LandOwnerSection/LandOwnerSection';
 
 const UserPersonalArea: React.FC = () => {
   return (
@@ -8,6 +9,8 @@ const UserPersonalArea: React.FC = () => {
       <TouristSection />
 
       <InvestorSection />
+
+      <LandOwnerSection />
     </div>
   );
 };

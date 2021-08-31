@@ -34,7 +34,7 @@ const CurrentLocationPich: React.FC<IPichesCardProps> = ({ _id, title, descripti
   return (
     <Link to={`/pich/${_id}`}>
       <Card
-        title={'ПИЧ ' + number}
+        title={'ПИТЧ ' + number}
         style={{ width: 300, height: 580 }}
         cover={<img alt='pich' src={cardImage} style={{ height: 200 }} />}
       >

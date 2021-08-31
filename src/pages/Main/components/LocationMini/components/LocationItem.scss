@@ -1,8 +1,12 @@
 @import '../../../../../assets/mixins.scss';
 
 .location-item__card {
-  height: 390px;
+  height: 370px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .item__rent {
