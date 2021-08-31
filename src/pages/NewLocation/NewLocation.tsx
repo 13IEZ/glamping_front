@@ -57,6 +57,7 @@ const NewLocation: React.FC = () => {
 
   const createPlacemark = (event: any) => {
     const coords = event.get('coords');
+    console.log(coords);
     setPlacemark(coords);
   };
 
@@ -587,17 +588,6 @@ const NewLocation: React.FC = () => {
           <Upload name='logo' beforeUpload={() => false} action='/upload.do' listType='picture'>
             <Button icon={<UploadOutlined />}>Загрузить схему и фото</Button>
           </Upload>
-        </Form.Item>
-        <Form.Item
-          {...formItemLayout}
-          name='coords'
-          rules={[
-            {
-              message: 'Отметьте глэмпинг на карте!',
-            },
-          ]}
-        >
-          <Input style={{ visibility: 'hidden' }} value={placemark} />
         </Form.Item>
         <Form.Item
           wrapperCol={{
