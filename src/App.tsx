@@ -17,7 +17,6 @@ import Main from './pages/Main/Main';
 import PitchRentalForm from './pages/Pitches/PitchRentalForm';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Register from './pages/Register/Register';
-import Reviews from './pages/Reviews/Reviews';
 import NewProduct from './pages/Store/components/NewProduct/NewProduct';
 import Store from './pages/Store/Store';
 import UserPersonalArea from './pages/UserPersonalArea/UserPersonalArea';
@@ -35,7 +34,6 @@ function App(): JSX.Element {
         <Switch>
           <ProtectedRoute isAllowed={!user} path='/register' exact redirectTo='/' component={Register} />
           <ProtectedRoute isAllowed={!user} path='/login' exact redirectTo='/' component={Login} />
-          <Route path='/reviews' exact component={Reviews} />
           <Route path='/store/:queryStr' component={Store} />
           <ProtectedRoute isAllowed={!!user} path='/newProduct' exact redirectTo='/login' component={NewProduct} />
           <Route path='/storedetail/:id' exact component={ProductDetail} />

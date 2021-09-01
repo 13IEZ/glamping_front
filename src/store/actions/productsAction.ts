@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { notification } from 'antd';
 import { Dispatch } from 'redux';
+
 import ax from '../../settings/axios-glamping';
 import { ProductsAction, ProductsActionTypes } from '../types/productsTypes';
 
@@ -117,6 +118,23 @@ export const fetchProductsOfUser = (id: string): any => {
       notification.error({
         message: 'Неудача!',
         description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
+export const createProduct = (product: any) => {
+  return async () => {
+    try {
+      await ax.post('products', product);
+      notification.success({
+        message: 'Успех!',
+        description: 'Продукт успешно создан!',
+      });
+    } catch (error) {
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при создании продукта!',
       });
     }
   };

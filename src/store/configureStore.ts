@@ -4,14 +4,15 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
+import accommodationsReducer from './reducers/accommodationReducer';
 import categoriesReducer from './reducers/categoriesReducer';
+import factoriesReducer from './reducers/factoriesReduser';
 import locationReducer from './reducers/locationsReduser';
 import pichesReducer from './reducers/pichesReducer';
 import productsReducer from './reducers/productsReducer';
-import usersReducer from './reducers/usersReducer';
-import reviewsReducer from './reducers/reviewsReducer';
-import accommodationsReducer from './reducers/accommodationReducer';
 import reservationsReducer from './reducers/reservationsReducer';
+import reviewsReducer from './reducers/reviewsReducer';
+import usersReducer from './reducers/usersReducer';
 
 declare global {
   interface Window {
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   locations: locationReducer,
   categories: categoriesReducer,
+  factories: factoriesReducer,
   reservations: reservationsReducer,
   piches: pichesReducer,
   reviews: reviewsReducer,
