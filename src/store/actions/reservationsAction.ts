@@ -113,3 +113,20 @@ export const fetchReservationsOfLandOwner = (ownerOfLandId: string): any => {
     }
   };
 };
+
+export const fetchReservationsOfAccommodations = (ownerOfLandId: string): any => {
+  return async (dispatch: Dispatch<ReservationsAction>) => {
+    try {
+      const response = await ax.get('reservations?owner_of_accommodations=' + ownerOfLandId);
+      dispatch({
+        type: ReservationsActionTypes.FETCH_RESERVATIONS_OF_ACCOMMODATIONS_SUCCESS,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: ReservationsActionTypes.FETCH_RESERVATIONS_OF_ACCOMMODATIONS_FAILURE,
+        payload: 'Ошибка при получении данных',
+      });
+    }
+  };
+};

@@ -2,7 +2,7 @@ export interface IAccommodation {
   _id: string;
   title: string;
   productId: string;
-  pichId: string;
+  pichId: string | any;
   startDate: string;
   endDate: string;
   userId: string;
