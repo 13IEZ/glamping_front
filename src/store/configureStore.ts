@@ -5,6 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../helpers/localStorage';
 import accommodationsReducer from './reducers/accommodationReducer';
+import applicationsReducer from './reducers/applicationsReducer';
 import categoriesReducer from './reducers/categoriesReducer';
 import factoriesReducer from './reducers/factoriesReduser';
 import locationReducer from './reducers/locationsReduser';
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   piches: pichesReducer,
   reviews: reviewsReducer,
   accommodations: accommodationsReducer,
+  applications: applicationsReducer,
   router: connectRouter(history),
 });
 export type rootState = ReturnType<typeof rootReducer>;

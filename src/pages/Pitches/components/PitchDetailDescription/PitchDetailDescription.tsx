@@ -8,6 +8,7 @@ const { Paragraph } = Typography;
 const { Title } = Typography;
 
 interface ICurrentPitchProps {
+  _id?: string;
   title?: string;
   rent?: string;
   description?: string;

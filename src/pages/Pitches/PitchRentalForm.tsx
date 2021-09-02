@@ -25,61 +25,79 @@ const formTailLayout = {
 const { Option } = Select;
 const { TextArea } = Input;
 const { Title } = Typography;
+const normFile = (e: any) => {
+  console.log('Upload event:', e);
+  if (Array.isArray(e)) {
+    return e;
+  }
+  return e && e.fileList;
+};
 
 const PitchRentalForm: React.FC = (props: any) => {
   const idCurrentPitch = props.match.params.id;
   const { currentPitch } = useTypedSelectorHook(state => state.piches);
   const { pitchReservations } = useTypedSelectorHook(state => state.reservations);
-  const { fetchCurrentPitch } = useActions();
   const { fetchPitchReservations } = useActions();
+  const { fetchCurrentPitch } = useActions();
   const [reservation, setReservation] = useState({});
-  const { signUpUser } = useActions();
+  const { createApplication } = useActions();
+  const { categories } = useTypedSelectorHook(state => state.categories);
+  const [form] = Form.useForm();
+  const reservedDates = pitchReservations.map((reservation: { startDate: any; endDate: any }) => {
+    return { startDate: reservation.startDate, endDate: reservation.endDate };
+  });
+  const onChange = (value: any, reservedDays: any) => {
+    const newReservation = {
+      startDate: reservedDays[0],
+      endDate: reservedDays[1],
+    };
+    setReservation(newReservation);
+  };
+
+  const [state, setState] = useState({
+    title: '',
+    categoryId: '',
+    season: '',
+    roominess: '',
+    rent: '',
+    description: '',
+  });
 
   useEffect(() => {
     fetchPitchReservations(idCurrentPitch);
     fetchCurrentPitch(idCurrentPitch);
   }, [idCurrentPitch]);
 
-  const [state, setState] = useState({
-    fileList: [],
-    title: '',
-    category: '',
-    season: '',
-    roominess: '',
-    date: '',
-    price: '',
-    rent: '',
-    description: '',
-    reservedDays: reservation,
-  });
+  const formData = new FormData();
 
-  const reservedDates = pitchReservations.map((reservation: { startDate: any; endDate: any }) => {
-    return { startDate: reservation.startDate, endDate: reservation.endDate };
-  });
-
-  const submitFormHandler = () => {
-    console.log(state);
-    signUpUser(state);
+  const onFinish = (values: any) => {
+    const data = { ...values, reservation, pichId: idCurrentPitch };
+    Object.keys(data).forEach(key => {
+      formData.append(key, data[key]);
+    });
+    const arrayImage = [];
+    for (let i = 0; i < values.upload.length; i++) {
+      arrayImage[i] = values.upload[i].originFileObj;
+    }
+    console.log(arrayImage);
+    for (const file of arrayImage) {
+      formData.append('files', file);
+      console.log(formData.get('files'));
+    }
+    {
+      createApplication(data);
+      console.log(data);
+      console.log(formData.get('title'));
+      createApplication(formData);
+    }
   };
 
-  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const inputChangeHandler = (e: any) => {
     const { name, value } = e.target;
     setState(prevState => {
       return { ...prevState, [name]: value };
     });
   };
-  const [form] = Form.useForm();
-
-  const onCheck = async () => {
-    try {
-      const values = await form.validateFields();
-      console.log('Success:', values);
-    } catch (errorInfo) {
-      console.log('Failed:', errorInfo);
-    }
-  };
-
-  if (Object.keys(currentPitch).length === 0) return <></>;
 
   const disabledDate = (current: any) => {
     // Can not select days before today and today
@@ -93,21 +111,11 @@ const PitchRentalForm: React.FC = (props: any) => {
     return false;
   };
 
-  const onChange = (value: any, reservedDays: any) => {
-    const newReservation = {
-      startDate: reservedDays[0],
-      endDate: reservedDays[1],
-    };
-    setReservation(newReservation);
-  };
-
-  const normFile = (e: any) => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
-  };
+  const categoriesList = categories.map(category => (
+    <Option key={category._id} label={category.title} onChange={inputChangeHandler} value={category._id}>
+      {category.title}
+    </Option>
+  ));
 
   return (
     <div className='container'>
@@ -127,19 +135,19 @@ const PitchRentalForm: React.FC = (props: any) => {
         </Row>
       </div>
       <Divider />
-      <Form form={form} name='dynamic_rule' onFinish={submitFormHandler} className='PitchForm'>
+      <Form form={form} name='dynamic_rule' onFinish={onFinish} {...formItemLayout} className='PitchForm'>
         <Title className='PitchTitle' level={3}>
           Опишите ваш модуль для заявки
         </Title>
         <Form.Item
           {...formItemLayout}
-          name='fileList'
+          name='upload'
           label='Загрузите фото модуля'
           valuePropName='fileList'
           getValueFromEvent={normFile}
           rules={[{ required: true, message: 'Загрузите фото!' }]}
         >
-          <Upload name='logo' action='/upload.do' listType='picture'>
+          <Upload name='logo' beforeUpload={() => false} action='/upload.do' listType='picture'>
             <Button icon={<UploadOutlined />}>Кликните для загрузки</Button>
           </Upload>
         </Form.Item>
@@ -149,45 +157,22 @@ const PitchRentalForm: React.FC = (props: any) => {
           label='Название'
           rules={[{ required: true, message: 'Укажите название!' }]}
         >
-          <Input onChange={inputChangeHandler} placeholder='Введите название модуля' />
+          <Input value={state.title} placeholder='Введите название модуля' />
         </Form.Item>
         <Form.Item
           {...formItemLayout}
-          name='category'
+          name='categoryId'
           label='Категория'
+          hasFeedback
           rules={[{ required: true, message: 'Укажите категорию!' }]}
         >
-          <Select placeholder='Выберите категорию'>
-            <Option onChange={inputChangeHandler} value='Тенты'>
-              Тенты
-            </Option>
-            <Option onChange={inputChangeHandler} value='Автодома'>
-              Автодома
-            </Option>
-            <Option onChange={inputChangeHandler} value='Каркасный дом'>
-              Каркасный дом
-            </Option>
-            <Option onChange={inputChangeHandler} value='Купола'>
-              Купола
-            </Option>
-            <Option onChange={inputChangeHandler} value='Модули'>
-              Модули
-            </Option>
-            <Option onChange={inputChangeHandler} value='Юрты'>
-              Юрты
-            </Option>
-            <Option onChange={inputChangeHandler} value='Трейлеры'>
-              Трейлеры
-            </Option>
-            <Option onChange={inputChangeHandler} value='Другое'>
-              Другое
-            </Option>
-          </Select>
+          <Select placeholder='Выберите категорию'>{categoriesList}</Select>
         </Form.Item>
         <Form.Item
           {...formItemLayout}
           name='season'
           label='Сезоность'
+          hasFeedback
           rules={[{ required: true, message: 'Укажите сезонность!' }]}
         >
           <Select placeholder='Выберите сезонность'>
@@ -205,8 +190,8 @@ const PitchRentalForm: React.FC = (props: any) => {
         <Form.Item
           {...formItemLayout}
           name='roominess'
-          label='Вместимость'
-          rules={[{ required: true, message: 'Укажите вместимость!' }]}
+          label='Кол-во спальных мест'
+          rules={[{ required: true, message: 'Укажите кол-во спальных мест!' }]}
         >
           <InputNumber style={{ width: '100%' }} placeholder='Укажите вместимость в цифрах' />
         </Form.Item>
@@ -228,14 +213,13 @@ const PitchRentalForm: React.FC = (props: any) => {
         </Form.Item>
         <Form.Item
           {...formItemLayout}
-          name='reservedDays'
           label='Укажите даты брони'
           rules={[{ required: true, message: 'Укажите даты брони!' }]}
         >
           <RangePicker disabledDate={disabledDate} onChange={onChange} />
         </Form.Item>
         <Form.Item {...formTailLayout}>
-          <Button type='primary' onClick={onCheck}>
+          <Button type='primary' htmlType='submit'>
             Подать заявку
           </Button>
         </Form.Item>

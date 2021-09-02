@@ -64,6 +64,7 @@ const NewProduct: React.FC = () => {
     factoryId: '',
     reviewsQuantity: '',
   });
+
   const formData = new FormData();
 
   const onFinish = (values: any) => {
@@ -170,11 +171,11 @@ const NewProduct: React.FC = () => {
       <Form.Item
         {...formItemLayout}
         name='roominess'
-        label='Вместимость'
+        label='Кол-во спальных мест'
         rules={[
           {
             required: true,
-            message: 'Укажите вместимость!',
+            message: 'Укажите кол-во спальных мест!',
           },
         ]}
       >
