@@ -25,6 +25,21 @@ export const fetchLocations = (): any => {
   };
 };
 
+export const fetchLocationsMap = (): any => {
+  return async (dispatch: Dispatch<LocationsAction>) => {
+    try {
+      const response = await ax.get('locations');
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_MAP_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: LocationsActionTypes.FETCH_LOCATIONS_MAP_FAILURE, payload: 'Ошибка при получении данных' });
+      notification.error({
+        message: 'Неудача!',
+        description: 'Произошла ошибка при получении данных',
+      });
+    }
+  };
+};
+
 export const fetchNextLocationPages = (currentPage: number): any => {
   return async (dispatch: Dispatch<LocationsAction>) => {
     try {
