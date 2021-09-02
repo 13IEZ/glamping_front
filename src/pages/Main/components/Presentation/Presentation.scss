@@ -9,6 +9,12 @@
   background-size: auto;
   background-position: -100px;
   background-repeat: no-repeat;
+  @include respond(big-tablets) {
+    background-image:
+    url('./../../../../assets/img/presentation-mobile.jpg');
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .presentation-content {
