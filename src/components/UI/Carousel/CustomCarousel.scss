@@ -15,18 +15,36 @@
   background-size: 100% 100%;
   background-position: center;
   padding: 10px;
+  @include respond(big-tablets) {
+    background-image:
+    url('./../../../assets/img/slide-1-mobile.jpg');
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .second-slide {
   background-image: url('../../../assets/img/slide-2.jpg');
   background-size: 100% 100%;
   background-position: center;
+  @include respond(big-tablets) {
+    background-image:
+    url('./../../../assets/img/slide-2-mobile.gif');
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .third-slide {
   background-image: url('../../../assets/img/slide-3.jpg');
   background-size: 100% 100%;
   background-position: center;
+  @include respond(big-tablets) {
+    background-image:
+    url('./../../../assets/img/slide-3-mobile.jpg');
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .fourth-slide {
