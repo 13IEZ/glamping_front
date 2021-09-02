@@ -13,28 +13,28 @@ import SelectList from './components/SelectList/SelectList';
 const LocationsMap: React.FC = () => {
   const [centerCoordinate, setCenterCoordinate] = useState<[number, number]>([43.1524, 76.5542]);
 
-  const { locations } = useTypedSelectorHook(state => state.locations);
+  const { locationsMap } = useTypedSelectorHook(state => state.locations);
 
-  const { fetchLocations } = useActions();
+  const { fetchLocationsMap } = useActions();
 
   useEffect(() => {
-    fetchLocations();
+    fetchLocationsMap();
   }, []);
 
   const onSelectorChange = (id: string): void => {
-    const coordinate: any = locations.find(location => location._id === id);
+    const coordinate: any = locationsMap.find(location => location._id === id);
     setCenterCoordinate(coordinate.coords);
   };
 
   return (
     <div className='locations-map'>
       <div className='locations-header'>
-        <SelectList onSelectorChange={onSelectorChange} locations={locations} />
+        <SelectList onSelectorChange={onSelectorChange} locations={locationsMap} />
         <Button className='locations-map__button' type='primary'>
           <Link to='/locations'>Каталог глэмпингов</Link>
         </Button>
       </div>
-      <GLMap centerCoordinate={centerCoordinate} locations={locations} />
+      <GLMap centerCoordinate={centerCoordinate} locations={locationsMap} />
     </div>
   );
 };

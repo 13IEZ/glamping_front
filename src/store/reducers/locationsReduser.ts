@@ -2,6 +2,7 @@ import { ILocationsState, LocationsAction, LocationsActionTypes } from '../types
 
 const initialState: ILocationsState = {
   locations: [],
+  locationsMap: [],
   pages: '',
   currentPage: 0,
   lastFourLocations: [],
@@ -26,6 +27,10 @@ const locationsReducer = (state = initialState, action: LocationsAction): ILocat
     case LocationsActionTypes.FETCH_CURRENT_LOCATION_SUCCESS:
       return { ...state, currentLocation: action.payload };
     case LocationsActionTypes.FETCH_CURRENT_LOCATION_FAILURE:
+      return { ...state, error: action.payload };
+    case LocationsActionTypes.FETCH_LOCATIONS_MAP_SUCCESS:
+      return { ...state, locationsMap: action.payload };
+    case LocationsActionTypes.FETCH_LOCATIONS_MAP_FAILURE:
       return { ...state, error: action.payload };
     default:
       return state;
