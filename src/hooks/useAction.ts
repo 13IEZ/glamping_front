@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as AccommodationsActionCreator from '../store/actions/accommodationsAction';
+import * as ApplicationsActionCreator from '../store/actions/applicationsAction';
 import * as CategoriesActionCreators from '../store/actions/categoriesAction';
 import * as FactoryActionCreator from '../store/actions/factoriesAction';
 import * as LocationsActionCreators from '../store/actions/locationsAction';
@@ -21,6 +22,7 @@ const ActionCreators = {
   ...ReviewsActionCreators,
   ...AccommodationsActionCreator,
   ...ReservationsActionCreator,
+  ...ApplicationsActionCreator,
 };
 
 export const useActions = (): any => {
