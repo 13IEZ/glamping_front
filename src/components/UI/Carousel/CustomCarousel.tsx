@@ -31,7 +31,7 @@ const CustomCarousel: React.FC = () => {
 
         <div className='contentStyle second-slide'>
           <div className='content-slider container'>
-            <h2 className='title-carousel-2slide'>Зарабатывай отдыхая!</h2>
+            <h2 className='title-carousel'>Зарабатывай отдыхая!</h2>
             <p className='text-carousel'>
               Закажи <span className='yellowText'>glam-модуль</span> и установи его <br /> в самом красивом месте
               Казахстана

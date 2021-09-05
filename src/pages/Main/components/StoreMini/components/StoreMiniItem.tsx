@@ -23,7 +23,7 @@ const StoreMiniItem: React.FC<IProductCardProps> = ({ title, price, image, _id }
   };
 
   return (
-    <Link to={`/store/${_id}`}>
+    <Link to={`/storedetail/${_id}`}>
       <Card className='item__card' cover={<img alt='Not found' src={cardImage} className='item__card-img' />}>
         <Meta style={{ marginBottom: 22, marginTop: 7, fontSize: 24, textAlign: 'center' }} title={title} />
         <p className='item__price'>от {price.replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₸</p>

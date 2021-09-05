@@ -66,17 +66,6 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #fff;
-  &-2slide{
-    font-family: 'Playfair Display';
-    font-style: italic;
-    font-weight: bold;
-    font-size: 64px;
-    line-height: 160px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    margin: 0;
-  }
   @include respond(small-phone) {
     padding: 5px;
     font-size: 40px;
