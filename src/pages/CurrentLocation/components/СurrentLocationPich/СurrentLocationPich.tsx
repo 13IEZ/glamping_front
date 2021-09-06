@@ -43,9 +43,7 @@ const CurrentLocationPich: React.FC<IPichesCardProps> = ({ _id, title, descripti
         <p style={{ marginTop: 15, marginBottom: 15, textAlign: 'center' }} className='pich-description'>
           {description}
         </p>
-        <Button className='pich-item-button' disabled={!free}>
-          Подробнее
-        </Button>
+        <Button className='pich-item-button'>Подробнее</Button>
       </Card>
     </Link>
   );
