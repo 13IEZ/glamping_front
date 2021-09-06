@@ -55,6 +55,12 @@ export enum AccommodationsActionTypes {
   FETCH_ACCOMMODATION_PAGES = 'FETCH_ACCOMMODATION_PAGES',
   FETCH_ACCOMMODATION_PAGES_ERROR = 'FETCH_ACCOMMODATION_PAGES_ERROR',
   SET_ACCOMMODATIONS_FILTERS = 'SET_ACCOMMODATIONS_FILTERS',
+  SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
+}
+
+interface ISetCurrentPage {
+  type: AccommodationsActionTypes.SET_CURRENT_PAGE;
+  payload: number;
 }
 
 interface ISetAccommodationsFilters {
@@ -134,4 +140,5 @@ export type AccommodationsAction =
   | IFetchAllAccommodationsFailureAction
   | IFetchAccommodationPagesAction
   | IFetchAccommodationPagesErrorAction
+  | ISetCurrentPage
   | ISetAccommodationsFilters;

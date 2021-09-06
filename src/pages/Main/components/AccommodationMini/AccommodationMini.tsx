@@ -53,7 +53,7 @@ const AccommodationMini: React.FC = () => {
         <Row className='accommodation-card' justify='space-around' gutter={[2, 2]}>
           {lastFourAccommodationsList}
         </Row>
-        <Link to='/accommodations'>
+        <Link to='/accommodations/[]'>
           <p className='accommodation__link'>Показать все</p>
         </Link>
       </div>

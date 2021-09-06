@@ -13,10 +13,12 @@ const initialState: IAccommodationsState = {
 
 const accommodationsReducer = (state = initialState, action: AccommodationsAction): IAccommodationsState => {
   switch (action.type) {
+    case AccommodationsActionTypes.SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.payload };
     case AccommodationsActionTypes.SET_ACCOMMODATIONS_FILTERS:
       return { ...state, filters: action.payload };
     case AccommodationsActionTypes.FETCH_ACCOMMODATIONS_SUCCESS:
-      return { ...state, accommodations: action.payload };
+      return { ...state, allAccommodations: action.payload };
     case AccommodationsActionTypes.FETCH_ACCOMMODATIONS_FAILURE:
       return { ...state, error: action.payload };
     case AccommodationsActionTypes.FETCH_LAST_FOUR_ACCOMMODATIONS_SUCCESS:
