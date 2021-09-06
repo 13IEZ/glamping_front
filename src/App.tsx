@@ -47,8 +47,8 @@ function App(): JSX.Element {
             component={NewLocation}
           />
           <Route path='/locations/:id' exact component={CurrentLocation} />
-          <Route path='/accommodations' exact component={Accommodations} />
-          <Route path='/accommodations/:id' exact component={CurrentAccommodation} />
+          <Route path='/accommodations/:queryStr' exact component={Accommodations} />
+          <Route path='/currentaccommodations/:id' exact component={CurrentAccommodation} />
           <Route path='/pich/:id' exact component={PitchRentalForm} />
           <ProtectedRoute
             isAllowed={!!user}

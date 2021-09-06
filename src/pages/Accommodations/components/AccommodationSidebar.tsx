@@ -1,49 +1,71 @@
 import './AccommodationSidebar.scss';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button, Divider, Layout, Menu } from 'antd';
 import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 import { useActions } from '../../../hooks/useAction';
+import { useHistory, useParams } from 'react-router-dom';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const AccommodationSidebar: React.FC = () => {
-  const { fetchProductCategory, setAccommodationFilters } = useActions();
+  const history = useHistory();
+  const { fetchAccommodationsCat } = useActions();
+  const { setStoreIsOpened } = useActions();
   const { categories } = useTypedSelectorHook(state => state.categories);
-  const { filters } = useTypedSelectorHook(state => state.accommodations);
+  const { factories } = useTypedSelectorHook(state => state.factories);
+  const filters = useRef<string[]>([]);
+  const params: any = useParams();
 
   useEffect(() => {
-    fetchProductCategory(filters);
-  }, [filters]);
+    fetchAccommodationsCat(JSON.parse(params.queryStr));
+    filters.current = JSON.parse(params.queryStr);
+    setStoreIsOpened(true);
+    return () => setStoreIsOpened(false);
+  }, []);
 
   const handleClick = (event: any) => {
     const keyStr = event.key;
-    let filtersArrCopy = [...filters];
+    let filtersArrCopy = [...filters.current];
 
     if (filtersArrCopy.includes(keyStr)) {
-      filtersArrCopy = filters.filter(item => item !== keyStr);
-      setAccommodationFilters(filtersArrCopy);
+      filtersArrCopy = filters.current.filter(item => item !== keyStr);
+      filters.current = [...filtersArrCopy];
+      history.push('/accommodations/' + JSON.stringify(filtersArrCopy));
+      fetchAccommodationsCat(filters.current);
       return;
     }
 
-    if (keyStr.includes('rent')) {
-      filtersArrCopy = filters.filter(item => !item.includes('rent'));
-      setAccommodationFilters([...filtersArrCopy, keyStr]);
+    if (keyStr.includes('price')) {
+      filtersArrCopy = filters.current.filter(item => !item.includes('price'));
+      filters.current = [...filtersArrCopy, keyStr];
+      history.push('/accommodations/' + JSON.stringify([...filtersArrCopy, keyStr]));
+      fetchAccommodationsCat(filters.current);
       return;
     } else {
-      setAccommodationFilters([...filtersArrCopy, keyStr]);
+      filters.current = [...filtersArrCopy, keyStr];
+      history.push('/accommodations/' + JSON.stringify([...filtersArrCopy, keyStr]));
+      fetchAccommodationsCat(filters.current);
       return;
     }
   };
 
-  const categoriesList = categories.map(category => (
+  const factoriesList = factories.map((factory: any) => (
+    <Menu.Item key={'factory_' + factory._id} onClick={handleClick}>
+      {factory.title}
+    </Menu.Item>
+  ));
+
+  const categoriesList = categories.map((category: any) => (
     <Menu.Item key={'category_' + category._id} onClick={handleClick}>
       {category.title}
     </Menu.Item>
   ));
 
   const clearHandleClick = () => {
-    setAccommodationFilters([]);
+    filters.current = [];
+    history.push('/accommodations/[]');
+    fetchAccommodationsCat(filters.current);
   };
 
   return (
@@ -51,15 +73,15 @@ const AccommodationSidebar: React.FC = () => {
       <Sider className='site-layout-background' width={238}>
         <Menu
           mode='inline'
-          selectedKeys={filters}
-          defaultOpenKeys={['sortSub', 'roominessSub', 'seasonSub', 'categorySub', 'clearSub']}
+          selectedKeys={filters.current}
+          defaultOpenKeys={['sortSub', 'roominessSub', 'seasonSub', 'factorySub', 'categorySub', 'clearSub']}
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key='sortSub' title='Цена' className='site-layout-background'>
-            <Menu.Item key='rentAsc' onClick={handleClick}>
+            <Menu.Item key='priceAsc' onClick={handleClick}>
               По возрастанию
             </Menu.Item>
-            <Menu.Item key='rentDesc' onClick={handleClick}>
+            <Menu.Item key='priceDesc' onClick={handleClick}>
               По убыванию
             </Menu.Item>
             <Divider />
@@ -92,6 +114,10 @@ const AccommodationSidebar: React.FC = () => {
             <Menu.Item key='seasonAll' onClick={handleClick}>
               Все сезоны
             </Menu.Item>
+            <Divider />
+          </SubMenu>
+          <SubMenu key='factorySub' title='Производитель' className='site-layout-background'>
+            {factoriesList}
             <Divider />
           </SubMenu>
           <SubMenu key='categorySub' title='Категории' className='site-layout-background'>

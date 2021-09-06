@@ -29,7 +29,7 @@ const AccommodationMiniItem: React.FC<accommodationCardProps> = ({ title, rent, 
 
   return (
     <div>
-      <Link to={`/accommodations/${_id}`}>
+      <Link to={`/currentaccommodations/${_id}`}>
         <Card className='item__card' cover={<img alt='Not found' src={cardImage} className='item__card-img' />}>
           <Meta style={{ marginTop: 22, fontSize: 24, textAlign: 'center' }} title={title} />
           <p className='item__place'>Туркестан</p>
