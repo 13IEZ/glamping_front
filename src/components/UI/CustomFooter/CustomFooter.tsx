@@ -22,7 +22,7 @@ const CustomFooter: React.FC = () => {
                 </Link>
               </List.Item>
               <List.Item>
-                <a href='https://glamping.kz/' className='footer-container__text footer__hover'>
+                <a href='https://glamping.kz/' target='_blank' className='footer-container__text footer__hover'>
                   О нас
                 </a>
               </List.Item>
