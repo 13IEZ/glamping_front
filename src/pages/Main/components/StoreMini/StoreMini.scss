@@ -14,10 +14,6 @@
   @include respond(small-tablets) {
     max-width: 650px;
   }
-
-  @include respond(small-phone) {
-    max-width: 330px;
-  }
 }
 
 .title {
@@ -57,7 +53,7 @@
     margin: 0 70px;
   }
   @include respond(IphonePlus) {
-    margin: 0 30px;
+    margin: 0 50px;
   }
   @include respond(Iphone5) {
     margin: 0 5px;
@@ -93,6 +89,9 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  @include respond(IphonePlus) {
+    display: block;
+  }
 }
 
 .store-header__button_transparent {
@@ -101,6 +100,9 @@
   color: #2f2d25;
   max-width: 200px;
   margin-right: 50px;
+  @include respond(IphonePlus) {
+    margin-left: 90px;;
+  }
   &:hover {
     transition: all 0.2s;
     border: 2px solid #FDD74E;
