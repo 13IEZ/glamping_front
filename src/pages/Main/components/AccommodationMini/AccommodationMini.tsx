@@ -12,12 +12,23 @@ import AccommodationMiniItem from './components/AccommodationMiniItem';
 const AccommodationMini: React.FC = () => {
   const { lastFourAccommodations } = useTypedSelectorHook(state => state.accommodations);
   const { fetchLastFourAccommodations } = useActions();
-
   useEffect(() => {
     fetchLastFourAccommodations();
   }, []);
 
-  const lastFourAccommodationsList = lastFourAccommodations.map(accommodation => {
+  const formattedLastForAccommodations: any = [];
+  lastFourAccommodations.forEach(accommodation => {
+    if (accommodation.pichId.locationId) {
+      const formattedAccommodation = {
+        ...accommodation,
+        key: accommodation._id,
+        region: accommodation.pichId.locationId.region,
+      };
+      formattedLastForAccommodations.push(formattedAccommodation);
+    }
+  });
+
+  const lastFourAccommodationsList = formattedLastForAccommodations.map((accommodation: any) => {
     return (
       <Col key={accommodation._id} span={6} style={{ marginBottom: 20 }}>
         <AccommodationMiniItem
@@ -30,6 +41,7 @@ const AccommodationMini: React.FC = () => {
           season={accommodation.season}
           category={accommodation.category}
           rating={accommodation.rating}
+          region={accommodation.region}
         />
       </Col>
     );
