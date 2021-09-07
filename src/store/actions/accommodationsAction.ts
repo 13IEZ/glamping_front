@@ -16,14 +16,14 @@ export const fetchAccommodationsCat = (filterOptions: Array<string>): any => {
       }
       const response = await ax.get('accommodations/filters?queryStr=' + queryStr);
       dispatch({
-        type: AccommodationsActionTypes.FETCH_ACCOMMODATIONS_SUCCESS,
+        type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS,
         payload: response.data.allAccommodations,
       });
       dispatch({ type: AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES, payload: response.data.pages });
       dispatch({ type: AccommodationsActionTypes.SET_CURRENT_PAGE, payload: 1 });
     } catch (error) {
       dispatch({
-        type: AccommodationsActionTypes.FETCH_ACCOMMODATIONS_FAILURE,
+        type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE,
         payload: 'Ошибка при получении данных',
       });
     }
@@ -41,12 +41,12 @@ export const fetchNextAccommodationPages = (currentPage: number, filterOptions: 
       }
       const response = await ax.get(`accommodations/pages?page=${currentPage}&queryStr=` + queryStr);
       dispatch({
-        type: AccommodationsActionTypes.FETCH_ACCOMMODATIONS_SUCCESS,
+        type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS,
         payload: response.data.allAccommodations,
       });
     } catch (error) {
       dispatch({
-        type: AccommodationsActionTypes.FETCH_ACCOMMODATIONS_FAILURE,
+        type: AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE,
         payload: 'Ошибка при получении данных',
       });
       notification.error({

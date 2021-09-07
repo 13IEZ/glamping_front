@@ -17,8 +17,12 @@ const accommodationsReducer = (state = initialState, action: AccommodationsActio
       return { ...state, currentPage: action.payload };
     case AccommodationsActionTypes.SET_ACCOMMODATIONS_FILTERS:
       return { ...state, filters: action.payload };
-    case AccommodationsActionTypes.FETCH_ACCOMMODATIONS_SUCCESS:
+    case AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS:
       return { ...state, allAccommodations: action.payload };
+    case AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE:
+      return { ...state, error: action.payload };
+    case AccommodationsActionTypes.FETCH_ACCOMMODATIONS_SUCCESS:
+      return { ...state, accommodations: action.payload };
     case AccommodationsActionTypes.FETCH_ACCOMMODATIONS_FAILURE:
       return { ...state, error: action.payload };
     case AccommodationsActionTypes.FETCH_LAST_FOUR_ACCOMMODATIONS_SUCCESS:
@@ -39,17 +43,6 @@ const accommodationsReducer = (state = initialState, action: AccommodationsActio
     case AccommodationsActionTypes.BOOK_ACCOMMODATION_SUCCESS:
       return { ...state, error: null };
     case AccommodationsActionTypes.BOOK_ACCOMMODATION_FAILURE:
-      return { ...state, error: action.payload };
-    case AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_SUCCESS: {
-      const data: any = action.payload;
-      for (let i = 0; i < data.length; i++) {
-        data[i].category = data[i].productId.categoryId.title;
-        data[i].roominess = data[i].productId.roominess;
-        data[i].season = data[i].productId.season;
-      }
-      return { ...state, allAccommodations: data, currentPage: 0 };
-    }
-    case AccommodationsActionTypes.FETCH_ALL_ACCOMMODATIONS_FAILURE:
       return { ...state, error: action.payload };
     case AccommodationsActionTypes.FETCH_ACCOMMODATION_PAGES:
       return { ...state, pages: action.payload };
