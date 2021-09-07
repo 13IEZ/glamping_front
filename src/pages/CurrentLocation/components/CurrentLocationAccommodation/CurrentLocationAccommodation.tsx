@@ -22,7 +22,7 @@ const CurrentLocationAccommodation: React.FC<IAccommodationCardProps> = ({ title
   const cardImage = config.apiUrl + '/uploads/' + image[0];
 
   return (
-    <Link to={`/accommodations/${_id}`}>
+    <Link to={`/currentaccommodations/${_id}`}>
       <Card style={{ width: 300 }} cover={<img alt='accommodation' src={cardImage} style={{ height: 200 }} />}>
         <Meta title={title} style={{ marginTop: 22, marginBottom: 10, fontSize: 24 }} />
         <Title level={4}>Аренда</Title>
