@@ -1,8 +1,12 @@
+@import '../../assets/mixins.scss';
+
 .PitchTitle {
   text-align: center;
   padding: 20px 0;
 }
 
-.calendar {
-  margin: 0;
+.ant-picker-panels  {
+  @include respond(IphonePlus) {
+    flex-direction: column;
+  }
 }
