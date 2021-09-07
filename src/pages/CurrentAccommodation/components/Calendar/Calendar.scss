@@ -1,6 +1,15 @@
+@import '../../../../assets/mixins.scss';
+
 .calendar {
     margin: 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+  .ant-picker-panels  {
+    @include respond(IphonePlus) {
+      flex-direction: column;
+    }
   }

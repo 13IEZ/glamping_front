@@ -46,7 +46,7 @@ const Calendar: React.FC<ICalendarProps> = ({ accommodationId, reservedDates }) 
   return (
     <div className='calendar'>
       <Space direction='vertical' size={12}>
-        <RangePicker disabledDate={disabledDate} onChange={onChange} />
+        <RangePicker className='date' disabledDate={disabledDate} onChange={onChange} />
       </Space>
       <Button className='item__button' style={{ marginTop: 20 }} onClick={book} htmlType='submit'>
         Бронировать

@@ -15,10 +15,6 @@
   @include respond(small-tablets) {
     max-width: 650px;
   }
-
-  @include respond(small-phone) {
-    max-width: 330px;
-  }
 }
 
 .location-header {
@@ -74,6 +70,9 @@
   color: white;
   padding: 9px 18px;
   outline: none;
+  @include respond(IphonePlus) {
+    margin: 10px 0 0 105px;
+  }
 }
 
 .location-header__button_dark {
@@ -105,8 +104,8 @@
   @include respond(big-tablets) {
     margin: 5px 0 0 30px;
   }
-  @include respond(IPhonePlus) {
-    margin-left: 50px !important;
+  @include respond(IphonePlus) {
+    margin-left: 50px;
   }
   &:hover {
     border-bottom: 2px solid #69a042;
@@ -135,10 +134,10 @@
     margin: 11px 18px 0 50px;
   }
 
-  @include respond(IPhone5) {
-    width: 100%;
-    margin: 0;
+  @include respond(IphonePlus) {
+    margin-left: 50px;
   }
+
 }
 
 .location-header__button_transparent {
@@ -166,7 +165,7 @@
     margin: 0 0 50px 70px;
   }
   @include respond(IphonePlus) {
-    margin: 0 0 50px 30px;
+    margin: 0 0 50px 50px;
   }
   @include respond(Iphone6) {
     margin: 0 0 50px 30px;
