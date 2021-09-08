@@ -51,7 +51,6 @@ const CurrentLocation: React.FC = (props: any) => {
           title={pich.title}
           image={pich.image}
           number={pich.number}
-          free={pich.free}
         />
       </Col>
     );
