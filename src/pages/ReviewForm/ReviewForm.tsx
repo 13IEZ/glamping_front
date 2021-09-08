@@ -12,7 +12,7 @@ interface IReviewFormProps {
 }
 
 const ReviewForm: React.FC<IReviewFormProps> = ({ productId, idCurrentAccommodation }) => {
-  const { createReview, fetchReviews } = useActions();
+  const { createReview, fetchReviews, fetchAccommodationReviews } = useActions();
 
   const [state, setState] = useState({
     review: '',
@@ -42,7 +42,7 @@ const ReviewForm: React.FC<IReviewFormProps> = ({ productId, idCurrentAccommodat
     if (productId) {
       fetchReviews(productId);
     } else if (idCurrentAccommodation) {
-      fetchReviews(idCurrentAccommodation);
+      fetchAccommodationReviews(idCurrentAccommodation);
     }
   };
 
