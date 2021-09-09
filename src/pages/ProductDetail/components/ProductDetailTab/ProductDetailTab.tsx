@@ -104,7 +104,6 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({
         <Paragraph>Описание: {description}</Paragraph>
         <Paragraph>Производитель: {factory}</Paragraph>
       </TabPane>
-      <TabPane tab='Условия покупки' key='3'></TabPane>
     </Tabs>
   );
 };
