@@ -1,8 +1,19 @@
+@import '../../assets/mixins.scss';
+
 .Form {
   width: 500px;
   margin: 100px auto;
   display: flex;
   justify-content: center;
+  @include respond(IphonePlus) {
+    width: 400px;
+  }
+  @include respond(Iphone6) {
+    width: 370px;
+  }
+  @include respond(Iphone5) {
+    width: 300px;
+  }
 }
 
 .Form-header {
