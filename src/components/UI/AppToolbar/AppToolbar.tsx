@@ -36,6 +36,10 @@ const AppToolbar: React.FC = () => {
           <Link className='Header-MenuLink' to='/store/[]'>
             Магазин
           </Link>
+          <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
+          <Link className='Header-MenuLink' to='/'>
+            Главная
+          </Link>
         </div>
         <div className='Header-UserMenu'>{user ? <UserMenu /> : <AnonymousMenu />}</div>
       </div>

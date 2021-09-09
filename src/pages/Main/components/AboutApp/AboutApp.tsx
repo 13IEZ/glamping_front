@@ -79,24 +79,6 @@ const AboutApp: React.FC = () => {
               </p>
             </Card>
           </Col>
-          <Col span={6}>
-            <Card
-              hoverable
-              style={{ width: 270 }}
-              cover={
-                <img alt='example' src='https://i.pinimg.com/originals/df/6c/91/df6c915c6839c950947229259ad83749.jpg' />
-              }
-            >
-              <p className='content_text'>
-                В разделе{' '}
-                <Link className='about_app link' to='#'>
-                  Инвестиции
-                </Link>{' '}
-                наша команда профессионалов поможет разработать концепт и бизнес-план глэмпинга, найти земельный участок
-                и финансирование.
-              </p>
-            </Card>
-          </Col>
         </Row>
       </div>
     </section>

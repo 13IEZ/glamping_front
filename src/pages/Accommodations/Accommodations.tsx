@@ -1,11 +1,14 @@
+import './Accommodations.scss';
+
 import React, { useState } from 'react';
-import { Col, Layout, Row, Pagination, Button } from 'antd';
+
+import { Button, Col, Layout, Pagination, Row } from 'antd';
+import { useParams } from 'react-router-dom';
+
+import { useActions } from '../../hooks/useAction';
 import { useTypedSelectorHook } from '../../hooks/useTypedSelector';
 import AccommodationMiniItem from '../Main/components/AccommodationMini/components/AccommodationMiniItem';
-import { useActions } from '../../hooks/useAction';
 import AccommodationSidebar from './components/AccommodationSidebar';
-import './Accommodations.scss';
-import { useParams } from 'react-router-dom';
 
 const { Content } = Layout;
 
@@ -71,16 +74,18 @@ const Accommodations: React.FC = () => {
             <AccommodationSidebar />
           </div>
         </div>
-        <Content>
-          <Row className='accommodation-content'>
-            {accommodationsList}
-            {accommodationsList}
-            {accommodationsList}
-          </Row>
-          <div className='pagination'>
-            {noPages ? <></> : <Pagination total={totalPages} onChange={onChange} current={currentPage} />}
-          </div>
-        </Content>
+        <div className='content'>
+          <Content>
+            <Row className='accommodation-content'>
+              {accommodationsList}
+              {accommodationsList}
+              {accommodationsList}
+            </Row>
+            <div className='pagination'>
+              {noPages ? <></> : <Pagination total={totalPages} onChange={onChange} current={currentPage} />}
+            </div>
+          </Content>
+        </div>
       </Layout>
     </div>
   );

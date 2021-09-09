@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined, PhoneOutlined, MailOutlined } from '@ant-design/icons';
-
 import './Register.scss';
+
+import React, { useState } from 'react';
+
+import { Button, Form, Input } from 'antd';
+import { Link } from 'react-router-dom';
+
+import { LockOutlined, MailOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons';
+
 import { useActions } from '../../hooks/useAction';
 
 const Register: React.FC = () => {
@@ -82,6 +85,15 @@ const Register: React.FC = () => {
             prefix={<LockOutlined className='site-form-item-icon' />}
             type='password'
             placeholder='Придумайте пароль'
+            onChange={inputChangeHandler}
+          />
+        </Form.Item>
+        <Form.Item rules={[{ required: true, message: 'Пароли не совпадают!' }]}>
+          <Input
+            className='form_input'
+            prefix={<LockOutlined className='site-form-item-icon' />}
+            type='password'
+            placeholder='Введите пароль ещё раз'
             onChange={inputChangeHandler}
           />
         </Form.Item>

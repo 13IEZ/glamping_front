@@ -1,15 +1,36 @@
 @import '../../assets/mixins.scss';
 
 .accommodation-body {
-  background-color: transparent;
+  background: #f9faf7;
+  position: relative;
+  height: 100%;
+  @include respond(small-tablets) {
+    display: block;
+  }
 }
 
 .ant-layout-content {
   text-align: center;
+  @include respond(small-phone) {
+    margin-left: 0;
+  }
 }
 
 .accommodation-content {
   @include respond(small-phone) {
     margin-left: -30px;
+  }
+}
+
+.sidebar  {
+  width: 250px;
+  padding: 10px 10px 130px;
+  @include respond(small-tablets) {
+    overflow-x: hidden;
+    top: 16px;
+    left: -15%;
+    width: 0;
+    z-index: 2;
+    position: absolute;
   }
 }

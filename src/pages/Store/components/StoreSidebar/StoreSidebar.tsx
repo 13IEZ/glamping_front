@@ -3,7 +3,7 @@ import './StoreSidebar.scss';
 import React, { useEffect, useRef } from 'react';
 
 import { Button, Divider, Layout, Menu } from 'antd';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 
 import { useActions } from '../../../../hooks/useAction';
 import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
@@ -132,6 +132,9 @@ const StoreSidebar: React.FC = () => {
           <div className='button-clear'>
             <Button className='sidebar-button' onClick={clearHandleClick}>
               Очистить фильтры
+            </Button>
+            <Button className='sidebar-button'>
+              <Link to='/newProduct'>Разместить товар</Link>
             </Button>
           </div>
         </Menu>
