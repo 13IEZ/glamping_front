@@ -161,7 +161,7 @@ const NewLocation: React.FC = () => {
           label='Электричество'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -172,7 +172,7 @@ const NewLocation: React.FC = () => {
           label='Вода'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -183,7 +183,7 @@ const NewLocation: React.FC = () => {
           label='Подъездные пути'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -194,7 +194,7 @@ const NewLocation: React.FC = () => {
           label='Бассейн'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -205,7 +205,7 @@ const NewLocation: React.FC = () => {
           label='Езда на велосипеде'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -216,7 +216,7 @@ const NewLocation: React.FC = () => {
           label='Пешие туры'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -227,7 +227,7 @@ const NewLocation: React.FC = () => {
           label='Катание на лошадях'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -238,7 +238,7 @@ const NewLocation: React.FC = () => {
           label='Йога'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -249,7 +249,7 @@ const NewLocation: React.FC = () => {
           label='Мотоцикл'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -260,7 +260,7 @@ const NewLocation: React.FC = () => {
           label='Альпинизм'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -271,7 +271,7 @@ const NewLocation: React.FC = () => {
           label='Треккинг'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -282,7 +282,7 @@ const NewLocation: React.FC = () => {
           label='Теннис'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -293,7 +293,7 @@ const NewLocation: React.FC = () => {
           label='Просмотр фильмов'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -304,7 +304,7 @@ const NewLocation: React.FC = () => {
           label='Рыбалка'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -315,7 +315,7 @@ const NewLocation: React.FC = () => {
           label='Аквапарк'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -326,7 +326,7 @@ const NewLocation: React.FC = () => {
           label='Гольф'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -337,7 +337,7 @@ const NewLocation: React.FC = () => {
           label='Воллейбол'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -348,7 +348,7 @@ const NewLocation: React.FC = () => {
           label='Настольные игры'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -359,7 +359,7 @@ const NewLocation: React.FC = () => {
           label='Дайвинг'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -370,7 +370,7 @@ const NewLocation: React.FC = () => {
           label='Пандусы'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -381,7 +381,7 @@ const NewLocation: React.FC = () => {
           label='Площадка для собак'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -392,7 +392,7 @@ const NewLocation: React.FC = () => {
           label='Детская комната'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -403,7 +403,7 @@ const NewLocation: React.FC = () => {
           label='Кострище'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -414,7 +414,7 @@ const NewLocation: React.FC = () => {
           label='Беседка'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -425,7 +425,7 @@ const NewLocation: React.FC = () => {
           label='Гриль'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -436,7 +436,7 @@ const NewLocation: React.FC = () => {
           label='Wi-Fi'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -447,7 +447,7 @@ const NewLocation: React.FC = () => {
           label='Прачечная'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -458,7 +458,7 @@ const NewLocation: React.FC = () => {
           label='Сауна'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -469,7 +469,7 @@ const NewLocation: React.FC = () => {
           label='Спортивная площадка'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -480,7 +480,7 @@ const NewLocation: React.FC = () => {
           label='Детская площадка'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -491,7 +491,7 @@ const NewLocation: React.FC = () => {
           label='Пляж'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -502,7 +502,7 @@ const NewLocation: React.FC = () => {
           label='Крытый бассейн'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -513,7 +513,7 @@ const NewLocation: React.FC = () => {
           label='Аптека'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -524,7 +524,7 @@ const NewLocation: React.FC = () => {
           label='Минизоопарк'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -535,7 +535,7 @@ const NewLocation: React.FC = () => {
           label='Магазин'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -546,7 +546,7 @@ const NewLocation: React.FC = () => {
           label='Кафе'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -557,7 +557,7 @@ const NewLocation: React.FC = () => {
           label='Ресторан'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
@@ -568,7 +568,7 @@ const NewLocation: React.FC = () => {
           label='Парковка'
           rules={[{ required: true, message: 'Укажите наличие или отсутствие данной опции!' }]}
         >
-          <Select placeholder='Укажите наличие или отсутствие данной опции'>
+          <Select defaultValue='false' placeholder='Укажите наличие или отсутствие данной опции'>
             <Option value='true'>Есть</Option>
             <Option value='false'>Нет</Option>
           </Select>
