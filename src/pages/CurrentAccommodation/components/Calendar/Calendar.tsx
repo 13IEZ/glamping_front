@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 
 import { Button, DatePicker, Space } from 'antd';
 import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 
 import { useActions } from '../../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../../hooks/useTypedSelector';
 
 const { RangePicker } = DatePicker;
 
@@ -15,7 +17,10 @@ interface ICalendarProps {
 }
 
 const Calendar: React.FC<ICalendarProps> = ({ accommodationId, reservedDates }) => {
+  const history = useHistory();
   const { createReservation } = useActions();
+  const { user } = useTypedSelectorHook(state => state.users);
+
   const disabledDate = (current: any) => {
     // Can not select days before today and today
     for (let i = 0; i < reservedDates.length; i++) {
@@ -40,7 +45,9 @@ const Calendar: React.FC<ICalendarProps> = ({ accommodationId, reservedDates }) 
   };
 
   const book = async () => {
-    await createReservation(reservation);
+    if (user) {
+      await createReservation(reservation);
+    } else history.push('/login');
   };
 
   return (
