@@ -1,3 +1,9 @@
 @import '../../../../assets/mixins.scss';
 
+.mobile-function{
+  display: none;
+  @include respond(small-phone) {
+    display: block;
+  }
+}
 

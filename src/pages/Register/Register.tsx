@@ -88,13 +88,32 @@ const Register: React.FC = () => {
             onChange={inputChangeHandler}
           />
         </Form.Item>
-        <Form.Item rules={[{ required: true, message: 'Пароли не совпадают!' }]}>
-          <Input
+
+        <Form.Item
+          name='confirm'
+          dependencies={['password']}
+          hasFeedback
+          rules={[
+            {
+              required: true,
+              message: 'Пароли не совпадают!',
+            },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue('password') === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error('Пароли не совпадают!'));
+              },
+            }),
+          ]}
+        >
+          <Input.Password
+            name='confirm'
             className='form_input'
             prefix={<LockOutlined className='site-form-item-icon' />}
             type='password'
             placeholder='Введите пароль ещё раз'
-            onChange={inputChangeHandler}
           />
         </Form.Item>
         <Form.Item>

@@ -68,9 +68,17 @@
   color: #fff;
   @include respond(small-phone) {
     padding: 5px;
-    font-size: 40px;
+    font-size: 30px;
+    width: 300px;
   }
 }
+
+.first-title{
+  @include respond(small-phone) {
+    margin-bottom: 160px;
+  }
+}
+
 
 .text-carousel {
   font-weight: 300;
@@ -83,12 +91,13 @@
     padding: 5px;
     width: 280px;
     font-size: 20px;
-    color: #06eff7;
+    color: #f3f706;
+    display: none;
   }
 }
 
 .yellowText{
-  color: #ecf008
+  color: #FDD74E;
 }
 
 .icon-text {

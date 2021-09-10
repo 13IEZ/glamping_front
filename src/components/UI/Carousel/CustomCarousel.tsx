@@ -18,7 +18,7 @@ const CustomCarousel: React.FC = () => {
       <Carousel autoplay autoplaySpeed={5000} draggable arrows nextArrow={<NextArrow />} prevArrow={<PrevArrow />}>
         <div className='contentStyle third-slide'>
           <div className='content-slider container'>
-            <h2 className='title-carousel'>Отдыхай гламурно!</h2>
+            <h2 className='title-carousel first-title'>Отдыхай гламурно!</h2>
             <p className='text-carousel'>
               Глэмпинг — роскошь наедине с природой. <br />
               Комфорт вдали от цивилизации.
@@ -53,7 +53,7 @@ const CustomCarousel: React.FC = () => {
         <div className='contentStyle first-slide'>
           <div className='content-slider container'>
             <h2 className='title-carousel'>
-              Есть земля и хочешь <br /> на ней зарабатывать?
+              Есть земля? Xочешь <br /> на ней зарабатывать?
             </h2>
             <p className='text-carousel'>Мы поможем создать глэмпинг</p>
             <Button className='carousel_button'>

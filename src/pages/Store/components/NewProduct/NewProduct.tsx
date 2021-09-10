@@ -82,7 +82,6 @@ const NewProduct: React.FC = () => {
       console.log(formData.get('files'));
     }
     {
-      createProduct(data);
       console.log(data);
       console.log(formData.get('title'));
       createProduct(formData);
