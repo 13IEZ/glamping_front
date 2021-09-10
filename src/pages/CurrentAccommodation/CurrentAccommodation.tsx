@@ -77,7 +77,12 @@ const CurrentAccommodation: React.FC = (props: any) => {
           <Calendar accommodationId={currentAccommodation._id} reservedDates={reservedDates} />
         </Space>
         <Paragraph>Оставьте комментарий</Paragraph>
-        {user !== null && idCurrentAccommodation && <ReviewForm idCurrentAccommodation={idCurrentAccommodation} />}
+        {user !== null && idCurrentAccommodation ? (
+          <>
+            <Paragraph>Оставьте комментарий</Paragraph>
+            <ReviewForm idCurrentAccommodation={idCurrentAccommodation} />
+          </>
+        ) : null}
         <Title level={4}>Отзывы {currentAccommodation.reviewsQuantity}</Title>
         {reviewsList.length !== 0 ? (
           <>
