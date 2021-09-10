@@ -59,7 +59,12 @@ function App(): JSX.Element {
           />
         </Switch>
       </div>
-      {location.pathname === '/locations-map' || location.pathname === '/' ? null : <CustomFooter />}
+      {location.pathname === '/locations-map' ||
+      location.pathname === '/' ||
+      location.pathname === '/register' ||
+      location.pathname === '/login' ? null : (
+        <CustomFooter />
+      )}
     </Layout>
   );
 }
