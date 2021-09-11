@@ -14,13 +14,14 @@ import Locations from './pages/Locations/Locations';
 import LocationsMap from './pages/LocationsMap/LocationsMap';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
+import NewLocation from './pages/NewLocation/NewLocation';
+import Pay from './pages/Pay/Pay';
 import PitchRentalForm from './pages/Pitches/PitchRentalForm';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Register from './pages/Register/Register';
 import NewProduct from './pages/Store/components/NewProduct/NewProduct';
 import Store from './pages/Store/Store';
 import UserPersonalArea from './pages/UserPersonalArea/UserPersonalArea';
-import NewLocation from './pages/NewLocation/NewLocation';
 
 function App(): JSX.Element {
   const { user } = useTypedSelectorHook(state => state.users);
@@ -57,6 +58,7 @@ function App(): JSX.Element {
             redirectTo='/login'
             component={UserPersonalArea}
           />
+          <Route path='/pay' exact component={Pay} />
         </Switch>
       </div>
       {location.pathname === '/locations-map' ||

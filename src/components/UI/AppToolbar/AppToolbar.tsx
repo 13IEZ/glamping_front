@@ -32,11 +32,11 @@ const AppToolbar: React.FC = () => {
             <img style={{ marginRight: '5px' }} src={location_ic} alt='Not found' />
             Карта глэмпингов
           </Link>
-          <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
+          <Divider className='header-divider' style={{ border: '1px solid #2F2D25' }} type='vertical' />
           <Link className='Header-MenuLink' to='/store/[]'>
             Магазин
           </Link>
-          <Divider style={{ border: '1px solid #2F2D25' }} type='vertical' />
+          <Divider className='header-divider' style={{ border: '1px solid #2F2D25' }} type='vertical' />
           <Link className='Header-MenuLink' to='/'>
             Главная
           </Link>

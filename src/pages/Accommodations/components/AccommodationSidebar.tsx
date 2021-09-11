@@ -1,9 +1,12 @@
 import './AccommodationSidebar.scss';
+
 import React, { useEffect, useRef } from 'react';
+
 import { Button, Divider, Layout, Menu } from 'antd';
-import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
-import { useActions } from '../../../hooks/useAction';
 import { useHistory, useParams } from 'react-router-dom';
+
+import { useActions } from '../../../hooks/useAction';
+import { useTypedSelectorHook } from '../../../hooks/useTypedSelector';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -88,16 +91,16 @@ const AccommodationSidebar: React.FC = () => {
           </SubMenu>
           <SubMenu key='roominessSub' title='Вместимость' className='site-layout-background'>
             <Menu.Item key='roominess1' onClick={handleClick}>
-              1-о местный
+              1 местный
             </Menu.Item>
             <Menu.Item key='roominess2' onClick={handleClick}>
-              2-ух местный
+              2-х местный
             </Menu.Item>
             <Menu.Item key='roominess3' onClick={handleClick}>
-              3-ех местный
+              3-х местный
             </Menu.Item>
             <Menu.Item key='roominess4' onClick={handleClick}>
-              4-ех местный
+              4-х местный
             </Menu.Item>
             <Menu.Item key='roominess5' onClick={handleClick}>
               5-и и более местный

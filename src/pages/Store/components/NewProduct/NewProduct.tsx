@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import { Button, DatePicker, Form, Input, InputNumber, Select, Typography, Upload } from 'antd';
 import { UploadFile } from 'antd/lib/upload/interface';
+import { useHistory } from 'react-router-dom';
 
 import { UploadOutlined } from '@ant-design/icons';
 
@@ -46,6 +47,7 @@ const normFile = (e: any) => {
 };
 
 const NewProduct: React.FC = () => {
+  const history = useHistory();
   const { categories } = useTypedSelectorHook(state => state.categories);
   const { factories } = useTypedSelectorHook(state => state.factories);
   const { createProduct } = useActions();
@@ -82,10 +84,9 @@ const NewProduct: React.FC = () => {
       console.log(formData.get('files'));
     }
     {
-      console.log(data);
-      console.log(formData.get('title'));
       createProduct(formData);
     }
+    history.push('/store/[]');
   };
 
   const inputChangeHandler = (e: any) => {
