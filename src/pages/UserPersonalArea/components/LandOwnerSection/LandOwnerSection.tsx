@@ -106,7 +106,7 @@ const LandOwnerSection: React.FC = () => {
 
   return (
     <Row className='mt-2'>
-      <h2>Блок владельца глэмпингов</h2>
+      <h2>Блок глэмпинга</h2>
       <Col span={24} className='tabs'>
         <Tabs defaultActiveKey='1' type='card'>
           <TabPane tab='Брони пичей' key='1'>

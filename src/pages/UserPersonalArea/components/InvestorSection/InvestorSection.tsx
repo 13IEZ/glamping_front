@@ -53,7 +53,7 @@ const InvestorSection: React.FC = () => {
 
   return (
     <Row className='mt-2'>
-      <h2>Блок продажи модулей</h2>
+      <h2>Блок инвестора</h2>
       <Col span={24} className='tabs'>
         <Tabs defaultActiveKey='1' type='card'>
           <TabPane tab='Модули' key='1'>
