@@ -52,7 +52,6 @@ const ProductDetailTab: React.FC<ICurrentProductProps> = ({
     fetchReviews(productId);
   }, [productId]);
 
-  console.log(reviews);
   const onChange = (pageNumber: number) => {
     fetchNextReviewPages(pageNumber - 1, productId);
   };
