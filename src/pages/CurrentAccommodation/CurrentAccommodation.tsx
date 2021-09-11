@@ -30,7 +30,7 @@ const CurrentAccommodation: React.FC = (props: any) => {
     fetchAccommodationReservations(idCurrentAccommodation);
     fetchCurrentAccommodation(idCurrentAccommodation);
     fetchAccommodationReviews(idCurrentAccommodation);
-  }, [idCurrentAccommodation]);
+  }, [idCurrentAccommodation, currentAccommodation]);
 
   const reservedDates = accommodationReservations.map(reservation => {
     return { startDate: reservation.startDate, endDate: reservation.endDate };
