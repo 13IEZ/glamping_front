@@ -28,4 +28,10 @@
       text-decoration: underline;
     }
   }
+
+  .header-divider{
+    @include respond(small-phone) {
+      display: none;
+    }
+  }
 }

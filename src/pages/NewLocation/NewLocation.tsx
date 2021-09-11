@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { Form, Select, Button, Upload, Input, InputNumber, Typography } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
-import { Map, Placemark, YMaps } from 'react-yandex-maps';
-import { useActions } from '../../hooks/useAction';
 import './NewLocation.scss';
+
+import React, { useState } from 'react';
+
+import { Button, Form, Input, InputNumber, Select, Typography, Upload } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { Map, Placemark, YMaps } from 'react-yandex-maps';
+
+import { UploadOutlined } from '@ant-design/icons';
+
+import { useActions } from '../../hooks/useAction';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -26,6 +31,7 @@ const normFile = (e: any) => {
 };
 
 const NewLocation: React.FC = () => {
+  const history = useHistory();
   const [centerCoordinate] = useState<[number, number]>([43.1524, 76.5542]);
   const { createLocation } = useActions();
 
@@ -53,6 +59,7 @@ const NewLocation: React.FC = () => {
     } else {
       createLocation(formData);
     }
+    history.push('/locations');
   };
 
   const createPlacemark = (event: any) => {

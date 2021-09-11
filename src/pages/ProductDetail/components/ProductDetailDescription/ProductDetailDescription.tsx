@@ -1,6 +1,9 @@
-import React from 'react';
-import { Divider, Button, Typography } from 'antd';
 import './ProductDetailDescription.scss';
+
+import React from 'react';
+
+import { Button, Divider, Typography } from 'antd';
+import { Link } from 'react-router-dom';
 
 const { Paragraph } = Typography;
 const { Title } = Typography;
@@ -13,7 +16,6 @@ interface ICurrentProductProps {
 }
 
 const ProductDetailDescription: React.FC<ICurrentProductProps> = ({ title, rating, price, description }) => {
-
   return (
     <div className='product-detail-description'>
       <Title level={4}>{title}</Title>
@@ -28,7 +30,7 @@ const ProductDetailDescription: React.FC<ICurrentProductProps> = ({ title, ratin
       <Title level={5}>Цена</Title>
       <Paragraph>{price} ₸</Paragraph>
       <Button className='item__button' type='primary'>
-        Купить
+        <Link to='/pay'>Купить</Link>
       </Button>
       <Divider />
       <Paragraph>{description}</Paragraph>
