@@ -58,8 +58,8 @@ const NewLocation: React.FC = () => {
       alert('Отметьте глэмпинг на карте');
     } else {
       createLocation(formData);
+      history.push('/locations');
     }
-    history.push('/locations');
   };
 
   const createPlacemark = (event: any) => {
@@ -91,7 +91,52 @@ const NewLocation: React.FC = () => {
         </Map>
       </YMaps>
 
-      <Form name='validate_other' onFinish={onFinish} {...formItemLayout} style={{ marginTop: 25 }}>
+      <Form
+        name='validate_other'
+        onFinish={onFinish}
+        initialValues={{
+          electricity: 'false',
+          water: 'false',
+          road: 'false',
+          pool: 'false',
+          biking: 'false',
+          hiking: 'false',
+          riding: 'false',
+          yoga: 'false',
+          motorbike: 'false',
+          alpinism: 'false',
+          trekking: 'false',
+          tennis: 'false',
+          cinema: 'false',
+          fishing: 'false',
+          aquapark: 'false',
+          golf: 'false',
+          volleyball: 'false',
+          boardGames: 'false',
+          diving: 'false',
+          ramp: 'false',
+          dogPlayground: 'false',
+          nursery: 'false',
+          fireplace: 'false',
+          summerHouse: 'false',
+          grill: 'false',
+          wifi: 'false',
+          laundry: 'false',
+          sauna: 'false',
+          sportsGround: 'false',
+          playground: 'false',
+          beach: 'false',
+          indoorPool: 'false',
+          pharmacy: 'false',
+          miniZoo: 'false',
+          store: 'false',
+          cafe: 'false',
+          restaurant: 'false',
+          parking: 'false',
+        }}
+        {...formItemLayout}
+        style={{ marginTop: 25 }}
+      >
         <Form.Item
           {...formItemLayout}
           name='title'

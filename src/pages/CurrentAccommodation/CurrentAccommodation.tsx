@@ -76,7 +76,6 @@ const CurrentAccommodation: React.FC = (props: any) => {
         <Space direction='vertical' size={12}>
           <Calendar accommodationId={currentAccommodation._id} reservedDates={reservedDates} />
         </Space>
-        <Paragraph>Оставьте комментарий</Paragraph>
         {user !== null && idCurrentAccommodation ? (
           <>
             <Paragraph>Оставьте комментарий</Paragraph>
