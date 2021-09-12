@@ -17,7 +17,7 @@ const ProductDetail: React.FC = (props: any) => {
 
   useEffect(() => {
     fetchCurrentProduct(idCurrentProduct);
-  }, [idCurrentProduct]);
+  }, [idCurrentProduct, currentProduct]);
 
   if (Object.keys(currentProduct).length === 0) return <></>;
 
