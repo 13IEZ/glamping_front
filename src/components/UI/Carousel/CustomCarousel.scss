@@ -6,7 +6,7 @@
   position: relative;
   min-height: 800px;
   @include respond(small-phone) {
-    min-height: 500px;
+    min-height: 300px;
   }
 }
 
