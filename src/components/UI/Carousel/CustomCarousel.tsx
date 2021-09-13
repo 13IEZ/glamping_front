@@ -7,14 +7,12 @@ import { Link } from 'react-router-dom';
 
 import money from '../../../assets/icons/money-icon.png';
 import track from '../../../assets/icons/track-icon.png';
-import ScrollUp from '../../Buttons/ScrollUp/ScrollUp';
 import NextArrow from './Items/NextArrow';
 import PrevArrow from './Items/PrevArrow';
 
 const CustomCarousel: React.FC = () => {
   return (
     <section className='carousel'>
-      <ScrollUp />
       <Carousel autoplay autoplaySpeed={5000} draggable arrows nextArrow={<NextArrow />} prevArrow={<PrevArrow />}>
         <div className='contentStyle third-slide'>
           <div className='content-slider container'>
