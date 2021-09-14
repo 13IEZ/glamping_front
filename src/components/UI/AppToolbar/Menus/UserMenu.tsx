@@ -29,6 +29,12 @@ const UserMenu: any = () => {
           <Menu.Item className='mobile-function' key='setting:2'>
             <Link to='/'>На главную</Link>
           </Menu.Item>
+          <Menu.Item className='mobile-function' key='setting:2'>
+            <Link to='/locations-map'>Карта</Link>
+          </Menu.Item>
+          <Menu.Item className='mobile-function' key='setting:2'>
+            <Link to='/store/[]'>Магазин</Link>
+          </Menu.Item>
           <Menu.Item key='setting:3' onClick={logoutHandler}>
             <Link to='/'>Выйти</Link>
           </Menu.Item>
